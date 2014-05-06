@@ -1,11 +1,20 @@
-package br.unbdeolhoenade.DAO;
+package br.unb.deolhonoenade.DAO;
 
-public class BancoDeDados {
+import br.unbdeolhoenade.DAO.Context;
+import br.unbdeolhoenade.DAO.FileOutputStream;
+import br.unbdeolhoenade.DAO.IOException;
+import br.unbdeolhoenade.DAO.InputStream;
+import br.unbdeolhoenade.DAO.OutputStream;
+import br.unbdeolhoenade.DAO.SQLException;
+import br.unbdeolhoenade.DAO.SQLiteDatabase;
+import br.unbdeolhoenade.DAO.SQLiteException;
+import br.unbdeolhoenade.DAO.SQLiteOpenHelper;
 
-	public BancoDeDados() {
+public class bancoDeDados {
+
+	public bancoDeDados() {
 		// TODO Auto-generated constructor stub
 	}
-
 	public class DataBaseHelper extends SQLiteOpenHelper{
 		 
 	    //The Android's default system path of your application database.
@@ -146,4 +155,7 @@ public class BancoDeDados {
 	       // to you to create adapters for your views.
 	 
 	}
+
+
+
 }

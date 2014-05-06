@@ -1,5 +1,6 @@
-package br.unb.deolhonoenade;
+package br.unb.deolhonoenade.view;
 
+import br.unb.deolhonoenade.R;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -47,11 +48,6 @@ public class MainActivity extends Activity implements ActionBar.OnNavigationList
                         }),
                 this);
     }
-
-    private String getString(int titleSection1) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {

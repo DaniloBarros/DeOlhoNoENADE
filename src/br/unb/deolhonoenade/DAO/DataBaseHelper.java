@@ -1,21 +1,12 @@
 package br.unb.deolhonoenade.DAO;
 
 import android.content.Context;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class bancoDeDados {
 
-	public bancoDeDados() {
-		// TODO Auto-generated constructor stub
-	}
-	public static class DataBaseHelper extends SQLiteOpenHelper{
+	public class DataBaseHelper extends SQLiteOpenHelper{
 		 
 	    //The Android's default system path of your application database.
 	    private static String DB_PATH = "/data/data/YOUR_PACKAGE/databases/";
@@ -74,4 +65,3 @@ public class bancoDeDados {
 
 
 
-}

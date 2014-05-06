@@ -48,7 +48,12 @@ public class MainActivity extends Activity implements ActionBar.OnNavigationList
                 this);
     }
 
-    @Override
+    private String getString(int titleSection1) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         // Restore the previously serialized current dropdown position.
         if (savedInstanceState.containsKey(STATE_SELECTED_NAVIGATION_ITEM)) {

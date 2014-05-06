@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 		 
 	    //The Android's default system path of your application database.
 	    private static String DB_PATH = "/data/data/YOUR_PACKAGE/databases/";
+	    // PS: Remember to change the "YOUR_PACKAGE" to your application package namespace (i.e: com.examplename.myapp) in the DB_PATH string.
 	 
 	    private static String DB_NAME = "myDBName";
 	 

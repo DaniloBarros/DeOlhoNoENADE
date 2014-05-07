@@ -1,8 +1,8 @@
 package br.unb.deolhonoenade.controller;
 
-public class ControllerCurso {
+public class controllerCurso {
 
-	public ControllerCurso() {
+	public controllerCurso() {
 		// TODO Auto-generated constructor stub
 	}
 

@@ -26,6 +26,10 @@
             android:name="br.unb.deolhonoenade.TelaInicial"
             android:label="@string/title_activity_tela_inicial" >
         </activity>
+        <activity
+            android:name="br.unb.deolhonoenade.TelaInicial2"
+            android:label="@string/title_activity_tela_inicial2" >
+        </activity>
     </application>
 
 </manifest>

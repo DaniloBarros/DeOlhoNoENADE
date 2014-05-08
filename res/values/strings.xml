@@ -8,5 +8,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_tela_inicial">TelaInicial</string>
     <string name="telaInicial">DE OLHO NO</string>
+    <string name="title_activity_tela_inicial2">TelaInicial2</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

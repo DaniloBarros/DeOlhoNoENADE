@@ -10,6 +10,9 @@ public class TestCurso extends TestCase {
 
 	protected void tearDown() throws Exception {
 		super.tearDown();
+		
+		//roboletric
+		//robotium
 	}
 
 }

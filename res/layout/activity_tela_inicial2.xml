@@ -3,19 +3,19 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.unb.deolhonoenade.view.TelaInicial2"
-    tools:ignore="MergeRootFrame" >
+    tools:context="br.unb.deolhonoenade.view.De Olho no ENADE"
+    tools:ignore="MergeRootFrame">
 
     <Spinner
         android:id="@+id/spinner1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/EscolherCurso"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="19dp" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/EscolherCurso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -27,7 +27,7 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/Mapa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -37,17 +37,17 @@
         android:textSize="25dp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/Ranking"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button1"
+        android:layout_above="@+id/Comparacao"
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="41dp"
-        android:text="Comparação"
+        android:text="Ranking"
         android:textSize="25dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/EscolherFuncao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/spinner1"
@@ -59,13 +59,13 @@
         android:textStyle="bold" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/Comparacao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button3"
+        android:layout_above="@+id/Mapa"
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="38dp"
-        android:text="Ranking"
+        android:text="Comparação"
         android:textSize="25dp" />
 
 </RelativeLayout>

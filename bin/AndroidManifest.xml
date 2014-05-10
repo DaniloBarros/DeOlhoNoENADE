@@ -12,10 +12,11 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        >
         <activity
             android:name="br.unb.deolhonoenade.view.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Light.NoTitleBar"  >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,11 +25,16 @@
         </activity>
         <activity
             android:name="br.unb.deolhonoenade.view.TelaInicial"
-            android:label="@string/title_activity_tela_inicial" >
+            android:label="@string/title_activity_tela_inicial"
+             >
         </activity>
         <activity
             android:name="br.unb.deolhonoenade.view.TelaInicial2"
             android:label="@string/title_activity_tela_inicial2" >
+        </activity>
+        <activity
+            android:name="br.unb.deolhonoenade.view.RankingInicial"
+            android:label="@string/title_activity_ranking_inicial" >
         </activity>
     </application>
 

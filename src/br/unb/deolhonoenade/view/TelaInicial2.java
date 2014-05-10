@@ -1,19 +1,17 @@
 package br.unb.deolhonoenade.view;
 
-import br.unb.deolhonoenade.R;
-import br.unb.deolhonoenade.R.id;
-import br.unb.deolhonoenade.R.layout;
-import br.unb.deolhonoenade.R.menu;
 import android.app.Activity;
-import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.os.Build;
+import android.widget.Button;
+import br.unb.deolhonoenade.R;
 
 public class TelaInicial2 extends Activity {
 
@@ -21,7 +19,17 @@ public class TelaInicial2 extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tela_inicial2);
-
+		
+		Button rank = (Button) findViewById(R.id.Ranking);
+		rank.setOnClickListener (new OnClickListener(){
+			
+			@Override
+	    	public void onClick(View v) {
+	    		Intent intent = new Intent(TelaInicial2.this, RankingInicial.class);
+	    		startActivity(intent);
+	    	}
+		});
+		
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
@@ -34,6 +42,7 @@ public class TelaInicial2 extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.tela_inicial2, menu);
 		return true;
+
 	}
 
 	@Override

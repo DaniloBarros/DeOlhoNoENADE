@@ -2,13 +2,14 @@
 <resources>
 
     <string name="app_name">DeOlhoNoENADE</string>
-    <string name="title_section1">Section 1</string>
-    <string name="title_section2">Section 2</string>
-    <string name="title_section3">Section 3</string>
+    <string name="title_section1">Ranking</string>
+    <string name="title_section2">Comparação</string>
+    <string name="title_section3">Mapa Geral</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_tela_inicial">TelaInicial</string>
     <string name="telaInicial">DE OLHO NO</string>
     <string name="title_activity_tela_inicial2">TelaInicial2</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_ranking_inicial">RankingInicial</string>
 
 </resources>

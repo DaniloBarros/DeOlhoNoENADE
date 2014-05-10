@@ -25,13 +25,13 @@ public class ImportarBancoDeDados extends SQLiteOpenHelper {
 		return database;
 	}
 
-	public ImportarBancoDeDados(Context context, String databaseName) {
-		super(context, databaseName, null, 1);
+	public ImportarBancoDeDados(Context context) {
+		super(context, "de_olho_enade.db", null, 1);
 		this.context = context;
 		// Write a full path to the databases of your application
 		String packageName = context.getPackageName();
 		DB_PATH = String.format("//data//data//%s//databases//", packageName);
-		DB_NAME = databaseName;
+		DB_NAME = "de_olho_enade.db";
 		openDataBase();
 	}
 

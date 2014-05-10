@@ -1,27 +1,53 @@
 package br.unb.deolhonoenade.model;
 
+import br.unb.deolhonoenade.controller.GlossarioInstituicao;
+
 public class Curso {
 	
 	private Instituicao IES;
 	
+	private int id;
+	private int id_ies;
 	private String nome;
 	private int numEstudantes;
 	private int numEstudantesInscritos;
 	private String municipio;
 	private int conceitoEnade;
-	private int codMunicipio;
 	
-	public Curso(String nome, int numEstudantes, int numEstudantesInscritos,
-			String municipio, int conceitoEnade, int codMunicipio) {
-		super();
+	public Curso(int id, int id_ies, String nome, int numEstudantes, int numEstudantesInscritos,
+			String municipio, int conceitoEnade, Instituicao IES) {
+		this.id = id;
 		this.nome = nome;
 		this.numEstudantes = numEstudantes;
 		this.numEstudantesInscritos = numEstudantesInscritos;
 		this.municipio = municipio;
 		this.conceitoEnade = conceitoEnade;
-		this.codMunicipio = codMunicipio;
+		this.IES=IES;
+	}
+	/*
+	private void addIes(int cod_ies){
+		
+		Instituicao ies;
+		
+		//GlossarioInstituicao controller = new GlossarioInstituicao(context)
+		
+		//ies = controller.buscarIES(cod_ies);
+		
+		this.setIES(ies);
+	}*/
+
+	public int getId_ies() {
+		return id_ies;
 	}
 
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public Instituicao getIES() {
 		return IES;
 	}
@@ -76,14 +102,5 @@ public class Curso {
 		this.conceitoEnade = conceitoEnade;
 	}
 
-	public int getCodMunicipio() {
-		return codMunicipio;
-	}
-
-	public void setCodMunicipio(int codMunicipio) {
-		this.codMunicipio = codMunicipio;
-	}
-	
-	
 	
 }

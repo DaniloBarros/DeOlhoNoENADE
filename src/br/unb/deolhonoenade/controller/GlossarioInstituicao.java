@@ -2,35 +2,62 @@ package br.unb.deolhonoenade.controller;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
 import br.unb.deolhonoenade.model.*;
 import br.unb.deolhonoenade.DAO.*;
 
+/**
+ * Possivelmente sera DELETADA no futuro
+ * Dado que, os cursos retornados ja tem
+ * o relacionamento com as IES e vice-versa
+ */
+
 public class GlossarioInstituicao {
 	
-	ArrayList<Instituicao> instituicoes = new ArrayList<Instituicao>();
+	private ArrayList<Instituicao> instituicoes = new ArrayList<Instituicao>();
 	
 	public GlossarioInstituicao(Context context){
-		InstanciaIES(context);
+		instanciaIES(context);
 	}
 	
-	private void InstanciaIES(Context context){
-		Instituicao ies;
+	private void instanciaIES(Context context){
 		
-		ImportarBancoDeDados bdados = new ImportarBancoDeDados(context, "de_olho_enade.db");
+		ImportarBancoDeDados bdados = new ImportarBancoDeDados(context);
 		
 		SQLiteDatabase database = bdados.openDataBase();
 		
-		OperacoesBD opBD = new OperacoesBD(database);
+		OperacoesBancoDeDados opBD = new OperacoesBancoDeDados(database);
 		
 		for(int i=0;  ;i++){
-			try {
-				this.instituicoes.add(opBD.getIES(i));
-			} catch (Exception e) {
+			try{
+				instituicoes.add(opBD.getIES(i));
+	        }catch(CursorIndexOutOfBoundsException e){
+	           break;
+	        }
+		}
+		
+	}
+
+	public Instituicao buscaIes(int cod_ies){
+		
+		Instituicao ies = null;
+		
+		for(Instituicao IES : this.instituicoes){
+			if(IES.getCodIES()==cod_ies){
+				ies=IES;
 				break;
 			}
 		}
 		
+		return ies;
 	}
+	
+	
+	public ArrayList<Instituicao> getInstituicoes() {
+		return instituicoes;
+	}
+	
+	
 	
 }

@@ -21,6 +21,10 @@ public class Instituicao {
 		this.tipo = tipo;
 		this.codIES = codIES;
 	}
+	
+	public void adicionaCurso (Curso curso){
+		this.Cursos.add(curso);
+	}
 
 	public ArrayList<Curso> getCursos() {
 		return Cursos;

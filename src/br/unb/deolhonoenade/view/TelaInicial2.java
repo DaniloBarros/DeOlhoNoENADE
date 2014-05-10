@@ -1,5 +1,9 @@
-package br.unb.deolhonoenade;
+package br.unb.deolhonoenade.view;
 
+import br.unb.deolhonoenade.R;
+import br.unb.deolhonoenade.R.id;
+import br.unb.deolhonoenade.R.layout;
+import br.unb.deolhonoenade.R.menu;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;

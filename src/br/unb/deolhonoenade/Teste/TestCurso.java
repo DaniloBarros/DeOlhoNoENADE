@@ -16,7 +16,8 @@ public class TestCurso extends TestCase {
 	}
 
 	public void testCurso() {
-		fail("Not yet implemented");
+		Curso curso = new Curso("Direito", 25, 15, "portoalegre", 3, 6);
+		Assert.assertNotSame("Urubu", curso.getNome());
 	}
 
 	public void testGetIES() {
@@ -45,23 +46,31 @@ public class TestCurso extends TestCase {
 	}
 
 	public void testSetNome() {
-		fail("Not yet implemented");
+		Curso curso = new Curso("direito",100,60,"cuiaba",3,65);
+ 		
+ 		curso.setNome("medicina");
+ 		assertSame("medicina", curso.getNome());
 	}
 
 	public void testGetNumEstudantes() {
-		fail("Not yet implemented");
+		Curso curso = new Curso("engenharia",100,9,"campinas", 300, 011);
+ 		assertEquals(100,curso.getNumEstudantes());
 	}
 
 	public void testSetNumEstudantes() {
-		fail("Not yet implemented");
+		Curso curso = new Curso("direito",100,60,"cuiaba",3,65); 		
+ 		curso.setNumEstudantes(500);
+ 		assertSame(500, curso.getNome());
 	}
 
 	public void testGetNumEstudantesInscritos() {
-		fail("Not yet implemented");
+		Curso curso = new Curso("Administracao", 15, 5, "Sergipe", 4, 023);
+ 		
+ 		assertSame(5,curso.getNumEstudantesInscritos());
 	}
 
 	public void testSetNumEstudantesInscritos() {
-		Curso curso = new Curso("Administração", 15, 5, "Rio", 4, 023);
+		Curso curso = new Curso("Administracao", 15, 5, "Rio", 4, 023);
 		 		
 		 		curso.setNumEstudantesInscritos(20);
 		 		
@@ -69,7 +78,7 @@ public class TestCurso extends TestCase {
 	}
 
 	public void testGetMunicipio() {
-		Curso curso = new Curso("curso",10,9,"curitiba", 5, 100);
+		Curso curso = new Curso("direito",20,10,"curitiba", 4, 100);
  		assertEquals("curitiba",curso.getMunicipio());
 	}
 
@@ -86,15 +95,20 @@ public class TestCurso extends TestCase {
 	}
 
 	public void testSetConceitoEnade() {
-		fail("Not yet implemented");
+		Curso curso = new Curso("administracao",10,9,"curitiba", 5, 100);
+ 		curso.setConceitoEnade(4);
+		assertEquals(4,curso.getConceitoEnade());
 	}
 
 	public void testGetCodMunicipio() {
-		fail("Not yet implemented");
+		Curso curso = new Curso("administracao",10,9,"acre", 3, 88);
+ 		assertEquals(5,curso.getCodMunicipio());
 	}
 
 	public void testSetCodMunicipio() {
-		fail("Not yet implemented");
+		Curso curso = new Curso("administracao",10,9,"acre", 3, 88);
+ 		curso.setCodMunicipio(83);
+		assertEquals(83,curso.getConceitoEnade());
 	}
 
 }

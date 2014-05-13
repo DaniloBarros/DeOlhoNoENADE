@@ -53,9 +53,9 @@ public class RankingInicial extends Activity implements
 								getString(R.string.title_section3), }), this);
 		
 		//Adicionando dados do Spinner Tipo de Universidade
-		tipos.add("Pública");
-		tipos.add("Privada");
 		tipos.add("Ambas");
+		tipos.add("Privada");
+		tipos.add("Pública");
 		
 		//Identificando o Spinner
 		tipUniv = (Spinner) findViewById(R.id.universidade);

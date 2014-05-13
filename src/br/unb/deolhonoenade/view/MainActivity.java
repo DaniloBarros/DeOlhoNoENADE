@@ -3,14 +3,15 @@ package br.unb.deolhonoenade.view;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import br.unb.deolhonoenade.R;
-import android.view.View.OnClickListener;
-import 	android.content.Intent;
 
 public class MainActivity extends Activity implements ActionBar.OnNavigationListener {
 
@@ -32,8 +33,11 @@ public class MainActivity extends Activity implements ActionBar.OnNavigationList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView textView = (TextView) findViewById(R.id.EscolherCurso);
-        textView.setOnClickListener(listener);
+    //    TextView textView = (TextView) findViewById(R.id.EscolherCurso);
+     //   textView.setOnClickListener(listener);
+        
+        ImageView logoView = (ImageView) findViewById(R.id.logo1);
+        logoView.setOnClickListener(listener);
         
  }
 

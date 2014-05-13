@@ -1,24 +1,23 @@
 package br.unb.deolhonoenade.view;
 
-import br.unb.deolhonoenade.R;
-import br.unb.deolhonoenade.R.id;
-import br.unb.deolhonoenade.R.layout;
-import br.unb.deolhonoenade.R.menu;
-import br.unb.deolhonoenade.R.string;
-import android.app.Activity;
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Fragment;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+import br.unb.deolhonoenade.R;
 
 public class RankingInicial extends Activity implements
 		ActionBar.OnNavigationListener {
@@ -29,6 +28,10 @@ public class RankingInicial extends Activity implements
 	 */
 	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
 
+	private Spinner tipUniv;
+	private List<String> tipos = new ArrayList<String>();
+	private String tipo;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,7 +51,36 @@ public class RankingInicial extends Activity implements
 								getString(R.string.title_section1),
 								getString(R.string.title_section2),
 								getString(R.string.title_section3), }), this);
+		
+		//Adicionando dados do Spinner Tipo de Universidade
+		tipos.add("Pública");
+		tipos.add("Privada");
+		tipos.add("Ambas");
+		
+		//Identificando o Spinner
+		tipUniv = (Spinner) findViewById(R.id.universidade);
+		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, tipos);
+		ArrayAdapter<String> spinnerArrayAdapter = arrayAdapter;
+		spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+		tipUniv.setAdapter(spinnerArrayAdapter);
+ 
+		//Método do Spinner para capturar o item selecionado
+		tipUniv.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+ 
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
+				//pega nome pela posição
+				tipo = parent.getItemAtPosition(posicao).toString();
+				//imprime um Toast na tela com o nome que foi selecionado
+				Toast.makeText(RankingInicial.this, "Opção Selecionada: " + tipo, Toast.LENGTH_LONG).show();
+			}
+ 
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				}
+		});
 	}
+
 
 	@Override
 	public void onRestoreInstanceState(Bundle savedInstanceState) {

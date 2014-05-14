@@ -1,11 +1,11 @@
 package br.unb.deolhonoenade.Teste;
 
+import android.test.AndroidTestCase;
 import br.unb.deolhonoenade.model.Curso;
 import br.unb.deolhonoenade.model.Instituicao;
 import junit.framework.Assert;
-import junit.framework.TestCase;
 
-public class TestCurso extends TestCase {
+public class TestCurso extends AndroidTestCase {
 
 	protected void setUp() throws Exception {
 		super.setUp();
@@ -27,7 +27,7 @@ public class TestCurso extends TestCase {
 		
 		curso.setIES(ies);
 		
-		Assert.assertEquals(new Instituicao("UFBA", "Universidade", "BA", "Publica", 10), curso.getIES());
+		Assert.assertEquals(ies, curso.getIES());
 	}
 
 	public void testSetIES() {
@@ -37,7 +37,7 @@ public class TestCurso extends TestCase {
 		
 		curso.setIES(ies);
 		
-		Assert.assertSame(new Instituicao("UFBA", "Universidade", "BA", "Publica", 10), curso.getIES());
+		Assert.assertSame(ies, curso.getIES());
 	}
 
 	public void testGetNome() {
@@ -60,7 +60,7 @@ public class TestCurso extends TestCase {
 	public void testSetNumEstudantes() {
 		Curso curso = new Curso("direito",100,60,"cuiaba",3,65); 		
  		curso.setNumEstudantes(500);
- 		assertSame(500, curso.getNome());
+ 		assertSame(500, curso.getNumEstudantes());
 	}
 
 	public void testGetNumEstudantesInscritos() {
@@ -108,7 +108,7 @@ public class TestCurso extends TestCase {
 	public void testSetCodMunicipio() {
 		Curso curso = new Curso("administracao",10,9,"acre", 3, 88);
  		curso.setCodMunicipio(83);
-		assertEquals(83,curso.getConceitoEnade());
+		assertEquals(83,curso.getCodMunicipio());
 	}
 
 }

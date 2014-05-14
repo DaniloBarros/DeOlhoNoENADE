@@ -1,12 +1,12 @@
 package br.unb.deolhonoenade.Teste;
 
+import android.test.AndroidTestCase;
 import br.unb.deolhonoenade.model.Curso;
 import br.unb.deolhonoenade.model.Instituicao;
 import junit.framework.Assert;
-import junit.framework.TestCase;
 import java.util.ArrayList;
 
-public class TestInstituicao extends TestCase {
+public class TestInstituicao extends AndroidTestCase {
 
 	protected void setUp() throws Exception {
 		super.setUp();

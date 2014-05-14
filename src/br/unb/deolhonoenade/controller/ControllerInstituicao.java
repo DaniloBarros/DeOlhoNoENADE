@@ -8,7 +8,7 @@ import br.unb.deolhonoenade.model.*;
 
 public class ControllerInstituicao {
 	
-private Instituicao instituicoes;
+private Instituicao instituicao;
 	
 	private SQLiteDatabase db;
 	private OperacoesBancoDeDados opBD;
@@ -25,9 +25,9 @@ private Instituicao instituicoes;
 	
 	public Instituicao buscaInstituicao(int codIES){
 		
-		this.instituicoes = this.opBD.getIES(codIES);
+		this.instituicao = this.opBD.getIES(codIES);
 		
-		return instituicoes;
+		return instituicao;
 	}
 /*
 	private SQLiteDatabase openDatabase(Context context) {

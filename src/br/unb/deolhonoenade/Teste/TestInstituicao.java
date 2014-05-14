@@ -38,7 +38,7 @@ public class TestInstituicao extends AndroidTestCase {
 
 	public void testGetNome() {
 		Instituicao instituicao = new Instituicao("Universidade de Brasilia", "Universidades", "Distrito Federal", "Publica", 2);
-		assertEquals("instituicao",instituicao.getNome());
+		assertEquals("Universidade de Brasilia",instituicao.getNome());
 	}
 
 	public void testSetNome() {
@@ -51,7 +51,7 @@ public class TestInstituicao extends AndroidTestCase {
 
 	public void testGetOrganizacaoAcademica() {
 		Instituicao instituicao = new Instituicao("Universidade de Brasilia", "Universidades", "Distrito Federal", "Publica", 2);
-		assertEquals("Faculdades",instituicao.getOrganizacaoAcademica());
+		assertEquals("Universidades",instituicao.getOrganizacaoAcademica());
 		
 	}
 

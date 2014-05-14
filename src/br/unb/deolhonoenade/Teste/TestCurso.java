@@ -53,14 +53,14 @@ public class TestCurso extends AndroidTestCase {
 	}
 
 	public void testGetNumEstudantes() {
-		Curso curso = new Curso("engenharia",100,9,"campinas", 300, 011);
+		Curso curso = new Curso("engenharia",100,9,"campinas", 3, 011);
  		assertEquals(100,curso.getNumEstudantes());
 	}
 
 	public void testSetNumEstudantes() {
 		Curso curso = new Curso("direito",100,60,"cuiaba",3,65); 		
  		curso.setNumEstudantes(500);
- 		assertSame(500, curso.getNumEstudantes());
+ 		assertEquals(500, curso.getNumEstudantes());
 	}
 
 	public void testGetNumEstudantesInscritos() {
@@ -102,7 +102,7 @@ public class TestCurso extends AndroidTestCase {
 
 	public void testGetCodMunicipio() {
 		Curso curso = new Curso("administracao",10,9,"acre", 3, 88);
- 		assertEquals(5,curso.getCodMunicipio());
+ 		assertEquals(88,curso.getCodMunicipio());
 	}
 
 	public void testSetCodMunicipio() {

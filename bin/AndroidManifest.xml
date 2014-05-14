@@ -4,6 +4,10 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+     <instrumentation android:name="android.test.InstrumentationTestRunner"
+		android:targetPackage="br.unb.deolhonoenade"
+		android:label="Tests" />
+    
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="14" />
@@ -13,6 +17,9 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        
+        <uses-library android:name="android.test.runner" />
+        
         <activity
             android:name="br.unb.deolhonoenade.view.MainActivity"
             android:label="@string/app_name" >

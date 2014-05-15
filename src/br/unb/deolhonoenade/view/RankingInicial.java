@@ -40,6 +40,10 @@ public class RankingInicial extends Activity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_ranking_inicial);
 		
+		TextView cursoSelecionado = (TextView) findViewById(R.id.textView1);
+		cursoSelecionado.setText(getIntent().getExtras().getString("cursoSelecionado"));
+		
+		
 		//Botão Buscar
 		Button buscar = (Button) findViewById(R.id.buscar);
 		buscar.setOnClickListener (new OnClickListener(){

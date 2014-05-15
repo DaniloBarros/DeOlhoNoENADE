@@ -4,27 +4,9 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:columnCount="2"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context="br.unb.deolhonoenade.RankingInicial"
     tools:ignore="MergeRootFrame" >
-
-    <Spinner
-        android:id="@+id/curso"
-        android:layout_width="match_parent"
-        android:layout_height="35sp"
-        android:layout_marginTop="10dp"     
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" />
-
-    <TextView
-        android:id="@+id/EscolherEstado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/curso"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp"
-        android:text="Escolha o estado"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Spinner
         android:id="@+id/estado"
@@ -65,7 +47,7 @@
     <Spinner
         android:id="@+id/universidade"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="35dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/TipoUniversidade"
         android:layout_marginTop="28dp"/>
@@ -77,5 +59,25 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:text="BUSCAR" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/EscolherEstado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="Escolha o estado"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
     
 </RelativeLayout>

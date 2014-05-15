@@ -11,12 +11,11 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        >
+        android:label="@string/app_name" >
         <activity
             android:name="br.unb.deolhonoenade.view.MainActivity"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Light.NoTitleBar"  >
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,17 +23,26 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="br.unb.deolhonoenade.view.TelaInicial"
-            android:label="@string/title_activity_tela_inicial"
-             >
-        </activity>
-        <activity
             android:name="br.unb.deolhonoenade.view.TelaInicial2"
-            android:label="@string/title_activity_tela_inicial2" >
+            android:label="@string/title_activity_tela_inicial2"
+            android:theme="@android:style/Theme.DeviceDefault.Light" >
         </activity>
+        
         <activity
             android:name="br.unb.deolhonoenade.view.RankingInicial"
-            android:label="@string/title_activity_ranking_inicial" >
+            android:label="@string/title_activity_ranking_inicial"
+            android:theme="@android:style/Theme.Light" >
+        </activity>
+        
+        <activity
+            android:name="br.unb.deolhonoenade.view.RankingResult"
+            android:label="@string/title_activity_ranking_result"
+            android:theme="@android:style/Theme.Light" >
+        </activity>
+        
+        <activity
+            android:name="br.unb.deolhonoenade.view.ComparacaoInicial"
+            android:label="@string/title_activity_comparacao_inicial" >
         </activity>
     </application>
 

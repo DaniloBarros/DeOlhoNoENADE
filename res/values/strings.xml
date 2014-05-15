@@ -5,11 +5,11 @@
     <string name="title_section1">Ranking</string>
     <string name="title_section2">Comparação</string>
     <string name="title_section3">Mapa Geral</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Configurações</string>
     <string name="title_activity_tela_inicial">TelaInicial</string>
-    <string name="telaInicial">DE OLHO NO</string>
-    <string name="title_activity_tela_inicial2">TelaInicial2</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_ranking_inicial">RankingInicial</string>
+    <string name="title_activity_tela_inicial2">De Olho no ENADE</string>
+    <string name="title_activity_ranking_inicial">Ranking</string>
+    <string name="title_activity_comparacao_inicial">Comparacao</string>
+    <string name="title_activity_ranking_result">RankingResult</string>
 
 </resources>

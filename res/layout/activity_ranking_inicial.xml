@@ -4,14 +4,15 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:columnCount="2"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     tools:context="br.unb.deolhonoenade.RankingInicial"
     tools:ignore="MergeRootFrame" >
 
     <Spinner
-        android:id="@+id/spinner1"
+        android:id="@+id/curso"
         android:layout_width="match_parent"
         android:layout_height="35sp"
+        android:layout_marginTop="10dp"     
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true" />
 
@@ -19,7 +20,7 @@
         android:id="@+id/EscolherEstado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/spinner1"
+        android:layout_below="@+id/curso"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="26dp"
         android:text="Escolha o estado"

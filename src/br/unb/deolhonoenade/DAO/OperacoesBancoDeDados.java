@@ -158,7 +158,7 @@ public class OperacoesBancoDeDados {
 	 * @param categoria
 	 * @return
 	 */
-	public ArrayList<Curso> getCursos(int codAreaCurso, String ufIES, String municipio, int categoria){
+	public ArrayList<Curso> getCursos(int codAreaCurso, String ufIES, String municipio, String org_Aca){
 		
 
 		ArrayList<Curso> cursos = new ArrayList<Curso>();
@@ -166,7 +166,6 @@ public class OperacoesBancoDeDados {
 		Instituicao ies;
 		
 		String codg_Curso = String.valueOf(codAreaCurso);
-		String org_Aca = String.valueOf(categoria);
 	
 		Cursor cursor = database.rawQuery("SELECT b.instituicao_cod_ies, " +
 				"b.num_estud_curso, b.num_estud_insc, b.nome_curso, " + 

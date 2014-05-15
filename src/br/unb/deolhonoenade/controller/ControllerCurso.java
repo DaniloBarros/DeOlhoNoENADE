@@ -40,9 +40,9 @@ public class ControllerCurso {
 		return cursos;
 	}
 	
-	public ArrayList<Curso> buscaCurso(int codCurso, String uf, String municipio, int categoria){
+	public ArrayList<Curso> buscaCurso(int codCurso, String uf, String municipio, String org_Aca){
 		
-		this.cursos = this.opBD.getCursos(codCurso, uf, municipio, categoria);
+		this.cursos = this.opBD.getCursos(codCurso, uf, municipio, org_Aca);
 		
 		return cursos;
 	}

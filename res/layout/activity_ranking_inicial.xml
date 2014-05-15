@@ -8,50 +8,6 @@
     tools:context="br.unb.deolhonoenade.RankingInicial"
     tools:ignore="MergeRootFrame" >
 
-    <Spinner
-        android:id="@+id/estado"
-        android:layout_width="match_parent"
-        android:layout_height="35sp"
-        android:layout_below="@+id/EscolherEstado"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="23dp" />
-
-    <TextView
-        android:id="@+id/EscolherCidade"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/estado"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
-        android:text="Escolha uma cidade"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="match_parent"
-        android:layout_height="35sp"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/EscolherCidade"
-        android:layout_marginTop="28dp" />
-
-    <TextView
-        android:id="@+id/TipoUniversidade"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/spinner2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
-        android:text="Tipo de universidade"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <Spinner
-        android:id="@+id/universidade"
-        android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/TipoUniversidade"
-        android:layout_marginTop="28dp"/>
-
     <Button
         android:id="@+id/buscar"
         android:layout_width="match_parent"
@@ -61,12 +17,56 @@
         android:text="BUSCAR" />
 
     <TextView
+        android:id="@+id/EscolherCidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/EscolherEstado"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:text="Escolha uma cidade"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Spinner
+        android:id="@+id/spinnerCidade"
+        android:layout_width="match_parent"
+        android:layout_height="35sp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/EscolherCidade"
+        android:layout_marginTop="20dp" />
+
+    <Spinner
+        android:id="@+id/SpinnerEstados"
+        android:layout_width="match_parent"
+        android:layout_height="35sp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/EscolherEstado"
+        android:layout_marginTop="21dp" />
+
+    <Spinner
+        android:id="@+id/universidade"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/TipoUniversidade"
+        android:layout_marginTop="25dp" />
+
+    <TextView
+        android:id="@+id/TipoUniversidade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnerCidade"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="26dp"
+        android:text="Tipo de universidade"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -76,7 +76,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="27dp"
         android:text="Escolha o estado"
         android:textAppearance="?android:attr/textAppearanceLarge" />
     

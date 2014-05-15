@@ -1,6 +1,7 @@
 package br.unb.deolhonoenade.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -26,6 +27,10 @@ public class ControllerCurso {
 		this.db=database;
 	}
 	
+	public SQLiteDatabase getDatabase(){
+		return this.db;
+	}
+	
 	public ArrayList<Curso> buscaCurso(int codCurso, String uf){
 		
 		this.cursos = this.opBD.getCursos(codCurso, uf);
@@ -47,9 +52,12 @@ public class ControllerCurso {
 		return cursos;
 	}
 	
-	public SQLiteDatabase getDatabase(){
-		return this.db;
+	public List<String> buscaCidades(int codCurso, String uf){
+		List<String> cidades = new ArrayList<String>();
+		cidades = this.opBD.getCidades(codCurso, uf);
+		return cidades;
 	}
+	
 /*
 	private SQLiteDatabase openDatabase(Context context) {
 		ImportarBancoDeDados db = new ImportarBancoDeDados(context);

@@ -1,6 +1,7 @@
 package br.unb.deolhonoenade.DAO;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -198,6 +199,33 @@ public class OperacoesBancoDeDados {
 		
 		return cursos;
 		
+	}
+	
+
+
+	public List<String> getCidades(int codAreaCurso ,String ufIES){
+		
+		List<String> cidades = new ArrayList<String>();
+		
+		String codg_Curso = String.valueOf(codAreaCurso);
+		
+		Cursor cursor = database.rawQuery("SELECT b.municipio " +
+				"FROM instituicao a, curso b WHERE a.uf = ? AND "+
+				"b.cod_area_curso = ? AND a.cod_ies = b.instituicao_cod_ies "+
+				"GROUP BY b.municipio", new String[]{ufIES, codg_Curso} );
+		
+		if(cursor!=null){
+			cursor.moveToFirst();
+		}else{
+			return null;
+		}
+		
+		do{
+			cidades.add(cursor.getString(0));
+			
+		}while(cursor.moveToNext());
+		
+		return cidades;
 	}
 	
 }

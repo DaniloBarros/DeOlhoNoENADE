@@ -32,6 +32,24 @@ public class ControllerCurso {
 		
 		return cursos;
 	}
+	
+	public ArrayList<Curso> buscaCurso(int codCurso, String uf, String municipio){
+		
+		this.cursos = this.opBD.getCursos(codCurso, uf, municipio);
+		
+		return cursos;
+	}
+	
+	public ArrayList<Curso> buscaCurso(int codCurso, String uf, String municipio, int categoria){
+		
+		this.cursos = this.opBD.getCursos(codCurso, uf, municipio, categoria);
+		
+		return cursos;
+	}
+	
+	public SQLiteDatabase getDatabase(){
+		return this.db;
+	}
 /*
 	private SQLiteDatabase openDatabase(Context context) {
 		ImportarBancoDeDados db = new ImportarBancoDeDados(context);

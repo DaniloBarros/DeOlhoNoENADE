@@ -65,7 +65,7 @@
     <Spinner
         android:id="@+id/universidade"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="50dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/TipoUniversidade"
         android:layout_marginTop="28dp"/>

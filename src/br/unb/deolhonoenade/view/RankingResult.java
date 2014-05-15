@@ -120,7 +120,7 @@ public class RankingResult extends Activity implements
 		public PlaceholderFragment() {
 		}
 
-		@Override
+/*		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.fragment_ranking_result,
@@ -130,7 +130,7 @@ public class RankingResult extends Activity implements
 			textView.setText(Integer.toString(getArguments().getInt(
 					ARG_SECTION_NUMBER)));
 			return rootView;
-		}
+		} */
 	}
 
 }

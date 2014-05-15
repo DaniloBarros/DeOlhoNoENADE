@@ -112,8 +112,8 @@ public class RankingInicial extends Activity implements
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
 		// Serialize the current dropdown position.
-		outState.putInt(STATE_SELECTED_NAVIGATION_ITEM, getActionBar()
-				.getSelectedNavigationIndex());
+//		outState.putInt(STATE_SELECTED_NAVIGATION_ITEM, getActionBar()
+//				.getSelectedNavigationIndex());
 	}
 
 	@Override
@@ -171,7 +171,7 @@ public class RankingInicial extends Activity implements
 		public PlaceholderFragment() {
 		}
 
-		@Override
+/*		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.fragment_ranking_inicial,
@@ -180,8 +180,8 @@ public class RankingInicial extends Activity implements
 					.findViewById(R.id.section_label);
 	//		textView.setText(Integer.toString(getArguments().getInt(
 	//				ARG_SECTION_NUMBER)));
-			return rootView;
-		}
+			return rootView; 
+		} */
 	}
 
 }

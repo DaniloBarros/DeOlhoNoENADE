@@ -104,4 +104,101 @@ public class OperacoesBancoDeDados {
 		return ies;
 	}//Fim do getIES().
 	
+	/**
+	 * Sobrecarga de Métodos
+	 * @param codAreaCurso
+	 * @param ufIES
+	 * @param municipio
+	 * @return
+	 */
+	public ArrayList<Curso> getCursos(int codAreaCurso, String ufIES, String municipio){
+
+		ArrayList<Curso> cursos = new ArrayList<Curso>();
+		Curso curso;
+		Instituicao ies;
+	
+		String codg_Curso = String.valueOf(codAreaCurso);
+		
+		Cursor cursor = database.rawQuery("SELECT b.instituicao_cod_ies, " +
+				"b.num_estud_curso, b.num_estud_insc, b.nome_curso, " + 
+				"b.municipio, b.conceito_enade, b.cod_area_curso " +
+				"FROM instituicao a, curso b WHERE a.cod_ies = b.instituicao_cod_ies " +
+				"AND a.uf = ? AND b.cod_area_curso = ? AND b.municipio = ?", new String[]{ufIES,codg_Curso,municipio} );
+
+		if(cursor != null){
+			cursor.moveToFirst();
+		}else
+			return null;
+		
+		do{
+			ies = this.getIES(Integer.parseInt(cursor.getString(0)));
+
+			curso = new Curso( Integer.parseInt(cursor.getString(6)) ,Integer.parseInt(cursor.getString(0)), cursor.getString(3),
+					Integer.parseInt(cursor.getString(1)), Integer.parseInt(cursor.getString(2)),
+					cursor.getString(4), Integer.parseInt(cursor.getString(5)),
+					ies );
+
+			ies.adicionaCurso(curso);
+
+			curso.setIES(ies);
+
+			cursos.add( curso );
+			
+		}while(cursor.moveToNext());	
+		
+		return cursos;
+		
+	}
+	
+	/**
+	 * Categoria 0-Ambos 1-Privada 2-Publica
+	 * @param codAreaCurso
+	 * @param ufIES
+	 * @param municipio
+	 * @param categoria
+	 * @return
+	 */
+	public ArrayList<Curso> getCursos(int codAreaCurso, String ufIES, String municipio, int categoria){
+		
+
+		ArrayList<Curso> cursos = new ArrayList<Curso>();
+		Curso curso;
+		Instituicao ies;
+		
+		String codg_Curso = String.valueOf(codAreaCurso);
+		String org_Aca = String.valueOf(categoria);
+	
+		Cursor cursor = database.rawQuery("SELECT b.instituicao_cod_ies, " +
+				"b.num_estud_curso, b.num_estud_insc, b.nome_curso, " + 
+				"b.municipio, b.conceito_enade, b.cod_area_curso " +
+				"FROM instituicao a, curso b WHERE a.cod_ies = b.instituicao_cod_ies " +
+				"AND a.uf = ? AND "+"b.cod_area_curso = ? AND b.municipio = ? "+
+				"AND a.org_academica = ?", new String[]{ufIES,codg_Curso,municipio,org_Aca} );
+		
+		if(cursor != null){
+			cursor.moveToFirst();
+		}else
+			return null;
+		
+		do{
+
+			ies = this.getIES(Integer.parseInt(cursor.getString(0)));
+
+			curso = new Curso( Integer.parseInt(cursor.getString(6)) ,Integer.parseInt(cursor.getString(0)), cursor.getString(3),
+					Integer.parseInt(cursor.getString(1)), Integer.parseInt(cursor.getString(2)),
+					cursor.getString(4), Integer.parseInt(cursor.getString(5)),
+					ies );
+
+			ies.adicionaCurso(curso);
+
+			curso.setIES(ies);
+
+			cursos.add( curso );
+			
+		}while(cursor.moveToNext());	
+		
+		return cursos;
+		
+	}
+	
 }

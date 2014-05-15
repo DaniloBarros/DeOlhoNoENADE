@@ -12,7 +12,7 @@ public class Curso {
 	private int numEstudantes;
 	private int numEstudantesInscritos;
 	private String municipio;
-	private int conceitoEnade;
+	private float conceitoEnade;
 	
 	public Curso(int id, int id_ies, String nome, int numEstudantes, int numEstudantesInscritos,
 			String municipio, int conceitoEnade, Instituicao IES) {
@@ -94,11 +94,11 @@ public class Curso {
 		this.municipio = municipio;
 	}
 
-	public int getConceitoEnade() {
+	public float getConceitoEnade() {
 		return conceitoEnade;
 	}
 
-	public void setConceitoEnade(int conceitoEnade) {
+	public void setConceitoEnade(float conceitoEnade) {
 		this.conceitoEnade = conceitoEnade;
 	}
 

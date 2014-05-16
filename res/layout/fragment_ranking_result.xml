@@ -6,14 +6,6 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="br.unb.deolhonoenade.view.MainActivity$PlaceholderFragment" >
-
-    <TextView
-        android:id="@+id/section_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="" />
+    tools:context="br.unb.deolhonoenade.RankingResult$PlaceholderFragment" >
 
 </RelativeLayout>

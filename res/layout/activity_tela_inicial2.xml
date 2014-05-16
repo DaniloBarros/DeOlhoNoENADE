@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.unb.deolhonoenade.view.De Olho no ENADE"
+    tools:ignore="MergeRootFrame">
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/EscolherCurso"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp" />
+
+    <TextView
+        android:id="@+id/EscolherCurso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:text="ESCOLHA UM CURSO"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/Mapa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="25dp"
+        android:text="Mapa Geral"
+        android:textSize="25dp" />
+
+    <Button
+        android:id="@+id/Ranking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Comparacao"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="41dp"
+        android:text="Ranking"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/EscolherFuncao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinner1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:text="ESCOLHA UMA FUNÇÃO"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/Comparacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Mapa"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="38dp"
+        android:text="Comparação"
+        android:textSize="25dp" />
+
+</RelativeLayout>

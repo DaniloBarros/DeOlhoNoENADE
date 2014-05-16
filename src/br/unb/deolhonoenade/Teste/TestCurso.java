@@ -13,6 +13,9 @@ public class TestCurso extends AndroidTestCase {
 
 	protected void tearDown() throws Exception {
 		super.tearDown();
+		
+		//roboletric
+		//robotium
 	}
 
 	public void testCurso() {

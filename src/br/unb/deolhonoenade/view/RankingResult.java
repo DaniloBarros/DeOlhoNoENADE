@@ -34,7 +34,7 @@ public class RankingResult extends Activity implements
 		setContentView(R.layout.activity_ranking_result);
 
 		// Set up the action bar to show a dropdown list.
-/*		final ActionBar actionBar = getActionBar();
+		final ActionBar actionBar = getActionBar();
 		actionBar.setDisplayShowTitleEnabled(false);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
 
@@ -46,7 +46,7 @@ public class RankingResult extends Activity implements
 						android.R.id.text1, new String[] {
 								getString(R.string.title_section1),
 								getString(R.string.title_section2),
-								getString(R.string.title_section3), }), this); */
+								getString(R.string.title_section3), }), this); 
 	}
 
 	@Override

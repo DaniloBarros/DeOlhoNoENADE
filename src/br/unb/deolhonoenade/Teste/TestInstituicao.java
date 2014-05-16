@@ -31,7 +31,7 @@ public class TestInstituicao extends AndroidTestCase {
 	}
 
 	public void testSetCursos() {
-        Curso curso = new Curso("Psicologia", 58, 62,"Cornelio Procopio", 2, 4106407);
+        Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45, null);
  		curso.setNome("Adiministracao");
  		assertSame("Adiministracao", curso.getNome());
 	}

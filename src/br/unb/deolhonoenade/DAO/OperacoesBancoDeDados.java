@@ -66,7 +66,7 @@ public class OperacoesBancoDeDados {
 			//Instancia curso com ies sem o curso
 			curso = new Curso( Integer.parseInt(cursor.getString(6)) ,Integer.parseInt(cursor.getString(0)), cursor.getString(3),
 					Integer.parseInt(cursor.getString(1)), Integer.parseInt(cursor.getString(2)),
-					cursor.getString(4), Integer.parseInt(cursor.getString(5)),
+					cursor.getString(4), Float.parseFloat(cursor.getString(5)),
 					ies );
 			//adiciona o curso a ies
 			ies.adicionaCurso(curso);
@@ -136,7 +136,7 @@ public class OperacoesBancoDeDados {
 
 			curso = new Curso( Integer.parseInt(cursor.getString(6)) ,Integer.parseInt(cursor.getString(0)), cursor.getString(3),
 					Integer.parseInt(cursor.getString(1)), Integer.parseInt(cursor.getString(2)),
-					cursor.getString(4), Integer.parseInt(cursor.getString(5)),
+					cursor.getString(4), Float.parseFloat(cursor.getString(5)),
 					ies );
 
 			ies.adicionaCurso(curso);
@@ -186,7 +186,7 @@ public class OperacoesBancoDeDados {
 
 			curso = new Curso( Integer.parseInt(cursor.getString(6)) ,Integer.parseInt(cursor.getString(0)), cursor.getString(3),
 					Integer.parseInt(cursor.getString(1)), Integer.parseInt(cursor.getString(2)),
-					cursor.getString(4), Integer.parseInt(cursor.getString(5)),
+					cursor.getString(4), Float.parseFloat(cursor.getString(5)),
 					ies );
 
 			ies.adicionaCurso(curso);

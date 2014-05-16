@@ -31,6 +31,14 @@ public class ControllerCurso {
 		return this.db;
 	}
 	
+	public int buscaCodCurso(String nomeCurso){
+		int codCurso;
+		
+		codCurso = this.opBD.getCodCurso(nomeCurso);
+		
+		return codCurso;
+	}
+	
 	public ArrayList<Curso> buscaCurso(int codCurso, String uf){
 		
 		this.cursos = this.opBD.getCursos(codCurso, uf);

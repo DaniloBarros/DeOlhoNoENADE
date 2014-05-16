@@ -21,6 +21,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import br.unb.deolhonoenade.R;
+import br.unb.deolhonoenade.controller.ControllerCurso;
 
 public class RankingInicial extends Activity implements
 		ActionBar.OnNavigationListener {
@@ -33,20 +34,25 @@ public class RankingInicial extends Activity implements
 
 	private Spinner tipUniv, spinnerEstados, spinnerCidades;
 	private List<String> tipos = new ArrayList<String>();
-	private String tipo, estado;
+	private ArrayList<String> cursos = new ArrayList<String>();
+	private String curso, tipo, estado, municipio;
+	private int codCurso;
+	private ControllerCurso controller;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_ranking_inicial);
-		
+		controller = new ControllerCurso(this);
 		TextView cursoSelecionado = (TextView) findViewById(R.id.textView1);
+		curso = getIntent().getExtras().getString("cursoSelecionado");
 		cursoSelecionado.setText(getIntent().getExtras().getString("cursoSelecionado"));
+		
+		this.codCurso = controller.buscaCodCurso(curso);
 		
 		addItensOnSpinnerEstado();
 		addListenerOnButtonBuscar();
 		addItensOnSpinnerTipo();
-		
 		
 		
 		
@@ -71,6 +77,7 @@ public class RankingInicial extends Activity implements
 		
 		
 	}
+
 
 
 	private void addItensOnSpinnerTipo() {
@@ -115,6 +122,14 @@ public class RankingInicial extends Activity implements
 					@Override
 			    	public void onClick(View v) {
 			    		Intent intent = new Intent(RankingInicial.this, RankingResult.class);
+			    		
+			    		/**Arrumar pra retornar um ArrayList<String> que seja
+			    		 * ordenado para visualizar em RankingResult
+			    		 * controller.buscaCurso(codCurso, uf, municipio);
+			    		 */
+			    		
+			    		
+			    		intent.putStringArrayListExtra("cursos", cursos);
 			    		startActivity(intent);
 			    	}
 				});
@@ -169,6 +184,8 @@ public class RankingInicial extends Activity implements
 						estado = parent.getItemAtPosition(posicao).toString();
 						//imprime um Toast na tela com o nome que foi selecionado
 						Toast.makeText(RankingInicial.this, "Estado Selecionado: " + estado, Toast.LENGTH_LONG).show();
+						
+						addItensOnSpinnerMunicipio(estado);
 					}
 		 
 					@Override
@@ -178,7 +195,34 @@ public class RankingInicial extends Activity implements
 			
 			
 	}
-
+	
+	private void addItensOnSpinnerMunicipio(String uf) {
+		this.spinnerCidades = (Spinner) findViewById(R.id.spinnerCidade);
+		List<String> list;
+		list = controller.buscaCidades(codCurso, uf);
+		
+		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_spinner_item, list);
+			dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+			
+			this.spinnerCidades.setAdapter(dataAdapter);
+			
+			this.spinnerCidades.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+				@Override
+				public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
+					
+					municipio = parent.getItemAtPosition(posicao).toString();
+					
+					Toast.makeText(RankingInicial.this, "Cidade Selecionada: " + municipio, Toast.LENGTH_LONG).show();
+				}
+	 
+				@Override
+				public void onNothingSelected(AdapterView<?> parent) {
+				}
+			});
+		
+	}
+	
 
 	@Override
 	public void onRestoreInstanceState(Bundle savedInstanceState) {

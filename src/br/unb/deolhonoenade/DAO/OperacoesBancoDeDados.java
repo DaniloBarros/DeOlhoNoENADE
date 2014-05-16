@@ -22,7 +22,7 @@ public class OperacoesBancoDeDados {
 	private final String[] IES_COLUMNS_NAME = new String[]{"cod_ies", 
 			"org_academica", "uf", "nome_ies", "tipo"};
 	
-	private final String WHERE_CLAUSE = "cod_curso = ?";
+	private final String WHERE_CLAUSE = "cod_ies = ?";
 	
 	public OperacoesBancoDeDados(SQLiteDatabase database) {
 		if(database!=null){
@@ -207,12 +207,14 @@ public class OperacoesBancoDeDados {
 		
 		List<String> cidades = new ArrayList<String>();
 		
+		cidades.add("Todas");
+		
 		String codg_Curso = String.valueOf(codAreaCurso);
 		
 		Cursor cursor = database.rawQuery("SELECT b.municipio " +
 				"FROM instituicao a, curso b WHERE a.uf = ? AND "+
 				"b.cod_area_curso = ? AND a.cod_ies = b.instituicao_cod_ies "+
-				"GROUP BY b.municipio", new String[]{ufIES, codg_Curso} );
+				"GROUP BY b.municipio", new String[]{"AC", "1"} );
 		
 		if(cursor!=null){
 			cursor.moveToFirst();
@@ -226,6 +228,27 @@ public class OperacoesBancoDeDados {
 		}while(cursor.moveToNext());
 		
 		return cidades;
+	}
+
+	public int getCodCurso(String nomeCurso) {
+		
+		int codCurso;
+		
+		nomeCurso = nomeCurso.toUpperCase();
+		
+		Cursor cursor = database.rawQuery("SELECT cod_area_curso " +
+				"FROM curso WHERE nome_curso = ? " +
+				"GROUP BY cod_area_curso", new String[]{nomeCurso} );
+		
+		if(cursor!=null){
+			cursor.moveToFirst();
+		}else{
+			return 0;
+		}
+		
+		codCurso = Integer.parseInt(cursor.getString(0));
+
+		return codCurso;
 	}
 	
 }

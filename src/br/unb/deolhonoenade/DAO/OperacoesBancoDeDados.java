@@ -214,7 +214,7 @@ public class OperacoesBancoDeDados {
 		Cursor cursor = database.rawQuery("SELECT b.municipio " +
 				"FROM instituicao a, curso b WHERE a.uf = ? AND "+
 				"b.cod_area_curso = ? AND a.cod_ies = b.instituicao_cod_ies "+
-				"GROUP BY b.municipio", new String[]{"AC", "1"} );
+				"GROUP BY b.municipio", new String[]{ufIES, codg_Curso} );
 		
 		if(cursor!=null){
 			cursor.moveToFirst();

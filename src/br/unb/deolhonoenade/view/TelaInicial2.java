@@ -54,36 +54,15 @@ public class TelaInicial2 extends Activity {
 		list.add("Publicidade e Propaganda");
 		list.add("Relacoes Internacionais");
 		list.add("Secretariado Executivo");
-		list.add("Tec. em Gestao Comercial");
-		list.add("Tec. em Gestao de R.H.");
-		list.add("Tec. em Gestao Financeira");
+		list.add("Tecnologia em Gestao Comercial");
+		list.add("Tecnologia em Gestao de Recursos Humanos");
+		list.add("Tecnologia em Gestao Financeira");
 		list.add("Tecnologia em Logistica");
 		list.add("Tecnologia em Marketing");
-		list.add("Tec. em Proc. Gerenciais");
+		list.add("Tecnologia em Processos Gerenciais");
 		list.add("Turismo");
 		
-		/*
-		<string name="cursos_prompt">Selecione um Curso</string>
-	    <string-array name="cursos_array">
-	        <item>Administracao</item> <!-- 1 -->
-	        <item>Ciencias Contabeis</item><!-- 22 -->
-	        <item>Ciencias Economicas</item><!-- 13 -->
-	        <item>Design</item> <!-- 26 -->
-	        <item>Direito</item><!-- 2 -->        
-	        <item>Jornalismo</item><!-- 803 -->
-	        <item>Psicologia</item><!-- 18 -->
-	        <item>Publicidade e Propaganda</item><!-- 804 -->
-	        <item>Relacoes Internacionais</item><!-- 81 -->
-	        <item>Secretariado Executivo</item><!-- 67 -->
-	        <item>Tec. em Gestao Comercial</item><!-- 93 -->
-	        <item>Tec. em Gestao de R.H.</item><!-- 86 -->
-	        <item>Tec. em Gestao Financeira</item><!-- 87 -->
-	        <item>Tecnologia em Logistica</item><!-- 94 -->
-	        <item>Tecnologia em Marketing</item><!-- 84 -->
-	        <item>Tec. em Proc. Gerenciais</item><!-- 85 -->
-	        <item>Turismo</item><!-- 29 -->
-	    </string-array>
-		    */
+		
 		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, list);
 			dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

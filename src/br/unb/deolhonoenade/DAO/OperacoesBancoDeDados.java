@@ -238,7 +238,7 @@ public class OperacoesBancoDeDados {
 		
 		Cursor cursor = database.rawQuery("SELECT cod_area_curso " +
 				"FROM curso WHERE nome_curso = ? " +
-				"GROUP BY cod_area_curso", new String[]{"DIREITO"} );
+				"GROUP BY cod_area_curso", new String[]{nomeCurso} );
 		
 		if(cursor!=null){
 			cursor.moveToFirst();

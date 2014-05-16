@@ -89,7 +89,7 @@ public class TestCurso extends AndroidTestCase {
 		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45, null);
 		 		
 		 		curso.setMunicipio("BeloHorizonte");
-		 		assertNotSame("BeloHorizonte", curso.getMunicipio());
+		 		assertSame("BeloHorizonte", curso.getMunicipio());
 	}
 
 	public void testGetConceitoEnade() {

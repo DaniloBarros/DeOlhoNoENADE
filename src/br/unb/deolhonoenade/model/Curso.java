@@ -15,7 +15,7 @@ public class Curso {
 	private float conceitoEnade;
 	
 	public Curso(int id, int id_ies, String nome, int numEstudantes, int numEstudantesInscritos,
-			String municipio, int conceitoEnade, Instituicao IES) {
+			String municipio, float conceitoEnade, Instituicao IES) {
 		this.id = id;
 		this.nome = nome;
 		this.numEstudantes = numEstudantes;

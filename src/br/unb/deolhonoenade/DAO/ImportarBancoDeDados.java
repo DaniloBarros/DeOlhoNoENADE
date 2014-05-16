@@ -37,22 +37,24 @@ public class ImportarBancoDeDados extends SQLiteOpenHelper {
 
 	// This piece of code will create a database if it’s not yet created
 	public void createDataBase() {
-		boolean dbExist = checkDataBase();
-		if (!dbExist) {
+		//boolean dbExist = checkDataBase();
+		//if (!dbExist) {
 			this.getReadableDatabase();
 			try {
 				copyDataBase();
+				Log.i(this.getClass().toString(), "Copyind DataBabse");
 			} catch (IOException e) {
 				Log.e(this.getClass().toString(), "Copying error");
 				throw new Error("Error copying database!");
 			}
-		} else {
-			Log.i(this.getClass().toString(), "Database already exists");
-		}
+		//} else {
+			
+			//Log.i(this.getClass().toString(), "Database already exists");
+		//}
 	}
 
 	// Performing a database existence check
-	private boolean checkDataBase() {
+	/*private boolean checkDataBase() {
 		SQLiteDatabase checkDb = null;
 		try {
 			String path = DB_PATH + DB_NAME;
@@ -67,7 +69,7 @@ public class ImportarBancoDeDados extends SQLiteOpenHelper {
 			checkDb.close();
 		}
 		return checkDb != null;
-	}
+	}*/
 
 	// Method for copying the database
 	private void copyDataBase() throws IOException {

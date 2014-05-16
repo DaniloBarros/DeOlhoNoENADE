@@ -238,7 +238,7 @@ public class OperacoesBancoDeDados {
 		
 		Cursor cursor = database.rawQuery("SELECT cod_area_curso " +
 				"FROM curso WHERE nome_curso = ? " +
-				"GROUP BY cod_area_curso", new String[]{nomeCurso} );
+				"GROUP BY cod_area_curso", new String[]{"DIREITO"} );
 		
 		if(cursor!=null){
 			cursor.moveToFirst();
@@ -246,6 +246,7 @@ public class OperacoesBancoDeDados {
 			return 0;
 		}
 		
+		//Linha com Erro. Cursor Index out of Bounds.
 		codCurso = Integer.parseInt(cursor.getString(0));
 
 		return codCurso;

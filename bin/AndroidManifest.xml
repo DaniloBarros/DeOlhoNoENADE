@@ -38,7 +38,7 @@
         <activity
             android:name="br.unb.deolhonoenade.view.RankingInicial"
             android:label="@string/title_activity_ranking_inicial"
-            android:theme="@android:style/Theme.Light" >
+            android:theme="@android:style/Theme.DeviceDefault.Light" >
         </activity>
         
         <activity

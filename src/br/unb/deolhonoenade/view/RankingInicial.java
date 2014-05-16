@@ -94,7 +94,7 @@ public class RankingInicial extends Activity implements
 				spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 				tipUniv.setAdapter(spinnerArrayAdapter);
 		 
-				//Método do Spinner para capturar o item selecionado
+				//Mï¿½todo do Spinner para capturar o item selecionado
 				tipUniv.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 		 
 					@Override
@@ -102,7 +102,7 @@ public class RankingInicial extends Activity implements
 						//pega nome pela posiÃ§Ã£o
 						tipo = parent.getItemAtPosition(posicao).toString();
 						//imprime um Toast na tela com o nome que foi selecionado
-						Toast.makeText(RankingInicial.this, "Opção Selecionada: " + tipo, Toast.LENGTH_LONG).show();
+						Toast.makeText(RankingInicial.this, "OpÃ§Ã£o Selecionada: " + tipo, Toast.LENGTH_LONG).show();
 					}
 		 
 					@Override

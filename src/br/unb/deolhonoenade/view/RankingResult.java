@@ -62,14 +62,14 @@ public class RankingResult extends Activity implements
 		municipio = getIntent().getExtras().getString("Municipio");
 		tipo = getIntent().getExtras().getString("Tipo");
 		
-		if(municipio=="Todas"){
-			if(tipo=="Ambas"){
+		if(municipio.equalsIgnoreCase("Todas")){
+			if(tipo.equalsIgnoreCase("Ambas")){
 				this.getStringCurso(codCurso, uf);
 			}else{
 				this.getStringCurso(codCurso, uf);
 			}
 		}else{
-			if(tipo=="Ambas"){
+			if(tipo.equalsIgnoreCase("Ambas")){
 				this.getStringCurso(codCurso, uf, municipio);
 			}else{
 				this.getStringCurso(codCurso, uf, municipio, tipo);

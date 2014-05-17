@@ -71,27 +71,83 @@ public class ControllerCurso {
 		ufs = this.opBD.getUfs(codCurso);
 		return ufs;
 	}
+	
+	private List<Curso> ordenaListCurso(List<Curso> list){
+
+		Curso aux;
+		
+		for (int j = 0; j < 2; j++) {
+			
+			for (int i = 0; i < (list.size() - 1); i++) {
+				if (list.get(i).getConceitoEnade() < list.get(
+						i + 1).getConceitoEnade()) {
+					aux = list.get(i);
+					list.set(i, list.get(i + 1));
+					list.set(i + 1, aux);
+				}
+
+			}
+			for (int i = list.size() - 1; i >= 1; i--) {
+				if (list.get(i).getConceitoEnade() > list.get(
+						i - 1).getConceitoEnade()) {
+					aux = list.get(i);
+					list.set(i, list.get(i + 1));
+					list.set(i + 1, aux);
+				}
+			}
+			
+		}
+		
+		return list;
+	}
 
 	public List<String> buscaStringCurso(int codCurso2, String uf2) {
 		List<String> cursos = new ArrayList<String>();
 		List<Curso> listaCursos = new ArrayList<Curso>();
-		Curso aux;
 		
 		listaCursos = this.buscaCurso(codCurso2, uf2);
 		
-		for(int i=0;i<listaCursos.size();i++){
-			if(listaCursos.get(i).getConceitoEnade() < listaCursos.get(i+1).getConceitoEnade()){
-				aux = listaCursos.get(i);
-				listaCursos.set(i, listaCursos.get(i+1));
-				listaCursos.set(i+1, aux);
-			}
-			
+		listaCursos = this.ordenaListCurso(listaCursos);
+		
+		for (int i = 0; i <listaCursos.size(); i++) {
+			cursos.add(String.format("%s - %f", listaCursos.get(i).getNome(),
+					listaCursos.get(i).getConceitoEnade()));
 		}
-		for(int i=listaCursos.size();i<=0;i--){
-			//Fazer de tras pra frente
-			
-			//Seria bom ter outro for agrupando esses dois
-			//Tem que ver o custo operacional disso
+		
+		return cursos;
+	}
+
+	public List<String> buscaStringCurso(int codCurso2, String uf2,
+			String municipio2, String tipo2) {
+		
+		List<String> cursos = new ArrayList<String>();
+		List<Curso> listaCursos = new ArrayList<Curso>();
+		
+		listaCursos = this.buscaCurso(codCurso2, uf2, municipio2, tipo2);
+		
+		listaCursos = this.ordenaListCurso(listaCursos);
+		
+		for (int i = 0; i <listaCursos.size(); i++) {
+			cursos.add(String.format("%s - %f", listaCursos.get(i).getNome(),
+					listaCursos.get(i).getConceitoEnade()));
+		}
+		
+		return cursos;
+	}
+
+	public List<String> buscaStringCurso(int codCurso2, String uf2,
+			String municipio2) {
+		
+		List<String> cursos = new ArrayList<String>();
+		List<Curso> listaCursos = new ArrayList<Curso>();
+		
+		listaCursos = this.buscaCurso(codCurso2, uf2, municipio2);
+		
+		listaCursos = this.ordenaListCurso(listaCursos);
+		
+		for (int i = 0; i <listaCursos.size(); i++) {
+			cursos.add(String.format("%s - %f", listaCursos.get(i).getNome(),
+					listaCursos.get(i).getConceitoEnade()));
 		}
 		
 		return cursos;

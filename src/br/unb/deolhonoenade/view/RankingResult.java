@@ -31,7 +31,7 @@ public class RankingResult extends Activity implements
 	 * current dropdown position.
 	 */
 	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
-	private String uf, municipio, tipo;
+	private String uf, municipio, tipo, curso;
 	private int codCurso;
 	private ControllerCurso controller;
 	private List<String> cursos;
@@ -50,19 +50,26 @@ public class RankingResult extends Activity implements
 		
 		controller = new ControllerCurso(this);
 		
-		codCurso = Integer.parseInt(getIntent().getExtras().getString("CodigoCurso"));
+		curso = getIntent().getExtras().getString("CodigoCurso");
+		
+		codCurso = controller.buscaCodCurso(curso);
+		
 		uf = getIntent().getExtras().getString("Estado");
 		municipio = getIntent().getExtras().getString("Municipio");
 		tipo = getIntent().getExtras().getString("Tipo");
 		
-		if(municipio!="Todas"){
+		if(municipio=="Todas"){
+			if(tipo=="Ambas"){
+				this.getStringCurso(codCurso, uf);
+			}else{
+				this.getStringCurso(codCurso, uf);
+			}
+		}else{
 			if(tipo=="Ambas"){
 				this.getStringCurso(codCurso, uf, municipio);
 			}else{
 				this.getStringCurso(codCurso, uf, municipio, tipo);
 			}
-		}else{
-			this.getStringCurso(codCurso, uf);
 		}
 		
 		
@@ -91,12 +98,12 @@ public class RankingResult extends Activity implements
 
 	private void getStringCurso(int codCurso2, String uf2, String municipio2,
 			String tipo2) {
-		// TODO Auto-generated method stub
+		cursos = controller.buscaStringCurso(codCurso2, uf2, municipio2, tipo2);
 		
 	}
 
 	private void getStringCurso(int codCurso2, String uf2, String municipio2) {
-		// TODO Auto-generated method stub
+		cursos = controller.buscaStringCurso(codCurso2, uf2, municipio2);
 		
 	}
 

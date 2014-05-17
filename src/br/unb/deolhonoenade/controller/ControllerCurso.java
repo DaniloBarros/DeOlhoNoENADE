@@ -65,6 +65,12 @@ public class ControllerCurso {
 		cidades = this.opBD.getCidades(codCurso, uf);
 		return cidades;
 	}
+
+	public List<String> buscaUf(int codCurso) {
+		List<String> ufs = new ArrayList<String>();
+		ufs = this.opBD.getUfs(codCurso);
+		return ufs;
+	}
 	
 /*
 	private SQLiteDatabase openDatabase(Context context) {

@@ -43,14 +43,17 @@ public class RankingInicial extends Activity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_ranking_inicial);
+		
 		controller = new ControllerCurso(this);
+		
 		TextView cursoSelecionado = (TextView) findViewById(R.id.textView1);
+		
 		curso = getIntent().getExtras().getString("cursoSelecionado");
 		cursoSelecionado.setText(getIntent().getExtras().getString("cursoSelecionado"));
 		
 		this.codCurso = controller.buscaCodCurso(curso);
 		
-		addItensOnSpinnerEstado();
+		addItensOnSpinnerEstado(codCurso);
 		addListenerOnButtonBuscar();
 		addItensOnSpinnerTipo();
 		
@@ -112,36 +115,14 @@ public class RankingInicial extends Activity implements
 		
 	}
 
-
-	private void addListenerOnButtonBuscar() {
-
-		//Botão Buscar
-				Button buscar = (Button) findViewById(R.id.buscar);
-				buscar.setOnClickListener (new OnClickListener(){
-					
-					@Override
-			    	public void onClick(View v) {
-			    		Intent intent = new Intent(RankingInicial.this, RankingResult.class);
-			    		
-			    		/**Arrumar pra retornar um ArrayList<String> que seja
-			    		 * ordenado para visualizar em RankingResult
-			    		 * controller.buscaCurso(codCurso, uf, municipio);
-			    		 */
-			    		
-			    		
-			    		intent.putStringArrayListExtra("cursos", cursos);
-			    		startActivity(intent);
-			    	}
-				});
-		
-	}
-
-
-	private void addItensOnSpinnerEstado() {
+	private void addItensOnSpinnerEstado(int codCurso) {
 		
 		spinnerEstados = (Spinner) findViewById(R.id.SpinnerEstados);
 		List<String> list = new ArrayList<String>();
-		list.add("AC");
+		
+		list = controller.buscaUf(codCurso);
+		
+		/*list.add("AC");
 		list.add("AL");
 		list.add("AP");
 		list.add("AM");
@@ -167,7 +148,7 @@ public class RankingInicial extends Activity implements
 		list.add("SE");
 		list.add("SP");
 		list.add("TO");
-		
+		*/
 		
 		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, list);
@@ -220,6 +201,26 @@ public class RankingInicial extends Activity implements
 				public void onNothingSelected(AdapterView<?> parent) {
 				}
 			});
+		
+	}
+	
+	private void addListenerOnButtonBuscar() {
+
+		//Botão Buscar
+				Button buscar = (Button) findViewById(R.id.buscar);
+				buscar.setOnClickListener (new OnClickListener(){
+					
+					@Override
+			    	public void onClick(View v) {
+			    		Intent intent = new Intent(RankingInicial.this, RankingResult.class);
+			    		
+			    		intent.putExtra("CodigoCurso", curso);
+			            intent.putExtra("Estado", estado);
+			            intent.putExtra("Municipio", municipio);
+			            intent.putExtra("Tipo", tipo);
+			    		startActivity(intent);
+			    	}
+				});
 		
 	}
 	

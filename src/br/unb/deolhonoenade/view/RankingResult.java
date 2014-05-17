@@ -27,12 +27,18 @@ public class RankingResult extends Activity implements
 	 * current dropdown position.
 	 */
 	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
+	private String teste1 ,teste2, teste3, teste4;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_ranking_result);
 
+		//tags: Curso Selecionado -> CodigoCurso
+		//      Estado Selecionado -> Estado
+		//		Cidade Selecionada -> Municipio
+		//		Tipo Univercidade -> Tipo
+		
 		
 		
 		//Código abaixo dando erro de Null Pointer Exception.

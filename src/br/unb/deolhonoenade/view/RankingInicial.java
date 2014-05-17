@@ -45,7 +45,6 @@ public class RankingInicial extends Activity implements
 		setContentView(R.layout.activity_ranking_inicial);
 		
 		controller = new ControllerCurso(this);
-		
 		TextView cursoSelecionado = (TextView) findViewById(R.id.textView1);
 		
 		curso = getIntent().getExtras().getString("cursoSelecionado");
@@ -218,12 +217,13 @@ public class RankingInicial extends Activity implements
 			            intent.putExtra("Estado", estado);
 			            intent.putExtra("Municipio", municipio);
 			            intent.putExtra("Tipo", tipo);
+
 			    		startActivity(intent);
 			    	}
 				});
 		
 	}
-	
+
 
 	@Override
 	public void onRestoreInstanceState(Bundle savedInstanceState) {

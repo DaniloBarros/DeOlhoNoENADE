@@ -77,6 +77,13 @@ public class RankingResult extends Activity implements
 		}
 		
 		
+		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_1, cursos);
+		
+		ListView myListView = (ListView) findViewById(R.id.listResult);
+		
+		myListView.setAdapter(dataAdapter);
+		
 		//C�digo abaixo dando erro de Null Pointer Exception.
 		
 		/*// Set up the action bar to show a dropdown list.

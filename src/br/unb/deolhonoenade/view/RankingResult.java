@@ -7,6 +7,7 @@ import br.unb.deolhonoenade.R;
 import br.unb.deolhonoenade.R.id;
 import br.unb.deolhonoenade.R.layout;
 import br.unb.deolhonoenade.R.menu;
+import br.unb.deolhonoenade.controller.ControllerCurso;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -30,8 +31,11 @@ public class RankingResult extends Activity implements
 	 * current dropdown position.
 	 */
 	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
-	private String teste1 ,teste2, teste3, teste4;
-
+	private String uf, municipio, tipo;
+	private int codCurso;
+	private ControllerCurso controller;
+	private List<String> cursos;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -54,9 +58,27 @@ public class RankingResult extends Activity implements
 		//		Cidade Selecionada -> Municipio
 		//		Tipo Univercidade -> Tipo
 		
+		cursos = new ArrayList<String>();
+		
+		controller = new ControllerCurso(this);
+		
+		codCurso = Integer.parseInt(getIntent().getExtras().getString("CodigoCurso"));
+		uf = getIntent().getExtras().getString("Estado");
+		municipio = getIntent().getExtras().getString("Municipio");
+		tipo = getIntent().getExtras().getString("Tipo");
+		
+		if(municipio!="Todas"){
+			if(tipo=="Ambas"){
+				this.getStringCurso(codCurso, uf, municipio);
+			}else{
+				this.getStringCurso(codCurso, uf, municipio, tipo);
+			}
+		}else{
+			this.getStringCurso(codCurso, uf);
+		}
 		
 		
-		//Código abaixo dando erro de Null Pointer Exception.
+		//Cï¿½digo abaixo dando erro de Null Pointer Exception.
 		
 		/*// Set up the action bar to show a dropdown list.
 		final ActionBar actionBar = getActionBar();
@@ -72,6 +94,22 @@ public class RankingResult extends Activity implements
 								getString(R.string.title_section1),
 								getString(R.string.title_section2),
 								getString(R.string.title_section3), }), this); */
+	}
+
+	private void getStringCurso(int codCurso2, String uf2) {
+		cursos = controller.buscaStringCurso(codCurso2, uf2);
+		
+	}
+
+	private void getStringCurso(int codCurso2, String uf2, String municipio2,
+			String tipo2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void getStringCurso(int codCurso2, String uf2, String municipio2) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override

@@ -106,7 +106,7 @@ public class OperacoesBancoDeDados {
 	}//Fim do getIES().
 	
 	/**
-	 * Sobrecarga de Métodos
+	 * Sobrecarga de Mï¿½todos
 	 * @param codAreaCurso
 	 * @param ufIES
 	 * @param municipio
@@ -250,6 +250,31 @@ public class OperacoesBancoDeDados {
 		codCurso = Integer.parseInt(cursor.getString(0));
 
 		return codCurso;
+	}
+
+	public List<String> getUfs(int codAreaCurso) {
+
+		List<String> ufs = new ArrayList<String>();
+		
+		String codg_Curso = String.valueOf(codAreaCurso);
+		
+		Cursor cursor = database.rawQuery("SELECT a.uf " +
+				"FROM instituicao a, curso b WHERE b.cod_area_curso = ? "+
+				"AND a.cod_ies = b.instituicao_cod_ies "+
+				"GROUP BY a.uf", new String[]{codg_Curso} );
+		
+		if(cursor!=null){
+			cursor.moveToFirst();
+		}else{
+			return null;
+		}
+		
+		do{
+			ufs.add(cursor.getString(0));
+			
+		}while(cursor.moveToNext());
+		
+		return ufs;
 	}
 	
 }

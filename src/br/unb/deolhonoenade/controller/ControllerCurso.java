@@ -71,6 +71,31 @@ public class ControllerCurso {
 		ufs = this.opBD.getUfs(codCurso);
 		return ufs;
 	}
+
+	public List<String> buscaStringCurso(int codCurso2, String uf2) {
+		List<String> cursos = new ArrayList<String>();
+		List<Curso> listaCursos = new ArrayList<Curso>();
+		Curso aux;
+		
+		listaCursos = this.buscaCurso(codCurso2, uf2);
+		
+		for(int i=0;i<listaCursos.size();i++){
+			if(listaCursos.get(i).getConceitoEnade() < listaCursos.get(i+1).getConceitoEnade()){
+				aux = listaCursos.get(i);
+				listaCursos.set(i, listaCursos.get(i+1));
+				listaCursos.set(i+1, aux);
+			}
+			
+		}
+		for(int i=listaCursos.size();i<=0;i--){
+			//Fazer de tras pra frente
+			
+			//Seria bom ter outro for agrupando esses dois
+			//Tem que ver o custo operacional disso
+		}
+		
+		return cursos;
+	}
 	
 /*
 	private SQLiteDatabase openDatabase(Context context) {

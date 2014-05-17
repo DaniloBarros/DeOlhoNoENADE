@@ -213,7 +213,7 @@ public class RankingInicial extends Activity implements
 			    	public void onClick(View v) {
 			    		Intent intent = new Intent(RankingInicial.this, RankingResult.class);
 			    		
-			    		intent.putExtra("CodigoCurso", curso);
+			    		intent.putExtra("CodigoCurso", codCurso);
 			            intent.putExtra("Estado", estado);
 			            intent.putExtra("Municipio", municipio);
 			            intent.putExtra("Tipo", tipo);

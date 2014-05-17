@@ -44,6 +44,8 @@ public class RankingInicial extends Activity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_ranking_inicial);
 		controller = new ControllerCurso(this);
+		
+		
 		TextView cursoSelecionado = (TextView) findViewById(R.id.textView1);
 		curso = getIntent().getExtras().getString("cursoSelecionado");
 		cursoSelecionado.setText(getIntent().getExtras().getString("cursoSelecionado"));
@@ -113,28 +115,7 @@ public class RankingInicial extends Activity implements
 	}
 
 
-	private void addListenerOnButtonBuscar() {
-
-		//Botão Buscar
-				Button buscar = (Button) findViewById(R.id.buscar);
-				buscar.setOnClickListener (new OnClickListener(){
-					
-					@Override
-			    	public void onClick(View v) {
-			    		Intent intent = new Intent(RankingInicial.this, RankingResult.class);
-			    		
-			    		/**Arrumar pra retornar um ArrayList<String> que seja
-			    		 * ordenado para visualizar em RankingResult
-			    		 * controller.buscaCurso(codCurso, uf, municipio);
-			    		 */
-			    		
-			    		
-			    		intent.putStringArrayListExtra("cursos", cursos);
-			    		startActivity(intent);
-			    	}
-				});
-		
-	}
+	
 
 
 	private void addItensOnSpinnerEstado() {
@@ -223,6 +204,27 @@ public class RankingInicial extends Activity implements
 		
 	}
 	
+	
+	private void addListenerOnButtonBuscar() {
+
+		//Botão Buscar
+				Button buscar = (Button) findViewById(R.id.buscar);
+				buscar.setOnClickListener (new OnClickListener(){
+					
+					@Override
+			    	public void onClick(View v) {
+			    		Intent intent = new Intent(RankingInicial.this, RankingResult.class);
+			    		
+			    		intent.putExtra("CodigoCurso", curso);
+			    		intent.putExtra("Estado", estado);
+			    		intent.putExtra("Municipio", municipio);
+			    		intent.putExtra("Tipo", tipo);
+			    		
+			    		startActivity(intent);
+			    	}
+				});
+		
+	}
 
 	@Override
 	public void onRestoreInstanceState(Bundle savedInstanceState) {

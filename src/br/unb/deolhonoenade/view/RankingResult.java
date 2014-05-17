@@ -21,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class RankingResult extends Activity implements
@@ -41,10 +42,13 @@ public class RankingResult extends Activity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_ranking_result);
 
+
 		//tags: Curso Selecionado -> CodigoCurso
 		//      Estado Selecionado -> Estado
 		//		Cidade Selecionada -> Municipio
 		//		Tipo Univercidade -> Tipo
+		
+		
 		
 		cursos = new ArrayList<String>();
 		

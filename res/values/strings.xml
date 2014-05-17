@@ -11,5 +11,7 @@
     <string name="title_activity_ranking_inicial">Ranking</string>
     <string name="title_activity_comparacao_inicial">Comparacao</string>
     <string name="title_activity_ranking_result">Ranking - Resultado</string>
+    <string name= "text_Instituicao">Instituicao</string>
+    <string name= "text_Nota">Nota</string>
 
 </resources>

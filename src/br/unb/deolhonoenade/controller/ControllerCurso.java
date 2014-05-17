@@ -110,7 +110,7 @@ public class ControllerCurso {
 		listaCursos = this.ordenaListCurso(listaCursos);
 		
 		for (int i = 0; i <listaCursos.size(); i++) {
-			cursos.add(String.format("%s - %f", listaCursos.get(i).getNome(),
+			cursos.add(String.format("%s - %f", listaCursos.get(i).getIES().getNome(),
 					listaCursos.get(i).getConceitoEnade()));
 		}
 		

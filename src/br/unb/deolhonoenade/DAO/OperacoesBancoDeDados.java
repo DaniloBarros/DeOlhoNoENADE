@@ -83,24 +83,28 @@ public class OperacoesBancoDeDados {
 	
 	/*Retornar dados de Instituicao*/
 	public Instituicao getIES(int codIES) {
-		String string_codIES = String.valueOf(codIES);
+		String string_codIES = String.format("%d",codIES);
 		
 		/*Cria um cursor que aponta para os resultados
 		 * retonados da tabela de instituicoes
 		 * dado o codigo da ies
-		 */
+		
 		Cursor cursor = database.query(IES_TABLE_NAME, IES_COLUMNS_NAME,
 				WHERE_CLAUSE, new String[]{string_codIES}, null, null, null);
+		*/
+		
+		Cursor cursor = database.rawQuery("SELECT a.org_academica, " +
+				"a.uf, a.nome_ies, a.tipo " +
+				"FROM instituicao a WHERE a.cod_ies = ? "
+				, new String[]{string_codIES});
 		
 		if(cursor != null)
 			cursor.moveToFirst();
-		
 		else
 			return null;
 		//Cria a instuicao e instancia com os dados retornados pelo cursor
-		Instituicao ies = new Instituicao(cursor.getString(3), cursor.getString(1), 
-				cursor.getString(2), cursor.getString(4), 
-				Integer.parseInt(cursor.getString(0)) );
+		Instituicao ies = new Instituicao(cursor.getString(2), cursor.getString(0), 
+				cursor.getString(1), cursor.getString(3), codIES);
 		
 		return ies;
 	}//Fim do getIES().

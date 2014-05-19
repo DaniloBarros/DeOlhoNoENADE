@@ -83,7 +83,7 @@ public class RankingResult extends Activity implements
 		ListView myListView = (ListView) findViewById(R.id.listResult);
 		
 		myListView.setAdapter(dataAdapter);
-		
+
 		//C�digo abaixo dando erro de Null Pointer Exception.
 		
 		/*// Set up the action bar to show a dropdown list.

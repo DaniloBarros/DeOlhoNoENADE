@@ -170,6 +170,8 @@ public class OperacoesBancoDeDados {
 		Curso curso;
 		Instituicao ies;
 		
+		org_Aca = org_Aca.toUpperCase();
+		
 		String codg_Curso = String.valueOf(codAreaCurso);
 	
 		Cursor cursor = database.rawQuery("SELECT b.instituicao_cod_ies, " +

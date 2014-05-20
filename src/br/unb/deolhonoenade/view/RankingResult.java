@@ -62,11 +62,20 @@ public class RankingResult extends Activity implements
 		municipio = getIntent().getExtras().getString("Municipio");
 		tipo = getIntent().getExtras().getString("Tipo");
 		
+		int tipoInt;
+		if(tipo.equalsIgnoreCase("Ambas")){
+			tipoInt = 0;
+		}else if(tipo.equalsIgnoreCase("Privada")){
+			tipoInt = 1;
+		}else{
+			tipoInt = 2;
+		}
+		
 		if(municipio.equalsIgnoreCase("Todas")){
 			if(tipo.equalsIgnoreCase("Ambas")){
 				this.getStringCurso(codCurso, uf);
 			}else{
-				this.getStringCurso(codCurso, uf);
+				this.getStringCurso(codCurso, uf, tipoInt);
 			}
 		}else{
 			if(tipo.equalsIgnoreCase("Ambas")){
@@ -100,6 +109,11 @@ public class RankingResult extends Activity implements
 								getString(R.string.title_section1),
 								getString(R.string.title_section2),
 								getString(R.string.title_section3), }), this); */
+	}
+
+	private void getStringCurso(int codCurso2, String uf2, int tipoInt) {
+		cursos = controller.buscaStringCurso(codCurso2, uf2, tipoInt);
+		
 	}
 
 	private void getStringCurso(int codCurso2, String uf2) {

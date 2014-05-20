@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.database.Cursor;
+import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
 import br.unb.deolhonoenade.controller.ControllerCurso;
 import br.unb.deolhonoenade.model.Curso;
@@ -163,14 +164,14 @@ public class OperacoesBancoDeDados {
 	 * @param categoria
 	 * @return
 	 */
-	public ArrayList<Curso> getCursos(int codAreaCurso, String ufIES, String municipio, String org_Aca){
+	public ArrayList<Curso> getCursos(int codAreaCurso, String ufIES, String municipio, String tipo){
 		
 
 		ArrayList<Curso> cursos = new ArrayList<Curso>();
 		Curso curso;
-		Instituicao ies;
+		Instituicao ies = new Instituicao("Inexistente","vazio","vazio","vazio",0);
 		
-		org_Aca = org_Aca.toUpperCase();
+		tipo = tipo.toUpperCase();
 		
 		String codg_Curso = String.valueOf(codAreaCurso);
 	
@@ -179,7 +180,70 @@ public class OperacoesBancoDeDados {
 				"b.municipio, b.conceito_enade, b.cod_area_curso " +
 				"FROM instituicao a, curso b WHERE a.cod_ies = b.instituicao_cod_ies " +
 				"AND a.uf = ? AND "+"b.cod_area_curso = ? AND b.municipio = ? "+
-				"AND a.org_academica = ?", new String[]{ufIES,codg_Curso,municipio,org_Aca} );
+				"AND a.tipo = ?", new String[]{ufIES,codg_Curso,municipio,tipo} );
+		
+		if(cursor != null){
+			cursor.moveToFirst();
+		}else
+			return null;
+		
+		do{
+			try{
+				ies = this.getIES(Integer.parseInt(cursor.getString(0)));
+			}catch(CursorIndexOutOfBoundsException e){
+				curso = new Curso(0,0,"Inexistente",0,0,"vazio",0,ies);
+				cursos.add(curso);
+				return cursos;
+			}
+
+			curso = new Curso( Integer.parseInt(cursor.getString(6)) ,Integer.parseInt(cursor.getString(0)), cursor.getString(3),
+					Integer.parseInt(cursor.getString(1)), Integer.parseInt(cursor.getString(2)),
+					cursor.getString(4), Float.parseFloat(cursor.getString(5)),
+					ies );
+
+			ies.adicionaCurso(curso);
+
+			curso.setIES(ies);
+
+			cursos.add( curso );
+			
+		}while(cursor.moveToNext());	
+		
+		return cursos;
+		
+	}
+	
+	/**
+	 * 
+	 * @param codAreaCurso
+	 * @param ufIES
+	 * @param municipio
+	 * @param tipoInt
+	 * @return
+	 */
+	public ArrayList<Curso> getCursos(int codAreaCurso, String ufIES, int tipoInt) {
+		ArrayList<Curso> cursos = new ArrayList<Curso>();
+		Curso curso;
+		Instituicao ies;
+		
+		String tipo = new String();
+		
+		if(tipoInt==1){
+			tipo="Privada";
+		}else{
+			tipo="Publica";
+		}
+		
+		tipo = tipo.toUpperCase();
+		
+		String codg_Curso = String.valueOf(codAreaCurso);
+	
+		Cursor cursor = database.rawQuery("SELECT b.instituicao_cod_ies, " +
+				"b.num_estud_curso, b.num_estud_insc, b.nome_curso, " + 
+				"b.municipio, b.conceito_enade, b.cod_area_curso " +
+				"FROM instituicao a, curso b WHERE a.cod_ies = b.instituicao_cod_ies " +
+				"AND a.uf = ? AND b.cod_area_curso = ? AND a.tipo = ?"
+				, new String[]{ufIES,codg_Curso,tipo} );
 		
 		if(cursor != null){
 			cursor.moveToFirst();
@@ -204,7 +268,6 @@ public class OperacoesBancoDeDados {
 		}while(cursor.moveToNext());	
 		
 		return cursos;
-		
 	}
 	
 
@@ -282,5 +345,37 @@ public class OperacoesBancoDeDados {
 		
 		return ufs;
 	}
+	
+	public List<String> getTipo(int codAreaCurso, String municipio){
+		
+		List<String> tipos = new ArrayList<String>();
+	
+		String codg_Curso = String.valueOf(codAreaCurso);
+		
+		municipio = municipio.toUpperCase();
+		
+		Cursor cursor = database.rawQuery("SELECT a.tipo " +
+				"FROM instituicao a, curso b WHERE b.municipio = ? AND "+
+				"b.cod_area_curso = ? AND a.cod_ies = b.instituicao_cod_ies "+
+				"GROUP BY a.tipo", new String[]{municipio, codg_Curso} );
+		
+		if(cursor!=null){
+			cursor.moveToFirst();
+		}else{
+			return null;
+		}
+		
+		do{
+			tipos.add(cursor.getString(0));
+			
+		}while(cursor.moveToNext());
+		
+		
+		if(tipos.size()>=2)
+			tipos.add(0, "Ambas");
+		
+		return tipos;
+	}
+	
 	
 }

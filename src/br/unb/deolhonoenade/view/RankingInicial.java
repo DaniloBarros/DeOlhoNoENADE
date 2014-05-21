@@ -174,7 +174,7 @@ public class RankingInicial extends Activity implements
 	}
 	
 	private void addItensOnSpinnerTipo() {
-		
+				tipos.clear();
 			/*Adicionando dados do Spinner Tipo de Universidade*/
 				tipos.add("Ambas");
 				tipos.add("Privada");
@@ -215,6 +215,7 @@ public class RankingInicial extends Activity implements
 				tipos.add("Privada");
 				tipos.add("Publica");
 				*/
+		tipos.clear();
 		tipos = controller.buscaTipos(codCurso, municipio);
 	
 		

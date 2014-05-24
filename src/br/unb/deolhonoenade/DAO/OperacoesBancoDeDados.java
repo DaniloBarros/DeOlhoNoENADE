@@ -17,11 +17,11 @@ public class OperacoesBancoDeDados {
 	private final String CURSO_TABLE_NAME = "curso";
 	private final String[] CURSO_COLUMNS_NAME = new String[]{"instituicao_cod_ies",
 			"num_estud_curso", "num_estud_insc",
-			"nome_curso", "municipio", "conceito_enade", "cod_area_curso"};
+			"nome_curso", "municipio", "conceito_enade", "cod_area_curso", "uf"};
 	
 	private final String IES_TABLE_NAME = "instituicao";
 	private final String[] IES_COLUMNS_NAME = new String[]{"cod_ies", 
-			"org_academica", "uf", "nome_ies", "tipo"};
+			"org_academica", "nome_ies", "tipo"};
 	
 	private final String WHERE_CLAUSE = "cod_ies = ?";
 	
@@ -50,9 +50,9 @@ public class OperacoesBancoDeDados {
 		 */
 		Cursor cursor = database.rawQuery("SELECT b.instituicao_cod_ies, " +
 				"b.num_estud_curso, b.num_estud_insc, b.nome_curso, " + 
-				"b.municipio, b.conceito_enade, b.cod_area_curso " +
+				"b.municipio, b.conceito_enade, b.cod_area_curso , b.uf " +
 				"FROM instituicao a, curso b WHERE a.cod_ies = b.instituicao_cod_ies " +
-				"AND a.uf = ? AND "+"b.cod_area_curso = ?", new String[]{ufIES,codg_Curso} );
+				"AND b.uf = ? AND "+"b.cod_area_curso = ?", new String[]{ufIES,codg_Curso} );
 		
 		//Verifica se o cruzamento de dados retornou algo
 		//Se sim, coloca o cursor na primeira linha de dados
@@ -67,8 +67,7 @@ public class OperacoesBancoDeDados {
 			//Instancia curso com ies sem o curso
 			curso = new Curso( Integer.parseInt(cursor.getString(6)) ,Integer.parseInt(cursor.getString(0)), cursor.getString(3),
 					Integer.parseInt(cursor.getString(1)), Integer.parseInt(cursor.getString(2)),
-					cursor.getString(4), Float.parseFloat(cursor.getString(5)),
-					ies );
+					cursor.getString(4), Float.parseFloat(cursor.getString(5)), cursor.getString(7), ies );
 			//adiciona o curso a ies
 			ies.adicionaCurso(curso);
 			//adiciona ies com relacionamento com o curso
@@ -95,7 +94,7 @@ public class OperacoesBancoDeDados {
 		*/
 		
 		Cursor cursor = database.rawQuery("SELECT a.org_academica, " +
-				"a.uf, a.nome_ies, a.tipo " +
+				"a.nome_ies, a.tipo " +
 				"FROM instituicao a WHERE a.cod_ies = ? "
 				, new String[]{string_codIES});
 		
@@ -104,8 +103,8 @@ public class OperacoesBancoDeDados {
 		else
 			return null;
 		//Cria a instuicao e instancia com os dados retornados pelo cursor
-		Instituicao ies = new Instituicao(cursor.getString(2), cursor.getString(0), 
-				cursor.getString(1), cursor.getString(3), codIES);
+		Instituicao ies = new Instituicao(cursor.getString(1), cursor.getString(0), 
+				cursor.getString(2), codIES);
 		
 		return ies;
 	}//Fim do getIES().
@@ -129,7 +128,7 @@ public class OperacoesBancoDeDados {
 				"b.num_estud_curso, b.num_estud_insc, b.nome_curso, " + 
 				"b.municipio, b.conceito_enade, b.cod_area_curso " +
 				"FROM instituicao a, curso b WHERE a.cod_ies = b.instituicao_cod_ies " +
-				"AND a.uf = ? AND b.cod_area_curso = ? AND b.municipio = ?", new String[]{ufIES,codg_Curso,municipio} );
+				"AND b.uf = ? AND b.cod_area_curso = ? AND b.municipio = ?", new String[]{ufIES,codg_Curso,municipio} );
 
 		if(cursor != null){
 			cursor.moveToFirst();
@@ -141,7 +140,7 @@ public class OperacoesBancoDeDados {
 
 			curso = new Curso( Integer.parseInt(cursor.getString(6)) ,Integer.parseInt(cursor.getString(0)), cursor.getString(3),
 					Integer.parseInt(cursor.getString(1)), Integer.parseInt(cursor.getString(2)),
-					cursor.getString(4), Float.parseFloat(cursor.getString(5)),
+					cursor.getString(4), Float.parseFloat(cursor.getString(5)), ufIES,
 					ies );
 
 			ies.adicionaCurso(curso);
@@ -169,7 +168,7 @@ public class OperacoesBancoDeDados {
 
 		ArrayList<Curso> cursos = new ArrayList<Curso>();
 		Curso curso;
-		Instituicao ies = new Instituicao("Inexistente","vazio","vazio","vazio",0);
+		Instituicao ies = new Instituicao("Inexistente","vazio","vazio",0);
 		
 		tipo = tipo.toUpperCase();
 		
@@ -179,7 +178,7 @@ public class OperacoesBancoDeDados {
 				"b.num_estud_curso, b.num_estud_insc, b.nome_curso, " + 
 				"b.municipio, b.conceito_enade, b.cod_area_curso " +
 				"FROM instituicao a, curso b WHERE a.cod_ies = b.instituicao_cod_ies " +
-				"AND a.uf = ? AND "+"b.cod_area_curso = ? AND b.municipio = ? "+
+				"AND b.uf = ? AND "+"b.cod_area_curso = ? AND b.municipio = ? "+
 				"AND a.tipo = ?", new String[]{ufIES,codg_Curso,municipio,tipo} );
 		
 		if(cursor != null){
@@ -191,14 +190,14 @@ public class OperacoesBancoDeDados {
 			try{
 				ies = this.getIES(Integer.parseInt(cursor.getString(0)));
 			}catch(CursorIndexOutOfBoundsException e){
-				curso = new Curso(0,0,"Inexistente",0,0,"vazio",0,ies);
+				curso = new Curso(0,0,"Inexistente",0,0,"vazio",0,"vazio",ies);
 				cursos.add(curso);
 				return cursos;
 			}
 
 			curso = new Curso( Integer.parseInt(cursor.getString(6)) ,Integer.parseInt(cursor.getString(0)), cursor.getString(3),
 					Integer.parseInt(cursor.getString(1)), Integer.parseInt(cursor.getString(2)),
-					cursor.getString(4), Float.parseFloat(cursor.getString(5)),
+					cursor.getString(4), Float.parseFloat(cursor.getString(5)), ufIES,
 					ies );
 
 			ies.adicionaCurso(curso);
@@ -242,7 +241,7 @@ public class OperacoesBancoDeDados {
 				"b.num_estud_curso, b.num_estud_insc, b.nome_curso, " + 
 				"b.municipio, b.conceito_enade, b.cod_area_curso " +
 				"FROM instituicao a, curso b WHERE a.cod_ies = b.instituicao_cod_ies " +
-				"AND a.uf = ? AND b.cod_area_curso = ? AND a.tipo = ?"
+				"AND b.uf = ? AND b.cod_area_curso = ? AND a.tipo = ?"
 				, new String[]{ufIES,codg_Curso,tipo} );
 		
 		if(cursor != null){
@@ -256,7 +255,7 @@ public class OperacoesBancoDeDados {
 
 			curso = new Curso( Integer.parseInt(cursor.getString(6)) ,Integer.parseInt(cursor.getString(0)), cursor.getString(3),
 					Integer.parseInt(cursor.getString(1)), Integer.parseInt(cursor.getString(2)),
-					cursor.getString(4), Float.parseFloat(cursor.getString(5)),
+					cursor.getString(4), Float.parseFloat(cursor.getString(5)), ufIES,
 					ies );
 
 			ies.adicionaCurso(curso);
@@ -279,9 +278,10 @@ public class OperacoesBancoDeDados {
 		cidades.add("Todas");
 		
 		String codg_Curso = String.valueOf(codAreaCurso);
+		ufIES = ufIES.toUpperCase();
 		
 		Cursor cursor = database.rawQuery("SELECT b.municipio " +
-				"FROM instituicao a, curso b WHERE a.uf = ? AND "+
+				"FROM instituicao a, curso b WHERE b.uf = ? AND "+
 				"b.cod_area_curso = ? AND a.cod_ies = b.instituicao_cod_ies "+
 				"GROUP BY b.municipio", new String[]{ufIES, codg_Curso} );
 		
@@ -327,10 +327,10 @@ public class OperacoesBancoDeDados {
 		
 		String codg_Curso = String.valueOf(codAreaCurso);
 		
-		Cursor cursor = database.rawQuery("SELECT a.uf " +
+		Cursor cursor = database.rawQuery("SELECT b.uf " +
 				"FROM instituicao a, curso b WHERE b.cod_area_curso = ? "+
 				"AND a.cod_ies = b.instituicao_cod_ies "+
-				"GROUP BY a.uf", new String[]{codg_Curso} );
+				"GROUP BY b.uf", new String[]{codg_Curso} );
 		
 		if(cursor!=null){
 			cursor.moveToFirst();
@@ -346,7 +346,7 @@ public class OperacoesBancoDeDados {
 		return ufs;
 	}
 	
-	public List<String> getTipo(int codAreaCurso, String municipio){
+	public List<String> getTipoMunicipio(int codAreaCurso, String municipio){
 		
 		List<String> tipos = new ArrayList<String>();
 	
@@ -376,6 +376,39 @@ public class OperacoesBancoDeDados {
 		
 		return tipos;
 	}
+	
+	public List<String> getTipoEstado(int codCurso, String estado) {
+		List<String> tipos = new ArrayList<String>();
+		
+		String codg_Curso = String.valueOf(codCurso);
+		
+		estado = estado.toUpperCase();
+		
+		Cursor cursor = database.rawQuery("SELECT a.tipo " +
+				"FROM instituicao a, curso b WHERE b.uf = ? AND "+
+				"b.cod_area_curso = ? AND a.cod_ies = b.instituicao_cod_ies "+
+				"GROUP BY a.tipo", new String[]{estado, codg_Curso} );
+		
+		if(cursor!=null){
+			cursor.moveToFirst();
+		}else{
+			return null;
+		}
+		
+		do{
+			tipos.add(cursor.getString(0));
+			
+		}while(cursor.moveToNext());
+		
+		
+		if(tipos.size()>=2)
+			tipos.add(0, "Ambas");
+		
+		return tipos;
+		
+	}
+
+	
 	
 	
 }

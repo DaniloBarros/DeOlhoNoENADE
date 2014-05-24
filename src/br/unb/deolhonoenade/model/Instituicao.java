@@ -8,16 +8,14 @@ public class Instituicao {
 	
 	private String nome;
 	private String organizacaoAcademica;
-	private String uf;
 	private String tipo;
 	private int codIES;
 	
-	public Instituicao(String nome, String organizacaoAcademica, String uf,
+	public Instituicao(String nome, String organizacaoAcademica,
 			String tipo, int codIES) {
 		super();
 		this.nome = nome;
 		this.organizacaoAcademica = organizacaoAcademica;
-		this.uf = uf;
 		this.tipo = tipo;
 		this.codIES = codIES;
 	}
@@ -53,15 +51,6 @@ public class Instituicao {
 		this.organizacaoAcademica = organizacaoAcademica;
 	}
 
-
-	public String getUf() {
-		return uf;
-	}
-
-
-	public void setUf(String uf) {
-		this.uf = uf;
-	}
 
 
 	public String getTipo() {

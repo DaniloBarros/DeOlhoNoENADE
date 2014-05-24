@@ -86,41 +86,11 @@ public class RankingInicial extends Activity implements
 		List<String> list = new ArrayList<String>();
 		
 		list = controller.buscaUf(codCurso);
-		
-		/*list.add("AC");
-		list.add("AL");
-		list.add("AP");
-		list.add("AM");
-		list.add("BA");
-		list.add("CE");
-		list.add("ES");
-		list.add("GO");
-		list.add("MA");
-		list.add("MT");
-		list.add("MS");
-		list.add("MG");
-		list.add("PR");
-		list.add("PB");
-		list.add("PA");
-		list.add("PE");
-		list.add("PI");
-		list.add("RJ");
-		list.add("RN");
-		list.add("RS");
-		list.add("RO");
-		list.add("RR");
-		list.add("SC");
-		list.add("SE");
-		list.add("SP");
-		list.add("TO");
-		*/
-		
+					
 		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, list);
 			dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 			spinnerEstados.setAdapter(dataAdapter);
-			
-			
 			
 			spinnerEstados.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 		 
@@ -131,9 +101,13 @@ public class RankingInicial extends Activity implements
 						//imprime um Toast na tela com o nome que foi selecionado
 						Toast.makeText(RankingInicial.this, "Estado Selecionado: " + estado, Toast.LENGTH_LONG).show();
 						
+						addItensOnSpinnerTipo();
 						addItensOnSpinnerMunicipio(estado);
+						
 					}
 		 
+					
+
 					@Override
 					public void onNothingSelected(AdapterView<?> parent) {
 					}
@@ -158,12 +132,9 @@ public class RankingInicial extends Activity implements
 				public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
 					
 					municipio = parent.getItemAtPosition(posicao).toString();
-					
-					if(municipio.equalsIgnoreCase("Todas"))
-						addItensOnSpinnerTipo();
-					else
+					if(!municipio.equalsIgnoreCase("Todas")){
 						addItensOnSpinnerTipo(municipio);
-					//Toast.makeText(RankingInicial.this, "Cidade Selecionada: " + municipio, Toast.LENGTH_LONG).show();
+					}
 				}
 	 
 				@Override
@@ -174,13 +145,13 @@ public class RankingInicial extends Activity implements
 	}
 	
 	private void addItensOnSpinnerTipo() {
-				tipos.clear();
-			/*Adicionando dados do Spinner Tipo de Universidade*/
+		tipos.clear();
+			/*Adicionando dados do Spinner Tipo de Universidade
 				tipos.add("Ambas");
 				tipos.add("Privada");
-				tipos.add("Publica");
+				tipos.add("Publica");*/
 				
-		//tipos = controller.buscaTipos(codCurso, municipio);
+		tipos = controller.buscaTiposEstado(codCurso, estado);
 	
 		
 		//Identificando o Spinner

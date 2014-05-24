@@ -75,7 +75,13 @@ public class ControllerCurso {
 	
 	public List<String> buscaTipos(int codCurso, String municipio){
 		List<String> tipos = new ArrayList<String>();
-		tipos = this.opBD.getTipo(codCurso, municipio);
+		tipos = this.opBD.getTipoMunicipio(codCurso, municipio);
+		return tipos;
+	}
+	
+	public List<String> buscaTiposEstado(int codCurso, String estado) {
+		List<String> tipos = new ArrayList<String>();
+		tipos = this.opBD.getTipoEstado(codCurso, estado);
 		return tipos;
 	}
 
@@ -84,99 +90,7 @@ public class ControllerCurso {
 		ufs = this.opBD.getUfs(codCurso);
 		return ufs;
 	}
-	/**
-	private List<Curso> bucketSort(List<Curso> list){
-		List<Curso> ate2 = new ArrayList<Curso>();
-		List<Curso> ate3 = new ArrayList<Curso>();
-		List<Curso> ate3_5 = new ArrayList<Curso>();
-		List<Curso> ate4 = new ArrayList<Curso>();
-		List<Curso> ate4_5 = new ArrayList<Curso>();
-		List<Curso> ate5 = new ArrayList<Curso>();
 		
-		
-		for (int i = 0; i < (list.size()); i++) {
-			
-			if (list.get(i).getConceitoEnade() < 2) {
-				ate2.add(list.get(i));
-			}else if (list.get(i).getConceitoEnade() < 3) {
-				ate3.add(list.get(i));
-			}else if (list.get(i).getConceitoEnade() < 4) {
-				ate4.add(list.get(i));
-			}else{
-				ate5.add(list.get(i));
-			}
-			
-		}
-		
-		list.clear();
-		int z=0;
-		do{
-			if(ate5!=null){
-				ate5 = this.ordenaListCurso(ate5);
-				
-			}
-			if(ate4!=null){
-				ate4 = this.ordenaListCurso(ate4);
-				
-			}
-			if(ate3!=null){
-				ate3 = this.ordenaListCurso(ate3);
-				
-			}
-			if(ate2!=null){
-				ate2 = this.ordenaListCurso(ate2);
-				
-			}
-			z++;
-			
-		}while(z<10);
-		
-		list.addAll(ate5);
-		list.addAll(ate4);
-		list.addAll(ate3);
-		list.addAll(ate2);
-		
-		return list;
-	}
-	
-	private List<Curso> ordenaListCurso(List<Curso> list){
-		
-		Curso aux;
-		int j=0;
-		
-		
-		do {
-			//Dividir em sublistas e fazer a organizacao delas
-
-			for (int i = 0; i < (list.size() - 1); i++) {
-				if (list.get(i).getConceitoEnade() < list.get(i + 1)
-						.getConceitoEnade()) {
-					aux = list.get(i);
-					list.set(i, list.get(i + 1));
-					list.set(i + 1, aux);
-					
-				}
-
-			}
-			for (int i = list.size() - 1; i >= 1; i--) {
-				if (list.get(i).getConceitoEnade() > list.get(i - 1)
-						.getConceitoEnade()) {
-					aux = list.get(i);
-					list.set(i, list.get(i + 1));
-					list.set(i + 1, aux);
-				}
-			}
-			
-			j++;
-			
-			
-		} while (j<5);
-			
-		
-		
-		return list;
-	}*/
-	
 	private List<Curso> exchange(List<Curso> list, int i, int j){
 		Curso aux;
 		
@@ -311,6 +225,7 @@ public class ControllerCurso {
 		return cursos;
 	}
 
+	
 	
 	
 /*

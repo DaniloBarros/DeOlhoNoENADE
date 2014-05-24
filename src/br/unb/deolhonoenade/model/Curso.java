@@ -13,28 +13,29 @@ public class Curso {
 	private int numEstudantesInscritos;
 	private String municipio;
 	private float conceitoEnade;
+	private String uf;
 	
 	public Curso(int id, int id_ies, String nome, int numEstudantes, int numEstudantesInscritos,
-			String municipio, float conceitoEnade, Instituicao IES) {
+			String municipio, float conceitoEnade, String uf, Instituicao IES) {
 		this.id = id;
 		this.nome = nome;
 		this.numEstudantes = numEstudantes;
 		this.numEstudantesInscritos = numEstudantesInscritos;
 		this.municipio = municipio;
 		this.conceitoEnade = conceitoEnade;
+		this.uf = uf;
 		this.IES=IES;
 	}
-	/*
-	private void addIes(int cod_ies){
-		
-		Instituicao ies;
-		
-		//GlossarioInstituicao controller = new GlossarioInstituicao(context)
-		
-		//ies = controller.buscarIES(cod_ies);
-		
-		this.setIES(ies);
-	}*/
+	
+	public String getUf() {
+		return uf;
+	}
+
+
+	public void setUf(String uf) {
+		this.uf = uf;
+	}
+
 
 	public int getId_ies() {
 		return id_ies;

@@ -19,14 +19,14 @@ public class TestCurso extends AndroidTestCase {
 	}
 	
 	public void testCurso() {
-		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45, null);
+		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45, "DF", null);
 		Assert.assertNotSame("Urubu", curso.getNome());
 	}
 
 	public void testGetIES() {
-		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45, null);
+		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45,"DF", null);
 		
-		Instituicao ies = new Instituicao("UnB", "Universidade", "DF", "Publica", 1);
+		Instituicao ies = new Instituicao("UnB", "Universidade", "Publica", 1);
 		
 		curso.setIES(ies);
 		
@@ -34,9 +34,9 @@ public class TestCurso extends AndroidTestCase {
 	}
 
 	public void testSetIES() {
-		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45, null);
+		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45,"DF", null);
 		
-		Instituicao ies = new Instituicao("UFBA", "Universidade", "BA", "Publica", 10);
+		Instituicao ies = new Instituicao("UFBA", "Universidade", "Publica", 10);
 		
 		curso.setIES(ies);
 		
@@ -44,36 +44,36 @@ public class TestCurso extends AndroidTestCase {
 	}
 
 	public void testGetNome() {
-		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45, null);
+		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45,"DF", null);
 		 		assertEquals("Direito",curso.getNome());
 	}
 
 	public void testSetNome() {
-		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45, null);
+		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45,"DF", null);
  		
  		curso.setNome("medicina");
  		assertSame("medicina", curso.getNome());
 	}
 
 	public void testGetNumEstudantes() {
-		Curso curso = new Curso(3, 6, "Direito", 100, 15, "portoalegre", (float)2.45, null);
+		Curso curso = new Curso(3, 6, "Direito", 100, 15, "portoalegre", (float)2.45,"DF", null);
  		assertEquals(100,curso.getNumEstudantes());
 	}
 
 	public void testSetNumEstudantes() {
-		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45, null); 		
+		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45,"DF", null); 		
  		curso.setNumEstudantes(500);
  		assertEquals(500, curso.getNumEstudantes());
 	}
 
 	public void testGetNumEstudantesInscritos() {
-		Curso curso = new Curso(3, 6, "Direito", 25, 5, "portoalegre", (float)2.45, null);
+		Curso curso = new Curso(3, 6, "Direito", 25, 5, "portoalegre", (float)2.45,"DF", null);
  		
  		assertSame(5,curso.getNumEstudantesInscritos());
 	}
 
 	public void testSetNumEstudantesInscritos() {
-		Curso curso = new Curso(3, 6, "Direito", 20, 15, "portoalegre", (float)2.45, null);
+		Curso curso = new Curso(3, 6, "Direito", 20, 15, "portoalegre", (float)2.45,"DF", null);
 		 		
 		 		curso.setNumEstudantesInscritos(20);
 		 		
@@ -81,24 +81,24 @@ public class TestCurso extends AndroidTestCase {
 	}
 
 	public void testGetMunicipio() {
-		Curso curso = new Curso(3, 6, "Direito", 25, 15, "curitiba", (float)2.45, null);
+		Curso curso = new Curso(3, 6, "Direito", 25, 15, "curitiba", (float)2.45,"DF", null);
  		assertEquals("curitiba",curso.getMunicipio());
 	}
 
 	public void testSetMunicipio() {
-		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45, null);
+		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45,"DF", null);
 		 		
 		 		curso.setMunicipio("BeloHorizonte");
 		 		assertSame("BeloHorizonte", curso.getMunicipio());
 	}
 
 	public void testGetConceitoEnade() {
-		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)5, null);
+		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)5,"DF", null);
  		assertEquals((float)5,curso.getConceitoEnade());
 	}
 
 	public void testSetConceitoEnade() {
-		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45, null);
+		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45,"DF", null);
  		curso.setConceitoEnade((float)4);
 		assertEquals((float)4,curso.getConceitoEnade());
 	}

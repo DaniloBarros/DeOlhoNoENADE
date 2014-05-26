@@ -88,10 +88,7 @@ public class OperacoesBancoDeDados {
 		/*Cria um cursor que aponta para os resultados
 		 * retonados da tabela de instituicoes
 		 * dado o codigo da ies
-		
-		Cursor cursor = database.query(IES_TABLE_NAME, IES_COLUMNS_NAME,
-				WHERE_CLAUSE, new String[]{string_codIES}, null, null, null);
-		*/
+		 */
 		
 		Cursor cursor = database.rawQuery("SELECT a.org_academica, " +
 				"a.nome_ies, a.tipo " +
@@ -407,8 +404,5 @@ public class OperacoesBancoDeDados {
 		return tipos;
 		
 	}
-
-	
-	
 	
 }

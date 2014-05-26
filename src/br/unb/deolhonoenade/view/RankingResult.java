@@ -46,7 +46,7 @@ public class RankingResult extends Activity implements
 		//tags: Curso Selecionado -> CodigoCurso
 		//      Estado Selecionado -> Estado
 		//		Cidade Selecionada -> Municipio
-		//		Tipo Univercidade -> Tipo
+		//		Tipo Universidade -> Tipo
 		
 		
 		
@@ -92,23 +92,6 @@ public class RankingResult extends Activity implements
 		ListView myListView = (ListView) findViewById(R.id.listResult);
 		
 		myListView.setAdapter(dataAdapter);
-
-		//C�digo abaixo dando erro de Null Pointer Exception.
-		
-		/*// Set up the action bar to show a dropdown list.
-		final ActionBar actionBar = getActionBar();
-		actionBar.setDisplayShowTitleEnabled(false);
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-
-		// Set up the dropdown list navigation in the action bar.
-		actionBar.setListNavigationCallbacks(
-		// Specify a SpinnerAdapter to populate the dropdown list.
-				new ArrayAdapter<String>(actionBar.getThemedContext(),
-						android.R.layout.simple_list_item_1,
-						android.R.id.text1, new String[] {
-								getString(R.string.title_section1),
-								getString(R.string.title_section2),
-								getString(R.string.title_section3), }), this); */
 	}
 
 	private void getStringCurso(int codCurso2, String uf2, int tipoInt) {
@@ -201,19 +184,7 @@ public class RankingResult extends Activity implements
 		}
 
 		public PlaceholderFragment() {
+		
 		}
-
-/*		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_ranking_result,
-					container, false);
-			TextView textView = (TextView) rootView
-					.findViewById(R.id.section_label);
-			textView.setText(Integer.toString(getArguments().getInt(
-					ARG_SECTION_NUMBER)));
-			return rootView;
-		} */
 	}
-
 }

@@ -53,31 +53,12 @@ public class RankingInicial extends Activity implements
 		this.codCurso = controller.buscaCodCurso(curso);
 		
 		addItensOnSpinnerEstado(codCurso);
-		addListenerOnButtonBuscar();
-		//addItensOnSpinnerTipo();
-		
-		
+		addListenerOnButtonBuscar();		
 		
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		} 
-		// Set up the action bar to show a dropdown list.
-/*		final ActionBar actionBar = getActionBar();
-		actionBar.setDisplayShowTitleEnabled(false);
-		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
-
-		// Set up the dropdown list navigation in the action bar.
-		actionBar.setListNavigationCallbacks(
-		// Specify a SpinnerAdapter to populate the dropdown list.
-				new ArrayAdapter<String>(actionBar.getThemedContext(),
-						android.R.layout.simple_list_item_1,
-						android.R.id.text1, new String[] {
-								getString(R.string.title_section1),
-								getString(R.string.title_section2),
-								getString(R.string.title_section3), }), this);	*/
-		
-		
 	}
 
 	private void addItensOnSpinnerEstado(int codCurso) {
@@ -105,15 +86,11 @@ public class RankingInicial extends Activity implements
 						addItensOnSpinnerMunicipio(estado);
 						
 					}
-		 
 					
-
 					@Override
 					public void onNothingSelected(AdapterView<?> parent) {
 					}
-				});
-			
-			
+				});	
 	}
 	
 	private void addItensOnSpinnerMunicipio(String uf) {
@@ -146,14 +123,9 @@ public class RankingInicial extends Activity implements
 	
 	private void addItensOnSpinnerTipo() {
 		tipos.clear();
-			/*Adicionando dados do Spinner Tipo de Universidade
-				tipos.add("Ambas");
-				tipos.add("Privada");
-				tipos.add("Publica");*/
 				
 		tipos = controller.buscaTiposEstado(codCurso, estado);
 	
-		
 		//Identificando o Spinner
 		tipUniv = (Spinner) findViewById(R.id.universidade);
 		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, tipos);
@@ -180,16 +152,9 @@ public class RankingInicial extends Activity implements
 	}
 	
 	private void addItensOnSpinnerTipo(String municipio) {
-			
-			/*Adicionando dados do Spinner Tipo de Universidade
-				tipos.add("Ambas");
-				tipos.add("Privada");
-				tipos.add("Publica");
-				*/
 		tipos.clear();
 		tipos = controller.buscaTipos(codCurso, municipio);
 	
-		
 		//Identificando o Spinner
 		tipUniv = (Spinner) findViewById(R.id.universidade);
 		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, tipos);
@@ -248,9 +213,7 @@ public class RankingInicial extends Activity implements
 
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
-		// Serialize the current dropdown position.
-//		outState.putInt(STATE_SELECTED_NAVIGATION_ITEM, getActionBar()
-//				.getSelectedNavigationIndex());
+		
 	}
 
 	@Override
@@ -308,17 +271,6 @@ public class RankingInicial extends Activity implements
 		public PlaceholderFragment() {
 		}
 
-/*		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_ranking_inicial,
-					container, false);
-			TextView textView = (TextView) rootView
-					.findViewById(R.id.section_label);
-	//		textView.setText(Integer.toString(getArguments().getInt(
-	//				ARG_SECTION_NUMBER)));
-			return rootView; 
-		} */
 	}
 
 }

@@ -33,8 +33,6 @@ public class MainActivity extends Activity implements ActionBar.OnNavigationList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    //    TextView textView = (TextView) findViewById(R.id.EscolherCurso);
-     //   textView.setOnClickListener(listener);
         
         ImageView logoView = (ImageView) findViewById(R.id.logo1);
         logoView.setOnClickListener(listener);
@@ -43,18 +41,12 @@ public class MainActivity extends Activity implements ActionBar.OnNavigationList
 
 	@Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
-        // Restore the previously serialized current dropdown position.
-   /*     if (savedInstanceState.containsKey(STATE_SELECTED_NAVIGATION_ITEM)) {
-            getActionBar().setSelectedNavigationItem(
-                    savedInstanceState.getInt(STATE_SELECTED_NAVIGATION_ITEM));
-        }*/
+        
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        // Serialize the current dropdown position.
-  /*      outState.putInt(STATE_SELECTED_NAVIGATION_ITEM,
-                getActionBar().getSelectedNavigationIndex()); */
+        
     }
 
     @Override

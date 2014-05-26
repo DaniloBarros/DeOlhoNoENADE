@@ -35,10 +35,8 @@ public class ImportarBancoDeDados extends SQLiteOpenHelper {
 		openDataBase();
 	}
 
-	// This piece of code will create a database if it’s not yet created
+	// This piece of code will create a database if itï¿½s not yet created
 	public void createDataBase() {
-		//boolean dbExist = checkDataBase();
-		//if (!dbExist) {
 			this.getReadableDatabase();
 			try {
 				copyDataBase();
@@ -47,29 +45,7 @@ public class ImportarBancoDeDados extends SQLiteOpenHelper {
 				Log.e(this.getClass().toString(), "Copying error");
 				throw new Error("Error copying database!");
 			}
-		//} else {
-			
-			//Log.i(this.getClass().toString(), "Database already exists");
-		//}
 	}
-
-	// Performing a database existence check
-	/*private boolean checkDataBase() {
-		SQLiteDatabase checkDb = null;
-		try {
-			String path = DB_PATH + DB_NAME;
-			checkDb = SQLiteDatabase.openDatabase(path, null,
-					SQLiteDatabase.OPEN_READONLY);
-		} catch (SQLException e) {
-			Log.e(this.getClass().toString(), "Error while checking db");
-		}
-		// Android doesn’t like resource leaks, everything should
-		// be closed
-		if (checkDb != null) {
-			checkDb.close();
-		}
-		return checkDb != null;
-	}*/
 
 	// Method for copying the database
 	private void copyDataBase() throws IOException {
@@ -89,7 +65,7 @@ public class ImportarBancoDeDados extends SQLiteOpenHelper {
 		while ((bytesRead = externalDbStream.read(buffer)) > 0) {
 			localDbStream.write(buffer, 0, bytesRead);
 		}
-		// Don’t forget to close the streams
+		// Donï¿½t forget to close the streams
 		localDbStream.close();
 		externalDbStream.close();
 	}

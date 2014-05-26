@@ -151,7 +151,6 @@ public class ControllerCurso {
 		return list;
 	}
 	
-
 	public List<String> buscaStringCurso(int codCurso2, String uf2) {
 		List<String> cursos = new ArrayList<String>();
 		List<Curso> listaCursos = new ArrayList<Curso>();
@@ -178,7 +177,6 @@ public class ControllerCurso {
 		listaCursos = this.buscaCurso(codCurso2, uf2, municipio2, tipo2);
 		
 		listaCursos = this.organiza(listaCursos);
-		//listaCursos = this.ordenaListCurso(listaCursos);
 		
 		for (int i = 0; i <listaCursos.size(); i++) {
 			cursos.add(String.format("%s - %f", listaCursos.get(i).getIES().getNome(),
@@ -197,7 +195,6 @@ public class ControllerCurso {
 		listaCursos = this.buscaCurso(codCurso2, uf2, municipio2);
 		
 		listaCursos = this.organiza(listaCursos);
-		//listaCursos = this.ordenaListCurso(listaCursos);
 		
 		for (int i = 0; i <listaCursos.size(); i++) {
 			cursos.add(String.format("%s - %f", listaCursos.get(i).getIES().getNome(),
@@ -215,7 +212,6 @@ public class ControllerCurso {
 		listaCursos = this.buscaCurso(codCurso, uf, tipoInt);
 		
 		listaCursos = this.organiza(listaCursos);
-		//listaCursos = this.ordenaListCurso(listaCursos);
 		
 		for (int i = 0; i <listaCursos.size(); i++) {
 			cursos.add(String.format("%s - %f", listaCursos.get(i).getIES().getNome(),
@@ -225,13 +221,4 @@ public class ControllerCurso {
 		return cursos;
 	}
 
-	
-	
-	
-/*
-	private SQLiteDatabase openDatabase(Context context) {
-		ImportarBancoDeDados db = new ImportarBancoDeDados(context);
-        return db.openDataBase();
-	}
-*/
 }

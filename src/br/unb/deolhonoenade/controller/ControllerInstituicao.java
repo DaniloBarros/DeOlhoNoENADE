@@ -33,12 +33,5 @@ private Instituicao instituicao;
 	public SQLiteDatabase getDatabase(){
 		return this.db;
 	}
-	
-/*
-	private SQLiteDatabase openDatabase(Context context) {
-		ImportarBancoDeDados db = new ImportarBancoDeDados(context);
-        return db.openDataBase();
-	}
-*/
-	
+		
 }

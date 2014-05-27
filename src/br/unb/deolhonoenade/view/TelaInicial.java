@@ -18,7 +18,7 @@ import br.unb.deolhonoenade.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TelaInicial2 extends Activity {
+public class TelaInicial extends Activity {
 
 	private Spinner spinnerCurso;
 	
@@ -78,7 +78,7 @@ public class TelaInicial2 extends Activity {
 			
 			@Override
 	    	public void onClick(View v) {
-	    		Intent intent = new Intent(TelaInicial2.this, RankingInicial.class);
+	    		Intent intent = new Intent(TelaInicial.this, RankingInicial.class);
 	    		intent.putExtra("cursoSelecionado", String.valueOf(spinner1.getSelectedItem()));
 	    		startActivity(intent);
 	    	}

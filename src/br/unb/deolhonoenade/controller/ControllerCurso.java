@@ -91,75 +91,12 @@ public class ControllerCurso {
 		return ufs;
 	}
 		
-	private List<Curso> exchange(List<Curso> list, int i, int j){
-		Curso aux;
-		
-		aux = list.set(i, list.get(j));
-		list.set(j, aux);
-		
-		return list;
-	}
-	
-	private List<Curso> maxheap(List<Curso> list, int i, int n){
-		int left = 2*i;
-		int right = 2*i+1;
-		
-		int largest;
-		
-		if(left <= n && 
-		 list.get(left).getConceitoEnade() > list.get(i).getConceitoEnade()){
-			largest = left;
-		}else{
-			largest=i;
-		}
-		
-		if(right <= n && 
-				 list.get(right).getConceitoEnade() > list.get(largest).getConceitoEnade()){
-			largest = right;
-		}
-		
-		if(largest!=i){
-			list = exchange(list, i, largest);
-			list = maxheap(list, largest, n);
-		}
-		
-		return list;
-	}
-	
-	private List<Curso> biuldheap(List<Curso> list){
-		int n = list.size() - 1;
-		
-		for(int i = n/2; i>=0; i--){
-			list = maxheap(list, i, n);
-		}
-		
-		return list;
-	}
-	
-	private List<Curso> organiza(List<Curso> list){
-		biuldheap(list);
-		
-		int n = list.size()-1;
-		for(int i=list.size()-1;i>0;i--){
-			list = exchange(list, 0, i);
-			n--;
-			list = maxheap(list, 0, n);
-		}
-		
-		Collections.reverse(list);
-		
-		return list;
-	}
-	
 	public List<String> buscaStringCurso(int codCurso2, String uf2) {
 		List<String> cursos = new ArrayList<String>();
 		List<Curso> listaCursos = new ArrayList<Curso>();
 		
 		listaCursos = this.buscaCurso(codCurso2, uf2);
-		
-		listaCursos = this.organiza(listaCursos);
-		//listaCursos = this.bucketSort(listaCursos);
-		
+					
 		for (int i = 0; i <listaCursos.size(); i++) {
 			cursos.add(String.format("%s - %f", listaCursos.get(i).getIES().getNome(),
 					listaCursos.get(i).getConceitoEnade()));
@@ -176,7 +113,6 @@ public class ControllerCurso {
 		
 		listaCursos = this.buscaCurso(codCurso2, uf2, municipio2, tipo2);
 		
-		listaCursos = this.organiza(listaCursos);
 		
 		for (int i = 0; i <listaCursos.size(); i++) {
 			cursos.add(String.format("%s - %f", listaCursos.get(i).getIES().getNome(),
@@ -194,8 +130,6 @@ public class ControllerCurso {
 		
 		listaCursos = this.buscaCurso(codCurso2, uf2, municipio2);
 		
-		listaCursos = this.organiza(listaCursos);
-		
 		for (int i = 0; i <listaCursos.size(); i++) {
 			cursos.add(String.format("%s - %f", listaCursos.get(i).getIES().getNome(),
 					listaCursos.get(i).getConceitoEnade()));
@@ -210,8 +144,6 @@ public class ControllerCurso {
 		
 		
 		listaCursos = this.buscaCurso(codCurso, uf, tipoInt);
-		
-		listaCursos = this.organiza(listaCursos);
 		
 		for (int i = 0; i <listaCursos.size(); i++) {
 			cursos.add(String.format("%s - %f", listaCursos.get(i).getIES().getNome(),

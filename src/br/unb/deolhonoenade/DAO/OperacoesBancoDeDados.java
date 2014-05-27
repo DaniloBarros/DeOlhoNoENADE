@@ -52,7 +52,7 @@ public class OperacoesBancoDeDados {
 				"b.num_estud_curso, b.num_estud_insc, b.nome_curso, " + 
 				"b.municipio, b.conceito_enade, b.cod_area_curso , b.uf " +
 				"FROM instituicao a, curso b WHERE a.cod_ies = b.instituicao_cod_ies " +
-				"AND b.uf = ? AND "+"b.cod_area_curso = ?", new String[]{ufIES,codg_Curso} );
+				"AND b.uf = ? AND "+"b.cod_area_curso = ? " + "ORDER BY b.conceito_enade DESC", new String[]{ufIES,codg_Curso} );
 		
 		// Verifica se o cruzamento de dados retornou algo
 		// Se sim, coloca o cursor na primeira linha de dados
@@ -125,7 +125,7 @@ public class OperacoesBancoDeDados {
 				"b.num_estud_curso, b.num_estud_insc, b.nome_curso, " + 
 				"b.municipio, b.conceito_enade, b.cod_area_curso " +
 				"FROM instituicao a, curso b WHERE a.cod_ies = b.instituicao_cod_ies " +
-				"AND b.uf = ? AND b.cod_area_curso = ? AND b.municipio = ?", new String[]{ufIES,codg_Curso,municipio} );
+				"AND b.uf = ? AND b.cod_area_curso = ? AND b.municipio = ? " + "ORDER BY b.conceito_enade DESC", new String[]{ufIES,codg_Curso,municipio} );
 
 		if(cursor != null){
 			cursor.moveToFirst();
@@ -176,7 +176,7 @@ public class OperacoesBancoDeDados {
 				"b.municipio, b.conceito_enade, b.cod_area_curso " +
 				"FROM instituicao a, curso b WHERE a.cod_ies = b.instituicao_cod_ies " +
 				"AND b.uf = ? AND "+"b.cod_area_curso = ? AND b.municipio = ? "+
-				"AND a.tipo = ?", new String[]{ufIES,codg_Curso,municipio,tipo} );
+				"AND a.tipo = ? " + "ORDER BY b.conceito_enade DESC", new String[]{ufIES,codg_Curso,municipio,tipo} );
 		
 		if(cursor != null){
 			cursor.moveToFirst();
@@ -238,7 +238,7 @@ public class OperacoesBancoDeDados {
 				"b.num_estud_curso, b.num_estud_insc, b.nome_curso, " + 
 				"b.municipio, b.conceito_enade, b.cod_area_curso " +
 				"FROM instituicao a, curso b WHERE a.cod_ies = b.instituicao_cod_ies " +
-				"AND b.uf = ? AND b.cod_area_curso = ? AND a.tipo = ?"
+				"AND b.uf = ? AND b.cod_area_curso = ? AND a.tipo = ? " + "ORDER BY b.conceito_enade DESC"
 				, new String[]{ufIES,codg_Curso,tipo} );
 		
 		if(cursor != null){

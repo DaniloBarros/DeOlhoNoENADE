@@ -36,12 +36,12 @@ public class OperacoesBancoDeDados {
 	
 	public ArrayList<Curso> getCursos(int codAreaCurso, String ufIES){
 		
-		//Criacao de Variaveis
+		// Criacao de Variaveis
 		ArrayList<Curso> cursos = new ArrayList<Curso>();
 		Curso curso;
 		Instituicao ies;
 		
-		//Instanciando codigo do curso como string
+		// Instanciando codigo do curso como string
 		String codg_Curso = String.valueOf(codAreaCurso);
 		/*Cursor que aponta para as linhas retornadas pelo
 		 *  cruzamento das tabelas instituicao e curso
@@ -54,34 +54,34 @@ public class OperacoesBancoDeDados {
 				"FROM instituicao a, curso b WHERE a.cod_ies = b.instituicao_cod_ies " +
 				"AND b.uf = ? AND "+"b.cod_area_curso = ?", new String[]{ufIES,codg_Curso} );
 		
-		//Verifica se o cruzamento de dados retornou algo
-		//Se sim, coloca o cursor na primeira linha de dados
+		// Verifica se o cruzamento de dados retornou algo
+		// Se sim, coloca o cursor na primeira linha de dados
 		if(cursor != null){
 			cursor.moveToFirst();
 		}else
 			return null;
 		
 		do{
-			//Instancia ies sem relacao com curso
+			// Instancia ies sem relacao com curso
 			ies = this.getIES(Integer.parseInt(cursor.getString(0)));
-			//Instancia curso com ies sem o curso
+			// Instancia curso com ies sem o curso
 			curso = new Curso( Integer.parseInt(cursor.getString(6)) ,Integer.parseInt(cursor.getString(0)), cursor.getString(3),
 					Integer.parseInt(cursor.getString(1)), Integer.parseInt(cursor.getString(2)),
 					cursor.getString(4), Float.parseFloat(cursor.getString(5)), cursor.getString(7), ies );
-			//adiciona o curso a ies
+			// Adiciona o curso a ies
 			ies.adicionaCurso(curso);
-			//adiciona ies com relacionamento com o curso
+			// Adiciona ies com relacionamento com o curso
 			curso.setIES(ies);
-			//adiciona o curso ao ArrayList que sera retornado
+			// Adiciona o curso ao ArrayList que sera retornado
 			cursos.add( curso );
 			
-		}while(cursor.moveToNext());//move o cursor para a proxima linha		
+		}while(cursor.moveToNext()); // Move o cursor para a proxima linha		
 		
 		return cursos;
 		
 	}
 	
-	/*Retornar dados de Instituicao*/
+	// Retorna os dados de Instituicao
 	public Instituicao getIES(int codIES) {
 		String string_codIES = String.format("%d",codIES);
 		
@@ -99,7 +99,7 @@ public class OperacoesBancoDeDados {
 			cursor.moveToFirst();
 		else
 			return null;
-		//Cria a instuicao e instancia com os dados retornados pelo cursor
+		// Cria a instuicao e instancia com os dados retornados pelo cursor
 		Instituicao ies = new Instituicao(cursor.getString(1), cursor.getString(0), 
 				cursor.getString(2), codIES);
 		
@@ -107,7 +107,7 @@ public class OperacoesBancoDeDados {
 	}//Fim do getIES().
 	
 	/**
-	 * Sobrecarga de M�todos
+	 * Sobrecarga de Metodos
 	 * @param codAreaCurso
 	 * @param ufIES
 	 * @param municipio

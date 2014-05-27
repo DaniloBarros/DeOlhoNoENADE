@@ -79,9 +79,9 @@ public class RankingInicial extends Activity implements
 		 
 					@Override
 					public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
-						//pega nome pela posição
+						// Pega o nome pela posicao
 						estado = parent.getItemAtPosition(posicao).toString();
-						//imprime um Toast na tela com o nome que foi selecionado
+						// Imprime um Toast na tela com o nome que foi selecionado
 						Toast.makeText(RankingInicial.this, "Estado Selecionado: " + estado, Toast.LENGTH_LONG).show();
 						
 						addItensOnSpinnerTipo();
@@ -128,22 +128,22 @@ public class RankingInicial extends Activity implements
 				
 		tipos = controller.buscaTiposEstado(codCurso, estado);
 	
-		//Identificando o Spinner
+		// Identificando o Spinner
 		tipUniv = (Spinner) findViewById(R.id.spinnerTipo);
 		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, tipos);
 		ArrayAdapter<String> spinnerArrayAdapter = arrayAdapter;
 		spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		tipUniv.setAdapter(spinnerArrayAdapter);
 	
-		//M�todo do Spinner para capturar o item selecionado
+		// Metodo do Spinner para capturar o item selecionado
 		tipUniv.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 	
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
-				//pega nome pela posição
+				// Pega nome pela posicao
 				tipo = parent.getItemAtPosition(posicao).toString();
-				//imprime um Toast na tela com o nome que foi selecionado
-				Toast.makeText(RankingInicial.this, "Opção Selecionada: " + tipo, Toast.LENGTH_LONG).show();
+				// Imprime um Toast na tela com o nome que foi selecionado
+				Toast.makeText(RankingInicial.this, "Opcao Selecionada: " + tipo, Toast.LENGTH_LONG).show();
 			}
 	
 			@Override
@@ -157,22 +157,22 @@ public class RankingInicial extends Activity implements
 		tipos.clear();
 		tipos = controller.buscaTipos(codCurso, municipio);
 	
-		//Identificando o Spinner
+		// Identificando o Spinner
 		tipUniv = (Spinner) findViewById(R.id.spinnerTipo);
 		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, tipos);
 		ArrayAdapter<String> spinnerArrayAdapter = arrayAdapter;
 		spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		tipUniv.setAdapter(spinnerArrayAdapter);
 	
-		//M�todo do Spinner para capturar o item selecionado
+		// Metodo do Spinner para capturar o item selecionado
 		tipUniv.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 	
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
-				//pega nome pela posição
+				// Pega nome pela posicao
 				tipo = parent.getItemAtPosition(posicao).toString();
-				//imprime um Toast na tela com o nome que foi selecionado
-				Toast.makeText(RankingInicial.this, "Opção Selecionada: " + tipo, Toast.LENGTH_LONG).show();
+				// Imprime um Toast na tela com o nome que foi selecionado
+				Toast.makeText(RankingInicial.this, "Opcao Selecionada: " + tipo, Toast.LENGTH_LONG).show();
 			}
 	
 			@Override
@@ -184,7 +184,7 @@ public class RankingInicial extends Activity implements
 	
 	private void addListenerOnButtonBuscar() {
 
-		//Botão Buscar
+		// Botao Buscar
 				Button buscar = (Button) findViewById(R.id.buscar);
 				buscar.setOnClickListener (new OnClickListener(){
 					

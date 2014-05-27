@@ -65,7 +65,7 @@ public class ImportarBancoDeDados extends SQLiteOpenHelper {
 		while ((bytesRead = externalDbStream.read(buffer)) > 0) {
 			localDbStream.write(buffer, 0, bytesRead);
 		}
-		// Don�t forget to close the streams
+		
 		localDbStream.close();
 		externalDbStream.close();
 	}

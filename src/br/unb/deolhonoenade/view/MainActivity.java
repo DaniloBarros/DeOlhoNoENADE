@@ -24,7 +24,7 @@ public class MainActivity extends Activity implements ActionBar.OnNavigationList
     private OnClickListener listener = new OnClickListener() {
     	@Override
     	public void onClick(View v) {
-    		Intent intent = new Intent(MainActivity.this, TelaInicial2.class);
+    		Intent intent = new Intent(MainActivity.this, MenuInicial.class);
     		startActivity(intent);
     	}
     };

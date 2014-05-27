@@ -18,7 +18,7 @@ import br.unb.deolhonoenade.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TelaInicial extends Activity {
+public class MenuInicial extends Activity {
 
 	private Spinner spinnerCurso;
 	
@@ -26,7 +26,7 @@ public class TelaInicial extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_tela_inicial2);
+		setContentView(R.layout.activity_menu_inicial);
 		
 		addItensOnSpinnerCurso();
 		addListenerOnButtonRanking();
@@ -78,7 +78,7 @@ public class TelaInicial extends Activity {
 			
 			@Override
 	    	public void onClick(View v) {
-	    		Intent intent = new Intent(TelaInicial.this, RankingInicial.class);
+	    		Intent intent = new Intent(MenuInicial.this, RankingInicial.class);
 	    		intent.putExtra("cursoSelecionado", String.valueOf(spinner1.getSelectedItem()));
 	    		startActivity(intent);
 	    	}
@@ -118,7 +118,7 @@ public class TelaInicial extends Activity {
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_tela_inicial2,
+			View rootView = inflater.inflate(R.layout.fragment_menu_inicial,
 					container, false);
 			return rootView;
 		}

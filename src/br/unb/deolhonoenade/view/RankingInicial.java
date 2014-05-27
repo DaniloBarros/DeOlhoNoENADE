@@ -47,7 +47,7 @@ public class RankingInicial extends Activity implements
 		if(controller == null)
 		controller = new ControllerCurso(this);
 		
-		TextView cursoSelecionado = (TextView) findViewById(R.id.textView1);
+		TextView cursoSelecionado = (TextView) findViewById(R.id.CursoEscolhido);
 		
 		curso = getIntent().getExtras().getString("cursoSelecionado");
 		cursoSelecionado.setText(getIntent().getExtras().getString("cursoSelecionado"));
@@ -129,7 +129,7 @@ public class RankingInicial extends Activity implements
 		tipos = controller.buscaTiposEstado(codCurso, estado);
 	
 		//Identificando o Spinner
-		tipUniv = (Spinner) findViewById(R.id.universidade);
+		tipUniv = (Spinner) findViewById(R.id.spinnerTipo);
 		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, tipos);
 		ArrayAdapter<String> spinnerArrayAdapter = arrayAdapter;
 		spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -158,7 +158,7 @@ public class RankingInicial extends Activity implements
 		tipos = controller.buscaTipos(codCurso, municipio);
 	
 		//Identificando o Spinner
-		tipUniv = (Spinner) findViewById(R.id.universidade);
+		tipUniv = (Spinner) findViewById(R.id.spinnerTipo);
 		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, tipos);
 		ArrayAdapter<String> spinnerArrayAdapter = arrayAdapter;
 		spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

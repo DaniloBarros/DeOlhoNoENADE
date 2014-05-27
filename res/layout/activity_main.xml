@@ -19,7 +19,7 @@
     android:textStyle="bold"/> -->
 
  <ImageView
-     android:id="@+id/logo1"
+     android:id="@+id/logoD.O.N.E."
      android:layout_width="wrap_content"
      android:layout_height="wrap_content"
      android:layout_alignParentLeft="true"

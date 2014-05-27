@@ -34,7 +34,7 @@ public class MainActivity extends Activity implements ActionBar.OnNavigationList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        ImageView logoView = (ImageView) findViewById(R.id.logo1);
+        ImageView logoView = (ImageView) findViewById(R.id.logoD_O_N_E_);
         logoView.setOnClickListener(listener);
         
  }

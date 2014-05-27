@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:text="BUSCAR" />
+        android:text="@string/button_Buscar" />
 
     <TextView
         android:id="@+id/EscolherCidade"
@@ -23,7 +23,7 @@
         android:layout_below="@+id/EscolherEstado"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="75dp"
-        android:text="Escolha uma cidade"
+        android:text="@string/text_Cidade"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Spinner
@@ -43,7 +43,7 @@
         android:layout_marginTop="21dp" />
 
     <Spinner
-        android:id="@+id/universidade"
+        android:id="@+id/spinnerTipo"
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:layout_alignParentLeft="true"
@@ -57,11 +57,11 @@
         android:layout_below="@+id/spinnerCidade"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="26dp"
-        android:text="Tipo de universidade"
+        android:text="@string/text_Tipo"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/CursoEscolhido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -74,10 +74,10 @@
         android:id="@+id/EscolherEstado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/CursoEscolhido"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="27dp"
-        android:text="Escolha o estado"
+        android:text="@string/text_Estado"
         android:textAppearance="?android:attr/textAppearanceLarge" />
     
 </RelativeLayout>

@@ -42,7 +42,7 @@ public class MenuInicial extends Activity {
 	
 
 	private void addItensOnSpinnerCurso() {
-		spinnerCurso = (Spinner) findViewById(R.id.spinner1);
+		spinnerCurso = (Spinner) findViewById(R.id.spinnerCurso);
 		List<String> list = new ArrayList<String>();
 		list.add("Administracao");
 		list.add("Ciencias Contabeis");
@@ -72,7 +72,7 @@ public class MenuInicial extends Activity {
 	
 	private void addListenerOnButtonRanking() {
 
-		final Spinner spinner1 = (Spinner) findViewById(R.id.spinner1);
+		final Spinner spinner1 = (Spinner) findViewById(R.id.spinnerCurso);
 		Button rank = (Button) findViewById(R.id.Ranking);
 		rank.setOnClickListener (new OnClickListener(){
 			

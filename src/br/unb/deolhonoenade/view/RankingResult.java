@@ -34,7 +34,7 @@ public class RankingResult extends Activity implements
 	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
 	private String uf, municipio, tipo, curso;
 	private int codCurso;
-	private ControllerCurso controller;
+	private static ControllerCurso controller = null;
 	private List<String> cursos;
 	
 	@Override
@@ -52,6 +52,7 @@ public class RankingResult extends Activity implements
 		
 		cursos = new ArrayList<String>();
 		
+		if(controller == null)
 		controller = new ControllerCurso(this);
 		
 		curso = getIntent().getExtras().getString("CodigoCurso");

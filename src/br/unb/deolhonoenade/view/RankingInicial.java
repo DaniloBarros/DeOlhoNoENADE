@@ -37,14 +37,16 @@ public class RankingInicial extends Activity implements
 	private ArrayList<String> cursos = new ArrayList<String>();
 	private String curso, tipo, estado, municipio;
 	private int codCurso;
-	private ControllerCurso controller;
+	private static ControllerCurso controller = null;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_ranking_inicial);
 		
+		if(controller == null)
 		controller = new ControllerCurso(this);
+		
 		TextView cursoSelecionado = (TextView) findViewById(R.id.textView1);
 		
 		curso = getIntent().getExtras().getString("cursoSelecionado");

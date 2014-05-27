@@ -1,8 +1,8 @@
 package br.unb.deolhonoenade.controller;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Collections;
+import java.util.List;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -31,7 +31,12 @@ public class ControllerCurso {
 	public SQLiteDatabase getDatabase(){
 		return this.db;
 	}
-	
+	// Tentativa (fail) de receber os dados da IES
+	public List<String> getOpcaoCurso (TextView nome, int indice){
+		List<String> dados = new ArrayList<String>();
+		nome.setText(cursos.get(indice).getIES().getNome());
+		return dados;
+	}
 	public int buscaCodCurso(String nomeCurso){
 		int codCurso;
 		

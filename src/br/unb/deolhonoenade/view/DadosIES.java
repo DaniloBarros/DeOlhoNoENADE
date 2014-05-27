@@ -1,13 +1,10 @@
 package br.unb.deolhonoenade.view;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import br.unb.deolhonoenade.R;
 import br.unb.deolhonoenade.R.id;
 import br.unb.deolhonoenade.R.layout;
 import br.unb.deolhonoenade.R.menu;
-import br.unb.deolhonoenade.controller.ControllerCurso;
+import br.unb.deolhonoenade.R.string;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -21,10 +18,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
-public class RankingResult extends Activity implements
+public class DadosIES extends Activity implements
 		ActionBar.OnNavigationListener {
 
 	/**
@@ -32,87 +28,26 @@ public class RankingResult extends Activity implements
 	 * current dropdown position.
 	 */
 	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
-	private String uf, municipio, tipo, curso, ies;
-	private int codCurso;
-	private ControllerCurso controller;
-	private List<String> cursos;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_ranking_result);
+		setContentView(R.layout.activity_dados_ies);
+/*
+		// Set up the action bar to show a dropdown list.
+		final ActionBar actionBar = getActionBar();
+		actionBar.setDisplayShowTitleEnabled(false);
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
 
-
-		//tags: Curso Selecionado -> CodigoCurso
-		//      Estado Selecionado -> Estado
-		//		Cidade Selecionada -> Municipio
-		//		Tipo Universidade -> Tipo
-		
-		
-		
-		cursos = new ArrayList<String>();
-		
-		controller = new ControllerCurso(this);
-		
-		curso = getIntent().getExtras().getString("CodigoCurso");
-		
-		codCurso = controller.buscaCodCurso(curso);
-		
-		uf = getIntent().getExtras().getString("Estado");
-		municipio = getIntent().getExtras().getString("Municipio");
-		tipo = getIntent().getExtras().getString("Tipo");
-		
-		int tipoInt;
-		if(tipo.equalsIgnoreCase("Ambas")){
-			tipoInt = 0;
-		}else if(tipo.equalsIgnoreCase("Privada")){
-			tipoInt = 1;
-		}else{
-			tipoInt = 2;
-		}
-		
-		if(municipio.equalsIgnoreCase("Todas")){
-			if(tipo.equalsIgnoreCase("Ambas")){
-				this.getStringCurso(codCurso, uf);
-			}else{
-				this.getStringCurso(codCurso, uf, tipoInt);
-			}
-		}else{
-			if(tipo.equalsIgnoreCase("Ambas")){
-				this.getStringCurso(codCurso, uf, municipio);
-			}else{
-				this.getStringCurso(codCurso, uf, municipio, tipo);
-			}
-		}
-		
-		
-		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, cursos);
-		
-		ListView myListView = (ListView) findViewById(R.id.listResult);
-		
-		myListView.setAdapter(dataAdapter);
-	}
-
-	private void getStringCurso(int codCurso2, String uf2, int tipoInt) {
-		cursos = controller.buscaStringCurso(codCurso2, uf2, tipoInt);
-		
-	}
-
-	private void getStringCurso(int codCurso2, String uf2) {
-		cursos = controller.buscaStringCurso(codCurso2, uf2);
-		
-	}
-
-	private void getStringCurso(int codCurso2, String uf2, String municipio2,
-			String tipo2) {
-		cursos = controller.buscaStringCurso(codCurso2, uf2, municipio2, tipo2);
-		
-	}
-
-	private void getStringCurso(int codCurso2, String uf2, String municipio2) {
-		cursos = controller.buscaStringCurso(codCurso2, uf2, municipio2);
-		
+		// Set up the dropdown list navigation in the action bar.
+		actionBar.setListNavigationCallbacks(
+		// Specify a SpinnerAdapter to populate the dropdown list.
+				new ArrayAdapter<String>(actionBar.getThemedContext(),
+						android.R.layout.simple_list_item_1,
+						android.R.id.text1, new String[] {
+								getString(R.string.title_section1),
+								getString(R.string.title_section2),
+								getString(R.string.title_section3), }), this);*/
 	}
 
 	@Override
@@ -135,7 +70,7 @@ public class RankingResult extends Activity implements
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.ranking_result, menu);
+		getMenuInflater().inflate(R.menu.dados_ie, menu);
 		return true;
 	}
 
@@ -184,7 +119,19 @@ public class RankingResult extends Activity implements
 		}
 
 		public PlaceholderFragment() {
-		
+		}
+
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				Bundle savedInstanceState) {
+			View rootView = inflater.inflate(R.layout.fragment_dados_ies,
+					container, false);
+			TextView textView = (TextView) rootView
+					.findViewById(R.id.section_label);
+			textView.setText(Integer.toString(getArguments().getInt(
+					ARG_SECTION_NUMBER)));
+			return rootView;
 		}
 	}
+
 }

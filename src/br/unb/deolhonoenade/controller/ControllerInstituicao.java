@@ -1,5 +1,8 @@
 package br.unb.deolhonoenade.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import br.unb.deolhonoenade.DAO.ImportarBancoDeDados;
@@ -29,6 +32,21 @@ private Instituicao instituicao;
 		
 		return instituicao;
 	}
+	
+	public List<String> getDadosIES (int codIES) {
+		List<String> dados = new ArrayList<String>();
+		Instituicao IES;
+		
+		IES = this.buscaInstituicao(codIES);
+		
+		dados.add(IES.getNome());
+		dados.add(IES.getOrganizacaoAcademica());
+		dados.add(IES.getTipo());
+		
+		return dados;
+		
+	}
+	
 	
 	public SQLiteDatabase getDatabase(){
 		return this.db;

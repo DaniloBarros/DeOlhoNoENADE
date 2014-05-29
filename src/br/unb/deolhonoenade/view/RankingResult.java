@@ -3,26 +3,19 @@ package br.unb.deolhonoenade.view;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.unb.deolhonoenade.R;
-import br.unb.deolhonoenade.R.id;
-import br.unb.deolhonoenade.R.layout;
-import br.unb.deolhonoenade.R.menu;
-import br.unb.deolhonoenade.controller.ControllerCurso;
-import android.app.Activity;
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Fragment;
-import android.content.Context;
-import android.os.Build;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
+import br.unb.deolhonoenade.R;
+import br.unb.deolhonoenade.controller.ControllerCurso;
 
 public class RankingResult extends Activity implements
 		ActionBar.OnNavigationListener {
@@ -34,6 +27,7 @@ public class RankingResult extends Activity implements
 	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
 	private String uf, municipio, tipo, curso, ies;
 	private int codCurso;
+	private int codIES;
 	private ControllerCurso controller;
 	private List<String> cursos;
 	
@@ -89,9 +83,23 @@ public class RankingResult extends Activity implements
 		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, cursos);
 		
-		ListView myListView = (ListView) findViewById(R.id.listResult);
+		ListView listaIES = (ListView) findViewById(R.id.listResult);
 		
-		myListView.setAdapter(dataAdapter);
+		listaIES.setAdapter(dataAdapter);
+		listaIES.setTextFilterEnabled(true);
+		
+		listaIES.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+			
+			@Override
+			public void onItemClick(AdapterView<?> parent, View v, int posicao, long id){
+				Intent chamarDados = new Intent(RankingResult.this, DadosIES.class);
+				codIES = controller.getCodIESDoArrayCursos(posicao);
+				
+				chamarDados.putExtra("codIES", codIES);
+				startActivity(chamarDados);
+			}
+
+		});
 	}
 
 	private void getStringCurso(int codCurso2, String uf2, int tipoInt) {

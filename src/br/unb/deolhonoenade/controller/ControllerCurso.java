@@ -226,4 +226,8 @@ public class ControllerCurso {
 		return cursos;
 	}
 
+	public int getCodIESDoArrayCursos(int posicao) {
+		return cursos.get(posicao).getIES().getCodIES();
+	}
+
 }

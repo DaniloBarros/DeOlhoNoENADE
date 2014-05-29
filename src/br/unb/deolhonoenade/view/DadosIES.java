@@ -1,24 +1,21 @@
 package br.unb.deolhonoenade.view;
 
-import br.unb.deolhonoenade.R;
-import br.unb.deolhonoenade.R.id;
-import br.unb.deolhonoenade.R.layout;
-import br.unb.deolhonoenade.R.menu;
-import br.unb.deolhonoenade.R.string;
-import android.app.Activity;
+import java.util.List;
+
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Fragment;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
+import br.unb.deolhonoenade.R;
+import br.unb.deolhonoenade.controller.ControllerInstituicao;
 
 public class DadosIES extends Activity implements
 		ActionBar.OnNavigationListener {
@@ -28,11 +25,29 @@ public class DadosIES extends Activity implements
 	 * current dropdown position.
 	 */
 	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
+	private ControllerInstituicao controller;
+	private int codIES;
+	private List<String> dados;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_dados_ies);
+		
+		controller = new ControllerInstituicao(this);
+		codIES = Integer.parseInt(getIntent().getExtras().get("codIES").toString());
+		dados = this.controller.getDadosIES(codIES);
+		TextView nomeIES = (TextView) findViewById(R.id.nomeIES);
+		nomeIES.setText(dados.get(0));
+		
+		dados.remove(0);
+		
+		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_1, dados);
+		
+		ListView dadosIES = (ListView) findViewById(R.id.DadosIES);
+		
+		dadosIES.setAdapter(dataAdapter);
 /*
 		// Set up the action bar to show a dropdown list.
 		final ActionBar actionBar = getActionBar();

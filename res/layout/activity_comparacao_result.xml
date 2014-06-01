@@ -3,20 +3,11 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.unb.deolhonoenade.view.DadosIES"
+    tools:context="br.unb.deolhonoenade.view.ComparacaoResult"
     tools:ignore="MergeRootFrame" >
 
-    <ListView
-        android:id="@+id/DadosIES"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/nomeIES" >
-
-    </ListView>
-
     <TextView
-        android:id="@+id/nomeIES"
+        android:id="@+id/stringCurso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -24,4 +15,13 @@
         android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <ListView
+        android:id="@+id/ListResultado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/stringCurso" >
+
+    </ListView>
+    
 </RelativeLayout>

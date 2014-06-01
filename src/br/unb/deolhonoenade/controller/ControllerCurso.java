@@ -31,12 +31,43 @@ public class ControllerCurso {
 	public SQLiteDatabase getDatabase(){
 		return this.db;
 	}
-	// Tentativa (fail) de receber os dados da IES
-	public List<String> getOpcaoCurso (TextView nome, int indice){
-		List<String> dados = new ArrayList<String>();
-		nome.setText(cursos.get(indice).getIES().getNome());
-		return dados;
+	
+	public int getCodIESDoArrayCursos(int posicao) {
+		return cursos.get(posicao).getIES().getCodIES();
 	}
+	
+	public List<String> comparaEstado(String estado1,String estado2,int codCurso) {
+		float media = 0;
+		List<String> Resultado = new ArrayList<String>();
+		List<Curso> cursosEstado2 = new ArrayList<Curso>();
+		List<Curso> cursosEstado1 = new ArrayList<Curso>();
+		
+		cursosEstado1 = this.buscaCurso(codCurso, estado1);
+		cursosEstado2 = this.buscaCurso(codCurso, estado2);
+		
+		media = this.fazMediaConceitoEnade(cursosEstado1);
+		
+		Resultado.add(String.format("media do estado %s e %f",estado1, media ));
+		
+		media = this.fazMediaConceitoEnade(cursosEstado2);
+		
+		Resultado.add(String.format("media do estado %s e %f",estado2,media ));
+		
+		return Resultado;
+	}
+	
+	private float fazMediaConceitoEnade(List<Curso> cursos){
+		float media=0;
+		int cont;
+		for(cont = 0;cont < cursos.size()-1;cont++){
+			media += cursos.get(cont).getConceitoEnade();	
+		}
+		
+		media = media/cont;
+		
+		return media;
+	}
+	
 	public int buscaCodCurso(String nomeCurso){
 		int codCurso;
 		
@@ -224,10 +255,6 @@ public class ControllerCurso {
 		}
 		
 		return cursos;
-	}
-
-	public int getCodIESDoArrayCursos(int posicao) {
-		return cursos.get(posicao).getIES().getCodIES();
 	}
 
 }

@@ -28,18 +28,16 @@ import android.widget.TextView;
 public class ComparacaoInicial extends Activity implements
 		ActionBar.OnNavigationListener {
 
-	/**
-	 * The serialization (saved instance state) Bundle key representing the
-	 * current dropdown position.
-	 */
 	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
-	
+	private String curso;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_comparacao_inicial);		
+		curso = getIntent().getExtras().getString("cursoSelecionado");
 		addListenerOnButtonBotaoEstado();
-		}
+		
+	}
 	
 	private void addListenerOnButtonBotaoEstado(){
 		Button compareEstado = (Button) findViewById(R.id.BotaoEstado);
@@ -48,6 +46,7 @@ public class ComparacaoInicial extends Activity implements
 			@Override
 	    	public void onClick(View v) {
 	    		Intent intent = new Intent(ComparacaoInicial.this, ComparacaoEstado.class);
+	    		intent.putExtra("cursoSelecionado", curso);
 	    		startActivity(intent);
 	    	}	
 		});
@@ -61,13 +60,14 @@ public class ComparacaoInicial extends Activity implements
 					savedInstanceState.getInt(STATE_SELECTED_NAVIGATION_ITEM));
 		}
 	}
-
+	
+	/*
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
 		// Serialize the current dropdown position.
 		outState.putInt(STATE_SELECTED_NAVIGATION_ITEM, getActionBar()
 				.getSelectedNavigationIndex());
-	}
+	}*/
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

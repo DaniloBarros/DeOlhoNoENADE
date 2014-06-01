@@ -16,5 +16,6 @@
     <string name="title_activity_dados_ies">DadosIES</string>
     <string name="title_activity_comparacao_estado">ComparacaoEstado</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_comparacao_result">ComparacaoResult</string>
 
 </resources>

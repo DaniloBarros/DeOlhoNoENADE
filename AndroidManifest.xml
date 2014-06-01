@@ -59,6 +59,10 @@
             android:label="@string/title_activity_comparacao_estado"
             android:theme="@android:style/Theme.DeviceDefault.Light" >
         </activity>
+        <activity
+            android:name="br.unb.deolhonoenade.view.ComparacaoResult"
+            android:label="@string/title_activity_comparacao_result" >
+        </activity>
     </application>
 
 </manifest>

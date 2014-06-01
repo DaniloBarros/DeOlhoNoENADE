@@ -73,13 +73,13 @@ public class DadosIES extends Activity implements
 					savedInstanceState.getInt(STATE_SELECTED_NAVIGATION_ITEM));
 		}
 	}
-
+	/*
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
 		// Serialize the current dropdown position.
 		outState.putInt(STATE_SELECTED_NAVIGATION_ITEM, getActionBar()
 				.getSelectedNavigationIndex());
-	}
+	}*/
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

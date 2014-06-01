@@ -45,7 +45,7 @@ public class RankingInicial extends Activity implements
 		setContentView(R.layout.activity_ranking_inicial);
 		
 		controller = new ControllerCurso(this);
-		TextView cursoSelecionado = (TextView) findViewById(R.id.textView1);
+		TextView cursoSelecionado = (TextView) findViewById(R.id.stringCurso);
 		
 		curso = getIntent().getExtras().getString("cursoSelecionado");
 		cursoSelecionado.setText(getIntent().getExtras().getString("cursoSelecionado"));

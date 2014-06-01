@@ -29,8 +29,8 @@ public class TelaInicial2 extends Activity {
 		setContentView(R.layout.activity_tela_inicial2);
 		
 		addItensOnSpinnerCurso();
+		addListenerOnButtonComparacao();
 		addListenerOnButtonRanking();
-		
 		
 		
 		if (savedInstanceState == null) {
@@ -38,8 +38,6 @@ public class TelaInicial2 extends Activity {
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
 	}
-
-	
 
 	private void addItensOnSpinnerCurso() {
 		spinnerCurso = (Spinner) findViewById(R.id.spinner1);
@@ -74,7 +72,7 @@ public class TelaInicial2 extends Activity {
 
 		final Spinner spinner1 = (Spinner) findViewById(R.id.spinner1);
 		Button rank = (Button) findViewById(R.id.Ranking);
-		Button compare = (Button) findViewById(R.id.Comparacao);
+		
 		rank.setOnClickListener(new OnClickListener(){
 			
 			@Override
@@ -85,18 +83,27 @@ public class TelaInicial2 extends Activity {
 	    	}
 		});
 		
+				
+	}
+
+	private void addListenerOnButtonComparacao() {
+		
+		final Spinner spinner1 = (Spinner) findViewById(R.id.spinner1);
+		Button compare = (Button) findViewById(R.id.Comparacao);
+				
 		compare.setOnClickListener(new OnClickListener(){
 			
 			@Override
-	    	public void onClick(View v) {
+			public void onClick(View v) {
 	    		Intent intent = new Intent(TelaInicial2.this, ComparacaoInicial.class);
-	    /* A ideia aqui era mandar o curso selecionado para a tela comparacao estado.	   			
-	   			Intent intentCurso = new Intent(TelaInicial2.this, ComparacaoEstado.class);	     
-				intentCurso.putExtra("cursoSelecionado", String.valueOf(spinner1.getSelectedItem()));	*/
+	    // A ideia aqui era mandar o curso selecionado para a tela comparacao estado.     
+				intent.putExtra("cursoSelecionado", String.valueOf(spinner1.getSelectedItem()));
 	    		startActivity(intent);
 	    	}
-		});			
+		});	
+		
 	}
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

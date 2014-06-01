@@ -5,10 +5,12 @@ import br.unb.deolhonoenade.R.id;
 import br.unb.deolhonoenade.R.layout;
 import br.unb.deolhonoenade.R.menu;
 import br.unb.deolhonoenade.R.string;
+import br.unb.deolhonoenade.view.RankingInicial.PlaceholderFragment;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -17,7 +19,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class ComparacaoInicial extends Activity implements
@@ -28,13 +33,26 @@ public class ComparacaoInicial extends Activity implements
 	 * current dropdown position.
 	 */
 	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_comparacao_inicial);
+		setContentView(R.layout.activity_comparacao_inicial);		
+		addListenerOnButtonBotaoEstado();
+		}
+	
+	private void addListenerOnButtonBotaoEstado(){
+		Button compareEstado = (Button) findViewById(R.id.BotaoEstado);
+		compareEstado.setOnClickListener(new OnClickListener(){
+			
+			@Override
+	    	public void onClick(View v) {
+	    		Intent intent = new Intent(ComparacaoInicial.this, ComparacaoEstado.class);
+	    		startActivity(intent);
+	    	}	
+		});
+		
 	}
-
 	@Override
 	public void onRestoreInstanceState(Bundle savedInstanceState) {
 		// Restore the previously serialized current dropdown position.

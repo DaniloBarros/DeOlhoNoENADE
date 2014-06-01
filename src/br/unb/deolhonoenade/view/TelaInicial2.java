@@ -74,7 +74,8 @@ public class TelaInicial2 extends Activity {
 
 		final Spinner spinner1 = (Spinner) findViewById(R.id.spinner1);
 		Button rank = (Button) findViewById(R.id.Ranking);
-		rank.setOnClickListener (new OnClickListener(){
+		Button compare = (Button) findViewById(R.id.Comparacao);
+		rank.setOnClickListener(new OnClickListener(){
 			
 			@Override
 	    	public void onClick(View v) {
@@ -84,6 +85,17 @@ public class TelaInicial2 extends Activity {
 	    	}
 		});
 		
+		compare.setOnClickListener(new OnClickListener(){
+			
+			@Override
+	    	public void onClick(View v) {
+	    		Intent intent = new Intent(TelaInicial2.this, ComparacaoInicial.class);
+	    /* A ideia aqui era mandar o curso selecionado para a tela comparacao estado.	   			
+	   			Intent intentCurso = new Intent(TelaInicial2.this, ComparacaoEstado.class);	     
+				intentCurso.putExtra("cursoSelecionado", String.valueOf(spinner1.getSelectedItem()));	*/
+	    		startActivity(intent);
+	    	}
+		});			
 	}
 
 	@Override

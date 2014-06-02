@@ -70,9 +70,6 @@ public class Instituicao {
 
 	public void setCodIES(int codIES) {
 		this.codIES = codIES;
-	}
-	
-	
-	
+	}	
 
 }

@@ -33,7 +33,7 @@ private Instituicao instituicao;
 		return instituicao;
 	}
 	
-	public List<String> getDadosIES (int codIES) {
+/*	public List<String> getDadosIES (int codIES) {
 		List<String> dados = new ArrayList<String>();
 		Instituicao IES;
 		
@@ -42,10 +42,10 @@ private Instituicao instituicao;
 		dados.add(IES.getNome());
 		dados.add(IES.getOrganizacaoAcademica());
 		dados.add(IES.getTipo());
-		
+
 		return dados;
 		
-	}
+	}	*/
 	
 	
 	public SQLiteDatabase getDatabase(){

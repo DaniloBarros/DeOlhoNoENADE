@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import br.unb.deolhonoenade.R;
+import br.unb.deolhonoenade.controller.ControllerCurso;
 import br.unb.deolhonoenade.controller.ControllerInstituicao;
 
 public class DadosIES extends Activity implements
@@ -25,7 +26,7 @@ public class DadosIES extends Activity implements
 	 * current dropdown position.
 	 */
 	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
-	private ControllerInstituicao controller;
+	private ControllerCurso controller;
 	private int codIES;
 	private List<String> dados;
 
@@ -34,7 +35,7 @@ public class DadosIES extends Activity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_dados_ies);
 		
-		controller = new ControllerInstituicao(this);
+		controller = new ControllerCurso(this);
 		codIES = Integer.parseInt(getIntent().getExtras().get("codIES").toString());
 		dados = this.controller.getDadosIES(codIES);
 		TextView nomeIES = (TextView) findViewById(R.id.nomeIES);

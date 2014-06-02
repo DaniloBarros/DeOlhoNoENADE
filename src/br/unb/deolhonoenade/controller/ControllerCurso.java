@@ -6,13 +6,13 @@ import java.util.List;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.widget.TextView;
 import br.unb.deolhonoenade.DAO.ImportarBancoDeDados;
 import br.unb.deolhonoenade.DAO.OperacoesBancoDeDados;
 import br.unb.deolhonoenade.model.Curso;
+import br.unb.deolhonoenade.model.Instituicao;
 
 public class ControllerCurso {
-	
+	private Instituicao IES, instituicao;
 	private ArrayList<Curso> cursos = new ArrayList<Curso>();
 	
 	private SQLiteDatabase db;
@@ -34,6 +34,27 @@ public class ControllerCurso {
 	
 	public int getCodIESDoArrayCursos(int posicao) {
 		return cursos.get(posicao).getIES().getCodIES();
+	}
+	
+	public Instituicao buscaInstituicao(int codIES){
+		
+		this.instituicao = this.opBD.getIES(codIES);
+		
+		return instituicao;
+	}
+	
+	public List<String> getDadosIES (int codIES) {
+		List<String> dados = new ArrayList<String>();
+				
+		IES = this.buscaInstituicao(codIES);
+		
+		dados.add(IES.getNome());
+		dados.add(IES.getOrganizacaoAcademica());
+		dados.add(IES.getTipo());
+//	    dados.add(Curso.getNumEstudantesInscritos());
+
+		return dados;
+		
 	}
 	
 	public List<String> comparaEstado(String estado1,String estado2,int codCurso) {

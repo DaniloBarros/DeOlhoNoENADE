@@ -60,16 +60,73 @@ public class TestControllerCurso extends AndroidTestCase {
 		cursosT.add(curso3);
 		cursosT.add(curso1);
 		
+		
+		
 		cursos = controller.buscaCurso(1, "AC");
-		Assert.assertEquals(cursosT, cursos);
+		
+		
+		Assert.assertEquals(cursosT.get(0).getConceitoEnade(), cursos.get(0).getConceitoEnade());
+		Assert.assertEquals(cursosT.get(0).getId(), cursos.get(0).getId());
+		Assert.assertEquals(cursosT.get(0).getId_ies(), cursos.get(0).getId_ies());
+		Assert.assertEquals(cursosT.get(0).getNumEstudantes(), cursos.get(0).getNumEstudantes());
+		
+		Assert.assertEquals(cursosT.get(1).getConceitoEnade(), cursos.get(1).getConceitoEnade());
+		Assert.assertEquals(cursosT.get(1).getId(), cursos.get(1).getId());
+		Assert.assertEquals(cursosT.get(1).getId_ies(), cursos.get(1).getId_ies());
+		Assert.assertEquals(cursosT.get(1).getNumEstudantes(), cursos.get(1).getNumEstudantes());
+		
+		Assert.assertEquals(cursosT.get(2).getConceitoEnade(), cursos.get(2).getConceitoEnade());
+		Assert.assertEquals(cursosT.get(2).getId(), cursos.get(2).getId());
+		Assert.assertEquals(cursosT.get(2).getId_ies(), cursos.get(2).getId_ies());
+		Assert.assertEquals(cursosT.get(2).getNumEstudantes(), cursos.get(2).getNumEstudantes());
+		
 	}
 
 	public void testBuscaCursoIntStringString() {
-		fail("Not yet implemented");
+		ControllerCurso controller = new ControllerCurso(getContext());
+		ArrayList<Curso> cursosT = new ArrayList<Curso>();
+		ArrayList<Curso> cursos = new ArrayList<Curso>();
+		
+		
+		Instituicao ies3 = new Instituicao("FACULDADE DE DESENVOLVIMENTO SUSTENTAVEL DE CRUZEIRO DO SUL", "FACULDADES", "PRIVADA", 2072);
+		
+		Curso curso1 = new Curso(1, 2072, "ADMINISTRACAO", 29, 26, "CRUZEIRO DO SUL", (float)0.785, "AC", ies3);
+		
+		cursosT.add(curso1);
+		
+		
+		cursos = controller.buscaCurso(1, "AC", "CRUZEIRO DO SUL");
+		
+		
+		Assert.assertEquals(cursosT.get(0).getConceitoEnade(), cursos.get(0).getConceitoEnade());
+		Assert.assertEquals(cursosT.get(0).getId(), cursos.get(0).getId());
+		Assert.assertEquals(cursosT.get(0).getId_ies(), cursos.get(0).getId_ies());
+		Assert.assertEquals(cursosT.get(0).getNumEstudantes(), cursos.get(0).getNumEstudantes());
+		
 	}
 
 	public void testBuscaCursoIntStringStringString() {
-		fail("Not yet implemented");
+		ControllerCurso controller = new ControllerCurso(getContext());
+		ArrayList<Curso> cursosT = new ArrayList<Curso>();
+		ArrayList<Curso> cursos = new ArrayList<Curso>();
+		
+		
+		Instituicao ies = new Instituicao("UNIVERSIDADE DE BRASILIA", "UNIVERSIDADES", "PUBLICA", 2);
+		
+		Curso curso1 =  new Curso(1, 2, "ADMINISTRACAO", 141, 89, "BRASILIA", (float)3.735, "DF", ies);
+		
+
+		
+		cursosT.add(curso1);
+		
+		
+		cursos = controller.buscaCurso(1, "DF", "BRASILIA", "PUBLICA");
+		
+		
+		Assert.assertEquals(cursosT.get(0).getConceitoEnade(), cursos.get(0).getConceitoEnade());
+		Assert.assertEquals(cursosT.get(0).getId(), cursos.get(0).getId());
+		Assert.assertEquals(cursosT.get(0).getId_ies(), cursos.get(0).getId_ies());
+		Assert.assertEquals(cursosT.get(0).getNumEstudantes(), cursos.get(0).getNumEstudantes());
 	}
 
 	public void testBuscaCidades() {
@@ -215,19 +272,72 @@ public class TestControllerCurso extends AndroidTestCase {
 	}
 
 	public void testBuscaStringCursoIntString() {
-		fail("Not yet implemented");
+		ControllerCurso controller = new ControllerCurso(getContext());
+		List<String> cursosT = new ArrayList<String>();
+		List<String> cursos = new ArrayList<String>();
+		
+		cursosT.add("FUNDACAO UNIVERSIDADE FEDERAL DO TOCANTINS - 2.468000");
+		cursosT.add("FACULDADE DE CIENCIAS HUMANAS, ECONOMICAS E DA SAUDE DE ARAGUAINA - 2.460000");
+		cursosT.add("FACULDADE DE ADMINISTRACAO DE EMPRESAS DE PARAISO DO TOCANTINS - 2.357000");
+		cursosT.add("CENTRO UNIVERSITARIO UNIRG - 2.290000");
+		cursosT.add("CENTRO UNIVERSITARIO LUTERANO DE PALMAS - 2.185000");
+		cursosT.add("INSTITUTO DE ENSINO E PESQUISA OBJETIVO - 2.185000");
+		cursosT.add("FACULDADE INTEGRADA DE ARAGUATINS - 2.103000");
+		cursosT.add("FACULDADE GUARAI - 2.014000");
+		cursosT.add("FACULDADE CATOLICA DOM ORIONE - 1.502000");
+		cursosT.add("FACULDADE SERRA DO CARMO - 1.443000");
+		cursosT.add("FACULDADE CATOLICA DO TOCANTINS - 1.433000");
+		cursosT.add("UNIVERSIDADE DO TOCANTINS - 1.366000");
+		cursosT.add("FACULDADE ITOP - 1.202000");
+		cursosT.add("FACULDADE SAO MARCOS - 0.209000");
+		
+		cursos = controller.buscaStringCurso(1, "TO");
+		
+		Assert.assertEquals(cursosT, cursos);
 	}
 
 	public void testBuscaStringCursoIntStringStringString() {
-		fail("Not yet implemented");
+		ControllerCurso controller = new ControllerCurso(getContext());
+		List<String> cursosT = new ArrayList<String>();
+		List<String> cursos = new ArrayList<String>();
+		
+		cursosT.add("FUNDACAO UNIVERSIDADE FEDERAL DO TOCANTINS - 2.468000");
+		cursosT.add("UNIVERSIDADE DO TOCANTINS - 1.366000");
+		
+		cursos = controller.buscaStringCurso(1, "TO", "PALMAS", "PUBLICA");
+		Assert.assertEquals(cursosT, cursos);
 	}
 
 	public void testBuscaStringCursoIntStringString() {
-		fail("Not yet implemented");
+		ControllerCurso controller = new ControllerCurso(getContext());
+		List<String> cursosT = new ArrayList<String>();
+		List<String> cursos = new ArrayList<String>();
+		
+		cursosT.add("FUNDACAO UNIVERSIDADE FEDERAL DO TOCANTINS - 2.468000");
+		cursosT.add("CENTRO UNIVERSITARIO LUTERANO DE PALMAS - 2.185000");
+		cursosT.add("INSTITUTO DE ENSINO E PESQUISA OBJETIVO - 2.185000");
+		cursosT.add("FACULDADE SERRA DO CARMO - 1.443000");
+		cursosT.add("FACULDADE CATOLICA DO TOCANTINS - 1.433000");
+		cursosT.add("UNIVERSIDADE DO TOCANTINS - 1.366000");
+		cursosT.add("FACULDADE ITOP - 1.202000");
+		
+		cursos = controller.buscaStringCurso(1, "TO", "PALMAS");
+		Assert.assertEquals(cursosT, cursos);
 	}
 
 	public void testBuscaStringCursoIntStringInt() {
-		fail("Not yet implemented");
+		ControllerCurso controller = new ControllerCurso(getContext());
+		List<String> cursosT = new ArrayList<String>();
+		List<String> cursos = new ArrayList<String>();
+		
+		cursosT.add("FUNDACAO UNIVERSIDADE FEDERAL DO TOCANTINS - 2.468000");
+		cursosT.add("CENTRO UNIVERSITARIO UNIRG - 2.290000");
+		cursosT.add("FACULDADE INTEGRADA DE ARAGUATINS - 2.103000");
+		cursosT.add("FACULDADE GUARAI - 2.014000");
+		cursosT.add("UNIVERSIDADE DO TOCANTINS - 1.366000");
+		
+		cursos = controller.buscaStringCurso(1, "TO", 2);
+		Assert.assertEquals(cursosT, cursos);
 	}
 
 }

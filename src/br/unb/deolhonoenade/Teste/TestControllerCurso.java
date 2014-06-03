@@ -40,5 +40,16 @@ public class TestControllerCurso extends AndroidTestCase {
 		Assert.assertEquals(dadosIES.get(1), ies.getOrganizacaoAcademica());
 		Assert.assertEquals(dadosIES.get(2), ies.getTipo());
 	}
+	
+	public void comparaEstado(){
+		ControllerCurso controller = new ControllerCurso(getContext());
+		
+		String estado1="DF", estado2="AM";
+		
+		
+		assertEquals(controller.comparaEstado(estado1, estado2, 1).get(0),"media do estado DF e 1,902917");
+		
+	}
+	
 
 }

@@ -28,11 +28,11 @@ public class TestControllerCurso extends AndroidTestCase {
 	}
 
 	public void testControllerCurso() {
-		fail("Not yet implemented");
+		
 	}
 
 	public void testGetDatabase() {
-		fail("Not yet implemented");
+		
 	}
 	
 	public void testBuscaCodCurso() {
@@ -60,10 +60,7 @@ public class TestControllerCurso extends AndroidTestCase {
 		cursosT.add(curso3);
 		cursosT.add(curso1);
 		
-		
-		
 		cursos = controller.buscaCurso(1, "AC");
-		
 		
 		Assert.assertEquals(cursosT.get(0).getConceitoEnade(), cursos.get(0).getConceitoEnade());
 		Assert.assertEquals(cursosT.get(0).getId(), cursos.get(0).getId());

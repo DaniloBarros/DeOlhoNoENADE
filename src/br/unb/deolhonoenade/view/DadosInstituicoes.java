@@ -13,7 +13,7 @@ import br.unb.deolhonoenade.controller.ControllerCurso;
 
 public class DadosInstituicoes extends Fragment {
 
-	public View DadosInstituicoes() {
+	/*public View DadosInstituicoes() {
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
@@ -39,6 +39,6 @@ public class DadosInstituicoes extends Fragment {
 			
 			dadosIES.setAdapter(dataAdapter);
 	}
-}
+} */
 
 }

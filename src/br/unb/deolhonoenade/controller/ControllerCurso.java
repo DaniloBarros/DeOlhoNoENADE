@@ -1,18 +1,18 @@
 package br.unb.deolhonoenade.controller;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Collections;
+import java.util.List;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.widget.TextView;
 import br.unb.deolhonoenade.DAO.ImportarBancoDeDados;
 import br.unb.deolhonoenade.DAO.OperacoesBancoDeDados;
 import br.unb.deolhonoenade.model.Curso;
+import br.unb.deolhonoenade.model.Instituicao;
 
 public class ControllerCurso {
-	
+	private Instituicao IES, instituicao;
 	private ArrayList<Curso> cursos = new ArrayList<Curso>();
 	
 	private SQLiteDatabase db;
@@ -30,6 +30,78 @@ public class ControllerCurso {
 	
 	public SQLiteDatabase getDatabase(){
 		return this.db;
+	}
+	
+	public int getCodIESDoArrayCursos(int posicao) {
+		return cursos.get(posicao).getIES().getCodIES();
+	}
+	
+	public Instituicao buscaInstituicao(int codIES){
+		
+		this.instituicao = this.opBD.getIES(codIES);
+		
+		return instituicao;
+	}
+	
+	public List<String> getDadosIES (int posicao) {
+		List<String> dados = new ArrayList<String>();
+		
+		dados.add(cursos.get(posicao).getIES().getNome());
+		dados.add(cursos.get(posicao).getIES().getOrganizacaoAcademica());
+		dados.add(cursos.get(posicao).getIES().getTipo());
+		dados.add(cursos.get(posicao).getMunicipio());
+		dados.add(String.format("%d", cursos.get(posicao).getNumEstudantesInscritos()) );
+	    dados.add(String.format("%d", cursos.get(posicao).getNumEstudantes()) );
+	    
+		return dados;
+		
+	}
+	
+	/*
+	public List<String> getDadosIES (int codIES) {
+		List<String> dados = new ArrayList<String>();
+				
+		IES = this.buscaInstituicao(codIES);
+		
+		dados.add(IES.getNome());
+		dados.add(IES.getOrganizacaoAcademica());
+		dados.add(IES.getTipo());
+//	    dados.add(Curso.getNumEstudantesInscritos());
+
+		return dados;
+		
+	}*/
+	
+	public List<String> comparaEstado(String estado1,String estado2,int codCurso) {
+		float media = 0;
+		List<String> Resultado = new ArrayList<String>();
+		List<Curso> cursosEstado2 = new ArrayList<Curso>();
+		List<Curso> cursosEstado1 = new ArrayList<Curso>();
+		
+		cursosEstado1 = this.buscaCurso(codCurso, estado1);
+		cursosEstado2 = this.buscaCurso(codCurso, estado2);
+		
+		media = this.fazMediaConceitoEnade(cursosEstado1);
+		
+		Resultado.add(String.format("media do estado %s e %f",estado1, media ));
+		
+		media = this.fazMediaConceitoEnade(cursosEstado2);
+		
+		Resultado.add(String.format("media do estado %s e %f",estado2,media ));
+		
+		return Resultado;
+	}
+	
+	private float fazMediaConceitoEnade(List<Curso> cursos){
+		float media=0;
+		int cont;
+		for(cont = 0;cont < cursos.size()-1;cont++){
+			media += cursos.get(cont).getConceitoEnade();	
+		}
+		
+		media = media/cont;
+		
+		return media;
 	}
 	
 	public int buscaCodCurso(String nomeCurso){

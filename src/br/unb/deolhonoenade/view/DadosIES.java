@@ -1,57 +1,71 @@
 package br.unb.deolhonoenade.view;
 
-import br.unb.deolhonoenade.R;
-import br.unb.deolhonoenade.R.id;
-import br.unb.deolhonoenade.R.layout;
-import br.unb.deolhonoenade.R.menu;
-import br.unb.deolhonoenade.R.string;
-import br.unb.deolhonoenade.view.RankingInicial.PlaceholderFragment;
-import android.app.Activity;
+import java.util.List;
+
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Fragment;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.Spinner;
+import android.widget.ListView;
 import android.widget.TextView;
+import br.unb.deolhonoenade.R;
+import br.unb.deolhonoenade.controller.ControllerCurso;
+import br.unb.deolhonoenade.controller.ControllerInstituicao;
 
-public class ComparacaoInicial extends Activity implements
+public class DadosIES extends Activity implements
 		ActionBar.OnNavigationListener {
 
+	/**
+	 * The serialization (saved instance state) Bundle key representing the
+	 * current dropdown position.
+	 */
 	private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
-	private String curso;
+	private ControllerCurso controller;
+	private int codIES;
+	private List<String> dados;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_comparacao_inicial);		
-		curso = getIntent().getExtras().getString("cursoSelecionado");
-		addListenerOnButtonBotaoEstado();
+		setContentView(R.layout.activity_dados_ies);
 		
-	}
-	
-	private void addListenerOnButtonBotaoEstado(){
-		Button compareEstado = (Button) findViewById(R.id.BotaoEstado);
-		compareEstado.setOnClickListener(new OnClickListener(){
-			
-			@Override
-	    	public void onClick(View v) {
-	    		Intent intent = new Intent(ComparacaoInicial.this, ComparacaoEstado.class);
-	    		intent.putExtra("cursoSelecionado", curso);
-	    		startActivity(intent);
-	    	}	
-		});
+		controller = new ControllerCurso(this);
+		codIES = Integer.parseInt(getIntent().getExtras().get("codIES").toString());
+		dados = getIntent().getExtras().getStringArrayList("dadosIes");
+		TextView nomeIES = (TextView) findViewById(R.id.nomeIES);
+		nomeIES.setText(dados.get(0));
 		
+		dados.remove(0);
+		
+		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_1, dados);
+		
+		ListView dadosIES = (ListView) findViewById(R.id.DadosIES);
+		
+		dadosIES.setAdapter(dataAdapter);
+/*
+		// Set up the action bar to show a dropdown list.
+		final ActionBar actionBar = getActionBar();
+		actionBar.setDisplayShowTitleEnabled(false);
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
+
+		// Set up the dropdown list navigation in the action bar.
+		actionBar.setListNavigationCallbacks(
+		// Specify a SpinnerAdapter to populate the dropdown list.
+				new ArrayAdapter<String>(actionBar.getThemedContext(),
+						android.R.layout.simple_list_item_1,
+						android.R.id.text1, new String[] {
+								getString(R.string.title_section1),
+								getString(R.string.title_section2),
+								getString(R.string.title_section3), }), this);*/
 	}
+
 	@Override
 	public void onRestoreInstanceState(Bundle savedInstanceState) {
 		// Restore the previously serialized current dropdown position.
@@ -60,7 +74,6 @@ public class ComparacaoInicial extends Activity implements
 					savedInstanceState.getInt(STATE_SELECTED_NAVIGATION_ITEM));
 		}
 	}
-	
 	/*
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
@@ -73,7 +86,7 @@ public class ComparacaoInicial extends Activity implements
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.comparacao_inicial, menu);
+		getMenuInflater().inflate(R.menu.dados_ie, menu);
 		return true;
 	}
 
@@ -127,8 +140,8 @@ public class ComparacaoInicial extends Activity implements
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(
-					R.layout.fragment_comparacao_inicial, container, false);
+			View rootView = inflater.inflate(R.layout.fragment_dados_ies,
+					container, false);
 			TextView textView = (TextView) rootView
 					.findViewById(R.id.section_label);
 			textView.setText(Integer.toString(getArguments().getInt(

@@ -46,8 +46,9 @@ public class RankingInicial extends Activity implements
 		
 		if(controller == null)
 		controller = new ControllerCurso(this);
-		
-		TextView cursoSelecionado = (TextView) findViewById(R.id.CursoEscolhido);
+
+		TextView cursoSelecionado = (TextView) findViewById(R.id.stringCurso);
+
 		
 		curso = getIntent().getExtras().getString("cursoSelecionado");
 		cursoSelecionado.setText(getIntent().getExtras().getString("cursoSelecionado"));

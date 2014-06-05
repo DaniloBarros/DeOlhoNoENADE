@@ -4,10 +4,11 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-     <instrumentation android:name="android.test.InstrumentationTestRunner"
-		android:targetPackage="br.unb.deolhonoenade"
-		android:label="Tests" />
-    
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:label="Tests"
+        android:targetPackage="br.unb.deolhonoenade" />
+
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="14" />
@@ -16,13 +17,12 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name" >
-
         <uses-library android:name="android.test.runner" />
 
         <activity
             android:name="br.unb.deolhonoenade.view.MainActivity"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Light.NoTitleBar" >
+            android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,22 +34,34 @@
             android:label="@string/title_activity_menu_inicial"
             android:theme="@android:style/Theme.DeviceDefault.Light" >
         </activity>
-        
         <activity
             android:name="br.unb.deolhonoenade.view.RankingInicial"
             android:label="@string/title_activity_ranking_inicial"
             android:theme="@android:style/Theme.DeviceDefault.Light" >
         </activity>
-        
         <activity
             android:name="br.unb.deolhonoenade.view.RankingResult"
             android:label="@string/title_activity_ranking_result"
             android:theme="@android:style/Theme.Light" >
         </activity>
-        
         <activity
             android:name="br.unb.deolhonoenade.view.ComparacaoInicial"
-            android:label="@string/title_activity_comparacao_inicial" >
+            android:label="@string/title_activity_comparacao_inicial"
+            android:theme="@android:style/Theme.DeviceDefault.Light" >
+        </activity>
+        <activity
+            android:name="br.unb.deolhonoenade.view.DadosIES"
+            android:label="@string/title_activity_dados_ies"
+            android:theme="@android:style/Theme.DeviceDefault.Light" >
+        </activity>
+        <activity
+            android:name="br.unb.deolhonoenade.view.ComparacaoEstado"
+            android:label="@string/title_activity_comparacao_estado"
+            android:theme="@android:style/Theme.DeviceDefault.Light" >
+        </activity>
+        <activity
+            android:name="br.unb.deolhonoenade.view.ComparacaoResult"
+            android:label="@string/title_activity_comparacao_result" >
         </activity>
     </application>
 

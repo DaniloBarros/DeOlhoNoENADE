@@ -336,5 +336,36 @@ public class TestControllerCurso extends AndroidTestCase {
 		cursos = controller.buscaStringCurso(1, "TO", 2);
 		Assert.assertEquals(cursosT, cursos);
 	}
+	public void testCodIESDoArrayCursos() {
+
+		ControllerCurso controller = new ControllerCurso(getContext());
+
+		controller.buscaCurso(2, "DF");
+		Assert.assertEquals(2, controller.getCodIESDoArrayCursos(0));
+
+	}
+
+	public void testDadosIES() {
+
+		ControllerCurso controller = new ControllerCurso(getContext());
+		Instituicao ies = controller.buscaInstituicao(1);
+		List<String> dadosIES = controller.getDadosIES(1);
+
+		Assert.assertEquals(dadosIES.get(0), ies.getNome());
+		Assert.assertEquals(dadosIES.get(1), ies.getOrganizacaoAcademica());
+		Assert.assertEquals(dadosIES.get(2), ies.getTipo());
+	}
+	
+	public void comparaEstado(){
+		ControllerCurso controller = new ControllerCurso(getContext());
+		
+		String estado1="DF", estado2="AM";
+		
+		
+		assertEquals(controller.comparaEstado(estado1, estado2, 1).get(0),"media do estado DF e 1,902917");
+		
+
+	}
+	
 
 }

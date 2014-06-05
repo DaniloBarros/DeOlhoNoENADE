@@ -43,6 +43,21 @@ public class ControllerCurso {
 		return instituicao;
 	}
 	
+	public List<String> getDadosIES (int posicao) {
+		List<String> dados = new ArrayList<String>();
+		
+		dados.add(cursos.get(posicao).getIES().getNome());
+		dados.add(cursos.get(posicao).getIES().getOrganizacaoAcademica());
+		dados.add(cursos.get(posicao).getIES().getTipo());
+		dados.add(cursos.get(posicao).getMunicipio());
+		dados.add(String.format("%d", cursos.get(posicao).getNumEstudantesInscritos()) );
+	    dados.add(String.format("%d", cursos.get(posicao).getNumEstudantes()) );
+	    
+		return dados;
+		
+	}
+	
+	/*
 	public List<String> getDadosIES (int codIES) {
 		List<String> dados = new ArrayList<String>();
 				
@@ -55,7 +70,7 @@ public class ControllerCurso {
 
 		return dados;
 		
-	}
+	}*/
 	
 	public List<String> comparaEstado(String estado1,String estado2,int codCurso) {
 		float media = 0;

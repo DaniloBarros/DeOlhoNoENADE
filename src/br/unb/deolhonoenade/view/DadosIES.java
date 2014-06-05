@@ -37,7 +37,7 @@ public class DadosIES extends Activity implements
 		
 		controller = new ControllerCurso(this);
 		codIES = Integer.parseInt(getIntent().getExtras().get("codIES").toString());
-		dados = this.controller.getDadosIES(codIES);
+		dados = getIntent().getExtras().getStringArrayList("dadosIes");
 		TextView nomeIES = (TextView) findViewById(R.id.nomeIES);
 		nomeIES.setText(dados.get(0));
 		

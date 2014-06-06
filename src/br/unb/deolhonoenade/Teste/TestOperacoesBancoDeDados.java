@@ -326,12 +326,97 @@ public class TestOperacoesBancoDeDados extends AndroidTestCase {
 		Assert.assertEquals(ufsT, ufs);
 	}
 
-	public void testGetTipoMunicipio() {
-		// fail("Not yet implemented");
+	/*
+	 * Teste deve retornar os tipos 'Ambas, PRIVADA e Publica' pois na cidade
+	 * Brasilia existem os dois tipos de instituicoes que oferecem o curso de
+	 * ADMINISTRACAO
+	 */
+	public void testGetTipoMunicipioForAllTypes() {
+		ImportarBancoDeDados bdados = new ImportarBancoDeDados(getContext());
+		SQLiteDatabase database = bdados.openDataBase();
+		opBD = new OperacoesBancoDeDados(database);
+		
+		List<String> tiposT = new ArrayList<String>();
+		List<String> tipos = new ArrayList<String>();
+		
+		String tipo1 = new String("Ambas");
+		String tipo2 = new String("PRIVADA");
+		String tipo3 = new String("PUBLICA");
+
+		tiposT.add(tipo1);
+		tiposT.add(tipo2);
+		tiposT.add(tipo3);
+		
+		tipos = opBD.getTipoMunicipio(1, "BRASILIA");
+		Assert.assertEquals(tiposT, tipos);
+	}
+	
+	/*
+	 * Teste deve retornar somente o tipo 'PRIVADA' pois na cidade
+	 * RIO BRANCO existe somente o tipo de instituição PRIVADA que oferece 
+	 * o curso de ADMINISTRACAO
+	 */
+	public void testGetTipoMunicipioForTypePrivada() {
+		ImportarBancoDeDados bdados = new ImportarBancoDeDados(getContext());
+		SQLiteDatabase database = bdados.openDataBase();
+		opBD = new OperacoesBancoDeDados(database);
+		
+		List<String> tiposT = new ArrayList<String>();
+		List<String> tipos = new ArrayList<String>();
+		
+		String tipo1 = new String("PRIVADA");
+		
+		tiposT.add(tipo1);
+		
+		tipos = opBD.getTipoMunicipio(1, "RIO BRANCO");
+		Assert.assertEquals(tiposT, tipos);
 	}
 
-	public void testGetTipoEstado() {
-		// fail("Not yet implemented");
+	/*
+	 * Teste deve retornar os tipos 'Ambas, PRIVADA e Publica' pois no estado
+	 * DF existem os dois tipos de instituicoes que oferecem o curso de
+	 * ADMINISTRACAO
+	 */
+	public void testGetTipoEstadoForAllTypes() {
+		ImportarBancoDeDados bdados = new ImportarBancoDeDados(getContext());
+		SQLiteDatabase database = bdados.openDataBase();
+		opBD = new OperacoesBancoDeDados(database);
+		
+		List<String> tiposT = new ArrayList<String>();
+		List<String> tipos = new ArrayList<String>();
+		
+		String tipo1 = new String("Ambas");
+		String tipo2 = new String("PRIVADA");
+		String tipo3 = new String("PUBLICA");
+
+		tiposT.add(tipo1);
+		tiposT.add(tipo2);
+		tiposT.add(tipo3);
+		
+		tipos = opBD.getTipoEstado(1, "DF");
+		Assert.assertEquals(tiposT, tipos);
+	}
+	
+	/*
+	 * Teste deve retornar somente o tipo 'PRIVADA' pois no estado AC existe 
+	 * somente o tipo de instituição PRIVADA que oferece 
+	 * o curso de ADMINISTRACAO
+	 */
+	public void testGetTipoEstadoForTypePrivada() {
+		ImportarBancoDeDados bdados = new ImportarBancoDeDados(getContext());
+		SQLiteDatabase database = bdados.openDataBase();
+		opBD = new OperacoesBancoDeDados(database);
+		
+		List<String> tiposT = new ArrayList<String>();
+		List<String> tipos = new ArrayList<String>();
+		
+		String tipo1 = new String("PRIVADA");
+		
+		tiposT.add(tipo1);
+
+		
+		tipos = opBD.getTipoEstado(1, "AC");
+		Assert.assertEquals(tiposT, tipos);
 	}
 
 }

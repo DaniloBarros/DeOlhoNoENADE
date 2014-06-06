@@ -13,6 +13,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.test.AndroidTestCase;
 
 public class TestOperacoesBancoDeDados extends AndroidTestCase {
+	private OperacoesBancoDeDados opBD;
+	private ControllerCurso controller;
 
 	public TestOperacoesBancoDeDados() {
 		super();
@@ -27,139 +29,309 @@ public class TestOperacoesBancoDeDados extends AndroidTestCase {
 	}
 
 	public void testOperacoesBancoDeDados() {
-		fail("Not yet implemented");
+		// fail("Not yet implemented");
 	}
 
 	public void testGetCursosIntString() {
-		
-		SQLiteDatabase db;
-		OperacoesBancoDeDados opBD;
-		
 		ImportarBancoDeDados bdados = new ImportarBancoDeDados(getContext());
-		
+
 		SQLiteDatabase database = bdados.openDataBase();
-		
+
 		opBD = new OperacoesBancoDeDados(database);
-		
-		db=database;
-		
+
 		ArrayList<Curso> cursosT = new ArrayList<Curso>();
 		ArrayList<Curso> cursos = new ArrayList<Curso>();
-		
-		Instituicao ies1 = new Instituicao("FACULDADE BARAO DO RIO BRANCO", "FACULDADES", "PRIVADA", 2132);
-		Instituicao ies2 = new Instituicao("FACULDDE DA AMAZONIA OCIDENTAL", "FACULDADES", "PRIVADA", 2343);
-		Instituicao ies3 = new Instituicao("FACULDADE DE DESENVOLVIMENTO SUSTENTAVEL DE CRUZEIRO DO SUL", "FACULDADES", "PRIVADA", 2072);
-		
-		Curso curso1 = new Curso(1, 2072, "ADMINISTRACAO", 29, 26, "CRUZEIRO DO SUL", (float)0.785, "AC", ies3);
-		Curso curso2 = new Curso(1, 2132, "ADMINISTRACAO", 147, 125, "RIO BRANCO", (float)1.605, "AC", ies1);
-		Curso curso3 = new Curso(1, 2343, "ADMINISTRACAO", 49, 48, "RIO BRANCO", (float)1.432, "AC", ies2);
-		
+
+		Instituicao ies1 = new Instituicao("FACULDADE BARAO DO RIO BRANCO",
+				"FACULDADES", "PRIVADA", 2132);
+		Instituicao ies2 = new Instituicao("FACULDDE DA AMAZONIA OCIDENTAL",
+				"FACULDADES", "PRIVADA", 2343);
+		Instituicao ies3 = new Instituicao(
+				"FACULDADE DE DESENVOLVIMENTO SUSTENTAVEL DE CRUZEIRO DO SUL",
+				"FACULDADES", "PRIVADA", 2072);
+
+		Curso curso1 = new Curso(1, 2072, "ADMINISTRACAO", 29, 26,
+				"CRUZEIRO DO SUL", (float) 0.785, "AC", ies3);
+		Curso curso2 = new Curso(1, 2132, "ADMINISTRACAO", 147, 125,
+				"RIO BRANCO", (float) 1.605, "AC", ies1);
+		Curso curso3 = new Curso(1, 2343, "ADMINISTRACAO", 49, 48,
+				"RIO BRANCO", (float) 1.432, "AC", ies2);
+
 		cursosT.add(curso2);
 		cursosT.add(curso3);
 		cursosT.add(curso1);
-		
+
 		cursos = opBD.getCursos(1, "AC");
-		
-		Assert.assertEquals(cursosT.get(0).getConceitoEnade(), cursos.get(0).getConceitoEnade());
+
+		Assert.assertEquals(cursosT.get(0).getConceitoEnade(), cursos.get(0)
+				.getConceitoEnade());
 		Assert.assertEquals(cursosT.get(0).getId(), cursos.get(0).getId());
-		Assert.assertEquals(cursosT.get(0).getId_ies(), cursos.get(0).getId_ies());
-		Assert.assertEquals(cursosT.get(0).getNumEstudantes(), cursos.get(0).getNumEstudantes());
-		
-		Assert.assertEquals(cursosT.get(1).getConceitoEnade(), cursos.get(1).getConceitoEnade());
+		Assert.assertEquals(cursosT.get(0).getId_ies(), cursos.get(0)
+				.getId_ies());
+		Assert.assertEquals(cursosT.get(0).getNumEstudantes(), cursos.get(0)
+				.getNumEstudantes());
+
+		Assert.assertEquals(cursosT.get(1).getConceitoEnade(), cursos.get(1)
+				.getConceitoEnade());
 		Assert.assertEquals(cursosT.get(1).getId(), cursos.get(1).getId());
-		Assert.assertEquals(cursosT.get(1).getId_ies(), cursos.get(1).getId_ies());
-		Assert.assertEquals(cursosT.get(1).getNumEstudantes(), cursos.get(1).getNumEstudantes());
-		
-		Assert.assertEquals(cursosT.get(2).getConceitoEnade(), cursos.get(2).getConceitoEnade());
+		Assert.assertEquals(cursosT.get(1).getId_ies(), cursos.get(1)
+				.getId_ies());
+		Assert.assertEquals(cursosT.get(1).getNumEstudantes(), cursos.get(1)
+				.getNumEstudantes());
+
+		Assert.assertEquals(cursosT.get(2).getConceitoEnade(), cursos.get(2)
+				.getConceitoEnade());
 		Assert.assertEquals(cursosT.get(2).getId(), cursos.get(2).getId());
-		Assert.assertEquals(cursosT.get(2).getId_ies(), cursos.get(2).getId_ies());
-		Assert.assertEquals(cursosT.get(2).getNumEstudantes(), cursos.get(2).getNumEstudantes());
-		
+		Assert.assertEquals(cursosT.get(2).getId_ies(), cursos.get(2)
+				.getId_ies());
+		Assert.assertEquals(cursosT.get(2).getNumEstudantes(), cursos.get(2)
+				.getNumEstudantes());
 
 	}
 
 	public void testGetIES() {
-		fail("Not yet implemented");
+		controller = new ControllerCurso(getContext());
+		opBD = new OperacoesBancoDeDados(controller.getDatabase());
+
+		Instituicao ies = new Instituicao(
+				"UNIVERSIDADE FEDERAL DE MATO GROSSO", "UNIVERSIDADES",
+				"PUBLICA", 1);
+		assertEquals(opBD.getIES(1).getNome(), ies.getNome());
+		assertEquals(opBD.getIES(1).getOrganizacaoAcademica(),
+				ies.getOrganizacaoAcademica());
+		assertEquals(opBD.getIES(1).getTipo(), ies.getTipo());
 	}
 
 	public void testGetCursosIntStringString() {
-		SQLiteDatabase db;
-		OperacoesBancoDeDados opBD;
-		
 		ImportarBancoDeDados bdados = new ImportarBancoDeDados(getContext());
-		
+
 		SQLiteDatabase database = bdados.openDataBase();
-		
+
 		opBD = new OperacoesBancoDeDados(database);
-		
-		db=database;
-		
+
 		ArrayList<Curso> cursosT = new ArrayList<Curso>();
 		ArrayList<Curso> cursos = new ArrayList<Curso>();
-		
-		Instituicao ies3 = new Instituicao("FACULDADE DE DESENVOLVIMENTO SUSTENTAVEL DE CRUZEIRO DO SUL", "FACULDADES", "PRIVADA", 2072);
-		
-		Curso curso1 = new Curso(1, 2072, "ADMINISTRACAO", 29, 26, "CRUZEIRO DO SUL", (float)0.785, "AC", ies3);
-		
+
+		Instituicao ies3 = new Instituicao(
+				"FACULDADE DE DESENVOLVIMENTO SUSTENTAVEL DE CRUZEIRO DO SUL",
+				"FACULDADES", "PRIVADA", 2072);
+
+		Curso curso1 = new Curso(1, 2072, "ADMINISTRACAO", 29, 26,
+				"CRUZEIRO DO SUL", (float) 0.785, "AC", ies3);
+
 		cursosT.add(curso1);
-		
-		
+
 		cursos = opBD.getCursos(1, "AC", "CRUZEIRO DO SUL");
-		
-		Assert.assertEquals(cursosT.get(0).getConceitoEnade(), cursos.get(0).getConceitoEnade());
+
+		Assert.assertEquals(cursosT.get(0).getConceitoEnade(), cursos.get(0)
+				.getConceitoEnade());
 		Assert.assertEquals(cursosT.get(0).getId(), cursos.get(0).getId());
-		Assert.assertEquals(cursosT.get(0).getId_ies(), cursos.get(0).getId_ies());
-		Assert.assertEquals(cursosT.get(0).getNumEstudantes(), cursos.get(0).getNumEstudantes());
-				
+		Assert.assertEquals(cursosT.get(0).getId_ies(), cursos.get(0)
+				.getId_ies());
+		Assert.assertEquals(cursosT.get(0).getNumEstudantes(), cursos.get(0)
+				.getNumEstudantes());
+
 	}
 
 	public void testGetCursosIntStringStringString() {
-		//SQLiteDatabase db;
-		OperacoesBancoDeDados opBD;
-		
 		ImportarBancoDeDados bdados = new ImportarBancoDeDados(getContext());
-		
+
 		SQLiteDatabase database = bdados.openDataBase();
-		opBD = new OperacoesBancoDeDados(database);		
-		//db=database;
-		
+		opBD = new OperacoesBancoDeDados(database);
+
 		ArrayList<Curso> cursosT = new ArrayList<Curso>();
 		ArrayList<Curso> cursos = new ArrayList<Curso>();
-		
-		Instituicao ies = new Instituicao("UNIVERSIDADE DE BRASILIA", "UNIVERSIDADES", "PUBLICA", 2);
-		Curso curso1 =  new Curso(1, 2, "ADMINISTRACAO", 141, 89, "BRASILIA", (float)3.735, "DF", ies);
-		
+
+		Instituicao ies = new Instituicao("UNIVERSIDADE DE BRASILIA",
+				"UNIVERSIDADES", "PUBLICA", 2);
+		Curso curso1 = new Curso(1, 2, "ADMINISTRACAO", 141, 89, "BRASILIA",
+				(float) 3.735, "DF", ies);
+
 		cursosT.add(curso1);
 		cursos = opBD.getCursos(1, "DF", "BRASILIA", "PUBLICA");
-			
-		Assert.assertEquals(cursosT.get(0).getConceitoEnade(), cursos.get(0).getConceitoEnade());
+
+		Assert.assertEquals(cursosT.get(0).getConceitoEnade(), cursos.get(0)
+				.getConceitoEnade());
 		Assert.assertEquals(cursosT.get(0).getId(), cursos.get(0).getId());
-		Assert.assertEquals(cursosT.get(0).getId_ies(), cursos.get(0).getId_ies());
-		Assert.assertEquals(cursosT.get(0).getNumEstudantes(), cursos.get(0).getNumEstudantes());		
+		Assert.assertEquals(cursosT.get(0).getId_ies(), cursos.get(0)
+				.getId_ies());
+		Assert.assertEquals(cursosT.get(0).getNumEstudantes(), cursos.get(0)
+				.getNumEstudantes());
 	}
 
-	public void testGetCursosIntStringInt() {
-		fail("Not yet implemented");
+	public void testGetCursosIntStringIntForPrivadas() {
+		ImportarBancoDeDados bdados = new ImportarBancoDeDados(getContext());
+
+		ArrayList<Curso> cursosT = new ArrayList<Curso>();
+		ArrayList<Curso> cursos = new ArrayList<Curso>();
+
+		SQLiteDatabase database = bdados.openDataBase();
+		opBD = new OperacoesBancoDeDados(database);
+
+		Curso curso1 = new Curso(1, 2132, "ADMINISTRACAO", 147, 125,
+				"RIO BRANCO", (float) 1.605, "AC", null);
+		Curso curso2 = new Curso(1, 2343, "ADMINISTRACAO", 49, 48,
+				"RIO BRANCO", (float) 1.432, "AC", null);
+		Curso curso3 = new Curso(1, 2072, "ADMINISTRACAO", 29, 26,
+				"CRUZEIRO DO SUL", (float) 0.785, "AC", null);
+
+		cursosT.add(curso1);
+		cursosT.add(curso2);
+		cursosT.add(curso3);
+
+		cursos = opBD.getCursos(1, "AC", 1);
+
+		// compara curso1
+		Assert.assertEquals(cursosT.get(0).getConceitoEnade(), cursos.get(0)
+				.getConceitoEnade());
+		Assert.assertEquals(cursosT.get(0).getId(), cursos.get(0).getId());
+		Assert.assertEquals(cursosT.get(0).getId_ies(), cursos.get(0)
+				.getId_ies());
+		Assert.assertEquals(cursosT.get(0).getNumEstudantes(), cursos.get(0)
+				.getNumEstudantes());
+
+		// compara curso2
+		Assert.assertEquals(cursosT.get(1).getConceitoEnade(), cursos.get(1)
+				.getConceitoEnade());
+		Assert.assertEquals(cursosT.get(1).getId(), cursos.get(1).getId());
+		Assert.assertEquals(cursosT.get(1).getId_ies(), cursos.get(1)
+				.getId_ies());
+		Assert.assertEquals(cursosT.get(1).getNumEstudantes(), cursos.get(1)
+				.getNumEstudantes());
+
+		// compara curso3
+		Assert.assertEquals(cursosT.get(2).getConceitoEnade(), cursos.get(2)
+				.getConceitoEnade());
+		Assert.assertEquals(cursosT.get(2).getId(), cursos.get(2).getId());
+		Assert.assertEquals(cursosT.get(2).getId_ies(), cursos.get(2)
+				.getId_ies());
+		Assert.assertEquals(cursosT.get(2).getNumEstudantes(), cursos.get(2)
+				.getNumEstudantes());
+	}
+
+	public void testGetCursosIntStringIntForPublicas() {
+		ImportarBancoDeDados bdados = new ImportarBancoDeDados(getContext());
+
+		ArrayList<Curso> cursosT = new ArrayList<Curso>();
+		ArrayList<Curso> cursos = new ArrayList<Curso>();
+
+		SQLiteDatabase database = bdados.openDataBase();
+		opBD = new OperacoesBancoDeDados(database);
+
+		Curso curso1 = new Curso(2, 549, "DIREITO", 64, 47, "RIO BRANCO",
+				(float) 3.398, "AC", null);
+
+		cursosT.add(curso1);
+
+		cursos = opBD.getCursos(2, "AC", 2);
+
+		Assert.assertEquals(cursosT.get(0).getConceitoEnade(), cursos.get(0)
+				.getConceitoEnade());
+		Assert.assertEquals(cursosT.get(0).getId(), cursos.get(0).getId());
+		Assert.assertEquals(cursosT.get(0).getId_ies(), cursos.get(0)
+				.getId_ies());
+		Assert.assertEquals(cursosT.get(0).getNumEstudantes(), cursos.get(0)
+				.getNumEstudantes());
 	}
 
 	public void testGetCidades() {
-		fail("Not yet implemented");
+		ImportarBancoDeDados bdados = new ImportarBancoDeDados(getContext());
+		SQLiteDatabase database = bdados.openDataBase();
+		opBD = new OperacoesBancoDeDados(database);
+		
+		List<String> cidadesT = new ArrayList<String>();
+		List<String> cidades = new ArrayList<String>();
+		
+		String cidade1 = new String("Todas");
+		String cidade2 = new String("CRUZEIRO DO SUL");
+		String cidade3 = new String("RIO BRANCO");
+		
+		cidadesT.add(cidade1);
+		cidadesT.add(cidade2);
+		cidadesT.add(cidade3);
+		
+		cidades = opBD.getCidades(1, "AC");
+		Assert.assertEquals(cidadesT, cidades);
 	}
 
 	public void testGetCodCurso() {
-		fail("Not yet implemented");
+		ImportarBancoDeDados bdados = new ImportarBancoDeDados(getContext());
+		SQLiteDatabase database = bdados.openDataBase();
+		opBD = new OperacoesBancoDeDados(database);
+		
+		int codCurso;
+
+		codCurso = opBD.getCodCurso("ADMINISTRACAO");
+		Assert.assertEquals(1, codCurso);
 	}
 
 	public void testGetUfs() {
-		fail("Not yet implemented");
+		ImportarBancoDeDados bdados = new ImportarBancoDeDados(getContext());
+		SQLiteDatabase database = bdados.openDataBase();
+		opBD = new OperacoesBancoDeDados(database);
+		
+		List<String> ufsT = new ArrayList<String>();
+		List<String> ufs = new ArrayList<String>();
+
+		String uf1 = new String("AL");
+		String uf2 = new String("AM");
+		String uf3 = new String("AP");
+		String uf4 = new String("BA");
+		String uf5 = new String("CE");
+		String uf6 = new String("DF");
+		String uf7 = new String("GO");
+		String uf8 = new String("MA");
+		String uf9 = new String("MG");
+		String uf10 = new String("MS");
+		String uf11 = new String("MT");
+		String uf12 = new String("PA");
+		String uf13 = new String("PB");
+		String uf14 = new String("PE");
+		String uf15 = new String("PI");
+		String uf16 = new String("PR");
+		String uf17 = new String("RJ");
+		String uf18 = new String("RN");
+		String uf19 = new String("RR");
+		String uf20 = new String("RS");
+		String uf21 = new String("SC");
+		String uf22 = new String("SE");
+		String uf23 = new String("SP");
+
+		ufsT.add(uf1);
+		ufsT.add(uf2);
+		ufsT.add(uf3);
+		ufsT.add(uf4);
+		ufsT.add(uf5);
+		ufsT.add(uf6);
+		ufsT.add(uf7);
+		ufsT.add(uf8);
+		ufsT.add(uf9);
+		ufsT.add(uf10);
+		ufsT.add(uf11);
+		ufsT.add(uf12);
+		ufsT.add(uf13);
+		ufsT.add(uf14);
+		ufsT.add(uf15);
+		ufsT.add(uf16);
+		ufsT.add(uf17);
+		ufsT.add(uf18);
+		ufsT.add(uf19);
+		ufsT.add(uf20);
+		ufsT.add(uf21);
+		ufsT.add(uf22);
+		ufsT.add(uf23);
+
+		ufs = opBD.getUfs(67);
+		
+		Assert.assertEquals(ufsT, ufs);
 	}
 
 	public void testGetTipoMunicipio() {
-		fail("Not yet implemented");
+		// fail("Not yet implemented");
 	}
 
 	public void testGetTipoEstado() {
-		fail("Not yet implemented");
+		// fail("Not yet implemented");
 	}
 
 }

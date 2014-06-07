@@ -76,6 +76,10 @@
             android:label="@string/title_activity_comparacao_instituicao_final" >
         </activity>
         <activity
+            android:name="br.unb.deolhonoenade.view.ComparacaoResultIES"
+            android:label="@string/title_activity_comparacao_result_ies" >
+		</activity>
+		<activity
             android:name="br.unb.deolhonoenade.view.ComparacaoCidades"
             android:label="@string/title_activity_comparacao_cidades" >
         </activity>

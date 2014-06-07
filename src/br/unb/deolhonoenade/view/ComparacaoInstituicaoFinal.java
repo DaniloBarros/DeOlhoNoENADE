@@ -23,6 +23,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.os.Build;
 
 public class ComparacaoInstituicaoFinal extends Activity {
@@ -38,17 +39,22 @@ public class ComparacaoInstituicaoFinal extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_comparacao_instituicao_final);
+		this.controller = new ControllerCurso(this);		
+		
+		TextView cursoSelecionado = (TextView) findViewById(R.id.cursoSelecionado);
+		cursoSelecionado.setText(getIntent().getExtras().getString("cursoSelecionado"));
 		
 		codCurso = getIntent().getExtras().getInt("codCurso");
-		dados = getIntent().getExtras().getStringArrayList("dados");
+		dados = getIntent().getExtras().getStringArrayList("dadosIes");
 		
 		addItensOnSpinnerEstado(codCurso);
+		addListenerOnButtonBuscar();
 		
 	}
 	
 private void addItensOnSpinnerEstado(int codCurso) {
 		
-		spinnerEstados = (Spinner) findViewById(R.id.SpinnerEstados);
+		spinnerEstados = (Spinner) findViewById(R.id.estados);
 		List<String> list = new ArrayList<String>();
 		
 		list = controller.buscaUf(codCurso);
@@ -63,12 +69,10 @@ private void addItensOnSpinnerEstado(int codCurso) {
 					
 					@Override
 					public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
-						// Pega o nome pela posicao
+					
 						estado = parent.getItemAtPosition(posicao).toString();
-						// Imprime um Toast na tela com o nome que foi selecionado
 						
 						addItensOnSpinnerMunicipio(estado);
-						
 					}
 					
 					
@@ -80,7 +84,7 @@ private void addItensOnSpinnerEstado(int codCurso) {
 	
 	private void addItensOnSpinnerMunicipio(String uf) {
 		
-		this.spinnerCidades = (Spinner) findViewById(R.id.spinnerCidade);
+		this.spinnerCidades = (Spinner) findViewById(R.id.cidades);
 		List<String> list;
 		list = controller.buscaCidades(codCurso, uf);
 		
@@ -111,7 +115,7 @@ private void addItensOnSpinnerEstado(int codCurso) {
 	
 	private void addItensOnSpinnerIES(String estado, String municipio) {
 		List<String> cursos = controller.buscaStringCurso(codCurso, estado, municipio);
-		
+		this.spinnerIES = (Spinner) findViewById(R.id.spinnerIES);
 						
 			ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
 					android.R.layout.simple_spinner_item, cursos);
@@ -123,7 +127,8 @@ private void addItensOnSpinnerEstado(int codCurso) {
 					@Override
 					public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
 						
-						dados = controller.getDadosIES(posicao);
+						dados2 = controller.getDadosIES(posicao);
+						dados2.add(String.format("%.2f",controller.getConceitoDoArrayCursos(posicao)));
 						
 					}
 		 
@@ -136,15 +141,15 @@ private void addItensOnSpinnerEstado(int codCurso) {
 
 	private void addListenerOnButtonBuscar() {
 
-				Button comparar = (Button) findViewById(R.id.ies1);
+				Button comparar = (Button) findViewById(R.id.Comparar);
 				comparar.setOnClickListener (new OnClickListener(){
 					
 					@Override
 			    	public void onClick(View v) {
-						Intent result =  new Intent(ComparacaoInstituicaoFinal.this, ComparacaoInstituicaoFinal.class);
+						Intent result =  new Intent(ComparacaoInstituicaoFinal.this, ComparacaoResultIES.class);
 						result.putStringArrayListExtra("dadosIes1", (ArrayList<String>) dados);
 						result.putStringArrayListExtra("dadosIes2", (ArrayList<String>) dados2);
-
+						result.putExtra("CodCurso", codCurso);
 			    		startActivity(result);
 			    	}
 				});

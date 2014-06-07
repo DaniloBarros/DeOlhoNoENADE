@@ -3,7 +3,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="br.unb.deolhonoenade.view.ComparacaoInstituicao1"
+    tools:context="br.unb.deolhonoenade.view.ComparacaoInstituicao"
     tools:ignore="MergeRootFrame" >
 
     <TextView
@@ -53,7 +53,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Spinner
-        android:id="@+id/spinner1"
+        android:id="@+id/spinnerIES"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"

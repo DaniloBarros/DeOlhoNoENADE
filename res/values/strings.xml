@@ -13,6 +13,7 @@
     <string name="title_activity_ranking_result">Ranking - Resultado</string>
     <string name="button_Buscar">BUSCAR</string>
     <string name="button_Ranking">Ranking</string>
+    <string name="button_Comparacao">Comparar</string>
     <string name="text_Instituicao">Instituicao</string>
     <string name="text_Nota">Nota</string>
     <string name="text_Cidade">Escolha uma Cidade</string>
@@ -20,6 +21,10 @@
     <string name="text_Estado">Escolha um Estado</string>
     <string name="text_EscolhaCurso">ESCOLHA UM CURSO</string>
     <string name="text_EscolhaFuncao">ESCOLHA UMA FUNÇÃO</string>
+    <string name="text_Estado1">Escolha o primeiro Estado</string>
+    <string name="text_Estado2">Escolha o segundo Estado</string>
+    <string name="text_cidade1">Escolha a primeira Cidade</string>
+    <string name="text_cidade2">Escolha a segunda Cidade</string>
     <string name="title_activity_dados_ies">DadosIES</string>
     <string name="title_activity_comparacao_estado">ComparacaoEstado</string>
     <string name="hello_world">Hello world!</string>
@@ -27,5 +32,6 @@
     <string name="title_activity_comparacao_instituicao">ComparacaoInstituicao</string>
     <string name="title_activity_comparacao_instituicao_final">ComparacaoInstituicaoFinal</string>
     <string name="title_activity_comparacao_result_ies">ComparacaoResultIES</string>
+    <string name="title_activity_comparacao_cidades">ComparacaoCidades</string>
 
 </resources>

@@ -32,5 +32,6 @@
     <string name="title_activity_comparacao_instituicao">ComparacaoInstituicao</string>
     <string name="title_activity_comparacao_instituicao_final">ComparacaoInstituicaoFinal</string>
     <string name="title_activity_comparacao_cidades">ComparacaoCidades</string>
+    <string name="title_activity_comparacao_result_c">ComparacaoResultC</string>
 
 </resources>

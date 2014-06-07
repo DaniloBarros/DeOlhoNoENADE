@@ -5,16 +5,20 @@ import java.util.List;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import br.unb.deolhonoenade.ComparacaoResultC;
 import br.unb.deolhonoenade.R;
 import br.unb.deolhonoenade.R.id;
 import br.unb.deolhonoenade.R.layout;
@@ -49,6 +53,7 @@ public class ComparacaoCidades extends Activity {
 		this.codCurso = controller.buscaCodCurso(curso);
 		addItensOnSpinnerEstado1(codCurso);
 		addItensOnSpinnerEstado2(codCurso);
+		addListenerOnButtonComparar();
 		
 		
 	}
@@ -182,6 +187,20 @@ public class ComparacaoCidades extends Activity {
 		 
 					
 				});
+			
+		}
+		
+		private void addListenerOnButtonComparar() {
+			Button compareInstituicao = (Button) findViewById(R.id.buttonComparacaoCidades);
+			compareInstituicao.setOnClickListener(new OnClickListener(){
+				
+				@Override
+		    	public void onClick(View v) {
+		    		Intent intent = new Intent(ComparacaoCidades.this, ComparacaoResultC.class);
+		    		intent.putExtra("cursoSelecionado", curso);
+		    		startActivity(intent);
+		    	}	
+			});
 			
 		}
 		

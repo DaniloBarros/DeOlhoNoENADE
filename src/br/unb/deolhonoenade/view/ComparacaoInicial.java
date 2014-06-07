@@ -37,9 +37,24 @@ public class ComparacaoInicial extends Activity implements
 		curso = getIntent().getExtras().getString("cursoSelecionado");
 		addListenerOnButtonBotaoEstado();
 		addListenerOnButtonBotaoInstituicao();
+		addListenerOnButtonBotaoCidade();
 		
 	}
 	
+	private void addListenerOnButtonBotaoCidade() {
+		Button compareInstituicao = (Button) findViewById(R.id.BotaoCidades);
+		compareInstituicao.setOnClickListener(new OnClickListener(){
+			
+			@Override
+	    	public void onClick(View v) {
+	    		Intent intent = new Intent(ComparacaoInicial.this, ComparacaoCidades.class);
+	    		intent.putExtra("cursoSelecionado", curso);
+	    		startActivity(intent);
+	    	}	
+		});
+		
+	}
+
 	private void addListenerOnButtonBotaoInstituicao() {
 		Button compareInstituicao = (Button) findViewById(R.id.BotaoIES);
 		compareInstituicao.setOnClickListener(new OnClickListener(){

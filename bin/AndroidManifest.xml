@@ -63,6 +63,18 @@
             android:name="br.unb.deolhonoenade.view.ComparacaoResult"
             android:label="@string/title_activity_comparacao_result" >
         </activity>
+        <activity
+            android:name="br.unb.deolhonoenade.view.ComparacaoInstituicao"
+            android:label="@string/title_activity_comparacao_instituicao"
+            android:parentActivityName="br.unb.deolhonoenade.view.ComparacaoInicial" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="br.unb.deolhonoenade.view.ComparacaoInicial" />
+        </activity>
+        <activity
+            android:name="br.unb.deolhonoenade.view.ComparacaoInstituicaoFinal"
+            android:label="@string/title_activity_comparacao_instituicao_final" >
+        </activity>
     </application>
 
 </manifest>

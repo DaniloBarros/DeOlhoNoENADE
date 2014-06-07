@@ -79,6 +79,7 @@ public class MenuInicial extends Activity {
 	    	public void onClick(View v) {
 	    		Intent intent = new Intent(MenuInicial.this, RankingInicial.class);
 	    		intent.putExtra("cursoSelecionado", String.valueOf(spinner1.getSelectedItem()));
+	    		intent.putExtra("BoolComp", false);
 	    		startActivity(intent);
 	    	}
 		});

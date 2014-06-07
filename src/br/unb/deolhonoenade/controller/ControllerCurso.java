@@ -209,6 +209,21 @@ public class ControllerCurso {
 		
 		return cursos;
 	}
+	
+	public List<String> buscaStringCurso(String uf2, int codCurso2, String municipio2) {
+		
+		List<String> cursos = new ArrayList<String>();
+		List<Curso> listaCursos = new ArrayList<Curso>();
+		
+		listaCursos = this.buscaCurso(codCurso2, uf2, municipio2);
+		
+		for (int i = 0; i <listaCursos.size(); i++) {
+			cursos.add(listaCursos.get(i).getIES().getNome());
+					
+		}
+		
+		return cursos;
+	}
 
 	public List<String> buscaStringCurso(int codCurso, String uf, int tipoInt) {
 		List<String> cursos = new ArrayList<String>();

@@ -3,29 +3,28 @@
 
     <string name="app_name">DeOlhoNoENADE</string>
     <string name="action_settings">Configurações</string>
-    
     <string name="title_section1">Ranking</string>
     <string name="title_section2">Comparação</string>
     <string name="title_section3">Mapa Geral</string>
     <string name="title_activity_tela_inicial">TelaInicial</string>
     <string name="title_activity_menu_inicial">De Olho no ENADE</string>
-    <string name="title_activity_ranking_inicial">Ranking</string>
+    <string name="title_activity_ranking_inicial">Selecione As Opcoes</string>
     <string name="title_activity_comparacao_inicial">Comparacao</string>
     <string name="title_activity_ranking_result">Ranking - Resultado</string>
-    
-    <string name= "button_Buscar">BUSCAR</string>
-    <string name= "button_Ranking">Ranking</string>
-    
-    <string name= "text_Instituicao">Instituicao</string>
-    <string name= "text_Nota">Nota</string>
-    <string name= "text_Cidade">Escolha uma Cidade</string>
-    <string name= "text_Tipo">Tipo de Universidade</string>
-    <string name= "text_Estado">Escolha um Estado</string>
-    <string name= "text_EscolhaCurso">ESCOLHA UM CURSO</string>
-    <string name= "text_EscolhaFuncao">ESCOLHA UMA FUNÇÃO</string>
+    <string name="button_Buscar">BUSCAR</string>
+    <string name="button_Ranking">Ranking</string>
+    <string name="text_Instituicao">Instituicao</string>
+    <string name="text_Nota">Nota</string>
+    <string name="text_Cidade">Escolha uma Cidade</string>
+    <string name="text_Tipo">Tipo de Universidade</string>
+    <string name="text_Estado">Escolha um Estado</string>
+    <string name="text_EscolhaCurso">ESCOLHA UM CURSO</string>
+    <string name="text_EscolhaFuncao">ESCOLHA UMA FUNÇÃO</string>
     <string name="title_activity_dados_ies">DadosIES</string>
     <string name="title_activity_comparacao_estado">ComparacaoEstado</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_comparacao_result">ComparacaoResult</string>
-    
+    <string name="title_activity_comparacao_instituicao">ComparacaoInstituicao</string>
+    <string name="title_activity_comparacao_instituicao_final">ComparacaoInstituicaoFinal</string>
+
 </resources>

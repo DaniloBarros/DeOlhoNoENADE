@@ -272,7 +272,7 @@ public class OperacoesBancoDeDados {
 		
 		List<String> cidades = new ArrayList<String>();
 		
-		cidades.add("Todas");
+		//cidades.add("Todas");
 		
 		String codg_Curso = String.valueOf(codAreaCurso);
 		ufIES = ufIES.toUpperCase();

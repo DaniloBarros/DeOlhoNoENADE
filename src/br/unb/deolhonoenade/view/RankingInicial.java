@@ -39,18 +39,20 @@ public class RankingInicial extends Activity implements
 	private int codCurso;
 	private static ControllerCurso controller = null;
 	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_ranking_inicial);
 		
 		if(controller == null)
-		controller = new ControllerCurso(this);
+			controller = new ControllerCurso(this);
 
 		TextView cursoSelecionado = (TextView) findViewById(R.id.stringCurso);
 
 		
 		curso = getIntent().getExtras().getString("cursoSelecionado");
+		
 		cursoSelecionado.setText(getIntent().getExtras().getString("cursoSelecionado"));
 		
 		this.codCurso = controller.buscaCodCurso(curso);
@@ -97,30 +99,36 @@ public class RankingInicial extends Activity implements
 	}
 	
 	private void addItensOnSpinnerMunicipio(String uf) {
+		
 		this.spinnerCidades = (Spinner) findViewById(R.id.spinnerCidade);
 		List<String> list;
 		list = controller.buscaCidades(codCurso, uf);
 		
-		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, list);
-			dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		
+			list.add(0, "Todas");
 			
-			this.spinnerCidades.setAdapter(dataAdapter);
-			
-			this.spinnerCidades.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-				@Override
-				public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
-					
-					municipio = parent.getItemAtPosition(posicao).toString();
-					if(!municipio.equalsIgnoreCase("Todas")){
-						addItensOnSpinnerTipo(municipio);
+			ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+					android.R.layout.simple_spinner_item, list);
+				dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+				
+				this.spinnerCidades.setAdapter(dataAdapter);
+				
+				this.spinnerCidades.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+					@Override
+					public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
+						
+						municipio = parent.getItemAtPosition(posicao).toString();
+						if(!municipio.equalsIgnoreCase("Todas")){
+							addItensOnSpinnerTipo(municipio);
+						}
 					}
-				}
-	 
-				@Override
-				public void onNothingSelected(AdapterView<?> parent) {
-				}
-			});
+		 
+					@Override
+					public void onNothingSelected(AdapterView<?> parent) {
+					}
+				});
+		
+		 		
 		
 	}
 	
@@ -185,6 +193,7 @@ public class RankingInicial extends Activity implements
 	
 	private void addListenerOnButtonBuscar() {
 
+		
 		// Botao Buscar
 				Button buscar = (Button) findViewById(R.id.buscar);
 				buscar.setOnClickListener (new OnClickListener(){
@@ -202,6 +211,7 @@ public class RankingInicial extends Activity implements
 			    	}
 				});
 		
+			
 	}
 
 

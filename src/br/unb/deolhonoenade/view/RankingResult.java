@@ -30,6 +30,7 @@ public class RankingResult extends Activity implements
 	private int codIES;
 	private ControllerCurso controller;
 	private List<String> cursos;
+	private boolean comparacao;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +48,11 @@ public class RankingResult extends Activity implements
 		cursos = new ArrayList<String>();
 		
 		if(controller == null)
-		controller = new ControllerCurso(this);
+			controller = new ControllerCurso(this);
 		
 		curso = getIntent().getExtras().getString("CodigoCurso");
+		
+		comparacao = getIntent().getExtras().getBoolean("BoolComp");
 		
 		codCurso = controller.buscaCodCurso(curso);
 		
@@ -93,18 +96,12 @@ public class RankingResult extends Activity implements
 			
 			@Override
 			public void onItemClick(AdapterView<?> parent, View v, int posicao, long id){
-				Intent chamarDados = new Intent(RankingResult.this, DadosIES.class);
-				codIES = controller.getCodIESDoArrayCursos(posicao);
-				List<String> dados = controller.getDadosIES(posicao);
-				/*chamarDados.putExtra("NomeIes", dados.get(0));
-				chamarDados.putExtra("OrgIes", dados.get(1));
-				chamarDados.putExtra("TipoIes", dados.get(2));
-				chamarDados.putExtra("MunicipioIes", dados.get(3));
-				chamarDados.putExtra("NumInsIes", dados.get(4));
-				chamarDados.putExtra("NumEsIes", dados.get(5));*/
-				chamarDados.putStringArrayListExtra("dadosIes", (ArrayList<String>) dados);
-				chamarDados.putExtra("codIES", codIES);
-				startActivity(chamarDados);
+					Intent chamarDados = new Intent(RankingResult.this, DadosIES.class);
+					codIES = controller.getCodIESDoArrayCursos(posicao);
+					List<String> dados = controller.getDadosIES(posicao);
+					chamarDados.putStringArrayListExtra("dadosIes", (ArrayList<String>) dados);
+					chamarDados.putExtra("codIES", codIES);
+					startActivity(chamarDados);
 			}
 
 		});

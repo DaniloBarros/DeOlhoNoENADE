@@ -36,6 +36,10 @@ public class ControllerCurso {
 		return cursos.get(posicao).getIES().getCodIES();
 	}
 	
+	public float getConceitoDoArrayCursos(int posicao) {
+		return cursos.get(posicao).getConceitoEnade();
+	}
+	
 	public Instituicao buscaInstituicao(int codIES){
 		
 		this.instituicao = this.opBD.getIES(codIES);
@@ -57,20 +61,6 @@ public class ControllerCurso {
 		
 	}
 	
-	/*
-	public List<String> getDadosIES (int codIES) {
-		List<String> dados = new ArrayList<String>();
-				
-		IES = this.buscaInstituicao(codIES);
-		
-		dados.add(IES.getNome());
-		dados.add(IES.getOrganizacaoAcademica());
-		dados.add(IES.getTipo());
-//	    dados.add(Curso.getNumEstudantesInscritos());
-
-		return dados;
-		
-	}*/
 	
 	public List<String> comparaEstado(String estado1,String estado2,int codCurso) {
 		float media = 0;

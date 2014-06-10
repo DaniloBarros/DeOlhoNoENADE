@@ -106,11 +106,18 @@ public class ControllerCurso {
 	private float fazMediaConceitoEnade(List<Curso> cursos){
 		float media=0;
 		int cont;
-		for(cont = 0;cont < cursos.size()-1;cont++){
-			media += cursos.get(cont).getConceitoEnade();	
+		
+		if(cursos.size() == 1)
+		{
+			media = cursos.get(0).getConceitoEnade();
+		}else{
+			for(cont = 0;cont < cursos.size()-1;cont++){
+				media += cursos.get(cont).getConceitoEnade();	
+			}
+			
+			media = media/cont;
 		}
 		
-		media = media/cont;
 		
 		return media;
 	}

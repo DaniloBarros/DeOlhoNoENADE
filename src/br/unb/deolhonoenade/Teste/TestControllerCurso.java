@@ -396,5 +396,18 @@ public class TestControllerCurso extends AndroidTestCase {
 
 	}
 	
+	
+	public void comparacaoCidade(){
+ControllerCurso controller = new ControllerCurso(getContext());
+		
+		String cidade1="Campinas",estado1="SP";
+		String cidade2="Cuiaba",estado2="MT";
+		
+		
+		assertNotSame(controller.comparacaoCidade(1, estado1, cidade1, estado2, cidade2).get(0),"media da Cidade Campinas e 1,902917");
+		
+		
+	}
+	
 
 }

@@ -242,13 +242,13 @@ public class TestOperacoesBancoDeDados extends AndroidTestCase {
 		List<String> cidadesT = new ArrayList<String>();
 		List<String> cidades = new ArrayList<String>();
 		
-		String cidade1 = new String("Todas");
-		String cidade2 = new String("CRUZEIRO DO SUL");
-		String cidade3 = new String("RIO BRANCO");
+		
+		String cidade1 = new String("CRUZEIRO DO SUL");
+		String cidade2 = new String("RIO BRANCO");
+		
 		
 		cidadesT.add(cidade1);
 		cidadesT.add(cidade2);
-		cidadesT.add(cidade3);
 		
 		cidades = opBD.getCidades(1, "AC");
 		Assert.assertEquals(cidadesT, cidades);

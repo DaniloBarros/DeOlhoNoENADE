@@ -82,14 +82,42 @@ public class ControllerCurso {
 		return Resultado;
 	}
 	
+	public List<Float> comparacaoCidade(int codCurso, String estado1, String cidade1, String estado2, String cidade2)
+	{
+		float media = 0;
+		List<Float> Resultado = new ArrayList<Float>();
+		List<Curso> cursosCidade1 = new ArrayList<Curso>();
+		List<Curso> cursosCidade2 = new ArrayList<Curso>();
+		
+		cursosCidade1 = this.buscaCurso(codCurso, estado1, cidade1);
+		cursosCidade2 = this.buscaCurso(codCurso, estado2, cidade2);
+		
+		media = this.fazMediaConceitoEnade(cursosCidade1);
+		
+		Resultado.add(media);
+		
+		media = this.fazMediaConceitoEnade(cursosCidade2);
+		
+		Resultado.add(media);
+		
+		return Resultado;
+	}
+	
 	private float fazMediaConceitoEnade(List<Curso> cursos){
 		float media=0;
 		int cont;
-		for(cont = 0;cont < cursos.size()-1;cont++){
-			media += cursos.get(cont).getConceitoEnade();	
+		
+		if(cursos.size() == 1)
+		{
+			media = cursos.get(0).getConceitoEnade();
+		}else{
+			for(cont = 0;cont < cursos.size()-1;cont++){
+				media += cursos.get(cont).getConceitoEnade();	
+			}
+			
+			media = media/cont;
 		}
 		
-		media = media/cont;
 		
 		return media;
 	}
@@ -229,5 +257,7 @@ public class ControllerCurso {
 		
 		return cursos;
 	}
+
+	
 
 }

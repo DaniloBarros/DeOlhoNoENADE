@@ -78,10 +78,19 @@
         <activity
             android:name="br.unb.deolhonoenade.view.ComparacaoResultIES"
             android:label="@string/title_activity_comparacao_result_ies" >
-		</activity>
-		<activity
+        </activity>
+        <activity
             android:name="br.unb.deolhonoenade.view.ComparacaoCidades"
             android:label="@string/title_activity_comparacao_cidades" >
+        </activity>
+        <activity
+
+            android:name="br.unb.deolhonoenade.view.ComparacaoResultC"
+            android:label="@string/title_activity_comparacao_result_c" >
+
+            android:name="br.unb.deolhonoenade.ComparacaoResultCidade"
+            android:label="@string/title_activity_comparacao_result_cidade" >
+
         </activity>
     </application>
 

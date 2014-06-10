@@ -20,7 +20,7 @@
         android:id="@+id/estados"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/cursoSelecionado1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp" />
 
@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/cidade1"
         android:layout_marginTop="18dp" />
 
     <Spinner
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView3"
+        android:layout_below="@+id/estado2"
         android:layout_marginTop="15dp" />
 
     <Button
@@ -50,7 +50,7 @@
         android:text="Comparar" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/cursoSelecionado1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/cursoSelecionado"
@@ -60,7 +60,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/estado2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/cidades"
@@ -70,7 +70,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/cidade1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/estados"

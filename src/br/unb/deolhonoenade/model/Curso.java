@@ -1,6 +1,6 @@
 package br.unb.deolhonoenade.model;
 
-import br.unb.deolhonoenade.controller.GlossarioInstituicao;
+
 
 public class Curso {
 	

@@ -131,13 +131,13 @@ public class TestControllerCurso extends AndroidTestCase {
 		List<String> cidadesT = new ArrayList<String>();
 		List<String> cidades = new ArrayList<String>();
 		
-		String cidade1 = new String("Todas");
-		String cidade2 = new String("CRUZEIRO DO SUL");
-		String cidade3 = new String("RIO BRANCO");
+		
+		String cidade1 = new String("CRUZEIRO DO SUL");
+		String cidade2 = new String("RIO BRANCO");
 		
 		cidadesT.add(cidade1);
 		cidadesT.add(cidade2);
-		cidadesT.add(cidade3);
+		
 		
 		cidades = controller.buscaCidades(1, "AC");
 		Assert.assertEquals(cidadesT, cidades);
@@ -275,20 +275,20 @@ public class TestControllerCurso extends AndroidTestCase {
 		 		List<String> cursosT = new ArrayList<String>();
 		 		List<String> cursos = new ArrayList<String>();
 		 		
-		 		cursosT.add("FUNDACAO UNIVERSIDADE FEDERAL DO TOCANTINS - 2,468000");
-		 		cursosT.add("FACULDADE DE CIENCIAS HUMANAS, ECONOMICAS E DA SAUDE DE ARAGUAINA - 2,460000");
-		 		cursosT.add("FACULDADE DE ADMINISTRACAO DE EMPRESAS DE PARAISO DO TOCANTINS - 2,357000");
-		 		cursosT.add("CENTRO UNIVERSITARIO UNIRG - 2,290000");
-		 		cursosT.add("CENTRO UNIVERSITARIO LUTERANO DE PALMAS - 2,185000");
-		 		cursosT.add("INSTITUTO DE ENSINO E PESQUISA OBJETIVO - 2,185000");
-		 		cursosT.add("FACULDADE INTEGRADA DE ARAGUATINS - 2,103000");
-		 		cursosT.add("FACULDADE GUARAI - 2,014000");
-		 		cursosT.add("FACULDADE CATOLICA DOM ORIONE - 1,502000");
-		 		cursosT.add("FACULDADE SERRA DO CARMO - 1,443000");
-		 		cursosT.add("FACULDADE CATOLICA DO TOCANTINS - 1,433000");
-		 		cursosT.add("UNIVERSIDADE DO TOCANTINS - 1,366000");
-		 		cursosT.add("FACULDADE ITOP - 1,202000");
-		 		cursosT.add("FACULDADE SAO MARCOS - 0,209000");
+		 		cursosT.add("FUNDACAO UNIVERSIDADE FEDERAL DO TOCANTINS - 2.468000");
+		 		cursosT.add("FACULDADE DE CIENCIAS HUMANAS, ECONOMICAS E DA SAUDE DE ARAGUAINA - 2.460000");
+		 		cursosT.add("FACULDADE DE ADMINISTRACAO DE EMPRESAS DE PARAISO DO TOCANTINS - 2.357000");
+		 		cursosT.add("CENTRO UNIVERSITARIO UNIRG - 2.290000");
+		 		cursosT.add("CENTRO UNIVERSITARIO LUTERANO DE PALMAS - 2.185000");
+		 		cursosT.add("INSTITUTO DE ENSINO E PESQUISA OBJETIVO - 2.185000");
+		 		cursosT.add("FACULDADE INTEGRADA DE ARAGUATINS - 2.103000");
+		 		cursosT.add("FACULDADE GUARAI - 2.014000");
+		 		cursosT.add("FACULDADE CATOLICA DOM ORIONE - 1.502000");
+		 		cursosT.add("FACULDADE SERRA DO CARMO - 1.443000");
+		 		cursosT.add("FACULDADE CATOLICA DO TOCANTINS - 1.433000");
+		 		cursosT.add("UNIVERSIDADE DO TOCANTINS - 1.366000");
+		 		cursosT.add("FACULDADE ITOP - 1.202000");
+		 		cursosT.add("FACULDADE SAO MARCOS - 0.209000");
 		 		
 		 		cursos = controller.buscaStringCurso(1, "TO");
 		 		
@@ -303,8 +303,8 @@ public class TestControllerCurso extends AndroidTestCase {
 		List<String> cursosT = new ArrayList<String>();
 		List<String> cursos = new ArrayList<String>();
 		
-		cursosT.add("FUNDACAO UNIVERSIDADE FEDERAL DO TOCANTINS - 2,468000");
-		cursosT.add("UNIVERSIDADE DO TOCANTINS - 1,366000");
+		cursosT.add("FUNDACAO UNIVERSIDADE FEDERAL DO TOCANTINS - 2.468000");
+		cursosT.add("UNIVERSIDADE DO TOCANTINS - 1.366000");
 		
 		cursos = controller.buscaStringCurso(1, "TO", "PALMAS", "PUBLICA");
 		
@@ -318,13 +318,13 @@ public class TestControllerCurso extends AndroidTestCase {
 		List<String> cursosT = new ArrayList<String>();
 		List<String> cursos = new ArrayList<String>();
 		
-		cursosT.add("FUNDACAO UNIVERSIDADE FEDERAL DO TOCANTINS - 2,468000");
-		cursosT.add("CENTRO UNIVERSITARIO LUTERANO DE PALMAS - 2,185000");
-		cursosT.add("INSTITUTO DE ENSINO E PESQUISA OBJETIVO - 2,185000");
-		cursosT.add("FACULDADE SERRA DO CARMO - 1,443000");
-		cursosT.add("FACULDADE CATOLICA DO TOCANTINS - 1,433000");
-		cursosT.add("UNIVERSIDADE DO TOCANTINS - 1,366000");
-		cursosT.add("FACULDADE ITOP - 1,202000");
+		cursosT.add("FUNDACAO UNIVERSIDADE FEDERAL DO TOCANTINS - 2.468000");
+		cursosT.add("CENTRO UNIVERSITARIO LUTERANO DE PALMAS - 2.185000");
+		cursosT.add("INSTITUTO DE ENSINO E PESQUISA OBJETIVO - 2.185000");
+		cursosT.add("FACULDADE SERRA DO CARMO - 1.443000");
+		cursosT.add("FACULDADE CATOLICA DO TOCANTINS - 1.433000");
+		cursosT.add("UNIVERSIDADE DO TOCANTINS - 1.366000");
+		cursosT.add("FACULDADE ITOP - 1.202000");
 		
 		cursos = controller.buscaStringCurso(1, "TO", "PALMAS");
 		for(int i = 1; i < 7; i++){
@@ -337,11 +337,11 @@ public class TestControllerCurso extends AndroidTestCase {
 		List<String> cursosT = new ArrayList<String>();
 		List<String> cursos = new ArrayList<String>();
 		
-		cursosT.add("FUNDACAO UNIVERSIDADE FEDERAL DO TOCANTINS - 2,468000");
-		cursosT.add("CENTRO UNIVERSITARIO UNIRG - 2,290000");
-		cursosT.add("FACULDADE INTEGRADA DE ARAGUATINS - 2,103000");
-		cursosT.add("FACULDADE GUARAI - 2,014000");
-		cursosT.add("UNIVERSIDADE DO TOCANTINS - 1,366000");
+		cursosT.add("FUNDACAO UNIVERSIDADE FEDERAL DO TOCANTINS - 2.468000");
+		cursosT.add("CENTRO UNIVERSITARIO UNIRG - 2.290000");
+		cursosT.add("FACULDADE INTEGRADA DE ARAGUATINS - 2.103000");
+		cursosT.add("FACULDADE GUARAI - 2.014000");
+		cursosT.add("UNIVERSIDADE DO TOCANTINS - 1.366000");
 		
 		cursos = controller.buscaStringCurso(1, "TO", 2);
 		for(int i = 1; i < 5; i++){

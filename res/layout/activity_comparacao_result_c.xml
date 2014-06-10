@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
@@ -7,11 +7,62 @@
     tools:ignore="MergeRootFrame" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/cursoSelecionado1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Large Text"
+        android:layout_x="96dp"
+        android:layout_y="22dp"
+        android:text="Curso"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/nota1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="39dp"
+        android:layout_y="251dp"
+        android:text="nota1"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <TextView
+        android:id="@+id/cidade1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="42dp"
+        android:layout_y="181dp"
+        android:text="cidade1" />
+
+    <TextView
+        android:id="@+id/estado1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="43dp"
+        android:layout_y="146dp"
+        android:text="estado1" />
+
+    <TextView
+        android:id="@+id/cidade2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="204dp"
+        android:layout_y="180dp"
+        android:text="cidade2" />
+
+    <TextView
+        android:id="@+id/estado2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="202dp"
+        android:layout_y="146dp"
+        android:text="estado2" />
+
+    <TextView
+        android:id="@+id/nota2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_x="200dp"
+        android:layout_y="251dp"
+        android:text="nota2"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</AbsoluteLayout>

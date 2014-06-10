@@ -197,6 +197,10 @@ public class ComparacaoCidades extends Activity {
 		    	public void onClick(View v) {
 		    		Intent intent = new Intent(ComparacaoCidades.this, ComparacaoResultC.class);
 		    		intent.putExtra("cursoSelecionado", curso);
+		    		intent.putExtra("estado1", estado1);
+		    		intent.putExtra("estado2", estado2);
+		    		intent.putExtra("cidade1", cidade1);
+		    		intent.putExtra("cidade2", cidade2);
 		    		startActivity(intent);
 		    	}	
 			});

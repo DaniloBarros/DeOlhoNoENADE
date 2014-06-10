@@ -357,7 +357,17 @@ public class TestControllerCurso extends AndroidTestCase {
 		Assert.assertEquals(2, controller.getCodIESDoArrayCursos(0));
 
 	}
+	
+	public void testConceitoDoArrayCursos() {
 
+		ControllerCurso controller = new ControllerCurso(getContext());
+
+		controller.buscaCurso(2, "DF");
+ 		Assert.assertEquals((float)4.482, controller.getConceitoDoArrayCursos(0));
+
+	}
+	
+	
 	public void testDadosIES() {
 
 		ControllerCurso controller = new ControllerCurso(getContext());

@@ -5,7 +5,7 @@ import br.unb.deolhonoenade.R.id;
 import br.unb.deolhonoenade.R.layout;
 import br.unb.deolhonoenade.R.menu;
 import br.unb.deolhonoenade.R.string;
-import br.unb.deolhonoenade.view.RankingInicial.PlaceholderFragment;
+import br.unb.deolhonoenade.view.RankingInicial;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;

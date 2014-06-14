@@ -1,32 +1,111 @@
 package br.unb.deolhonoenade.view;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.unb.deolhonoenade.R;
 import br.unb.deolhonoenade.R.id;
 import br.unb.deolhonoenade.R.layout;
 import br.unb.deolhonoenade.R.menu;
+import br.unb.deolhonoenade.controller.ControllerCurso;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.os.Build;
 
 public class ComparacaoTipoFinal extends Activity {
+	
+	private Spinner EstadoT2,Tipo2;
+	private ControllerCurso controller;
+	private String estado, Tipo;
+	private Spinner spinnerCidades;
+	private int codCurso;
+	private List<String> dados, dados2;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_comparacao_tipo_final);
-
-		if (savedInstanceState == null) {
-			getFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
-		}
+		this.controller = new ControllerCurso(this);		
+		
+		TextView cursoSelecionado = (TextView) findViewById(R.id.cursoSelecionado);
+		cursoSelecionado.setText(getIntent().getExtras().getString("cursoSelecionado"));
+		
+		codCurso = getIntent().getExtras().getInt("codCurso");
+		dados = getIntent().getExtras().getStringArrayList("dadosIes");
+		
+		addItensOnSpinnerEstadoT2(codCurso);
+		addListenerOnButtonBuscar();
+		
 	}
+	
+private void addItensOnSpinnerEstadoT2(int codCurso) {
+		
+		EstadoT2 = (Spinner) findViewById(R.id.estados);
+		List<String> list = new ArrayList<String>();
+		
+		list = controller.buscaUf(codCurso);
+					
+		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_spinner_item, list);
+			dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+			EstadoT2.setAdapter(dataAdapter);
+			
+			EstadoT2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+		 
+					
+					@Override
+					public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
+					
+						estado = parent.getItemAtPosition(posicao).toString();
+						
+						addItensOnSpinnerTipo2(estado);
+					}
+					
+					
+					@Override
+					public void onNothingSelected(AdapterView<?> parent) {
+					}
+				});	
+	}
+
+private void addItensOnSpinnerTipo2(String uf) {
+
+}
+
+
+private void addListenerOnButtonBuscar() {
+
+	Button comparar = (Button) findViewById(R.id.ComparaT);
+	comparar.setOnClickListener (new OnClickListener(){
+		
+		@Override
+    	public void onClick(View v) {
+			Intent result =  new Intent(ComparacaoTipoFinal.this, ComparacaoResultTipo.class);
+			result.putStringArrayListExtra("dadosTipo1", (ArrayList<String>) dados);
+			result.putStringArrayListExtra("dadosTipo2", (ArrayList<String>) dados2);
+			result.putExtra("CodCurso", codCurso);
+    		startActivity(result);
+    	}
+	});
+
+
+}
+
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

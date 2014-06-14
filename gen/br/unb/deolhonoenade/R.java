@@ -30,6 +30,7 @@ public final class R {
         public static final int BotaoEstado=0x7f080012;
         public static final int BotaoIES=0x7f080014;
         public static final int BotaoPublicaPrivada=0x7f080015;
+        public static final int ComparaT=0x7f08002b;
         public static final int Comparacao=0x7f080032;
         public static final int Comparar=0x7f08000f;
         public static final int DadosIES=0x7f08002c;
@@ -40,28 +41,29 @@ public final class R {
         public static final int EscolherFuncao=0x7f080031;
         public static final int Estado1=0x7f08000d;
         public static final int Estado2=0x7f080010;
-        public static final int EstadoT1=0x7f080025;
-        public static final int EstadoT2=0x7f08002b;
-        public static final int EstadoTipoFinal1=0x7f080028;
-        public static final int EstadoTipoFinal2=0x7f08002a;
-        public static final int EstadoTipoInicial1=0x7f080026;
-        public static final int EstadoTipoInicial2=0x7f080027;
+        public static final int EstadoT1=0x7f080024;
+        public static final int EstadoT2=0x7f08002a;
+        public static final int EstadoTipoFinal1=0x7f080027;
+        public static final int EstadoTipoFinal2=0x7f080029;
+        public static final int EstadoTipoInicial1=0x7f080025;
+        public static final int EstadoTipoInicial2=0x7f080026;
         public static final int ListResultado=0x7f08001b;
+        public static final int ListResultadoTipo=0x7f080021;
         public static final int Ranking=0x7f080033;
         public static final int ResultadoEstadoTipo1=0x7f080020;
         public static final int Space1=0x7f08001c;
         public static final int SpinnerEstados=0x7f080038;
         public static final int TextoComparacao=0x7f080011;
-        public static final int Tipo1=0x7f080024;
-        public static final int Tipo2=0x7f080029;
+        public static final int Tipo1=0x7f080023;
+        public static final int Tipo2=0x7f080028;
         public static final int TipoUniversidade=0x7f08003a;
         public static final int action_settings=0x7f08003f;
         public static final int buscar=0x7f080034;
-        public static final int button1=0x7f080023;
         public static final int buttonComparacaoCidades=0x7f08000a;
         public static final int cidade1=0x7f080004;
         public static final int cidade2=0x7f080008;
         public static final int cidades=0x7f080018;
+        public static final int comparaT1=0x7f080022;
         public static final int container=0x7f080000;
         public static final int cursoSelecionado=0x7f080016;
         public static final int cursoSelecionado1=0x7f080002;
@@ -88,8 +90,6 @@ public final class R {
         public static final int textEstado1=0x7f08000e;
         public static final int textInstituicao=0x7f08003b;
         public static final int textNota=0x7f08003c;
-        public static final int textView1=0x7f080021;
-        public static final int textView2=0x7f080022;
     }
     public static final class layout {
         public static final int activity_comparacao_cidades=0x7f030000;

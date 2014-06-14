@@ -8,6 +8,7 @@ import br.unb.deolhonoenade.R.id;
 import br.unb.deolhonoenade.R.layout;
 import br.unb.deolhonoenade.R.menu;
 import br.unb.deolhonoenade.controller.ControllerCurso;
+import br.unb.deolhonoenade.model.Curso;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -28,10 +29,10 @@ import android.os.Build;
 
 public class ComparacaoTipo extends Activity {
 	
-	private Spinner EstadoT1,Tipo1;
+	private Spinner EstadoT1, Tipo1;
 	private ControllerCurso controller;
-	private String estado, Tipo;
-	private int codCurso, conceitoEnade;
+	private String estado, municipio;
+	private int codCurso;
 	private List<String> dados;
 
 	@Override
@@ -90,8 +91,39 @@ private void addItensOnSpinnerEstadoT1(int codCurso) {
 	}
 
 private void addItensOnSpinnerTipo1(String uf) {
+	this.Tipo1 = (Spinner) findViewById(R.id.cidades);
+	List<Curso> list;
+	list = controller.buscaCurso(codCurso, uf);
+	
+			
+		ArrayAdapter<Curso> dataAdapter = new ArrayAdapter<Curso>(this,
+				android.R.layout.simple_spinner_item, list);
+			dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+			
+			this.Tipo1.setAdapter(dataAdapter);
+			
+			this.Tipo1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+				@Override
+				public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
+					
+					municipio = parent.getItemAtPosition(posicao).toString();
+					addItensOnSpinnerTipos(estado, municipio);
+					
+				}
+	 
+				
 
+				@Override
+				public void onNothingSelected(AdapterView<?> parent) {
+				}
+			});
+	
 }
+
+private void addItensOnSpinnerTipos(String estado, String municipio) {
+}
+
+
 
 private void addListenerOnButtonBuscar() {
 

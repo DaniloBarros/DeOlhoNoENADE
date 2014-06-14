@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/TextoComparacao"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="25dp"
         android:text="Média entre estados"
         android:textSize="27dp"/>
 
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/BotaoEstado"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="25dp"
         android:text="Média entre cidades" 
         android:textSize="27dp"/>
  
@@ -43,18 +43,19 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/BotaoCidades"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="25dp"
         android:text="Entre Instituições de Ensino"
         android:textSize="27dp" />
      
-      <Button
-        android:id="@+id/BotaoPublicaPrivada"
+        <Button
+        android:id="@+id/BotaoTipo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/BotaoIES"
-        android:layout_marginTop="50dp"
-        android:text="Média entre Públicas e Privadas"
-        android:textSize="25dp"/>
-
+        android:layout_marginTop="25dp"
+        android:text="Entre Tipos de Instituições de Ensino"
+        android:textSize="27dp" />
+     
+ 
 </RelativeLayout>

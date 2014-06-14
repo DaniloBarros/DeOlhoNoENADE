@@ -38,6 +38,7 @@ public class ComparacaoInicial extends Activity implements
 		addListenerOnButtonBotaoEstado();
 		addListenerOnButtonBotaoInstituicao();
 		addListenerOnButtonBotaoCidade();
+		addListenerOnButtonBotaoTipo();
 		
 	}
 	
@@ -76,6 +77,20 @@ public class ComparacaoInicial extends Activity implements
 			@Override
 	    	public void onClick(View v) {
 	    		Intent intent = new Intent(ComparacaoInicial.this, ComparacaoEstado.class);
+	    		intent.putExtra("cursoSelecionado", curso);
+	    		startActivity(intent);
+	    	}	
+		});
+		
+	}
+	
+	private void addListenerOnButtonBotaoTipo(){
+		Button compareTipo = (Button) findViewById(R.id.BotaoTipo);
+		compareTipo.setOnClickListener(new OnClickListener(){
+			
+			@Override
+	    	public void onClick(View v) {
+	    		Intent intent = new Intent(ComparacaoInicial.this, ComparacaoTipo.class);
 	    		intent.putExtra("cursoSelecionado", curso);
 	    		startActivity(intent);
 	    	}	

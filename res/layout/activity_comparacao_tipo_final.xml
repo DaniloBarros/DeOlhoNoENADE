@@ -1,8 +1,54 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="br.unb.deolhonoenade.view.ComparacaoTipoFinal"
-    tools:ignore="MergeRootFrame" />
+    tools:ignore="MergeRootFrame" >
+
+    <TextView
+        android:id="@+id/EstadoTipoFinal1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="48dp"
+        android:text="Escolha o segundo Estado" />
+
+    <Spinner
+        android:id="@+id/Tipo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/EstadoTipoFinal2"
+        android:layout_marginTop="29dp" />
+
+    <Spinner
+        android:id="@+id/EstadoT2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/EstadoTipoFinal1"
+        android:layout_marginTop="22dp" />
+
+    <TextView
+        android:id="@+id/EstadoTipoFinal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/EstadoTipoFinal1"
+        android:layout_below="@+id/EstadoT2"
+        android:layout_marginTop="36dp"
+        android:text="Escolha o segundo Tipo" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/EstadoTipoFinal2"
+        android:layout_marginBottom="25dp"
+        android:text="@string/button_Comparacao" />
+
+</RelativeLayout>
 

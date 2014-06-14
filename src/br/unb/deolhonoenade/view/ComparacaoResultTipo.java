@@ -1,9 +1,12 @@
 package br.unb.deolhonoenade.view;
 
+import java.util.List;
+
 import br.unb.deolhonoenade.R;
 import br.unb.deolhonoenade.R.id;
 import br.unb.deolhonoenade.R.layout;
 import br.unb.deolhonoenade.R.menu;
+import br.unb.deolhonoenade.controller.ControllerCurso;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -13,19 +16,35 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.os.Build;
 
 public class ComparacaoResultTipo extends Activity {
 
+	private ControllerCurso controller;
+	private List<String> result,aux;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_comparacao_result_tipo);
-
-		if (savedInstanceState == null) {
-			getFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
-		}
+		
+		controller = new ControllerCurso(this);
+		
+		result = getIntent().getExtras().getStringArrayList("dadosTipo1");
+		//result.add("--------");
+		aux = getIntent().getExtras().getStringArrayList("dadosTipo2");
+		result.addAll(aux);
+		
+		
+		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_list_item_1, result);
+		
+		ListView resultado = (ListView) findViewById(R.id.ListResultadoTipo);
+		
+		resultado.setAdapter(dataAdapter);
+		
 	}
 
 	@Override

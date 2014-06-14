@@ -29,7 +29,7 @@ public final class R {
         public static final int BotaoCidades=0x7f080013;
         public static final int BotaoEstado=0x7f080012;
         public static final int BotaoIES=0x7f080014;
-        public static final int BotaoPublicaPrivada=0x7f080015;
+        public static final int BotaoTipo=0x7f080015;
         public static final int ComparaT=0x7f08002b;
         public static final int Comparacao=0x7f080032;
         public static final int Comparar=0x7f08000f;

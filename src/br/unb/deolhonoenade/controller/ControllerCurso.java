@@ -103,6 +103,27 @@ public class ControllerCurso {
 		return Resultado;
 	}
 	
+	public List<Float> comparacaoTipo(int codCurso, String estado1, String Tipo1, String estado2, String Tipo2)
+	{
+		float media = 0;
+		List<Float> Resultado = new ArrayList<Float>();
+		List<Curso> cursosEstadoTipo1 = new ArrayList<Curso>();
+		List<Curso> cursosEstadoTipo2 = new ArrayList<Curso>();
+		
+		cursosEstadoTipo1 = this.buscaCurso(codCurso, estado1, Tipo1);
+		cursosEstadoTipo2 = this.buscaCurso(codCurso, estado2, Tipo2);
+		
+		media = this.fazMediaConceitoEnade(cursosEstadoTipo1);
+		
+		Resultado.add(media);
+		
+		media = this.fazMediaConceitoEnade(cursosEstadoTipo2);
+		
+		Resultado.add(media);
+		
+		return Resultado;
+	}
+	
 	private float fazMediaConceitoEnade(List<Curso> cursos){
 		float media=0;
 		int cont;

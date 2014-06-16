@@ -41,7 +41,6 @@ public final class R {
         public static final int EscolherFuncao=0x7f080023;
         public static final int Estado1=0x7f08000d;
         public static final int Estado2=0x7f080010;
-        public static final int ListResultado=0x7f08001b;
         public static final int Ranking=0x7f080025;
         public static final int SpinnerEstados=0x7f08002a;
         public static final int TextoComparacao=0x7f080011;
@@ -59,6 +58,7 @@ public final class R {
         public static final int estados=0x7f080017;
         public static final int graph=0x7f08001d;
         public static final int graph1=0x7f08001c;
+        public static final int graph2=0x7f08001b;
         public static final int ies1=0x7f08001a;
         public static final int listResult=0x7f08002f;
         public static final int logoD_O_N_E_=0x7f080020;

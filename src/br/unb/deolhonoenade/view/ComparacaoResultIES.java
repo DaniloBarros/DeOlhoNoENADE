@@ -29,35 +29,26 @@ public class ComparacaoResultIES extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_comparacao_result_ies);
 		
-		/*controller = new ControllerCurso(this);
+		controller = new ControllerCurso(this);
 		
 		result = getIntent().getExtras().getStringArrayList("dadosIes1");
 		aux = getIntent().getExtras().getStringArrayList("dadosIes2");
-		result.addAll(aux);
-		
-		
-		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, result);
-		
-		ListView resultado = (ListView) findViewById(R.id.ListResultado);
-		
-		resultado.setAdapter(dataAdapter);*/
 		
 		ArrayList<Bar> points = new ArrayList<Bar>();
 		Bar d = new Bar();
 		d.setColor(Color.parseColor("#99CC00"));
-		d.setName("Test1");
-		d.setValue(10);
+		d.setName("test \ntest");
+		d.setValue(Float.parseFloat(result.get(5)));
 		Bar d2 = new Bar();
 		d2.setColor(Color.parseColor("#FFBB33"));
-		d2.setName("Test2");
-		d2.setValue(20);
+		d2.setName(aux.get(0));
+		d2.setValue(Float.parseFloat(aux.get(5)));
 		points.add(d);
 		points.add(d2);
 
 		BarGraph g = (BarGraph)findViewById(R.id.graph);
 		g.setBars(points);
-		g.setUnit("$");
+		g.setUnit(" ");
 		
 	}
 

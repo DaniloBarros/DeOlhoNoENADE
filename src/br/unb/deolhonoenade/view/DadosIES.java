@@ -1,7 +1,6 @@
 package br.unb.deolhonoenade.view;
 
 import java.util.List;
-
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
@@ -57,8 +56,6 @@ public class DadosIES extends Activity implements
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.dados_ie, menu);
 		return true;
 	}
@@ -79,5 +76,4 @@ public class DadosIES extends Activity implements
 	public boolean onNavigationItemSelected(int position, long id) {
 		return false;
 	}
-
 }

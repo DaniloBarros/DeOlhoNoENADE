@@ -70,8 +70,7 @@ public class ComparacaoEstado extends Activity {
 					@Override
 					public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
 						estado1 = parent.getItemAtPosition(posicao).toString();
-						addItensOnSpinnerEstado2();
-						
+						addItensOnSpinnerEstado2();						
 					}
 					
 					@Override
@@ -98,8 +97,7 @@ public class ComparacaoEstado extends Activity {
 		 
 					@Override
 					public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
-						estado2 = parent.getItemAtPosition(posicao).toString();				
-						
+						estado2 = parent.getItemAtPosition(posicao).toString();						
 					}
 					
 					@Override
@@ -128,8 +126,6 @@ public class ComparacaoEstado extends Activity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.comparacao_estado, menu);
 		return true;
 	}
@@ -157,5 +153,4 @@ public class ComparacaoEstado extends Activity {
 			return rootView;
 		}
 	}
-
 }

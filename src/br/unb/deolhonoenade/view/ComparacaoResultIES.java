@@ -34,7 +34,6 @@ public class ComparacaoResultIES extends Activity {
 		controller = new ControllerCurso(this);
 		
 		result = getIntent().getExtras().getStringArrayList("dadosIes1");
-		//result.add("--------");
 		aux = getIntent().getExtras().getStringArrayList("dadosIes2");
 		result.addAll(aux);
 		
@@ -58,9 +57,6 @@ public class ComparacaoResultIES extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
 			return true;
@@ -68,9 +64,6 @@ public class ComparacaoResultIES extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
 	public static class PlaceholderFragment extends Fragment {
 
 		public PlaceholderFragment() {

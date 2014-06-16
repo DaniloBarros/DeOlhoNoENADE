@@ -65,17 +65,15 @@ private void addItensOnSpinnerEstado(int codCurso) {
 			spinnerEstados.setAdapter(dataAdapter);
 			
 			spinnerEstados.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-		 
-					
+			
 					@Override
 					public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
 					
 						estado = parent.getItemAtPosition(posicao).toString();
 						
 						addItensOnSpinnerMunicipio(estado);
-					}
-					
-					
+					}		
+	
 					@Override
 					public void onNothingSelected(AdapterView<?> parent) {
 					}
@@ -102,9 +100,7 @@ private void addItensOnSpinnerEstado(int codCurso) {
 						municipio = parent.getItemAtPosition(posicao).toString();
 						addItensOnSpinnerIES(estado, municipio);
 						
-					}
-		 
-					
+					}					
 
 					@Override
 					public void onNothingSelected(AdapterView<?> parent) {
@@ -160,17 +156,12 @@ private void addItensOnSpinnerEstado(int codCurso) {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.comparacao_instituicao_final, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
 			return true;
@@ -178,9 +169,6 @@ private void addItensOnSpinnerEstado(int codCurso) {
 		return super.onOptionsItemSelected(item);
 	}
 
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
 	public static class PlaceholderFragment extends Fragment {
 
 		public PlaceholderFragment() {
@@ -195,5 +183,4 @@ private void addItensOnSpinnerEstado(int codCurso) {
 			return rootView;
 		}
 	}
-
 }

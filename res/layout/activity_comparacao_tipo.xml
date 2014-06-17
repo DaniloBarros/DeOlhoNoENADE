@@ -55,7 +55,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/comparaT1"
-        android:layout_marginTop="15dp"
+
+        android:layout_marginTop="16dp"
+        
         android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge" />
     

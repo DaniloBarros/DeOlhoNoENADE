@@ -31,7 +31,7 @@ public final class R {
         public static final int BotaoEstado=0x7f080012;
         public static final int BotaoIES=0x7f080014;
         public static final int BotaoTipo=0x7f080015;
-        public static final int ComparaT=0x7f08002d;
+        public static final int ComparaT=0x7f08002f;
         public static final int Comparacao=0x7f080036;
         public static final int Comparar=0x7f08000f;
         public static final int DadosIES=0x7f080030;
@@ -56,7 +56,7 @@ public final class R {
         public static final int SpinnerEstados=0x7f08003c;
         public static final int TextoComparacao=0x7f080011;
         public static final int Tipo1=0x7f080025;
-        public static final int Tipo2=0x7f08002f;
+        public static final int Tipo2=0x7f08002d;
         public static final int TipoUniversidade=0x7f08003e;
         public static final int action_settings=0x7f080043;
         public static final int buscar=0x7f080038;

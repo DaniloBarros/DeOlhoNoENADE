@@ -30,7 +30,7 @@ public class ComparacaoTipoFinal extends Activity {
 	
 	private Spinner EstadoT2,Tipo2;
 	private ControllerCurso controller;
-	private String estado, municipio;
+	private String estado, municipio, Tipo;
 	private Spinner spinnerCidades;
 	private int codCurso;
 	private List<String> dados, dados2;
@@ -115,6 +115,7 @@ private void addItensOnSpinnerTipo2(String uf) {
 
 private void addItensOnSpinnerTipos(String estado, String municipio) {
 }
+
 
 
 private void addListenerOnButtonBuscar() {

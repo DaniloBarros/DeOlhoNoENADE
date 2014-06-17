@@ -56,15 +56,15 @@ public class ControllerCurso {
 		dados.add(cursos.get(posicao).getMunicipio());
 		dados.add(String.format("%d", cursos.get(posicao).getNumEstudantesInscritos()) );
 	    dados.add(String.format("%d", cursos.get(posicao).getNumEstudantes()) );
-	    
+	    //dados.add(String.format("%f", cursos.get(posicao).getConceitoEnade()));
 		return dados;
 		
 	}
 	
 	
-	public List<String> comparaEstado(String estado1,String estado2,int codCurso) {
+	public List<Float> comparaEstado(String estado1,String estado2,int codCurso) {
 		float media = 0;
-		List<String> Resultado = new ArrayList<String>();
+		List<Float> Resultado = new ArrayList<Float>();
 		List<Curso> cursosEstado2 = new ArrayList<Curso>();
 		List<Curso> cursosEstado1 = new ArrayList<Curso>();
 		
@@ -73,11 +73,11 @@ public class ControllerCurso {
 		
 		media = this.fazMediaConceitoEnade(cursosEstado1);
 		
-		Resultado.add(String.format("media do estado %s e %f",estado1, media ));
+		Resultado.add(media);
 		
 		media = this.fazMediaConceitoEnade(cursosEstado2);
 		
-		Resultado.add(String.format("media do estado %s e %f",estado2,media ));
+		Resultado.add(media);
 		
 		return Resultado;
 	}

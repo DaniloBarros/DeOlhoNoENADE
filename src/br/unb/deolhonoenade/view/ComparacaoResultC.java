@@ -1,11 +1,13 @@
 package br.unb.deolhonoenade.view;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.w3c.dom.Text;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -13,6 +15,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import br.unb.br.deolhonoenade.graphs.holographlibrary.Bar;
+import br.unb.br.deolhonoenade.graphs.holographlibrary.BarGraph;
 import br.unb.deolhonoenade.R;
 import br.unb.deolhonoenade.controller.ControllerCurso;
 
@@ -41,53 +45,43 @@ public class ComparacaoResultC extends Activity {
 		cursoSelecionado.setText(getIntent().getExtras().getString("cursoSelecionado"));
 		//cursoSelecionado.setText(String.format("%d" , codCurso));
 		
-		TextView estado1Selecionado = (TextView) findViewById(R.id.estado1);
-		estado1Selecionado.setText(getIntent().getExtras().getString("estado1"));
-		
-		TextView cidade1Selecionada = (TextView) findViewById(R.id.cidade1);
-		cidade1Selecionada.setText(getIntent().getExtras().getString("cidade1"));
-		
-		
-		TextView estado2Selecionado = (TextView) findViewById(R.id.estado2);
-		estado2Selecionado.setText(getIntent().getExtras().getString("estado2"));
-		
-		TextView cidade2Selecionada = (TextView) findViewById(R.id.cidade2);
-		cidade2Selecionada.setText(getIntent().getExtras().getString("cidade2"));
-		
 		List<Float> list;
 		
 		list = controller.comparacaoCidade(codCurso, estado1, cidade1, estado2, cidade2);
 		
 		float media1 = list.get(0);
-		float media2 = list.get(1);
-		
-		
-		TextView mediaCidade1 = (TextView) findViewById(R.id.nota1);
-		mediaCidade1.setText(String.format("%f" , media1));
-		
-		TextView mediaCidade2 = (TextView) findViewById(R.id.nota2);
-		mediaCidade2.setText(String.format("%f" , media2));
-		
+		float media2 = list.get(1);		
 
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
+		
+		ArrayList<Bar> points = new ArrayList<Bar>();
+		Bar d = new Bar();
+		d.setColor(Color.parseColor("#99CC00"));
+		d.setName(cidade1);
+		d.setValue(media1);
+		Bar d2 = new Bar();
+		d2.setColor(Color.parseColor("#FFBB33"));
+		d2.setName(cidade2);
+		d2.setValue(media2);
+		points.add(d);
+		points.add(d2);
+
+		BarGraph g = (BarGraph)findViewById(R.id.graph1);
+		g.setBars(points);
+		g.setUnit(" ");
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.comparacao_result_c, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
 			return true;
@@ -95,9 +89,6 @@ public class ComparacaoResultC extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
 	public static class PlaceholderFragment extends Fragment {
 
 		public PlaceholderFragment() {
@@ -111,5 +102,4 @@ public class ComparacaoResultC extends Activity {
 			return rootView;
 		}
 	}
-
 }

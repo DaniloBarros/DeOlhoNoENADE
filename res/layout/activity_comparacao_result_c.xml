@@ -1,4 +1,4 @@
-<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
@@ -6,68 +6,29 @@
     tools:context="br.unb.deolhonoenade.view.ComparacaoResultC"
     tools:ignore="MergeRootFrame" >
 
-    <Space
+    <!--
+         <Space
         android:id="@+id/Space1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    -->
 
-    <TextView
-        android:id="@+id/cursoSelecionado1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="116dp"
-        android:layout_y="58dp"
-        android:text="Curso"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+	<TextView
+	    android:id="@+id/cursoSelecionado1"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentTop="true"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginTop="53dp"
+	    android:text="Curso"
+	    android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
-        android:id="@+id/estado1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="38dp"
-        android:layout_y="131dp"
-        android:text="estado1" />
-
-    <TextView
-        android:id="@+id/cidade1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="12dp"
-        android:layout_y="156dp"
-        android:text="cidade1" />
-
-    <TextView
-        android:id="@+id/estado2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="184dp"
-        android:layout_y="132dp"
-        android:text="estado2" />
-
-    <TextView
-        android:id="@+id/cidade2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="154dp"
-        android:layout_y="158dp"
-        android:text="cidade2" />
-
-    <TextView
-        android:id="@+id/nota1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="39dp"
-        android:layout_y="230dp"
-        android:text="nota1"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/nota2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_x="178dp"
-        android:layout_y="229dp"
-        android:text="nota2"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-</AbsoluteLayout>
+	<br.unb.br.deolhonoenade.graphs.holographlibrary.BarGraph
+	    android:id="@+id/graph1"
+	    android:layout_width="match_parent"
+	    android:layout_height="200dp"
+	    android:layout_alignParentLeft="true"
+	    android:layout_below="@+id/cursoSelecionado1"
+	    android:layout_marginTop="33dp" />
+	
+</RelativeLayout>

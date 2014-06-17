@@ -34,7 +34,6 @@ public class ComparacaoInstituicao extends Activity {
 	private String estado, municipio;
 	private int codCurso, conceitoEnade;
 	private List<String> dados;
-	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,11 +47,6 @@ public class ComparacaoInstituicao extends Activity {
 		
 		addItensOnSpinnerEstado(codCurso);
 		addListenerOnButtonBuscar();
-		
-		/*if (savedInstanceState == null) {
-			getFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
-		}*/
 	}
 		
 	private void addItensOnSpinnerEstado(int codCurso) {
@@ -76,10 +70,8 @@ public class ComparacaoInstituicao extends Activity {
 						
 						estado = parent.getItemAtPosition(posicao).toString();
 						
-						addItensOnSpinnerMunicipio(estado);
-						
-					}
-					
+						addItensOnSpinnerMunicipio(estado);						
+					}					
 					
 					@Override
 					public void onNothingSelected(AdapterView<?> parent) {
@@ -105,11 +97,8 @@ public class ComparacaoInstituicao extends Activity {
 					public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
 						
 						municipio = parent.getItemAtPosition(posicao).toString();
-						addItensOnSpinnerIES(estado, municipio);
-						
-					}
-		 
-					
+						addItensOnSpinnerIES(estado, municipio);						
+					}					
 
 					@Override
 					public void onNothingSelected(AdapterView<?> parent) {
@@ -133,8 +122,7 @@ public class ComparacaoInstituicao extends Activity {
 					public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
 						
 						dados = controller.getDadosIES(posicao);
-						dados.add(String.format("%.2f",controller.getConceitoDoArrayCursos(posicao)));
-						
+						dados.add(String.format("%.2f",controller.getConceitoDoArrayCursos(posicao)));						
 					}
 		 
 					@Override
@@ -164,17 +152,12 @@ public class ComparacaoInstituicao extends Activity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.comparacao_instituicao, menu);
 		return true;
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
 			return true;
@@ -182,9 +165,6 @@ public class ComparacaoInstituicao extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
 	public static class PlaceholderFragment extends Fragment {
 
 		public PlaceholderFragment() {
@@ -198,5 +178,4 @@ public class ComparacaoInstituicao extends Activity {
 			return rootView;
 		}
 	}
-
 }

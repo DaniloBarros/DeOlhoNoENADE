@@ -14,14 +14,10 @@
         android:layout_centerHorizontal="true"
         android:text="Resultado - Comparacao Instituicoes"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <ListView
-        android:id="@+id/ListResultado"
+  
+  <br.unb.br.deolhonoenade.graphs.holographlibrary.BarGraph
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/stringCurso" >
-
-    </ListView>
+        android:layout_height="200dp"
+        android:id="@+id/graph"/>
     
 </RelativeLayout>

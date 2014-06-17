@@ -42,6 +42,14 @@ public class TestControllerCurso extends AndroidTestCase {
 		codCurso = controller.buscaCodCurso("Administracao");
 		Assert.assertEquals(1, codCurso);
 	}
+	
+	public void testBuscaInstituicao() {
+		Instituicao instituicao;
+		ControllerCurso controller = new ControllerCurso(getContext());
+
+		instituicao = controller.buscaInstituicao(1);
+		Assert.assertEquals("UNIVERSIDADE FEDERAL DE MATO GROSSO", instituicao.getNome());
+	}
 
 	public void testBuscaCursoIntString() {
 		ControllerCurso controller = new ControllerCurso(getContext());

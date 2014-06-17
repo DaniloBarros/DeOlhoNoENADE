@@ -15,10 +15,6 @@ import br.unb.deolhonoenade.R;
 
 public class MainActivity extends Activity implements ActionBar.OnNavigationListener {
 
-    /**
-     * The serialization (saved instance state) Bundle key representing the
-     * current dropdown position.
-     */
     private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
 
     private OnClickListener listener = new OnClickListener() {
@@ -51,28 +47,16 @@ public class MainActivity extends Activity implements ActionBar.OnNavigationList
 
     @Override
     public boolean onNavigationItemSelected(int position, long id) {
-        // When the given dropdown item is selected, show its contents in the
-        // container view.
-        getFragmentManager().beginTransaction()
+         getFragmentManager().beginTransaction()
                 .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
                 .commit();
         return true;
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
     public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
+        
+    	private static final String ARG_SECTION_NUMBER = "section_number";
 
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();

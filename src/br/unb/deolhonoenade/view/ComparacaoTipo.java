@@ -40,7 +40,7 @@ public class ComparacaoTipo extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_comparacao_tipo);
 		this.controller = new ControllerCurso(this);
-		TextView cursoSelecionado = (TextView) findViewById(R.id.cursoSelecionado);
+		TextView cursoSelecionado = (TextView) findViewById(R.id.nomeCursoSelecionado);
 		cursoSelecionado.setText(getIntent().getExtras().getString("cursoSelecionado"));
 		
 		codCurso = controller.buscaCodCurso(getIntent().getExtras().getString("cursoSelecionado"));
@@ -59,7 +59,7 @@ public class ComparacaoTipo extends Activity {
 	
 private void addItensOnSpinnerEstadoT1(int codCurso) {
 		
-		EstadoT1 = (Spinner) findViewById(R.id.estados);
+		EstadoT1 = (Spinner) findViewById(R.id.EstadoT1);
 		List<String> list = new ArrayList<String>();
 		
 		list = controller.buscaUf(codCurso);
@@ -91,12 +91,12 @@ private void addItensOnSpinnerEstadoT1(int codCurso) {
 	}
 
 private void addItensOnSpinnerTipo1(String uf) {
-	this.Tipo1 = (Spinner) findViewById(R.id.cidades);
-	List<Curso> list;
-	list = controller.buscaCurso(codCurso, uf);
+	this.Tipo1 = (Spinner) findViewById(R.id.Tipo1);
+	List<String> list;
+	list = controller.buscaTiposEstado(codCurso, uf);
 	
 			
-		ArrayAdapter<Curso> dataAdapter = new ArrayAdapter<Curso>(this,
+		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, list);
 			dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 			

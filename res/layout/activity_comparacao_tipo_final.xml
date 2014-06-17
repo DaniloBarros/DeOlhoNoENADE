@@ -17,14 +17,6 @@
         android:text="Escolha o segundo Estado" />
 
     <Spinner
-        android:id="@+id/Tipo2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/EstadoTipoFinal2"
-        android:layout_marginTop="29dp" />
-
-    <Spinner
         android:id="@+id/EstadoT2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,22 +25,40 @@
         android:layout_marginTop="22dp" />
 
     <TextView
-        android:id="@+id/EstadoTipoFinal2"
+        android:id="@+id/nomeCursoSelecionado2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/EstadoTipoFinal1"
-        android:layout_below="@+id/EstadoT2"
-        android:layout_marginTop="36dp"
-        android:text="Escolha o segundo Tipo" />
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/EstadoTipoFinal1"
+        android:layout_marginTop="15dp"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
         android:id="@+id/ComparaT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/EstadoTipoFinal2"
-        android:layout_marginBottom="25dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
         android:text="@string/button_Comparacao" />
+
+    <TextView
+        android:id="@+id/EstadoTipoFinal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/EstadoT2"
+        android:layout_marginTop="38dp"
+        android:text="Escolha o segundo Tipo" />
+
+    <Spinner
+        android:id="@+id/Tipo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/EstadoTipoFinal2"
+        android:layout_marginTop="31dp" />
 
 </RelativeLayout>
 

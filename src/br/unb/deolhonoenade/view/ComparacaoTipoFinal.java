@@ -30,7 +30,7 @@ public class ComparacaoTipoFinal extends Activity {
 	
 	private Spinner EstadoT2,Tipo2;
 	private ControllerCurso controller;
-	private String estado, Tipo;
+	private String estado, municipio;
 	private Spinner spinnerCidades;
 	private int codCurso;
 	private List<String> dados, dados2;
@@ -41,7 +41,7 @@ public class ComparacaoTipoFinal extends Activity {
 		setContentView(R.layout.activity_comparacao_tipo_final);
 		this.controller = new ControllerCurso(this);		
 		
-		TextView cursoSelecionado = (TextView) findViewById(R.id.cursoSelecionado);
+		TextView cursoSelecionado = (TextView) findViewById(R.id.nomeCursoSelecionado2);
 		cursoSelecionado.setText(getIntent().getExtras().getString("cursoSelecionado"));
 		
 		codCurso = getIntent().getExtras().getInt("codCurso");
@@ -54,7 +54,7 @@ public class ComparacaoTipoFinal extends Activity {
 	
 private void addItensOnSpinnerEstadoT2(int codCurso) {
 		
-		EstadoT2 = (Spinner) findViewById(R.id.estados);
+		EstadoT2 = (Spinner) findViewById(R.id.EstadoT2);
 		List<String> list = new ArrayList<String>();
 		
 		list = controller.buscaUf(codCurso);
@@ -83,7 +83,37 @@ private void addItensOnSpinnerEstadoT2(int codCurso) {
 	}
 
 private void addItensOnSpinnerTipo2(String uf) {
+	this.Tipo2 = (Spinner) findViewById(R.id.Tipo2);
+	List<String> list;
+	list = controller.buscaTiposEstado(codCurso, uf);
+	
+			
+		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_spinner_item, list);
+			dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+			
+			this.Tipo2.setAdapter(dataAdapter);
+			
+			this.Tipo2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+				@Override
+				public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
+					
+					
+					municipio = parent.getItemAtPosition(posicao).toString();
+					addItensOnSpinnerTipos(estado, municipio);
+					
+				}
+	 
+				
 
+				@Override
+				public void onNothingSelected(AdapterView<?> parent) {
+				}
+			});
+	
+}
+
+private void addItensOnSpinnerTipos(String estado, String municipio) {
 }
 
 

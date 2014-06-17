@@ -48,6 +48,16 @@
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:text="Escolha o primeiro Tipo" />
+
+    <TextView
+        android:id="@+id/nomeCursoSelecionado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/comparaT1"
+        android:layout_marginTop="15dp"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
     
 </RelativeLayout>
 

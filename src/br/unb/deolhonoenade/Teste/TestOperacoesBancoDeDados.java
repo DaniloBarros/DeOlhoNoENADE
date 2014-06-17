@@ -2,8 +2,8 @@ package br.unb.deolhonoenade.Teste;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import junit.framework.Assert;
+
 import br.unb.deolhonoenade.DAO.ImportarBancoDeDados;
 import br.unb.deolhonoenade.DAO.OperacoesBancoDeDados;
 import br.unb.deolhonoenade.controller.ControllerCurso;
@@ -62,31 +62,22 @@ public class TestOperacoesBancoDeDados extends AndroidTestCase {
 		cursosT.add(curso1);
 
 		cursos = opBD.getCursos(1, "AC");
-
-		Assert.assertEquals(cursosT.get(0).getConceitoEnade(), cursos.get(0)
-				.getConceitoEnade());
-		Assert.assertEquals(cursosT.get(0).getId(), cursos.get(0).getId());
-		Assert.assertEquals(cursosT.get(0).getId_ies(), cursos.get(0)
-				.getId_ies());
-		Assert.assertEquals(cursosT.get(0).getNumEstudantes(), cursos.get(0)
-				.getNumEstudantes());
-
-		Assert.assertEquals(cursosT.get(1).getConceitoEnade(), cursos.get(1)
-				.getConceitoEnade());
-		Assert.assertEquals(cursosT.get(1).getId(), cursos.get(1).getId());
-		Assert.assertEquals(cursosT.get(1).getId_ies(), cursos.get(1)
-				.getId_ies());
-		Assert.assertEquals(cursosT.get(1).getNumEstudantes(), cursos.get(1)
-				.getNumEstudantes());
-
-		Assert.assertEquals(cursosT.get(2).getConceitoEnade(), cursos.get(2)
-				.getConceitoEnade());
-		Assert.assertEquals(cursosT.get(2).getId(), cursos.get(2).getId());
-		Assert.assertEquals(cursosT.get(2).getId_ies(), cursos.get(2)
-				.getId_ies());
-		Assert.assertEquals(cursosT.get(2).getNumEstudantes(), cursos.get(2)
-				.getNumEstudantes());
-
+		
+		
+		for (int i = 0; i < 3; i++) {
+			
+			Assert.assertEquals(cursosT.get(i).getConceitoEnade(), cursos
+					.get(i).getConceitoEnade());
+			
+			Assert.assertEquals(cursosT.get(i).getId(), cursos.get(i).getId());
+			
+			Assert.assertEquals(cursosT.get(i).getId_ies(), cursos.get(i)
+					.getId_ies());
+			
+			Assert.assertEquals(cursosT.get(i).getNumEstudantes(), cursos
+					.get(i).getNumEstudantes());
+		}
+		
 	}
 
 	public void testGetIES() {

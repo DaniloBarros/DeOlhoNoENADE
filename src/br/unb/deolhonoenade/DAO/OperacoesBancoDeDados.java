@@ -6,34 +6,69 @@ import java.util.List;
 import android.database.Cursor;
 import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
-import br.unb.deolhonoenade.controller.ControllerCurso;
 import br.unb.deolhonoenade.model.Curso;
 import br.unb.deolhonoenade.model.Instituicao;
 
 public class OperacoesBancoDeDados {
 	
 	SQLiteDatabase database;
-	//Set do nome e campos das tabelas
-	private final String CURSO_TABLE_NAME = "curso";
-	private final String[] CURSO_COLUMNS_NAME = new String[]{"instituicao_cod_ies",
-			"num_estud_curso", "num_estud_insc",
-			"nome_curso", "municipio", "conceito_enade", "cod_area_curso", "uf"};
-	
-	private final String IES_TABLE_NAME = "instituicao";
-	private final String[] IES_COLUMNS_NAME = new String[]{"cod_ies", 
-			"org_academica", "nome_ies", "tipo"};
-	
-	private final String WHERE_CLAUSE = "cod_ies = ?";
 	
 	public OperacoesBancoDeDados(SQLiteDatabase database) {
-		if(database!=null){
-			this.database = database;
-		}else{
-			
-		}
-		
+		if(database!=null)
+			this.database = database;		
 	}
 	
+	public int getCodCurso(String nomeCurso) {
+		
+		int codCurso;
+		
+		nomeCurso = nomeCurso.toUpperCase();
+		
+		Cursor cursor = database.rawQuery("SELECT cod_area_curso " +
+				"FROM curso WHERE nome_curso = ? " +
+				"GROUP BY cod_area_curso", new String[]{nomeCurso} );
+		
+		if(cursor!=null){
+			cursor.moveToFirst();
+		}else{
+			return 0;
+		}
+		
+		codCurso = Integer.parseInt(cursor.getString(0));
+
+		return codCurso;
+	}
+	
+	// Retorna os dados de Instituicao
+	public Instituicao getIES(int codIES) {
+		String string_codIES = String.format("%d",codIES);
+		
+		/*Cria um cursor que aponta para os resultados
+		 * retonados da tabela de instituicoes
+		 * dado o codigo da ies
+		 */
+		
+		Cursor cursor = database.rawQuery("SELECT a.org_academica, " +
+				"a.nome_ies, a.tipo " +
+				"FROM instituicao a WHERE a.cod_ies = ? "
+				, new String[]{string_codIES});
+		
+		if(cursor != null)
+			cursor.moveToFirst();
+		else
+			return null;
+		// Cria a instuicao e instancia com os dados retornados pelo cursor
+		Instituicao ies = new Instituicao(cursor.getString(1), cursor.getString(0), 
+				cursor.getString(2), codIES);
+		
+		return ies;
+	}//Fim do getIES().
+	
+	/**Buscar Cursos de um Estado
+	 * @param codAreaCurso
+	 * @param ufIES
+	 * @return
+	 */
 	public ArrayList<Curso> getCursos(int codAreaCurso, String ufIES){
 		
 		// Criacao de Variaveis
@@ -81,33 +116,8 @@ public class OperacoesBancoDeDados {
 		
 	}
 	
-	// Retorna os dados de Instituicao
-	public Instituicao getIES(int codIES) {
-		String string_codIES = String.format("%d",codIES);
-		
-		/*Cria um cursor que aponta para os resultados
-		 * retonados da tabela de instituicoes
-		 * dado o codigo da ies
-		 */
-		
-		Cursor cursor = database.rawQuery("SELECT a.org_academica, " +
-				"a.nome_ies, a.tipo " +
-				"FROM instituicao a WHERE a.cod_ies = ? "
-				, new String[]{string_codIES});
-		
-		if(cursor != null)
-			cursor.moveToFirst();
-		else
-			return null;
-		// Cria a instuicao e instancia com os dados retornados pelo cursor
-		Instituicao ies = new Instituicao(cursor.getString(1), cursor.getString(0), 
-				cursor.getString(2), codIES);
-		
-		return ies;
-	}//Fim do getIES().
-	
 	/**
-	 * Sobrecarga de Metodos
+	 * Buscar Cursos de uma cidade
 	 * @param codAreaCurso
 	 * @param ufIES
 	 * @param municipio
@@ -153,11 +163,12 @@ public class OperacoesBancoDeDados {
 	}
 	
 	/**
-	 * Categoria 0-Ambos 1-Privada 2-Publica
+	 * Buscar Cursos de uma cidade com um determinado tipo
 	 * @param codAreaCurso
 	 * @param ufIES
 	 * @param municipio
 	 * @param categoria
+	 * Categoria 0-Ambos 1-Privada 2-Publica
 	 * @return
 	 */
 	public ArrayList<Curso> getCursos(int codAreaCurso, String ufIES, String municipio, String tipo){
@@ -210,7 +221,7 @@ public class OperacoesBancoDeDados {
 	}
 	
 	/**
-	 * 
+	 * Buscar Cursos de uma estado com um determinado tipo
 	 * @param codAreaCurso
 	 * @param ufIES
 	 * @param municipio
@@ -266,8 +277,6 @@ public class OperacoesBancoDeDados {
 		return cursos;
 	}
 	
-
-
 	public List<String> getCidades(int codAreaCurso ,String ufIES){
 		
 		List<String> cidades = new ArrayList<String>();
@@ -295,29 +304,7 @@ public class OperacoesBancoDeDados {
 		
 		return cidades;
 	}
-
-	public int getCodCurso(String nomeCurso) {
-		
-		int codCurso;
-		
-		nomeCurso = nomeCurso.toUpperCase();
-		
-		Cursor cursor = database.rawQuery("SELECT cod_area_curso " +
-				"FROM curso WHERE nome_curso = ? " +
-				"GROUP BY cod_area_curso", new String[]{nomeCurso} );
-		
-		if(cursor!=null){
-			cursor.moveToFirst();
-		}else{
-			return 0;
-		}
-		
-		//Linha com Erro. Cursor Index out of Bounds.
-		codCurso = Integer.parseInt(cursor.getString(0));
-
-		return codCurso;
-	}
-
+	
 	public List<String> getUfs(int codAreaCurso) {
 
 		List<String> ufs = new ArrayList<String>();

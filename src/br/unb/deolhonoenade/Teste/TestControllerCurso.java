@@ -423,7 +423,7 @@ public class TestControllerCurso extends AndroidTestCase {
 		String estado1 = "DF", estado2 = "AM";
 
 		assertEquals(controller.comparaEstado(estado1, estado2, 1).get(0),
-				"media do estado DF e 1.944833");
+					(float)1.9448332);
 
 	}
 

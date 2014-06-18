@@ -25,6 +25,7 @@ public class TestImportarBancoDeDados extends AndroidTestCase{
 			bool = false;
 		}
 		
+		importarDB.close();
 		Assert.assertEquals(true, bool);
 		
 	}
@@ -35,6 +36,12 @@ public class TestImportarBancoDeDados extends AndroidTestCase{
 		
 		database = importarDB.openDataBase();
 		Assert.assertNotNull(database);
+	}
+	
+	public void testGetDB() {
+		ImportarBancoDeDados importarDB = new ImportarBancoDeDados(getContext());
+		
+		Assert.assertEquals(importarDB.database, importarDB.getDb());
 	}
 
 }

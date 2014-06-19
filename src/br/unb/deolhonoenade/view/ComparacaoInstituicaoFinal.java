@@ -30,9 +30,10 @@ public class ComparacaoInstituicaoFinal extends Activity {
 
 	private Spinner spinnerEstados, spinnerIES;
 	private ControllerCurso controller;
-	private String estado, municipio;
+	private String estado, municipio, ies1, ies2;
 	private Spinner spinnerCidades;
 	private int codCurso;
+	private float nota1, nota2;
 	private List<String> dados, dados2;
 
 	@Override
@@ -46,6 +47,8 @@ public class ComparacaoInstituicaoFinal extends Activity {
 		
 		codCurso = getIntent().getExtras().getInt("codCurso");
 		dados = getIntent().getExtras().getStringArrayList("dadosIes");
+		ies1 = getIntent().getExtras().getString("ies1");
+		nota1 = getIntent().getExtras().getFloat("nota1");
 		
 		addItensOnSpinnerEstado(codCurso);
 		addListenerOnButtonBuscar();
@@ -125,6 +128,9 @@ private void addItensOnSpinnerEstado(int codCurso) {
 						
 						dados2 = controller.getDadosIES(posicao);
 						dados2.add(String.format("%.2f",controller.getConceitoDoArrayCursos(posicao)));
+						nota2 = controller.getConceitoDoArrayCursos(posicao);
+						ies2 = dados2.get(0);
+						
 						
 					}
 		 
@@ -146,6 +152,11 @@ private void addItensOnSpinnerEstado(int codCurso) {
 						result.putStringArrayListExtra("dadosIes1", (ArrayList<String>) dados);
 						result.putStringArrayListExtra("dadosIes2", (ArrayList<String>) dados2);
 						result.putExtra("CodCurso", codCurso);
+						result.putExtra("nota1", nota1);
+						result.putExtra("ies1", ies1);
+						result.putExtra("nota2", nota2);
+						result.putExtra("ies2", ies2);
+						
 			    		startActivity(result);
 			    	}
 				});

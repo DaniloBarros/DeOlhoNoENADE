@@ -31,9 +31,10 @@ public class ComparacaoInstituicao extends Activity {
 	
 	private Spinner spinnerEstados, spinnerCidades, spinnerIES;
 	private ControllerCurso controller;
-	private String estado, municipio;
+	private String estado, municipio, ies1;
 	private int codCurso, conceitoEnade;
 	private List<String> dados;
+	private float nota1;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -122,7 +123,8 @@ public class ComparacaoInstituicao extends Activity {
 					public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
 						
 						dados = controller.getDadosIES(posicao);
-						dados.add(String.format("%.2f",controller.getConceitoDoArrayCursos(posicao)));						
+						nota1 = controller.getConceitoDoArrayCursos(posicao);
+						ies1 = dados.get(0);
 					}
 		 
 					@Override
@@ -142,6 +144,8 @@ public class ComparacaoInstituicao extends Activity {
 						Intent result =  new Intent(ComparacaoInstituicao.this, ComparacaoInstituicaoFinal.class);
 						result.putStringArrayListExtra("dadosIes", (ArrayList<String>) dados);
 						result.putExtra("codCurso", codCurso);
+						result.putExtra("nota1", nota1);
+						result.putExtra("ies1", ies1);
 
 			    		startActivity(result);
 			    	}

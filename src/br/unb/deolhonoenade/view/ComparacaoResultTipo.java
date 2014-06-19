@@ -23,7 +23,9 @@ import android.os.Build;
 public class ComparacaoResultTipo extends Activity {
 
 	private ControllerCurso controller;
-	private List<String> result,aux;
+	private List<String> result;
+	private float resultado1, resultado2;
+	private String estado1, estado2, tipo1, tipo2;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +33,17 @@ public class ComparacaoResultTipo extends Activity {
 		setContentView(R.layout.activity_comparacao_result_tipo);
 		
 		controller = new ControllerCurso(this);
+		resultado1 = getIntent().getExtras().getFloat("resultado1");
+		resultado2 = getIntent().getExtras().getFloat("resultado2");
 		
-		result = getIntent().getExtras().getStringArrayList("dadosTipo1");
-		//result.add("--------");
-		aux = getIntent().getExtras().getStringArrayList("dadosTipo2");
-		result.addAll(aux);
+		estado1 = getIntent().getExtras().getString("Estado1");
+		tipo1 = getIntent().getExtras().getString("Tipo1");
+		estado2 = getIntent().getExtras().getString("Estado2");
+		tipo2 = getIntent().getExtras().getString("Tipo2");
 		
+			
+		result.add(String.format("O Resultado da IES do Tipo %s do Estado %s e: %f", tipo1, estado1, resultado1));
+		result.add(String.format("O Resultado da IES do Tipo %s do Estado %s e: %f", tipo2, estado2, resultado2));
 		
 		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, result);

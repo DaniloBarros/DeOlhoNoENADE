@@ -7,24 +7,20 @@
     tools:ignore="MergeRootFrame" >
 
     <TextView
-        android:id="@+id/ResultadoEstadoTipo1"
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="39dp"
-        android:layout_marginTop="55dp"
-        android:text="O Resultado da Comparacao eh:" />
+        android:text="O Resultado da Comparacao eh" />
 
-       <ListView
+    <ListView
         android:id="@+id/ListResultadoTipo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/stringCurso" >
-
-    	</ListView>
-
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true" >
+    </ListView>
 
 </RelativeLayout>
 

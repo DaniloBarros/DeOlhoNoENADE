@@ -110,9 +110,19 @@ public class ControllerCurso {
 		List<Curso> cursosEstadoTipo1 = new ArrayList<Curso>();
 		List<Curso> cursosEstadoTipo2 = new ArrayList<Curso>();
 		
-		cursosEstadoTipo1 = this.buscaCurso(codCurso, estado1, Tipo1);
-		cursosEstadoTipo2 = this.buscaCurso(codCurso, estado2, Tipo2);
+		if(Tipo1.equalsIgnoreCase("Privada")){
+			cursosEstadoTipo1 = this.buscaCurso(codCurso, estado1, 1);
+		}else if(Tipo1.equalsIgnoreCase("Publica")){
+			cursosEstadoTipo1 = this.buscaCurso(codCurso, estado1, 2);
+		}
 		
+		if(Tipo2.equalsIgnoreCase("Privada")){
+			cursosEstadoTipo2 = this.buscaCurso(codCurso, estado2, 1);
+		}else if(Tipo2.equalsIgnoreCase("Publica")){
+			cursosEstadoTipo2 = this.buscaCurso(codCurso, estado2, 2);
+		}
+		
+			
 		media = this.fazMediaConceitoEnade(cursosEstadoTipo1);
 		
 		Resultado.add(media);

@@ -52,7 +52,6 @@ public final class R {
         public static final int Instiruicao2=0x7f08001e;
         public static final int ListResultadoTipo=0x7f080023;
         public static final int Ranking=0x7f080037;
-        public static final int ResultadoEstadoTipo1=0x7f080022;
         public static final int SpinnerEstados=0x7f08003c;
         public static final int TextoComparacao=0x7f080011;
         public static final int Tipo1=0x7f080025;
@@ -95,6 +94,7 @@ public final class R {
         public static final int textEstado1=0x7f08000e;
         public static final int textInstituicao=0x7f08003f;
         public static final int textNota=0x7f080040;
+        public static final int textView1=0x7f080022;
     }
     public static final class layout {
         public static final int activity_comparacao_cidades=0x7f030000;

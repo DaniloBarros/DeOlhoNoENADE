@@ -31,7 +31,7 @@ public class ComparacaoTipo extends Activity {
 	
 	private Spinner EstadoT1, Tipo1;
 	private ControllerCurso controller;
-	private String estado, municipio;
+	private String estado1, tipo1;
 	private int codCurso;
 	private List<String> dados;
 
@@ -76,9 +76,9 @@ private void addItensOnSpinnerEstadoT1(int codCurso) {
 					@Override
 					public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
 						
-						estado = parent.getItemAtPosition(posicao).toString();
+						estado1 = parent.getItemAtPosition(posicao).toString();
 						
-						addItensOnSpinnerTipo1(estado);						
+						addItensOnSpinnerTipo1(estado1);						
 					}
 				
 					
@@ -106,9 +106,7 @@ private void addItensOnSpinnerTipo1(String uf) {
 				@Override
 				public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
 					
-					
-					municipio = parent.getItemAtPosition(posicao).toString();
-					addItensOnSpinnerTipos(estado, municipio);
+					tipo1 = parent.getItemAtPosition(posicao).toString();
 					
 				}
 	 
@@ -121,8 +119,6 @@ private void addItensOnSpinnerTipo1(String uf) {
 	
 }
 
-private void addItensOnSpinnerTipos(String estado, String municipio) {
-}
 
 
 
@@ -134,8 +130,10 @@ private void addListenerOnButtonBuscar() {
 		@Override
     	public void onClick(View v) {
 			Intent result =  new Intent(ComparacaoTipo.this, ComparacaoTipoFinal.class);
-			result.putStringArrayListExtra("dadosTipo1", (ArrayList<String>) dados);
+			result.putExtra("Estado1", estado1);
+			result.putExtra("Tipo1", tipo1);
 			result.putExtra("codCurso", codCurso);
+
 
     		startActivity(result);
     	}

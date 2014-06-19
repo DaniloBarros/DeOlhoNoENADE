@@ -30,10 +30,10 @@ public class ComparacaoTipoFinal extends Activity {
 	
 	private Spinner EstadoT2,Tipo2;
 	private ControllerCurso controller;
-	private String estado, municipio, Tipo;
+	private String estado1, tipo1, estado2, tipo2;
 	private Spinner spinnerCidades;
 	private int codCurso;
-	private List<String> dados, dados2;
+	private List<Float> resultados;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +45,9 @@ public class ComparacaoTipoFinal extends Activity {
 		cursoSelecionado.setText(getIntent().getExtras().getString("cursoSelecionado"));
 		
 		codCurso = getIntent().getExtras().getInt("codCurso");
-		dados = getIntent().getExtras().getStringArrayList("dadosIes");
-		
+		estado1 = getIntent().getExtras().getString("Estado1");
+		tipo1 = getIntent().getExtras().getString("Tipo1");
+			
 		addItensOnSpinnerEstadoT2(codCurso);
 		addListenerOnButtonBuscar();
 		
@@ -70,9 +71,9 @@ private void addItensOnSpinnerEstadoT2(int codCurso) {
 					@Override
 					public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
 					
-						estado = parent.getItemAtPosition(posicao).toString();
+						estado2 = parent.getItemAtPosition(posicao).toString();
 						
-						addItensOnSpinnerTipo2(estado);
+						addItensOnSpinnerTipo2(estado2);
 					}
 					
 					
@@ -99,8 +100,7 @@ private void addItensOnSpinnerTipo2(String uf) {
 				public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
 					
 					
-					municipio = parent.getItemAtPosition(posicao).toString();
-					addItensOnSpinnerTipos(estado, municipio);
+					tipo2 = parent.getItemAtPosition(posicao).toString();
 					
 				}
 	 
@@ -113,8 +113,7 @@ private void addItensOnSpinnerTipo2(String uf) {
 	
 }
 
-private void addItensOnSpinnerTipos(String estado, String municipio) {
-}
+
 
 
 
@@ -126,9 +125,14 @@ private void addListenerOnButtonBuscar() {
 		@Override
     	public void onClick(View v) {
 			Intent result =  new Intent(ComparacaoTipoFinal.this, ComparacaoResultTipo.class);
-			result.putStringArrayListExtra("dadosTipo1", (ArrayList<String>) dados);
-			result.putStringArrayListExtra("dadosTipo2", (ArrayList<String>) dados2);
+			resultados = controller.comparacaoTipo(codCurso, estado1, tipo1, estado2, tipo2);
 			result.putExtra("CodCurso", codCurso);
+			result.putExtra("resultado1", resultados.get(0));
+			result.putExtra("resultado2", resultados.get(1));
+			result.putExtra("Estado1", estado1);
+			result.putExtra("Tipo1", tipo1);
+			result.putExtra("Estado2", estado2);
+			result.putExtra("Tipo2", tipo2);
     		startActivity(result);
     	}
 	});

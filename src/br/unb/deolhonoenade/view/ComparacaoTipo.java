@@ -29,12 +29,12 @@ import android.os.Build;
 
 public class ComparacaoTipo extends Activity {
 	
-	private Spinner EstadoT1, Tipo1;
+	private Spinner EstadoT1, Tipo1, EstadoT2, Tipo2;
 	private ControllerCurso controller;
-	private String estado1, tipo1;
+	private String estado1, tipo1, estado2, tipo2;
 	private int codCurso;
-	private List<String> dados;
-
+	private List<Float> resultados;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,6 +46,7 @@ public class ComparacaoTipo extends Activity {
 		codCurso = controller.buscaCodCurso(getIntent().getExtras().getString("cursoSelecionado"));
 		
 		addItensOnSpinnerEstadoT1(codCurso);
+		addItensOnSpinnerEstadoT2(codCurso);
 		addListenerOnButtonBuscar();
 	}
 
@@ -59,7 +60,7 @@ public class ComparacaoTipo extends Activity {
 	
 private void addItensOnSpinnerEstadoT1(int codCurso) {
 		
-		EstadoT1 = (Spinner) findViewById(R.id.EstadoT1);
+		EstadoT1 = (Spinner) findViewById(R.id.SpinnerEstado1);
 		List<String> list = new ArrayList<String>();
 		
 		list = controller.buscaUf(codCurso);
@@ -91,7 +92,7 @@ private void addItensOnSpinnerEstadoT1(int codCurso) {
 	}
 
 private void addItensOnSpinnerTipo1(String uf) {
-	this.Tipo1 = (Spinner) findViewById(R.id.Tipo1);
+	this.Tipo1 = (Spinner) findViewById(R.id.SpinnerEstado1Tipo);
 	List<String> list;
 	list = controller.buscaTiposEstado(codCurso, uf);
 	
@@ -119,8 +120,63 @@ private void addItensOnSpinnerTipo1(String uf) {
 	
 }
 
+private void addItensOnSpinnerEstadoT2(int codCurso) {
+	
+	EstadoT2 = (Spinner) findViewById(R.id.SpinnerEstado2);
+	List<String> list = new ArrayList<String>();
+	
+	list = controller.buscaUf(codCurso);
+				
+	ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+			android.R.layout.simple_spinner_item, list);
+		dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		EstadoT2.setAdapter(dataAdapter);
+		
+		EstadoT2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+	 
+				
+				@Override
+				public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
+				
+					estado2 = parent.getItemAtPosition(posicao).toString();
+					
+					addItensOnSpinnerTipo2(estado2);
+				}
+				
+				
+				@Override
+				public void onNothingSelected(AdapterView<?> parent) {
+				}
+			});	
+}
 
-
+private void addItensOnSpinnerTipo2(String uf) {
+	this.Tipo2 = (Spinner) findViewById(R.id.SpinnerEstado2Tipo);
+	List<String> list;
+	list = controller.buscaTiposEstado(codCurso, uf);
+	
+			
+		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+				android.R.layout.simple_spinner_item, list);
+			dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+			
+			this.Tipo2.setAdapter(dataAdapter);
+			
+			this.Tipo2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+				@Override
+				public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
+					
+					
+					tipo2 = parent.getItemAtPosition(posicao).toString();
+					
+				}
+	 
+				@Override
+				public void onNothingSelected(AdapterView<?> parent) {
+				}
+			});
+	
+}
 
 private void addListenerOnButtonBuscar() {
 
@@ -129,11 +185,16 @@ private void addListenerOnButtonBuscar() {
 		
 		@Override
     	public void onClick(View v) {
-			Intent result =  new Intent(ComparacaoTipo.this, ComparacaoTipoFinal.class);
+			
+			Intent result =  new Intent(ComparacaoTipo.this, ComparacaoResultTipo.class);
+			resultados = controller.comparacaoTipo(codCurso, estado1, tipo1, estado2, tipo2);
+			result.putExtra("CodCurso", codCurso);
+			result.putExtra("resultado1", resultados.get(0));
+			result.putExtra("resultado2", resultados.get(1));
 			result.putExtra("Estado1", estado1);
 			result.putExtra("Tipo1", tipo1);
-			result.putExtra("codCurso", codCurso);
-
+			result.putExtra("Estado2", estado2);
+			result.putExtra("Tipo2", tipo2);
 
     		startActivity(result);
     	}

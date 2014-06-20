@@ -6,60 +6,96 @@
     tools:context="br.unb.deolhonoenade.view.ComparacaoTipo"
     tools:ignore="MergeRootFrame" >
 
-    <Button
-        android:id="@+id/comparaT1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp"
-        android:text="@string/button_Buscar" />
-
-    <Spinner
-        android:id="@+id/Tipo1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/comparaT1" 
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="66dp" />
-
-    <Spinner
-        android:id="@+id/EstadoT1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/Tipo1"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="77dp" />
-
-    <TextView
-        android:id="@+id/EstadoTipoInicial1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/EstadoT1"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="40dp"
-        android:text="Escolha o primeiro Estado" />
-    
-
-    <TextView
-        android:id="@+id/EstadoTipoInicial2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:text="Escolha o primeiro Tipo" />
-
     <TextView
         android:id="@+id/nomeCursoSelecionado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/comparaT1"
+        android:layout_marginTop="16dp"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/Estado_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/nomeCursoSelecionado"
+        android:layout_marginTop="20dp"
+        android:text="Escolha o primeiro Estado" />
+
+    <Spinner
+        android:id="@+id/SpinnerEstado1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/Estado_1" />
+
+    <TextView
+        android:id="@+id/Estado1Tipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/SpinnerEstado1"
+        android:text="Escolha o primeiro Tipo" />
+
+    <Spinner
+        android:id="@+id/SpinnerEstado1Tipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/Estado1Tipo" />
+
+  
+
+    <TextView
+        android:id="@+id/Estado_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/SpinnerEstado1Tipo"
+        android:text="Escolha o segundo Estado" />
+
+     <Spinner
+        android:id="@+id/SpinnerEstado2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/Estado_2" />
+    
+    
+    <Button
+        android:id="@+id/comparaT1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="17dp"
+        android:text="@string/button_Buscar" />
+
+    <TextView
+        android:id="@+id/Estado2Tipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/SpinnerEstado2"
+        android:text="Escolha o segundo Tipo" />
+
+    <Spinner
+        android:id="@+id/SpinnerEstado2Tipo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
 
         android:layout_marginTop="16dp"
         
         android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge" 
+
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/Estado2Tipo" />
+
     
 </RelativeLayout>
 

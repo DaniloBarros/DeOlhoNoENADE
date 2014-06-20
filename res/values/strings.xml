@@ -25,6 +25,8 @@
     <string name="text_Estado2">Escolha o segundo Estado</string>
     <string name="text_cidade1">Escolha a primeira Cidade</string>
     <string name="text_cidade2">Escolha a segunda Cidade</string>
+    <string name="text_instiruicao1">Instiruicao 1:</string>
+    <string name="text_instiruicao2">Instiruicao 2:</string>
     <string name="title_activity_dados_ies">DadosIES</string>
     <string name="title_activity_comparacao_estado">ComparacaoEstado</string>
     <string name="hello_world">Hello world!</string>

@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import br.unb.br.deolhonoenade.graphs.holographlibrary.Bar;
 import br.unb.br.deolhonoenade.graphs.holographlibrary.BarGraph;
 import br.unb.deolhonoenade.R;
@@ -23,6 +24,9 @@ public class ComparacaoResultIES extends Activity {
 
 	private ControllerCurso controller;
 	private List<String> result, aux;
+	private float nota1, nota2;
+	private String ies1, ies2;
+	
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,18 +35,32 @@ public class ComparacaoResultIES extends Activity {
 		
 		controller = new ControllerCurso(this);
 		
+		
+		
 		result = getIntent().getExtras().getStringArrayList("dadosIes1");
 		aux = getIntent().getExtras().getStringArrayList("dadosIes2");
+		
+		ies1 = getIntent().getExtras().getString("ies1");
+		nota1 = getIntent().getExtras().getFloat("nota1");
+		ies2 = getIntent().getExtras().getString("ies2");
+		nota2 = getIntent().getExtras().getFloat("nota2");
+		
+		
+		TextView instiruicao1 = (TextView) findViewById(R.id.nomeIES1);
+		instiruicao1.setText(ies1);
+		
+		TextView instiruicao2 = (TextView) findViewById(R.id.nomeIES2);
+		instiruicao2.setText(ies2);
 		
 		ArrayList<Bar> points = new ArrayList<Bar>();
 		Bar d = new Bar();
 		d.setColor(Color.parseColor("#99CC00"));
-		d.setName("test \ntest");
-		d.setValue(Float.parseFloat(result.get(5)));
+		d.setName("Instituicao 1");
+		d.setValue(nota1);
 		Bar d2 = new Bar();
 		d2.setColor(Color.parseColor("#FFBB33"));
-		d2.setName(aux.get(0));
-		d2.setValue(Float.parseFloat(aux.get(5)));
+		d2.setName("Instituicao 2");
+		d2.setValue(nota2);
 		points.add(d);
 		points.add(d2);
 

@@ -5,7 +5,13 @@
     android:layout_height="match_parent"
     tools:context="br.unb.deolhonoenade.view.ComparacaoResultTipo"
     tools:ignore="MergeRootFrame" >
-
+<br.unb.br.deolhonoenade.graphs.holographlibrary.BarGraph 
+    android:id="@+id/graph3"
+    android:layout_width = "match_parent"
+    android:layout_height="200dp"
+    android:layout_alignParentLeft="true"
+    android:layout_below="@+id/stringCurso"
+    android:layout_marginTop="14dp" />
     <TextView
         android:id="@+id/Estado_2"
         android:layout_width="wrap_content"
@@ -14,13 +20,46 @@
         android:layout_alignParentTop="true"
         android:text="O Resultado da Comparacao eh" />
 
-    <ListView
-        android:id="@+id/ListResultadoTipo"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Estado_2"
-        android:layout_centerHorizontal="true" >
-    </ListView>
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:text="Estado/tipo 1"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/estadoTipo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="20dp"
+        android:text="Small Text"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/estadoTipo1"
+        android:layout_marginTop="22dp"
+        android:text="Estado/tipo 2"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/estadoTipo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="22dp"
+        android:text="Small Text"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>
 

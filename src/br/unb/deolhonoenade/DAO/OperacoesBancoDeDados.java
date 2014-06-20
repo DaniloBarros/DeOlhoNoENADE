@@ -385,8 +385,7 @@ public class OperacoesBancoDeDados {
 		}while(cursor.moveToNext());
 		
 		
-		if(tipos.size()>=2)
-			tipos.add(0, "Ambas");
+		
 		
 		return tipos;
 		

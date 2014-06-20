@@ -3,23 +3,20 @@ package br.unb.deolhonoenade.view;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.unb.deolhonoenade.R;
-import br.unb.deolhonoenade.R.id;
-import br.unb.deolhonoenade.R.layout;
-import br.unb.deolhonoenade.R.menu;
-import br.unb.deolhonoenade.controller.ControllerCurso;
 import android.app.Activity;
-import android.app.ActionBar;
 import android.app.Fragment;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.os.Build;
+import android.widget.TextView;
+import br.unb.br.deolhonoenade.graphs.holographlibrary.Bar;
+import br.unb.br.deolhonoenade.graphs.holographlibrary.BarGraph;
+import br.unb.deolhonoenade.R;
+import br.unb.deolhonoenade.controller.ControllerCurso;
 
 public class ComparacaoResultTipo extends Activity {
 
@@ -42,16 +39,35 @@ public class ComparacaoResultTipo extends Activity {
 		estado2 = getIntent().getExtras().getString("Estado2");
 		tipo2 = getIntent().getExtras().getString("Tipo2");
 		
+		String eT1 = (estado1 + " " + tipo1);
+		String eT2 = (estado2 + " " + tipo2);
+		
+			TextView estadoTipo1 = (TextView) findViewById(R.id.estadoTipo1);
+			estadoTipo1.setText(eT1);
 			
-		result.add(String.format("O Resultado da IES do Tipo %s do Estado %s e: %f ", tipo1, estado1, resultado1));
-		result.add(String.format("O Resultado da IES do Tipo %s do Estado %s e: %f", tipo2, estado2, resultado2));
+			TextView estadoTipo2 = (TextView) findViewById(R.id.estadoTipo2);
+			estadoTipo2.setText(eT2);
+			
+			
+			ArrayList<Bar> points = new ArrayList<Bar>();
+			Bar d = new Bar();
+			d.setColor(Color.parseColor("#99CC00"));
+			d.setName("Estado/Tipo 1:");
+			d.setValue(resultado1);
+			Bar d2 = new Bar();
+			d2.setColor(Color.parseColor("#FFBB33"));
+			d2.setName("Estado/Tipo 2:");
+			d2.setValue(resultado2);
+			points.add(d);
+			points.add(d2);
+			
+			BarGraph g = (BarGraph)findViewById(R.id.graph3);
+			g.setBars(points);
+			g.setUnit(" ");
+			
 		
-		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_list_item_1, result);
 		
-		ListView resultado = (ListView) findViewById(R.id.ListResultadoTipo);
 		
-		resultado.setAdapter(dataAdapter);
 		
 	}
 

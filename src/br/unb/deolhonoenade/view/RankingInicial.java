@@ -130,7 +130,10 @@ public class RankingInicial extends Activity implements
 		tipos.clear();
 				
 		tipos = controller.buscaTiposEstado(codCurso, estado);
-	
+		
+		if(tipos.size()>=2)
+			tipos.add(0,"Ambas");
+		
 		// Identificando o Spinner
 		tipUniv = (Spinner) findViewById(R.id.spinnerTipo);
 		ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, tipos);

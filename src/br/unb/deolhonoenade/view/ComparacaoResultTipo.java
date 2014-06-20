@@ -1,5 +1,6 @@
 package br.unb.deolhonoenade.view;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.unb.deolhonoenade.R;
@@ -23,7 +24,7 @@ import android.os.Build;
 public class ComparacaoResultTipo extends Activity {
 
 	private ControllerCurso controller;
-	private List<String> result;
+	private List<String> result = new ArrayList<String>();
 	private float resultado1, resultado2;
 	private String estado1, estado2, tipo1, tipo2;
 	
@@ -42,7 +43,7 @@ public class ComparacaoResultTipo extends Activity {
 		tipo2 = getIntent().getExtras().getString("Tipo2");
 		
 			
-		result.add(String.format("O Resultado da IES do Tipo %s do Estado %s e: %f", tipo1, estado1, resultado1));
+		result.add(String.format("O Resultado da IES do Tipo %s do Estado %s e: %f ", tipo1, estado1, resultado1));
 		result.add(String.format("O Resultado da IES do Tipo %s do Estado %s e: %f", tipo2, estado2, resultado2));
 		
 		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,

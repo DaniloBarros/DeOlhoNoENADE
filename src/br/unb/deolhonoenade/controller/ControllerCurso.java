@@ -125,6 +125,7 @@ public class ControllerCurso {
 			
 		media = this.fazMediaConceitoEnade(cursosEstadoTipo1);
 		
+		/*Rever isso DAKI*/
 		Resultado.add(media);
 		
 		media = this.fazMediaConceitoEnade(cursosEstadoTipo2);

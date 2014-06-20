@@ -42,13 +42,14 @@ public class TestControllerCurso extends AndroidTestCase {
 		codCurso = controller.buscaCodCurso("Administracao");
 		Assert.assertEquals(1, codCurso);
 	}
-	
+
 	public void testBuscaInstituicao() {
 		Instituicao instituicao;
 		ControllerCurso controller = new ControllerCurso(getContext());
 
 		instituicao = controller.buscaInstituicao(1);
-		Assert.assertEquals("UNIVERSIDADE FEDERAL DE MATO GROSSO", instituicao.getNome());
+		Assert.assertEquals("UNIVERSIDADE FEDERAL DE MATO GROSSO",
+				instituicao.getNome());
 	}
 
 	public void testBuscaCursoIntString() {
@@ -422,7 +423,8 @@ public class TestControllerCurso extends AndroidTestCase {
 
 		String estado1 = "DF", estado2 = "AM";
 
-		assertEquals(controller.comparaEstado(estado1, estado2, 1).get(0),(float)1.9448332);
+		assertEquals(controller.comparaEstado(estado1, estado2, 1).get(0),
+				(float) 1.9448332);
 	}
 
 	public void testComparacaoCidade() {
@@ -435,6 +437,15 @@ public class TestControllerCurso extends AndroidTestCase {
 				controller.comparacaoCidade(1, estado1, cidade1, estado2,
 						cidade2).get(0), "1.900000");
 
+	}
+
+	public void testComparacaoTipo() {
+		ControllerCurso controller = new ControllerCurso(getContext());
+		List<Float> resultado = controller.comparacaoTipo(1, "AC", "Privada",
+				"AL", "Privada");
+
+		Assert.assertEquals((float) 1.5185001, resultado.get(0));
+		Assert.assertEquals((float) 2.285000, resultado.get(1));
 	}
 
 }

@@ -10,32 +10,32 @@
     
     <TextView
         android:id="@+id/stringCurso1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/cursoSelecionado1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/text_Estado1"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Spinner
         android:id="@+id/spinnerEstado1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/cidade1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/text_cidade1"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Spinner
         android:id="@+id/spinnerCidade1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Space
@@ -51,11 +51,11 @@
 
     <Space
         android:layout_width="1dp"
-        android:layout_height="15dp" />
+        android:layout_height="20dp" />
 
     <Spinner
         android:id="@+id/spinnerEstado2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <TextView
@@ -67,7 +67,7 @@
 
     <Spinner
         android:id="@+id/spinnerCidade2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <Button

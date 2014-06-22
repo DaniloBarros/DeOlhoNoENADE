@@ -31,16 +31,15 @@
 
  	  <Spinner
  	      android:id="@+id/Estado1"
- 	      android:layout_width="wrap_content"
+ 	      android:layout_width="match_parent"
  	      android:layout_height="wrap_content"
  	      android:layout_alignParentLeft="true"
  	      android:layout_below="@+id/EscolhaEstado1" />
 
  	  <TextView
  	      android:id="@+id/textEstado1"
- 	      android:layout_width="wrap_content"
+ 	      android:layout_width="match_parent"
  	      android:layout_height="wrap_content"
- 	      android:layout_centerHorizontal="true"
  	      android:layout_centerVertical="true"
  	      android:text="Escolha o segundo estado"
  	      android:textSize="25dp"
@@ -50,7 +49,7 @@
  	      android:id="@+id/Comparar"
  	      android:layout_width="match_parent"
  	      android:layout_height="wrap_content"
- 	      android:layout_alignParentBottom="true"
+ 	     android:layout_alignParentBottom="true"
  	      android:layout_alignParentLeft="true"
  	      android:layout_marginBottom="28dp"
  	      android:text="Comparar"
@@ -58,7 +57,7 @@
 
  	  <Spinner
  	      android:id="@+id/Estado2"
- 	      android:layout_width="wrap_content"
+ 	      android:layout_width="match_parent"
  	      android:layout_height="wrap_content"
  	      android:layout_alignLeft="@+id/textEstado1"
  	      android:layout_below="@+id/textEstado1"

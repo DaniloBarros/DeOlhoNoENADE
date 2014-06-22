@@ -27,7 +27,7 @@
 
     <Spinner
         android:id="@+id/SpinnerEstado1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/Estado_1" />
@@ -42,7 +42,7 @@
 
     <Spinner
         android:id="@+id/SpinnerEstado1Tipo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/Estado1Tipo" />
@@ -59,7 +59,7 @@
 
      <Spinner
         android:id="@+id/SpinnerEstado2"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/Estado_2" />
@@ -84,7 +84,7 @@
 
     <Spinner
         android:id="@+id/SpinnerEstado2Tipo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
 

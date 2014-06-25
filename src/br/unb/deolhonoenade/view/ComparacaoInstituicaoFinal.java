@@ -68,7 +68,7 @@ private void addItensOnSpinnerEstado(int codCurso, boolean retira) {
 		
 
 		if(retira)
-			estados.remove(municipio1);
+			estados.remove(estado1);
 		
 		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_spinner_item, estados);

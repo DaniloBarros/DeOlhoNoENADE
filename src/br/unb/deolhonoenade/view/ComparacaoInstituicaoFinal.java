@@ -30,11 +30,13 @@ public class ComparacaoInstituicaoFinal extends Activity {
 
 	private Spinner spinnerEstados, spinnerIES;
 	private ControllerCurso controller;
-	private String estado, municipio, ies1, ies2;
+	private String estado, municipio, ies2;
+	private String estado1, municipio1, ies1;
 	private Spinner spinnerCidades;
 	private int codCurso;
 	private float nota1, nota2;
 	private List<String> dados, dados2;
+	List<String> cursos, municipios, estados;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,23 +49,29 @@ public class ComparacaoInstituicaoFinal extends Activity {
 		
 		codCurso = getIntent().getExtras().getInt("codCurso");
 		dados = getIntent().getExtras().getStringArrayList("dadosIes");
+		estado1 = getIntent().getExtras().getString("estado1");
+		municipio1 = getIntent().getExtras().getString("municipio1");
 		ies1 = getIntent().getExtras().getString("ies1");
 		nota1 = getIntent().getExtras().getFloat("nota1");
 		
-		addItensOnSpinnerEstado(codCurso);
+		addItensOnSpinnerEstado(codCurso, false);
 		addListenerOnButtonBuscar();
 		
 	}
 	
-private void addItensOnSpinnerEstado(int codCurso) {
+private void addItensOnSpinnerEstado(int codCurso, boolean retira) {
 		
 		spinnerEstados = (Spinner) findViewById(R.id.estados);
-		List<String> list = new ArrayList<String>();
+		estados = new ArrayList<String>();
 		
-		list = controller.buscaUf(codCurso);
-					
+		estados = controller.buscaUf(codCurso);
+		
+
+		if(retira)
+			estados.remove(municipio1);
+		
 		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-				android.R.layout.simple_spinner_item, list);
+				android.R.layout.simple_spinner_item, estados);
 			dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 			spinnerEstados.setAdapter(dataAdapter);
 			
@@ -74,7 +82,7 @@ private void addItensOnSpinnerEstado(int codCurso) {
 					
 						estado = parent.getItemAtPosition(posicao).toString();
 						
-						addItensOnSpinnerMunicipio(estado);
+						addItensOnSpinnerMunicipio(estado, false);
 					}		
 	
 					@Override
@@ -83,15 +91,16 @@ private void addItensOnSpinnerEstado(int codCurso) {
 				});	
 	}
 	
-	private void addItensOnSpinnerMunicipio(String uf) {
+	private void addItensOnSpinnerMunicipio(String uf, boolean retira) {
 		
 		this.spinnerCidades = (Spinner) findViewById(R.id.cidades);
-		List<String> list;
-		list = controller.buscaCidades(codCurso, uf);
+		municipios = controller.buscaCidades(codCurso, uf);
 		
+		if(retira)
+			municipios.remove(municipio1);
 				
 			ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-					android.R.layout.simple_spinner_item, list);
+					android.R.layout.simple_spinner_item, municipios);
 				dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 				
 				this.spinnerCidades.setAdapter(dataAdapter);
@@ -101,7 +110,7 @@ private void addItensOnSpinnerEstado(int codCurso) {
 					public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
 						
 						municipio = parent.getItemAtPosition(posicao).toString();
-						addItensOnSpinnerIES(estado, municipio);
+						addItensOnSpinnerIES(estado, municipio, false);
 						
 					}					
 
@@ -112,10 +121,13 @@ private void addItensOnSpinnerEstado(int codCurso) {
 		
 	}
 	
-	private void addItensOnSpinnerIES(String estado, String municipio) {
-		List<String> cursos = controller.buscaStringCurso(codCurso, estado, municipio);
+	private void addItensOnSpinnerIES(String uf, String cidade, boolean retira) {
+		cursos = controller.buscaStringCurso(codCurso, uf, cidade);
 		this.spinnerIES = (Spinner) findViewById(R.id.spinnerIES);
-						
+		
+		if(retira)
+			cursos.remove(ies1);
+		
 			ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
 					android.R.layout.simple_spinner_item, cursos);
 				dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -130,6 +142,17 @@ private void addItensOnSpinnerEstado(int codCurso) {
 						dados2.add(String.format("%.2f",controller.getConceitoDoArrayCursos(posicao)));
 						nota2 = controller.getConceitoDoArrayCursos(posicao);
 						ies2 = dados2.get(0);
+						
+						if(ies2.equalsIgnoreCase(ies1)){
+							if(cursos.size()<=1){
+								
+								if(municipios.size()<=1){
+									addItensOnSpinnerEstado(codCurso, true);
+								}else
+									addItensOnSpinnerMunicipio(estado, true);
+							}else
+								addItensOnSpinnerIES(estado, municipio, true);
+						}
 						
 						
 					}

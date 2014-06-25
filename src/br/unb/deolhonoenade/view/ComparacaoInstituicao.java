@@ -144,6 +144,8 @@ public class ComparacaoInstituicao extends Activity {
 						Intent result =  new Intent(ComparacaoInstituicao.this, ComparacaoInstituicaoFinal.class);
 						result.putStringArrayListExtra("dadosIes", (ArrayList<String>) dados);
 						result.putExtra("codCurso", codCurso);
+						result.putExtra("municipio1", municipio);
+						result.putExtra("estado1", estado);
 						result.putExtra("nota1", nota1);
 						result.putExtra("ies1", ies1);
 

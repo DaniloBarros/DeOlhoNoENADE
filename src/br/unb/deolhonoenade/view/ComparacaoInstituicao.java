@@ -109,7 +109,7 @@ public class ComparacaoInstituicao extends Activity {
 	}
 	
 	private void addItensOnSpinnerIES(String estado, String municipio) {
-		List<String> cursos = controller.buscaStringCurso(codCurso, estado, municipio);
+		List<String> cursos = controller.buscaIesComUfMun(codCurso, estado, municipio);
 		this.spinnerIES = (Spinner) findViewById(R.id.spinnerIES);
 						
 			ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,

@@ -65,8 +65,7 @@ private void addItensOnSpinnerEstado(int codCurso, boolean retira) {
 		estados = new ArrayList<String>();
 		
 		estados = controller.buscaUf(codCurso);
-		
-
+	
 		if(retira)
 			estados.remove(estado1);
 		
@@ -122,7 +121,7 @@ private void addItensOnSpinnerEstado(int codCurso, boolean retira) {
 	}
 	
 	private void addItensOnSpinnerIES(String uf, String cidade, boolean retira) {
-		cursos = controller.buscaStringCurso(codCurso, uf, cidade);
+		cursos = controller.buscaIesComUfMun(codCurso, uf, cidade);
 		this.spinnerIES = (Spinner) findViewById(R.id.spinnerIES);
 		
 		if(retira)

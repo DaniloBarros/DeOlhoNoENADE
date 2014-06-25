@@ -212,7 +212,22 @@ public class ControllerCurso {
 		ufs = this.opBD.getUfs(codCurso);
 		return ufs;
 	}
+	
+	public List<String> buscaIesComUfMun(int codCurso2, String uf2,
+			String municipio2) {
 		
+		List<String> cursos = new ArrayList<String>();
+		List<Curso> listaCursos = new ArrayList<Curso>();
+		
+		listaCursos = this.buscaCurso(codCurso2, uf2, municipio2);
+		
+		for (int i = 0; i <listaCursos.size(); i++) {
+			cursos.add(String.format("%s", listaCursos.get(i).getIES().getNome()));
+		}
+		
+		return cursos;
+	}
+	
 	public List<String> buscaStringCurso(int codCurso2, String uf2) {
 		List<String> cursos = new ArrayList<String>();
 		List<Curso> listaCursos = new ArrayList<Curso>();

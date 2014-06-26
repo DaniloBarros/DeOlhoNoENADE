@@ -61,9 +61,11 @@
             android:theme="@android:style/Theme.DeviceDefault" >
         </activity>
         <activity
+
             android:name="br.unb.deolhonoenade.view.ComparacaoResult"
             android:label="@string/title_activity_comparacao_result" 
             android:theme="@android:style/Theme.DeviceDefault">
+
         </activity>
         <activity
             android:name="br.unb.deolhonoenade.view.ComparacaoInstituicao"
@@ -83,6 +85,7 @@
         </activity>
         <activity
             android:name="br.unb.deolhonoenade.view.ComparacaoCidades"
+
             android:label="@string/title_activity_comparacao_cidades" 
             android:theme="@android:style/Theme.DeviceDefault">
         </activity>
@@ -95,6 +98,7 @@
             android:name="br.unb.deolhonoenade.ComparacaoResultCidade"
             android:label="@string/title_activity_comparacao_result_cidade" 
             android:theme="@android:style/Theme.DeviceDefault">
+
         </activity>
         <activity
             android:name="br.unb.deolhonoenade.view.ComparacaoTipo"
@@ -103,6 +107,7 @@
         </activity>
         <activity
             android:name="br.unb.deolhonoenade.view.ComparacaoTipoFinal"
+
             android:label="@string/title_activity_comparacao_tipo_final" 
             android:theme="@android:style/Theme.DeviceDefault">
 
@@ -115,6 +120,14 @@
         <activity
             android:name="br.unb.deolhonoenade.view.Mapa"
             android:label="@string/title_activity_mapa" >
+        </activity>
+        <activity
+            android:name="br.unb.deolhonoenade.Mapa"
+            android:label="@string/title_activity_mapa" >
+        </activity>
+        <activity
+            android:name="br.unb.deolhonoenade.view.ManualUsuario"
+            android:label="@string/title_activity_manual_usuario" >
         </activity>
     </application>
 

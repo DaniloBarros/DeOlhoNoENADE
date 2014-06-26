@@ -15,7 +15,7 @@
     
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/manualRanking"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -29,12 +29,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/manualRanking"
         android:layout_marginTop="20dp"
         android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
+
         android:id="@+id/OrganizacaoAcademica"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -41,6 +41,7 @@ public class MenuInicial extends Activity {
 	}
 
 	private void addListenerOnButtonMapa() {
+
 		final Spinner spinner1 = (Spinner) findViewById(R.id.spinnerCurso);
 		Button rank = (Button) findViewById(R.id.Mapa);
 		
@@ -54,7 +55,6 @@ public class MenuInicial extends Activity {
 	    		startActivity(intent);
 	    	}
 		});
-		
 	}
 
 	private void addItensOnSpinnerCurso() {

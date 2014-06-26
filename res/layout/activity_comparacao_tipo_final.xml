@@ -60,7 +60,9 @@
         android:layout_alignRight="@+id/EstadoTipoFinal1"
         android:layout_marginBottom="41dp"
         
-        android:text="@string/button_Comparacao" />
+        android:text="@string/button_Comparacao"
+        android:textColor= "#FFFF" 
+        android:background="@layout/layout_botao" />
 
     <TextView
         android:id="@+id/EstadoTipoFinal2"

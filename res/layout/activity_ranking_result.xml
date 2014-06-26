@@ -13,7 +13,8 @@
         android:layout_x="30dp"
         android:layout_y="0dp"
         android:text="@string/text_Instituicao"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:contentDescription="Instituição" />
 
     <TextView
         android:id="@+id/textNota"
@@ -22,7 +23,8 @@
         android:layout_x="238dp"
         android:layout_y="0dp"
         android:text="@string/text_Nota"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:contentDescription="Nota" />
 
     <ListView
         android:id="@+id/listResult"

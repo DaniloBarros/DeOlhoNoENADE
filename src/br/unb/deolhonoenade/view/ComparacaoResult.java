@@ -74,6 +74,8 @@ public class ComparacaoResult extends Activity {
 		BarGraph g = (BarGraph)findViewById(R.id.graph2);
 		g.setBars(points);
 		g.setUnit(" ");
+		g.setContentDescription(estado1 + ".   nota: " + String.format("%.3f", list.get(0))
+				+ ". E " + estado2 + ".   nota: " + String.format("%.3f", list.get(1)));
 	}
 
 	@Override

@@ -49,7 +49,8 @@ public class ComparacaoCidades extends Activity {
 		this.codCurso = controller.buscaCodCurso(curso);
 		addItensOnSpinnerEstado1(codCurso);
 		addItensOnSpinnerEstado2(codCurso);
-		addListenerOnButtonComparar();		
+		addListenerOnButtonComparar();
+
 	}
 
 			private void addItensOnSpinnerEstado1(int codCurso) {

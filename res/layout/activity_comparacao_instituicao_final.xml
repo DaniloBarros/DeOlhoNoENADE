@@ -22,7 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/cursoSelecionado1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp" />
+        android:layout_marginTop="18dp"
+        android:contentDescription="para escolher um estado" />
 
     <Spinner
         android:id="@+id/cidades"
@@ -30,7 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/cidade1"
-        android:layout_marginTop="18dp" />
+        android:layout_marginTop="18dp"
+        android:contentDescription="para escolher uma cidade" />
 
     <Spinner
         android:id="@+id/spinnerIES"
@@ -38,7 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/estado2"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="15dp"
+        android:contentDescription="para escolher uma instituição" />
 
     <Button
         android:id="@+id/Comparar"
@@ -49,7 +52,8 @@
         android:layout_alignParentRight="true"
         android:text="Comparar"
       	android:textColor= "#FFFF" 
-        android:background="@layout/layout_botao" />
+        android:background="@layout/layout_botao"
+        android:contentDescription="Comparar" />
 
     <TextView
         android:id="@+id/cursoSelecionado1"

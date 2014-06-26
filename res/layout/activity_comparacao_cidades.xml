@@ -24,7 +24,8 @@
     <Spinner
         android:id="@+id/spinnerEstado1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:contentDescription="para selecionar o primeiro estado" />
 
     <TextView
         android:id="@+id/cidade1"
@@ -36,7 +37,8 @@
     <Spinner
         android:id="@+id/spinnerCidade1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:contentDescription="para selecionar a primeira cidade" />
 
     <Space
         android:layout_width="wrap_content"
@@ -56,7 +58,8 @@
     <Spinner
         android:id="@+id/spinnerEstado2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:contentDescription="para selecionar o segundo estado" />
 
     <TextView
         android:id="@+id/cidade2"
@@ -68,7 +71,8 @@
     <Spinner
         android:id="@+id/spinnerCidade2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:contentDescription="para selecionar a segunda cidade" />
 
     <Button
         android:id="@+id/buttonComparacaoCidades"
@@ -76,7 +80,8 @@
         android:layout_height="wrap_content"
         android:text="@string/button_Comparacao"
         android:textColor= "#FFFF" 
-        android:background="@layout/layout_botao"/>
+        android:background="@layout/layout_botao"
+        android:contentDescription="Comparar entre cidades"/>
 
         
 </LinearLayout>

@@ -15,7 +15,8 @@
         android:layout_marginTop="24dp"
         android:text="Escolha a comparação desejada"
 		android:textSize="25dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:contentDescription="Buscar" />
 
     <Button
         android:id="@+id/BotaoEstado"
@@ -27,7 +28,8 @@
         android:text="Média entre estados"
         android:textSize="27dp"
        	android:textColor= "#FFFF" 
-        android:background="@layout/layout_botao"/>
+        android:background="@layout/layout_botao"
+        android:contentDescription="Calcular média entre estados"/>
 
     <Button
         android:id="@+id/BotaoCidades"
@@ -39,7 +41,8 @@
         android:text="Média entre cidades" 
         android:textSize="27dp"
         android:textColor= "#FFFF" 
-        android:background="@layout/layout_botao"/>
+        android:background="@layout/layout_botao"
+        android:contentDescription="Calcular média entre cidades"/>
  
      <Button
         android:id="@+id/BotaoIES"
@@ -51,7 +54,8 @@
         android:text="Entre Instituições de Ensino"
         android:textSize="27dp"
         android:textColor= "#FFFF" 
-        android:background="@layout/layout_botao" />
+        android:background="@layout/layout_botao"
+        android:contentDescription="Calcular média entre instituições de ensino" />
      
         <Button
         android:id="@+id/BotaoTipo"
@@ -63,7 +67,8 @@
         android:text="Entre Tipos de Instituições de Ensino"
         android:textSize="27dp" 
       	android:textColor= "#FFFF" 
-        android:background="@layout/layout_botao"/>
+        android:background="@layout/layout_botao"
+        android:contentDescription="Calcular média entre tipos de instituições"/>
      
  
 </RelativeLayout>

@@ -12,6 +12,7 @@
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="14" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -104,11 +105,16 @@
             android:name="br.unb.deolhonoenade.view.ComparacaoTipoFinal"
             android:label="@string/title_activity_comparacao_tipo_final" 
             android:theme="@android:style/Theme.DeviceDefault">
+
         </activity>
         <activity
             android:name="br.unb.deolhonoenade.view.ComparacaoResultTipo"
             android:label="@string/title_activity_comparacao_result_tipo"
             android:theme="@android:style/Theme.DeviceDefault" >
+        </activity>
+        <activity
+            android:name="br.unb.deolhonoenade.Mapa"
+            android:label="@string/title_activity_mapa" >
         </activity>
     </application>
 

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import br.unb.deolhonoenade.Mapa;
 import br.unb.deolhonoenade.R;
 
 import java.util.ArrayList;
@@ -31,12 +32,30 @@ public class MenuInicial extends Activity {
 		addItensOnSpinnerCurso();
 		addListenerOnButtonComparacao();
 		addListenerOnButtonRanking();
+		addListenerOnButtonMapa();
 		
 		
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
+	}
+
+	private void addListenerOnButtonMapa() {
+		final Spinner spinner1 = (Spinner) findViewById(R.id.spinnerCurso);
+		Button rank = (Button) findViewById(R.id.Mapa);
+		
+		rank.setOnClickListener(new OnClickListener(){
+			
+			@Override
+	    	public void onClick(View v) {
+	    		Intent intent = new Intent(MenuInicial.this, Mapa.class);
+	    		intent.putExtra("cursoSelecionado", String.valueOf(spinner1.getSelectedItem()));
+	    		intent.putExtra("BoolComp", false);
+	    		startActivity(intent);
+	    	}
+		});
+		
 	}
 
 	private void addItensOnSpinnerCurso() {

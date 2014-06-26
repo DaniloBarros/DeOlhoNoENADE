@@ -49,10 +49,12 @@
  	      android:id="@+id/Comparar"
  	      android:layout_width="match_parent"
  	      android:layout_height="wrap_content"
- 	     android:layout_alignParentBottom="true"
+ 	      android:layout_alignParentBottom="true"
  	      android:layout_alignParentLeft="true"
  	      android:layout_marginBottom="28dp"
- 	      android:text="Comparar"
+          android:textColor= "#FFFF" 
+          android:background="@layout/layout_botao"
+          android:text="Comparar"
  	      android:textSize="25dp" />
 
  	  <Spinner

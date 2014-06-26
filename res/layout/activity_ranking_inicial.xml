@@ -14,7 +14,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:text="@string/button_Buscar" />
+        android:text="@string/button_Buscar"
+     	android:textColor= "#FFFF" 
+        android:background="@layout/layout_botao" />
 
     <TextView
         android:id="@+id/EscolherCidade"

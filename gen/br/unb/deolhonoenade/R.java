@@ -22,9 +22,12 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int capa_enade_logo=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int popup_black=0x7f020002;
+        public static final int botao=0x7f020000;
+        public static final int botao_focado=0x7f020001;
+        public static final int botao_pressionado=0x7f020002;
+        public static final int capa_enade_logo=0x7f020003;
+        public static final int ic_launcher=0x7f020004;
+        public static final int popup_black=0x7f020005;
     }
     public static final class id {
         public static final int BotaoCidades=0x7f080013;
@@ -32,14 +35,14 @@ public final class R {
         public static final int BotaoIES=0x7f080014;
         public static final int BotaoTipo=0x7f080015;
         public static final int ComparaT=0x7f080036;
-        public static final int Comparacao=0x7f08003e;
+        public static final int Comparacao=0x7f08003f;
         public static final int Comparar=0x7f08000f;
         public static final int DadosIES=0x7f080037;
         public static final int EscolhaEstado1=0x7f08000c;
         public static final int EscolherCidade=0x7f080042;
         public static final int EscolherCurso=0x7f08003c;
         public static final int EscolherEstado=0x7f080043;
-        public static final int EscolherFuncao=0x7f08003d;
+        public static final int EscolherFuncao=0x7f08003e;
         public static final int Estado1=0x7f08000d;
         public static final int Estado1Tipo=0x7f08002b;
         public static final int Estado2=0x7f080010;
@@ -51,8 +54,8 @@ public final class R {
         public static final int Estado_2=0x7f08002d;
         public static final int Instiruicao1=0x7f080021;
         public static final int Instiruicao2=0x7f08001e;
-        public static final int Mapa=0x7f080040;
-        public static final int Ranking=0x7f08003f;
+        public static final int Mapa=0x7f08003d;
+        public static final int Ranking=0x7f080040;
         public static final int SpinnerEstado1=0x7f08002a;
         public static final int SpinnerEstado1Tipo=0x7f08002c;
         public static final int SpinnerEstado2=0x7f08002e;
@@ -140,6 +143,7 @@ public final class R {
         public static final int fragment_menu_inicial=0x7f03001f;
         public static final int fragment_ranking_inicial=0x7f030020;
         public static final int fragment_ranking_result=0x7f030021;
+        public static final int layout_botao=0x7f030022;
     }
     public static final class menu {
         public static final int comparacao_cidades=0x7f070000;

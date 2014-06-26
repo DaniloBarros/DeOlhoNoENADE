@@ -25,7 +25,9 @@
         android:layout_below="@+id/TextoComparacao"
         android:layout_marginTop="25dp"
         android:text="Média entre estados"
-        android:textSize="27dp"/>
+        android:textSize="27dp"
+       	android:textColor= "#FFFF" 
+        android:background="@layout/layout_botao"/>
 
     <Button
         android:id="@+id/BotaoCidades"
@@ -35,7 +37,9 @@
         android:layout_below="@+id/BotaoEstado"
         android:layout_marginTop="25dp"
         android:text="Média entre cidades" 
-        android:textSize="27dp"/>
+        android:textSize="27dp"
+        android:textColor= "#FFFF" 
+        android:background="@layout/layout_botao"/>
  
      <Button
         android:id="@+id/BotaoIES"
@@ -45,7 +49,9 @@
         android:layout_below="@+id/BotaoCidades"
         android:layout_marginTop="25dp"
         android:text="Entre Instituições de Ensino"
-        android:textSize="27dp" />
+        android:textSize="27dp"
+        android:textColor= "#FFFF" 
+        android:background="@layout/layout_botao" />
      
         <Button
         android:id="@+id/BotaoTipo"
@@ -55,7 +61,9 @@
         android:layout_below="@+id/BotaoIES"
         android:layout_marginTop="25dp"
         android:text="Entre Tipos de Instituições de Ensino"
-        android:textSize="27dp" />
+        android:textSize="27dp" 
+      	android:textColor= "#FFFF" 
+        android:background="@layout/layout_botao"/>
      
  
 </RelativeLayout>

@@ -47,7 +47,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:text="Comparar" />
+        android:text="Comparar"
+      	android:textColor= "#FFFF" 
+        android:background="@layout/layout_botao" />
 
     <TextView
         android:id="@+id/cursoSelecionado1"

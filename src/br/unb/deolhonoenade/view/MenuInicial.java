@@ -41,7 +41,23 @@ public class MenuInicial extends Activity {
 	}
 
 	private void addListenerOnButtonMapa() {
+<<<<<<< HEAD
 		// TODO Auto-generated method stub
+=======
+		final Spinner spinner1 = (Spinner) findViewById(R.id.spinnerCurso);
+		Button rank = (Button) findViewById(R.id.Mapa);
+		
+		rank.setOnClickListener(new OnClickListener(){
+			
+			@Override
+	    	public void onClick(View v) {
+	    		Intent intent = new Intent(MenuInicial.this, Mapa.class);
+	    		intent.putExtra("cursoSelecionado", String.valueOf(spinner1.getSelectedItem()));
+	    		intent.putExtra("BoolComp", false);
+	    		startActivity(intent);
+	    	}
+		});
+>>>>>>> c6b92b0a80f4c05bc071dcd61c9d317ada9ebaed
 		
 	}
 

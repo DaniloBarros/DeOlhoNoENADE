@@ -72,7 +72,9 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="17dp"
-        android:text="@string/button_Buscar" />
+        android:text="@string/button_Buscar"
+        android:textColor= "#FFFF" 
+        android:background="@layout/layout_botao" />
 
     <TextView
         android:id="@+id/Estado2Tipo"

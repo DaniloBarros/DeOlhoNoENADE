@@ -12,6 +12,7 @@
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="14" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -32,59 +33,63 @@
         <activity
             android:name="br.unb.deolhonoenade.view.MenuInicial"
             android:label="@string/title_activity_menu_inicial"
-            android:theme="@android:style/Theme.DeviceDefault.Light" >
+            android:theme="@android:style/Theme.DeviceDefault" >
         </activity>
         <activity
             android:name="br.unb.deolhonoenade.view.RankingInicial"
             android:label="@string/title_activity_ranking_inicial"
-            android:theme="@android:style/Theme.DeviceDefault.Light" >
+            android:theme="@android:style/Theme.DeviceDefault" >
         </activity>
         <activity
             android:name="br.unb.deolhonoenade.view.RankingResult"
             android:label="@string/title_activity_ranking_result"
-            android:theme="@android:style/Theme.Light" >
+            android:theme="@android:style/Theme.DeviceDefault" >
         </activity>
         <activity
             android:name="br.unb.deolhonoenade.view.ComparacaoInicial"
             android:label="@string/title_activity_comparacao_inicial"
-            android:theme="@android:style/Theme.DeviceDefault.Light" >
+            android:theme="@android:style/Theme.DeviceDefault" >
         </activity>
         <activity
             android:name="br.unb.deolhonoenade.view.DadosIES"
             android:label="@string/title_activity_dados_ies"
-            android:theme="@android:style/Theme.DeviceDefault.Light" >
+            android:theme="@android:style/Theme.DeviceDefault.Dialog" >
         </activity>
         <activity
             android:name="br.unb.deolhonoenade.view.ComparacaoEstado"
             android:label="@string/title_activity_comparacao_estado"
-            android:theme="@android:style/Theme.DeviceDefault.Light" >
+            android:theme="@android:style/Theme.DeviceDefault" >
         </activity>
         <activity
+<<<<<<< HEAD
             android:name="br.unb.deolhonoenade.view.ComparacaoResult"
             android:label="@string/title_activity_comparacao_result"
             android:theme="@android:style/Theme.DeviceDefault.Light" >
+=======
+            android:name="br.unb.deolhonoenade.view.ComparacaoResult"
+            android:label="@string/title_activity_comparacao_result" 
+            android:theme="@android:style/Theme.DeviceDefault">
+>>>>>>> c6b92b0a80f4c05bc071dcd61c9d317ada9ebaed
         </activity>
         <activity
             android:name="br.unb.deolhonoenade.view.ComparacaoInstituicao"
             android:label="@string/title_activity_comparacao_instituicao"
             android:parentActivityName="br.unb.deolhonoenade.view.ComparacaoInicial"
-            android:theme="@android:style/Theme.DeviceDefault.Light" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="br.unb.deolhonoenade.view.ComparacaoInicial" />
+            android:theme="@android:style/Theme.DeviceDefault" >
         </activity>
         <activity
             android:name="br.unb.deolhonoenade.view.ComparacaoInstituicaoFinal"
             android:label="@string/title_activity_comparacao_instituicao_final"
-            android:theme="@android:style/Theme.DeviceDefault.Light" >
+            android:theme="@android:style/Theme.DeviceDefault" >
         </activity>
         <activity
             android:name="br.unb.deolhonoenade.view.ComparacaoResultIES"
             android:label="@string/title_activity_comparacao_result_ies"
-            android:theme="@android:style/Theme.DeviceDefault.Light" >
+            android:theme="@android:style/Theme.DeviceDefault" >
         </activity>
         <activity
             android:name="br.unb.deolhonoenade.view.ComparacaoCidades"
+<<<<<<< HEAD
             android:label="@string/title_activity_comparacao_cidades"
             android:theme="@android:style/Theme.DeviceDefault.Light" >
         </activity>
@@ -94,21 +99,45 @@
             android:theme="@android:style/Theme.DeviceDefault.Light" >
             android:name="br.unb.deolhonoenade.ComparacaoResultCidade"
             android:label="@string/title_activity_comparacao_result_cidade" >
+=======
+            android:label="@string/title_activity_comparacao_cidades" 
+            android:theme="@android:style/Theme.DeviceDefault">
+        </activity>
+        <activity
+            android:name="br.unb.deolhonoenade.view.ComparacaoResultC"
+            android:label="@string/title_activity_comparacao_result_c" 
+            android:theme="@android:style/Theme.DeviceDefault">
+        </activity>    
+         <activity    
+            android:name="br.unb.deolhonoenade.ComparacaoResultCidade"
+            android:label="@string/title_activity_comparacao_result_cidade" 
+            android:theme="@android:style/Theme.DeviceDefault">
+>>>>>>> c6b92b0a80f4c05bc071dcd61c9d317ada9ebaed
         </activity>
         <activity
             android:name="br.unb.deolhonoenade.view.ComparacaoTipo"
             android:label="@string/title_activity_comparacao_tipo"
-            android:theme="@android:style/Theme.DeviceDefault.Light" >
+            android:theme="@android:style/Theme.DeviceDefault" >
         </activity>
         <activity
             android:name="br.unb.deolhonoenade.view.ComparacaoTipoFinal"
+<<<<<<< HEAD
             android:label="@string/title_activity_comparacao_tipo_final"
             android:theme="@android:style/Theme.DeviceDefault.Light" >
+=======
+            android:label="@string/title_activity_comparacao_tipo_final" 
+            android:theme="@android:style/Theme.DeviceDefault">
+
+>>>>>>> c6b92b0a80f4c05bc071dcd61c9d317ada9ebaed
         </activity>
         <activity
             android:name="br.unb.deolhonoenade.view.ComparacaoResultTipo"
             android:label="@string/title_activity_comparacao_result_tipo"
-            android:theme="@android:style/Theme.DeviceDefault.Light" >
+            android:theme="@android:style/Theme.DeviceDefault" >
+        </activity>
+        <activity
+            android:name="br.unb.deolhonoenade.view.Mapa"
+            android:label="@string/title_activity_mapa" >
         </activity>
         <activity
             android:name="br.unb.deolhonoenade.Mapa"

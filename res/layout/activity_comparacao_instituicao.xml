@@ -78,6 +78,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:text="Selecione a segunda IES" />
+        android:text="Selecione a segunda IES"
+        android:textColor= "#FFFF" 
+        android:background="@layout/layout_botao" />
 
 </RelativeLayout>

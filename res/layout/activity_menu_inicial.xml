@@ -70,9 +70,10 @@
         android:layout_below="@+id/EscolherFuncao"        
         android:layout_marginTop="85dp"
         android:text="@string/button_Ranking"
-        android:textSize="25sp"
+        android:textSize="25dp"
         android:textColor= "#FFFF" 
-        android:background="@layout/layout_botao"  />
+        android:background="@layout/layout_botao"/>
+
 
 
     <Button

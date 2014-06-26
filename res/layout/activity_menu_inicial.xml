@@ -13,7 +13,7 @@
         android:layout_below="@+id/EscolherCurso"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="19dp" />
-
+      
     <TextView
         android:id="@+id/EscolherCurso"
         android:layout_width="wrap_content"
@@ -34,7 +34,9 @@
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="25dp"
         android:text="Mapa Geral"
-        android:textSize="25dp" /> -->
+        android:textSize="25dp"
+        android:textColor= "#FFFF" 
+        android:background="@layout/layout_botao" /> -->
 
     <TextView
         android:id="@+id/EscolherFuncao"
@@ -56,22 +58,20 @@
         android:layout_below="@+id/Ranking"
         android:layout_marginTop="36dp"
         android:text="Comparação"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:textColor= "#FFFF" 
+        android:background="@layout/layout_botao"/>
 
     <Button
         android:id="@+id/Ranking"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/EscolherFuncao"
-        
+        android:layout_below="@+id/EscolherFuncao"        
         android:layout_marginTop="26dp"
         android:text="Ranking"
-        android:textSize="25dp" />
-    <!-- <<<<<<< HEAD:res/layout/activity_menu_inicial.xml 
-        android:layout_marginTop="85dp"
-        android:text="@string/button_Ranking"
-        android:textSize="25sp" />
-======= -->
-
+        android:textSize="25dp"
+        android:textColor= "#FFFF" 
+        android:background="@layout/layout_botao" />
+ 
 </RelativeLayout>

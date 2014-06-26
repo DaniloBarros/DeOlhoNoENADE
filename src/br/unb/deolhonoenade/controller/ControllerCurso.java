@@ -135,7 +135,7 @@ public class ControllerCurso {
 		return Resultado;
 	}
 	
-	private float fazMediaConceitoEnade(List<Curso> cursos){
+	public float fazMediaConceitoEnade(List<Curso> cursos){
 		float media=0;
 		int cont;
 		

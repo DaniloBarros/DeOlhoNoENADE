@@ -31,12 +31,18 @@ public class MenuInicial extends Activity {
 		addItensOnSpinnerCurso();
 		addListenerOnButtonComparacao();
 		addListenerOnButtonRanking();
+		addListenerOnButtonMapa();
 		
 		
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
+	}
+
+	private void addListenerOnButtonMapa() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	private void addItensOnSpinnerCurso() {

@@ -22,7 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/cursoSelecionado1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp" />
+        android:layout_marginTop="18dp"
+        android:contentDescription="para escolher um estado" />
 
     <TextView
         android:id="@+id/cursoSelecionado1"
@@ -40,7 +41,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/cidade1"
-        android:layout_marginTop="18dp" />
+        android:layout_marginTop="18dp"
+        android:contentDescription="para escolher uma cidade" />
 
     <TextView
         android:id="@+id/cidade1"
@@ -58,7 +60,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/estado2"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="15dp"
+        android:contentDescription="para escolher uma instituição" />
 
     <TextView
         android:id="@+id/estado2"
@@ -80,6 +83,7 @@
         android:layout_alignParentRight="true"
         android:text="Selecione a segunda IES"
         android:textColor= "#FFFF" 
-        android:background="@layout/layout_botao" />
+        android:background="@layout/layout_botao"
+        android:contentDescription="para selecionar a segunda IES" />
 
 </RelativeLayout>

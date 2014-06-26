@@ -67,6 +67,8 @@ public class ComparacaoResultIES extends Activity {
 		BarGraph g = (BarGraph)findViewById(R.id.graph);
 		g.setBars(points);
 		g.setUnit(" ");
+		g.setContentDescription("Instituição " + ies1 + " nota: " + String.format("%.3f", nota1)
+				+ ". E Instituição " + ies2 + " nota: " + String.format("%.3f", nota2));
 		
 	}
 

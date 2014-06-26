@@ -64,7 +64,8 @@ public class ComparacaoResultTipo extends Activity {
 			BarGraph g = (BarGraph)findViewById(R.id.graph3);
 			g.setBars(points);
 			g.setUnit(" ");
-			
+			g.setContentDescription("Tipo de Instituição " + tipo1 + " no estado " + estado1 + ".   nota: " + String.format("%.3f", resultado1)
+					+ ". E tipo de instituição " + tipo2 + " no estado " + estado2 + ".   nota: " + String.format("%.3f", resultado2));
 		
 		
 		

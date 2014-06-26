@@ -88,6 +88,8 @@ public class RankingResult extends Activity implements
 		
 		listaIES.setAdapter(dataAdapter);
 		listaIES.setTextFilterEnabled(true);
+		listaIES.setContentDescription(getString(R.string.title_section1));
+
 		
 		listaIES.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 			

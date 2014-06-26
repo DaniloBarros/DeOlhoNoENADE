@@ -72,6 +72,9 @@ public class ComparacaoResultC extends Activity {
 		BarGraph g = (BarGraph)findViewById(R.id.graph1);
 		g.setBars(points);
 		g.setUnit(" ");
+		
+		g.setContentDescription("Cidade " + cidade1 + " nota: " + String.format("%.3f", media1)
+				+ ". E cidade " + cidade2 + " nota: " + String.format("%.3f", media2));
 	}
 
 	@Override

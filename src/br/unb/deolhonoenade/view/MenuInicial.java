@@ -41,9 +41,7 @@ public class MenuInicial extends Activity {
 	}
 
 	private void addListenerOnButtonMapa() {
-<<<<<<< HEAD
-		// TODO Auto-generated method stub
-=======
+
 		final Spinner spinner1 = (Spinner) findViewById(R.id.spinnerCurso);
 		Button rank = (Button) findViewById(R.id.Mapa);
 		
@@ -57,7 +55,7 @@ public class MenuInicial extends Activity {
 	    		startActivity(intent);
 	    	}
 		});
->>>>>>> c6b92b0a80f4c05bc071dcd61c9d317ada9ebaed
+
 		
 	}
 
@@ -139,12 +137,11 @@ public class MenuInicial extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
+		
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
-			return true;
+			Intent intentManual = new Intent(MenuInicial.this, ManualUsuario.class);
+			startActivity(intentManual);
 		}
 		return super.onOptionsItemSelected(item);
 	}

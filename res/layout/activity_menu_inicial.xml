@@ -70,9 +70,10 @@
         android:layout_below="@+id/EscolherFuncao"        
         android:layout_marginTop="85dp"
         android:text="@string/button_Ranking"
-<<<<<<< HEAD
-        android:textSize="25sp" />
-======= -->
+        android:textSize="25dp"
+        android:textColor= "#FFFF" 
+        android:background="@layout/layout_botao"/>
+
 
     <Button
         android:id="@+id/Mapa"
@@ -82,11 +83,8 @@
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="26dp"
         android:text="Mapa"
-        android:textSize="25dp" />
-
-=======
         android:textSize="25dp"
         android:textColor= "#FFFF" 
         android:background="@layout/layout_botao" />
->>>>>>> c6b92b0a80f4c05bc071dcd61c9d317ada9ebaed
+
 </RelativeLayout>

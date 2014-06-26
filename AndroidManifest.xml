@@ -112,7 +112,7 @@
             android:theme="@android:style/Theme.DeviceDefault.Light" >
         </activity>
         <activity
-            android:name="br.unb.deolhonoenade.Mapa"
+            android:name="br.unb.deolhonoenade.view.Mapa"
             android:label="@string/title_activity_mapa" >
         </activity>
     </application>

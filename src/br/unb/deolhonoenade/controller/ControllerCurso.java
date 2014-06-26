@@ -305,6 +305,15 @@ public class ControllerCurso {
 		return cursos;
 	}
 
-	
+	public float mediaEstado(String uf, int codCurso){
+		
+		List<Curso> cursos = new ArrayList<Curso>();
+		
+		cursos = buscaCurso(codCurso, uf);
+		
+		
+		return fazMediaConceitoEnade(cursos);
+		
+	}
 
 }

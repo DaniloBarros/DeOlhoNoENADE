@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import br.unb.deolhonoenade.Mapa;
 import br.unb.deolhonoenade.R;
 
 import java.util.ArrayList;

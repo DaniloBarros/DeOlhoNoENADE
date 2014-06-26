@@ -32,6 +32,10 @@ public class ControllerCurso {
 		return this.db;
 	}
 	
+	public boolean removeIes(int posicao){
+		return cursos.remove(posicao)!=null?true:false;
+	}
+	
 	public int getCodIESDoArrayCursos(int posicao) {
 		return cursos.get(posicao).getIES().getCodIES();
 	}

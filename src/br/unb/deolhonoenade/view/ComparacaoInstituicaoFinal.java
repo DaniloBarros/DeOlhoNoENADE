@@ -13,6 +13,7 @@ import android.app.ActionBar;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -36,8 +37,9 @@ public class ComparacaoInstituicaoFinal extends Activity {
 	private int codCurso;
 	private float nota1, nota2;
 	private List<String> dados, dados2;
-	List<String> cursos, municipios, estados;
-
+	private List<String> cursos, municipios, estados;
+	private int posicaoIes;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -95,8 +97,11 @@ private void addItensOnSpinnerEstado(int codCurso, boolean retira) {
 		this.spinnerCidades = (Spinner) findViewById(R.id.cidades);
 		municipios = controller.buscaCidades(codCurso, uf);
 		
-		if(retira)
-			municipios.remove(municipio1);
+		if(retira){
+			
+			if(municipios.remove(municipio1))
+				Log.e(this.getClass().toString(), "retirou m");
+		}
 				
 			ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
 					android.R.layout.simple_spinner_item, municipios);
@@ -124,8 +129,13 @@ private void addItensOnSpinnerEstado(int codCurso, boolean retira) {
 		cursos = controller.buscaIesComUfMun(codCurso, uf, cidade);
 		this.spinnerIES = (Spinner) findViewById(R.id.spinnerIES);
 		
-		if(retira)
-			cursos.remove(ies1);
+		if(retira){
+			if(cursos.remove(ies1)){
+				controller.removeIes(posicaoIes);
+				Log.e(this.getClass().toString(), "retirou");
+			}else
+				Log.e(this.getClass().toString(), "nao retirou");
+		}
 		
 			ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
 					android.R.layout.simple_spinner_item, cursos);
@@ -136,21 +146,34 @@ private void addItensOnSpinnerEstado(int codCurso, boolean retira) {
 				this.spinnerIES.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 					@Override
 					public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
-						
+						dados2 = new ArrayList<String>();
 						dados2 = controller.getDadosIES(posicao);
 						dados2.add(String.format("%.2f",controller.getConceitoDoArrayCursos(posicao)));
 						nota2 = controller.getConceitoDoArrayCursos(posicao);
+						ies2 = new String();
 						ies2 = dados2.get(0);
-						
+					
 						if(ies2.equalsIgnoreCase(ies1)){
-							if(cursos.size()<=1){
+							Log.e(this.getClass().toString(), ies2+" / "+ies1+" ies2=ies1");
+							if(cursos.size()==1){
 								
-								if(municipios.size()<=1){
+								Log.e(this.getClass().toString(), "cursos 1");	
+								
+								if(municipios.size()==1){
+									
+									Log.e(this.getClass().toString(), "municipios 1");
+									
 									addItensOnSpinnerEstado(codCurso, true);
-								}else
+								}else if(municipios.size()>1){
+									Log.e(this.getClass().toString(), "municipios > 1");
 									addItensOnSpinnerMunicipio(estado, true);
-							}else
+								}
+								
+							}else if(cursos.size()>1){
+								Log.e(this.getClass().toString(), "cursos > 1");	
+								posicaoIes = posicao;
 								addItensOnSpinnerIES(estado, municipio, true);
+							}
 						}
 						
 						

@@ -78,8 +78,6 @@ public class RankingInicial extends Activity implements
 					public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
 						// Pega o nome pela posicao
 						estado = parent.getItemAtPosition(posicao).toString();
-						// Imprime um Toast na tela com o nome que foi selecionado
-						Toast.makeText(RankingInicial.this, "Estado Selecionado: " + estado, Toast.LENGTH_LONG).show();
 						
 						addItensOnSpinnerTipo();
 						addItensOnSpinnerMunicipio(estado);
@@ -148,8 +146,6 @@ public class RankingInicial extends Activity implements
 			public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
 				// Pega nome pela posicao
 				tipo = parent.getItemAtPosition(posicao).toString();
-				// Imprime um Toast na tela com o nome que foi selecionado
-				Toast.makeText(RankingInicial.this, "Opcao Selecionada: " + tipo, Toast.LENGTH_LONG).show();
 			}
 	
 			@Override
@@ -177,8 +173,6 @@ public class RankingInicial extends Activity implements
 			public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
 				// Pega nome pela posicao
 				tipo = parent.getItemAtPosition(posicao).toString();
-				// Imprime um Toast na tela com o nome que foi selecionado
-				Toast.makeText(RankingInicial.this, "Opcao Selecionada: " + tipo, Toast.LENGTH_LONG).show();
 			}
 	
 			@Override

@@ -25,73 +25,28 @@ public class Mapa extends Activity {
 		setContentView(R.layout.activity_mapa);
 
 		WebView webview = (WebView) findViewById(R.id.webView1);
-        double x;
-        x = 700.735;
-        String xConvert = String.format("%f", x);
         String curso = getIntent().getExtras().getString("cursoSelecionado");
         ControllerCurso controller = new ControllerCurso(this);
-        int codCurso = controller.buscaCodCurso(curso);
-        List<Float> mediaEstados = new ArrayList<Float>();
         
+        int codCurso = controller.buscaCodCurso(curso);
+        
+        ArrayList<String> todasUfs = (ArrayList<String>) controller.buscaUf(1);
         
         List<String> medias = new ArrayList<String>();
         
-        /*mediaEstados = controller.comparaEstado("AC", "AL", codCurso);
-        medias.add(String.valueOf(mediaEstados.get(0)));
-        medias.add(String.valueOf(mediaEstados.get(1)));
-        mediaEstados = controller.comparaEstado("AP", "AM", codCurso);
-        medias.add(String.valueOf(mediaEstados.get(0)));
-        medias.add(String.valueOf(mediaEstados.get(1)));
-        mediaEstados = controller.comparaEstado("BA", "CE", codCurso);
-        medias.add(String.valueOf(mediaEstados.get(0)));
-        medias.add(String.valueOf(mediaEstados.get(1)));
-        mediaEstados = controller.comparaEstado("DF", "ES", codCurso);
-        medias.add(String.valueOf(mediaEstados.get(0)));
-        medias.add(String.valueOf(mediaEstados.get(1)));
-        mediaEstados = controller.comparaEstado("GO", "MA", codCurso);
-        medias.add(String.valueOf(mediaEstados.get(0)));
-        medias.add(String.valueOf(mediaEstados.get(1)));
-        mediaEstados = controller.comparaEstado("MT", "MS", codCurso);
-        medias.add(String.valueOf(mediaEstados.get(0)));
-        medias.add(String.valueOf(mediaEstados.get(1)));
-        mediaEstados = controller.comparaEstado("MG", "PA", codCurso);
-        medias.add(String.valueOf(mediaEstados.get(0)));
-        medias.add(String.valueOf(mediaEstados.get(1)));
-        mediaEstados = controller.comparaEstado("PB", "PR", codCurso);
-        medias.add(String.valueOf(mediaEstados.get(0)));
-        medias.add(String.valueOf(mediaEstados.get(1)));
-        mediaEstados = controller.comparaEstado("PE", "PI", codCurso);
-        medias.add(String.valueOf(mediaEstados.get(0)));
-        medias.add(String.valueOf(mediaEstados.get(1)));
-        mediaEstados = controller.comparaEstado("RJ", "RN", codCurso);
-        medias.add(String.valueOf(mediaEstados.get(0)));
-        medias.add(String.valueOf(mediaEstados.get(1)));
-        mediaEstados = controller.comparaEstado("RS", "RO", codCurso);
-        medias.add(String.valueOf(mediaEstados.get(0)));
-        medias.add(String.valueOf(mediaEstados.get(1)));
-        mediaEstados = controller.comparaEstado("RR", "SC", codCurso);
-        medias.add(String.valueOf(mediaEstados.get(0)));
-        medias.add(String.valueOf(mediaEstados.get(1)));
-        mediaEstados = controller.comparaEstado("SP", "SE", codCurso);
-        medias.add(String.valueOf(mediaEstados.get(0)));
-        medias.add(String.valueOf(mediaEstados.get(1)));
-        mediaEstados = controller.comparaEstado("TO", "SE", codCurso);
-        medias.add(String.valueOf(mediaEstados.get(0)));*/
         
-        
-        ArrayList<String> cidades = (ArrayList<String>) controller.buscaUf(codCurso);
-        
-        for(int i = 0; i<cidades.size()-11; i++){
-        	controller = new ControllerCurso(this);
-        	String oi = new String();
+        for(int i = 0; i<todasUfs.size(); i++){
+        	
+        	String mediasE = new String();
         	try {
-				oi = String.format("%.3f", controller.mediaEstado(cidades.get(i), codCurso));
+				mediasE = String.valueOf( controller.mediaEstado(todasUfs.get(i), codCurso));
+        		
 			} catch (Exception e) {
-				
-				Log.e(this.getClass().toString(), "erro");
+				Log.e(this.getClass().toString(), todasUfs+"Estado nao existe");
+				mediasE="0.0";
 			}
-        	Log.e(this.getClass().toString(), oi + cidades.get(i));
-        	medias.add(oi);
+        	
+        	medias.add(mediasE);
         	
         }
         
@@ -119,35 +74,18 @@ public class Mapa extends Activity {
                 + "['Mato Grosso', " + medias.get(12) + "],"
                 + "['Para', " + medias.get(13) + "],"
                 + "['Paraiba', " + medias.get(14) + "],"
-                + "['Pernambuco', " + medias.get(15) + "],";
-        
-        medias = new ArrayList<String>();
-        
-        for(int i = 16; i<cidades.size(); i++){
-        	controller = new ControllerCurso(this);
-        	String oi = new String();
-        	try {
-				oi = String.format("%.3f", controller.mediaEstado(cidades.get(i), codCurso));
-			} catch (Exception e) {
-				
-				Log.e(this.getClass().toString(), "erro");
-			}
-        	Log.e(this.getClass().toString(), oi + cidades.get(i));
-        	medias.add(oi);
-        	
-        }
-        
-        String content2 = "['Piaui', 2],"
-                + "['Parana', 2],"
-                + "['Rio de Janeiro', 3],"
-                + "['Rio Grande do Norte', 4],"
-                + "['Rio Grande do Sul', 1],"
-                + "['Rondonia', 2],"
-                + "['Roraima', 2],"
-                + "['Santa Catarina', 2],"
-                + "['Sao Paulo', 423],"
-                + "['Sergipe', 1],"
-                + "['Tocantins', 3],"            
+                + "['Pernambuco', " + medias.get(15) + "],"
+                +"['Piaui', " + medias.get(16) + "],"
+                + "['Parana', " + medias.get(17) + "],"
+                + "['Rio de Janeiro', " + medias.get(18) + "],"
+                + "['Rio Grande do Norte', " + medias.get(19) + "],"
+                + "['Rio Grande do Sul', " + medias.get(20) + "],"
+                + "['Rondonia', " + medias.get(21) + "],"
+                + "['Roraima', " + medias.get(22) + "],"
+                + "['Santa Catarina', " + medias.get(23) + "],"
+                + "['Sao Paulo', " + medias.get(24) + "],"
+                + "['Sergipe', " + medias.get(25) + "],"
+                + "['Tocantins', " + medias.get(26) + "],"            
                 + "]);"
                 + "var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));"
                 + "chart.draw(data, {width: 1280, height: 720, region: 'BR', resolution: 'provinces'});"
@@ -156,12 +94,10 @@ public class Mapa extends Activity {
                 + "</head>"
                 + "<body>"
                 + "<div id='chart_div' style='width: 1024px; height: 768px;'></div>"
-                + "Olá"
                 + "</body>" 
-                + "</html>";
+                + "</html>";;
         
-        content += content2;
- 
+        
         WebSettings webSettings = webview.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webview.requestFocusFromTouch();

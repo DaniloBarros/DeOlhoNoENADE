@@ -56,15 +56,18 @@ public class ComparacaoResult extends Activity {
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
 		
+		String list1String = String.valueOf(list.get(0));
+		String list2String = String.valueOf(list.get(1));
+		
 		ArrayList<Bar> points = new ArrayList<Bar>();
 		Bar d = new Bar();
 		d.setColor(Color.parseColor("#99CC00"));
 		d.setName(estado1);
-		d.setValue(list.get(0));
+		d.setValue(Float.parseFloat(list1String.substring(0, 5)));
 		Bar d2 = new Bar();
 		d2.setColor(Color.parseColor("#FFBB33"));
 		d2.setName(estado2);
-		d2.setValue(list.get(1));
+		d2.setValue(Float.parseFloat(list2String.substring(0, 5)));
 		points.add(d);
 		points.add(d2);
 

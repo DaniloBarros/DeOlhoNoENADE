@@ -6,6 +6,7 @@ import java.util.List;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import br.unb.deolhonoenade.DAO.ImportarBancoDeDados;
 import br.unb.deolhonoenade.DAO.OperacoesBancoDeDados;
 import br.unb.deolhonoenade.model.Curso;
@@ -33,15 +34,31 @@ public class ControllerCurso {
 	}
 	
 	public boolean removeIes(int posicao){
-		return cursos.remove(posicao)!=null?true:false;
+		try{
+			cursos.remove(posicao);			
+			return true;
+		}catch(IndexOutOfBoundsException e){
+			Log.e(this.getClass().toString(), "cursos IndexOutOfBounds, returning false");
+			return false;			
+		}
 	}
 	
 	public int getCodIESDoArrayCursos(int posicao) {
-		return cursos.get(posicao).getIES().getCodIES();
+		try{
+			return cursos.get(posicao).getIES().getCodIES();
+		}catch(IndexOutOfBoundsException e){
+			Log.e(this.getClass().toString(), "cursos IndexOutOfBounds, returning -1");
+			return -1;
+		}
 	}
 	
 	public float getConceitoDoArrayCursos(int posicao) {
-		return cursos.get(posicao).getConceitoEnade();
+		try{
+			return cursos.get(posicao).getConceitoEnade();
+		}catch(IndexOutOfBoundsException e){
+			Log.e(this.getClass().toString(), "cursos IndexOutOfBounds, returning -1");
+			return -1;
+		}
 	}
 	
 	public Instituicao buscaInstituicao(int codIES){
@@ -53,14 +70,18 @@ public class ControllerCurso {
 	
 	public List<String> getDadosIES (int posicao) {
 		List<String> dados = new ArrayList<String>();
-		
-		dados.add(cursos.get(posicao).getIES().getNome());
-		dados.add(cursos.get(posicao).getIES().getOrganizacaoAcademica());
-		dados.add(cursos.get(posicao).getIES().getTipo());
-		dados.add(cursos.get(posicao).getMunicipio());
-		dados.add(String.format("%d", cursos.get(posicao).getNumEstudantesInscritos()) );
-	    dados.add(String.format("%d", cursos.get(posicao).getNumEstudantes()) );
-	    //dados.add(String.format("%f", cursos.get(posicao).getConceitoEnade()));
+		try{
+
+			dados.add(cursos.get(posicao).getIES().getNome());
+			dados.add(cursos.get(posicao).getIES().getOrganizacaoAcademica());
+			dados.add(cursos.get(posicao).getIES().getTipo());
+			dados.add(cursos.get(posicao).getMunicipio());
+			dados.add(String.format("%d", cursos.get(posicao).getNumEstudantesInscritos()) );
+		    dados.add(String.format("%d", cursos.get(posicao).getNumEstudantes()) );
+		}catch(IndexOutOfBoundsException e){
+			Log.e(this.getClass().toString(), "cursos IndexOutOfBounds");
+			throw new Error("IES inexistente nessa posicao");
+		}
 		return dados;
 		
 	}

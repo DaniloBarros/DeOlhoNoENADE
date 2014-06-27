@@ -34,15 +34,59 @@ public class TestControllerCurso extends AndroidTestCase {
 	public void testGetDatabase() {
 
 	}
-
-	public void testBuscaCodCurso() {
-		int codCurso;
+	
+	public void testRemoveIesTrue(){
 		ControllerCurso controller = new ControllerCurso(getContext());
-
-		codCurso = controller.buscaCodCurso("Administracao");
-		Assert.assertEquals(1, codCurso);
+		
+		int codCurso = controller.buscaCodCurso("Administracao");
+		
+		controller.buscaCurso(codCurso, "SP");
+		
+		assertTrue(controller.removeIes(1));
+		
 	}
-
+	
+	public void testRemoveIesFalse(){
+		ControllerCurso controller = new ControllerCurso(getContext());
+		
+		int codCurso = controller.buscaCodCurso("Administracao");
+		
+		controller.buscaCurso(codCurso, "SP");
+		
+		assertFalse(controller.removeIes(999));
+		
+	}
+	
+	public void testGetCodIESDoArrayCursos(){
+		ControllerCurso controller = new ControllerCurso(getContext());
+		
+		controller.buscaCurso(1, "SP");
+		Assert.assertEquals(322, controller.getCodIESDoArrayCursos(2));
+	}
+	
+	public void testGetCodIESDoArrayCursosIndexOutOfBounds(){
+		ControllerCurso controller = new ControllerCurso(getContext());
+		
+		controller.buscaCurso(1, "AC");
+		Assert.assertEquals(-1, controller.getCodIESDoArrayCursos(200));
+	}
+	
+	public void testGetConceitoDoArrayCursos(){
+		ControllerCurso controller = new ControllerCurso(getContext());
+		
+		controller.buscaCurso(1, "SP");
+		
+		Assert.assertEquals(4.882, controller.getConceitoDoArrayCursos(2));
+	}
+	
+	public void testGetConceitoDoArrayCursosIndexOutOfBounds(){
+		ControllerCurso controller = new ControllerCurso(getContext());
+		
+		controller.buscaCurso(1, "AC");
+		
+		Assert.assertEquals((float)-1, controller.getConceitoDoArrayCursos(200));
+	}
+	
 	public void testBuscaInstituicao() {
 		Instituicao instituicao;
 		ControllerCurso controller = new ControllerCurso(getContext());
@@ -50,6 +94,62 @@ public class TestControllerCurso extends AndroidTestCase {
 		instituicao = controller.buscaInstituicao(1);
 		Assert.assertEquals("UNIVERSIDADE FEDERAL DE MATO GROSSO",
 				instituicao.getNome());
+	}
+	
+	public void testDadosIES() {
+
+		ControllerCurso controller = new ControllerCurso(getContext());
+		Instituicao ies = controller.buscaInstituicao(2);
+		controller.buscaCurso(1, "DF");
+		Curso curso = new Curso(1, 2, "UNIVERSIDADE DE BRASILIA", 141, 89,
+				"BRASILIA", (float) 3.735, "DF", ies);
+		List<String> dadosIES = controller.getDadosIES(1);
+
+		Assert.assertEquals(dadosIES.get(0), ies.getNome());
+		Assert.assertEquals(dadosIES.get(1), ies.getOrganizacaoAcademica());
+		Assert.assertEquals(dadosIES.get(2), ies.getTipo());
+		Assert.assertEquals(dadosIES.get(3), curso.getMunicipio());
+		Assert.assertEquals(dadosIES.get(4),
+				String.format("%d", curso.getNumEstudantesInscritos()));
+		Assert.assertEquals(dadosIES.get(5),
+				String.format("%d", curso.getNumEstudantes()));
+	}
+	
+	public void testDadosIESIndexOutOfBounds() {
+
+		ControllerCurso controller = new ControllerCurso(getContext());
+		Instituicao ies = controller.buscaInstituicao(2);
+		controller.buscaCurso(1, "DF");
+		Curso curso = new Curso(1, 2, "UNIVERSIDADE DE BRASILIA", 141, 89,
+				"BRASILIA", (float) 3.735, "DF", ies);
+		
+		List<String> dadosIES=null;
+		
+		try {
+			dadosIES = controller.getDadosIES(9893);
+		} catch (Error e) {
+			e.printStackTrace();				
+		}
+			
+		Assert.assertNull(dadosIES);
+
+	}
+	
+	public void testComparaEstado() {
+		ControllerCurso controller = new ControllerCurso(getContext());
+
+		String estado1 = "DF", estado2 = "AM";
+
+		assertEquals(controller.comparaEstado(estado1, estado2, 1).get(0),
+				(float) 1.9448332);
+	}
+
+	public void testBuscaCodCurso() {
+		int codCurso;
+		ControllerCurso controller = new ControllerCurso(getContext());
+
+		codCurso = controller.buscaCodCurso("Administracao");
+		Assert.assertEquals(1, codCurso);
 	}
 
 	public void testBuscaCursoIntString() {
@@ -397,34 +497,6 @@ public class TestControllerCurso extends AndroidTestCase {
 		Assert.assertEquals((float) 4.482,
 				controller.getConceitoDoArrayCursos(0));
 
-	}
-
-	public void testDadosIES() {
-
-		ControllerCurso controller = new ControllerCurso(getContext());
-		Instituicao ies = controller.buscaInstituicao(2);
-		controller.buscaCurso(1, "DF");
-		Curso curso = new Curso(1, 2, "UNIVERSIDADE DE BRASILIA", 141, 89,
-				"BRASILIA", (float) 3.735, "DF", ies);
-		List<String> dadosIES = controller.getDadosIES(1);
-
-		Assert.assertEquals(dadosIES.get(0), ies.getNome());
-		Assert.assertEquals(dadosIES.get(1), ies.getOrganizacaoAcademica());
-		Assert.assertEquals(dadosIES.get(2), ies.getTipo());
-		Assert.assertEquals(dadosIES.get(3), curso.getMunicipio());
-		Assert.assertEquals(dadosIES.get(4),
-				String.format("%d", curso.getNumEstudantesInscritos()));
-		Assert.assertEquals(dadosIES.get(5),
-				String.format("%d", curso.getNumEstudantes()));
-	}
-
-	public void testComparaEstado() {
-		ControllerCurso controller = new ControllerCurso(getContext());
-
-		String estado1 = "DF", estado2 = "AM";
-
-		assertEquals(controller.comparaEstado(estado1, estado2, 1).get(0),
-				(float) 1.9448332);
 	}
 
 	public void testComparacaoCidade() {

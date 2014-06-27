@@ -41,5 +41,7 @@
     <string name="title_activity_comparacao_tipo_final">ComparacaoTipoFinal</string>
     <string name="title_activity_comparacao_result_tipo">ComparacaoResultTipo</string>
     <string name="title_activity_mapa">Mapa</string>
+    <string name="title_activity_manual_usuario">ManualUsuario</string>
+
 
 </resources>

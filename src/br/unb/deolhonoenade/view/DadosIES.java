@@ -35,15 +35,24 @@ public class DadosIES extends Activity implements
 		dados = getIntent().getExtras().getStringArrayList("dadosIes");
 		TextView nomeIES = (TextView) findViewById(R.id.nomeIES);
 		nomeIES.setText(dados.get(0));
+		TextView orgAca = (TextView) findViewById(R.id.OrganizacaoAcademica);
+		orgAca.setText(dados.get(1));
+		TextView tipo = (TextView) findViewById(R.id.TipoIES);
+		tipo.setText(dados.get(2));
+		TextView cidade = (TextView) findViewById(R.id.Cidade);
+		cidade.setText(dados.get(3));
+		TextView noEstP = (TextView) findViewById(R.id.NoEstudantesP);
+		noEstP.setText(dados.get(4));
+		TextView noEstI = (TextView) findViewById(R.id.NoEstudantesI);
+		noEstI.setText(dados.get(5));
 		
-		dados.remove(0);
 		
-		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+		/*ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, dados);
 		
 		ListView dadosIES = (ListView) findViewById(R.id.DadosIES);
 		
-		dadosIES.setAdapter(dataAdapter);
+		dadosIES.setAdapter(dataAdapter);*/
 	}
 
 	@Override

@@ -74,18 +74,4 @@
         android:textColor= "#FFFF" 
         android:background="@layout/layout_botao"/>
 
-
-
-    <Button
-        android:id="@+id/Mapa"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="26dp"
-        android:text="Mapa"
-        android:textSize="25dp"
-        android:textColor= "#FFFF" 
-        android:background="@layout/layout_botao" />
-
 </RelativeLayout>

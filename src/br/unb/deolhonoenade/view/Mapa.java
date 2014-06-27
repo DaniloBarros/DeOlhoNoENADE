@@ -42,7 +42,7 @@ public class Mapa extends Activity {
 				mediasE = String.valueOf( controller.mediaEstado(todasUfs.get(i), codCurso));
         		
 			} catch (Exception e) {
-				Log.e(this.getClass().toString(), todasUfs+"Estado nao existe");
+				Log.e(this.getClass().toString(), todasUfs.get(i)+"Estado nao existe");
 				mediasE="0.0";
 			}
         	

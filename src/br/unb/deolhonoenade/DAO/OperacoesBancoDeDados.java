@@ -127,7 +127,7 @@ public class OperacoesBancoDeDados {
 				
 			}catch(CursorIndexOutOfBoundsException e){
 				Log.e(this.getClass().toString(), "ufIES Inexistente");
-				throw new Error("ufIES Inexistente");	
+				return null;
 			}
 			
 		}while(cursor.moveToNext()); // Move o cursor para a proxima linha		

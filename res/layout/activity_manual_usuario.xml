@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/manualComparacao2"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:text="Comparação Cidade-> compara 2 Cidades"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/manualComparacao1"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:text="Comparação Estado-> compara 2 estados"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/manualRanking"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:text="Comparação -> Compara 2 objetos a serem especificados"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/manualComparacao3"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:text="Comparação Entre instituções -> Compara 2 instituições"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/manualComparacao4"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:text="Comparação Tipo -> Compara 2 tipos de instituicoes (publica e/ou privada)"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/manualComparacao5"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:text="Mapa -> Mostra o mapa do Brasil"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/manualMapa"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:text="Selecionar Curso -> Seleciona o curso desejado"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 

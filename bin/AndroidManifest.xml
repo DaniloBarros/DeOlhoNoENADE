@@ -94,7 +94,10 @@
             android:label="@string/title_activity_comparacao_result_c" 
             android:theme="@android:style/Theme.DeviceDefault">
         </activity>    
+<<<<<<< HEAD
 
+=======
+>>>>>>>  Graficos reduzidos, botoes alterados
         <activity
             android:name="br.unb.deolhonoenade.view.ComparacaoTipo"
             android:label="@string/title_activity_comparacao_tipo"

@@ -16,8 +16,10 @@
         android:layout_alignParentLeft="true"
         android:text="@string/button_Buscar"
      	android:textColor= "#FFFF" 
-        android:background="@layout/layout_botao"
-        android:contentDescription="Buscar" />
+        android:contentDescription="Buscar"
+     	android:layout_marginBottom="20dp"
+        android:background="@layout/layout_botao" />
+
 
     <TextView
         android:id="@+id/EscolherCidade"
@@ -73,6 +75,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
         android:text="Large Text"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textSize="25dp"
+        android:textStyle="bold"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView

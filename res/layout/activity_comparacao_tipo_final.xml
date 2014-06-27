@@ -59,11 +59,8 @@
         android:id="@+id/ComparaT"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        
         android:layout_alignRight="@+id/EstadoTipoFinal1"
-        android:layout_marginBottom="41dp"
-        
+        android:layout_marginBottom="60dp"        
         android:text="@string/button_Comparacao"
         android:textColor= "#FFFF" 
         android:background="@layout/layout_botao" />

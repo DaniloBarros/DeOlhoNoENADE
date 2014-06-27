@@ -28,10 +28,14 @@ public class TestControllerCurso extends AndroidTestCase {
 	}
 
 	public void testControllerCurso() {
-
+		ControllerCurso controller = new ControllerCurso(getContext());
+		Assert.assertNotNull(controller);
 	}
 
 	public void testGetDatabase() {
+		ControllerCurso controller = new ControllerCurso(getContext());
+		
+		Assert.assertNotNull(controller.getDatabase());
 
 	}
 	
@@ -45,7 +49,7 @@ public class TestControllerCurso extends AndroidTestCase {
 		assertTrue(controller.removeIes(1));
 		
 	}
-	
+
 	public void testRemoveIesFalse(){
 		ControllerCurso controller = new ControllerCurso(getContext());
 		
@@ -76,7 +80,7 @@ public class TestControllerCurso extends AndroidTestCase {
 		
 		controller.buscaCurso(1, "SP");
 		
-		Assert.assertEquals(4.882, controller.getConceitoDoArrayCursos(2));
+		Assert.assertEquals((float)4.882, controller.getConceitoDoArrayCursos(2));
 	}
 	
 	public void testGetConceitoDoArrayCursosIndexOutOfBounds(){
@@ -317,11 +321,9 @@ public class TestControllerCurso extends AndroidTestCase {
 		List<String> tiposT = new ArrayList<String>();
 		List<String> tipos = new ArrayList<String>();
 
-		String tipo1 = new String("Ambas");
 		String tipo2 = new String("PRIVADA");
 		String tipo3 = new String("PUBLICA");
 
-		tiposT.add(tipo1);
 		tiposT.add(tipo2);
 		tiposT.add(tipo3);
 
@@ -520,4 +522,12 @@ public class TestControllerCurso extends AndroidTestCase {
 		Assert.assertEquals((float) 2.285000, resultado.get(1));
 	}
 
+	public void testMediaEstado(){
+		ControllerCurso controller = new ControllerCurso(getContext());
+		
+		Assert.assertEquals((float)2.249236, controller.mediaEstado("SP", 1));
+		
+	}
+	
+	
 }

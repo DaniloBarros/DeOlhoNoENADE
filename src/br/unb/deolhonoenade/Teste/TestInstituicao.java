@@ -20,6 +20,15 @@ public class TestInstituicao extends AndroidTestCase {
 		Instituicao instituicao = new Instituicao("Universidade de Brasilia", "Universidades", "Publica", 2);
 		Assert.assertNotSame("Quimica", instituicao.getNome());
 	}
+	
+	public void testAdicionaCurso(){
+		Instituicao ies = new Instituicao("Universidade de Brasilia", "Universidades", "Publica", 2);
+		Curso curso = new Curso(3, 6, "Direito", 25, 15, "Porto Alegre", (float)2.45,"DF", null);
+		
+		ies.adicionaCurso(curso);
+		
+		Assert.assertTrue(ies.getCursos().contains(curso));		
+	}
 		
 	public void testGetCursos() {
 		ArrayList<Curso> Cursos = new ArrayList<Curso>(50);

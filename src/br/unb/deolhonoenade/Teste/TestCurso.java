@@ -18,7 +18,19 @@ public class TestCurso extends AndroidTestCase {
 	
 	public void testCurso() {
 		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45, "DF", null);
-		Assert.assertNotSame("Urubu", curso.getNome());
+		Assert.assertNotNull(curso);
+	}
+	
+	public void testGetUf(){
+		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45, "DF", null);
+		
+		Assert.assertEquals(curso.getUf(), "DF");
+	}
+	
+	public void testSetUf(){
+		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45, "DF", null);
+		curso.setUf("AC");
+		Assert.assertEquals(curso.getUf(), "AC");
 	}
 
 	public void testGetIES() {
@@ -39,6 +51,25 @@ public class TestCurso extends AndroidTestCase {
 		curso.setIES(ies);
 		
 		Assert.assertSame(ies, curso.getIES());
+	}
+	
+	public void testGetId_ies(){
+		Instituicao ies = new Instituicao("UFBA", "Universidade", "Publica", 10);
+		
+		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45,"DF", ies);
+		
+		Assert.assertEquals(curso.getId_ies(), 0);
+	}
+	
+	public void testGetId(){
+		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45,"DF", null);
+		Assert.assertEquals(curso.getId(), 3);
+	}
+	
+	public void testSetId(){
+		Curso curso = new Curso(3, 6, "Direito", 25, 15, "portoalegre", (float)2.45,"DF", null);
+		curso.setId(5);
+		Assert.assertEquals(curso.getId(), 5);
 	}
 
 	public void testGetNome() {

@@ -429,11 +429,9 @@ public class TestOperacoesBancoDeDados extends AndroidTestCase {
 		List<String> tiposT = new ArrayList<String>();
 		List<String> tipos = new ArrayList<String>();
 		
-		String tipo1 = new String("Ambas");
 		String tipo2 = new String("PRIVADA");
 		String tipo3 = new String("PUBLICA");
 
-		tiposT.add(tipo1);
 		tiposT.add(tipo2);
 		tiposT.add(tipo3);
 		

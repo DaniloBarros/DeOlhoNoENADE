@@ -11,6 +11,8 @@
         android:id="@+id/graph3"
         android:layout_width="250dp"
         android:layout_height="200dp"
+        android:layout_marginLeft="50dp"
+	    android:layout_centerHorizontal="true"        
         android:layout_marginTop="30dp" />
 
 <TextView

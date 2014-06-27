@@ -6,6 +6,7 @@ import java.util.List;
 import android.database.Cursor;
 import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import br.unb.deolhonoenade.model.Curso;
 import br.unb.deolhonoenade.model.Instituicao;
 
@@ -34,7 +35,12 @@ public class OperacoesBancoDeDados {
 			return 0;
 		}
 		
-		codCurso = Integer.parseInt(cursor.getString(0));
+		try{
+			codCurso = Integer.parseInt(cursor.getString(0));
+		}catch(CursorIndexOutOfBoundsException e){
+			Log.e(this.getClass().toString(), "nomeCurso Inexistente");
+			throw new Error("nomeCurso Inexistente");			
+		}
 
 		return codCurso;
 	}
@@ -57,9 +63,17 @@ public class OperacoesBancoDeDados {
 			cursor.moveToFirst();
 		else
 			return null;
-		// Cria a instuicao e instancia com os dados retornados pelo cursor
-		Instituicao ies = new Instituicao(cursor.getString(1), cursor.getString(0), 
-				cursor.getString(2), codIES);
+		
+		Instituicao ies;
+		
+		try{
+			// Cria a instuicao e instancia com os dados retornados pelo cursor
+			ies = new Instituicao(cursor.getString(1), cursor.getString(0), 
+					cursor.getString(2), codIES);
+		}catch(CursorIndexOutOfBoundsException e){
+			Log.e(this.getClass().toString(), "codIES Inexistente");
+			throw new Error("codIES Inexistente");	
+		}
 		
 		return ies;
 	}//Fim do getIES().
@@ -97,18 +111,24 @@ public class OperacoesBancoDeDados {
 			return null;
 		
 		do{
-			// Instancia ies sem relacao com curso
-			ies = this.getIES(Integer.parseInt(cursor.getString(0)));
-			// Instancia curso com ies sem o curso
-			curso = new Curso( Integer.parseInt(cursor.getString(6)) ,Integer.parseInt(cursor.getString(0)), cursor.getString(3),
-					Integer.parseInt(cursor.getString(1)), Integer.parseInt(cursor.getString(2)),
-					cursor.getString(4), Float.parseFloat(cursor.getString(5)), cursor.getString(7), ies );
-			// Adiciona o curso a ies
-			ies.adicionaCurso(curso);
-			// Adiciona ies com relacionamento com o curso
-			curso.setIES(ies);
-			// Adiciona o curso ao ArrayList que sera retornado
-			cursos.add( curso );
+			try{
+				// Instancia ies sem relacao com curso
+				ies = this.getIES(Integer.parseInt(cursor.getString(0)));
+				// Instancia curso com ies sem o curso
+				curso = new Curso( Integer.parseInt(cursor.getString(6)) ,Integer.parseInt(cursor.getString(0)), cursor.getString(3),
+						Integer.parseInt(cursor.getString(1)), Integer.parseInt(cursor.getString(2)),
+						cursor.getString(4), Float.parseFloat(cursor.getString(5)), cursor.getString(7), ies );
+				// Adiciona o curso a ies
+				ies.adicionaCurso(curso);
+				// Adiciona ies com relacionamento com o curso
+				curso.setIES(ies);
+				// Adiciona o curso ao ArrayList que sera retornado
+				cursos.add( curso );
+				
+			}catch(CursorIndexOutOfBoundsException e){
+				Log.e(this.getClass().toString(), "ufIES Inexistente");
+				throw new Error("ufIES Inexistente");	
+			}
 			
 		}while(cursor.moveToNext()); // Move o cursor para a proxima linha		
 		

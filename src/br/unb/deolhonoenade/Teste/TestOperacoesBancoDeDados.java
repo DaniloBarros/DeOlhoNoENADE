@@ -2,8 +2,8 @@ package br.unb.deolhonoenade.Teste;
 
 import java.util.ArrayList;
 import java.util.List;
-import junit.framework.Assert;
 
+import junit.framework.Assert;
 import br.unb.deolhonoenade.DAO.ImportarBancoDeDados;
 import br.unb.deolhonoenade.DAO.OperacoesBancoDeDados;
 import br.unb.deolhonoenade.controller.ControllerCurso;
@@ -11,6 +11,7 @@ import br.unb.deolhonoenade.model.Curso;
 import br.unb.deolhonoenade.model.Instituicao;
 import android.database.sqlite.SQLiteDatabase;
 import android.test.AndroidTestCase;
+import android.util.Log;
 
 public class TestOperacoesBancoDeDados extends AndroidTestCase {
 	private OperacoesBancoDeDados opBD;
@@ -28,8 +29,66 @@ public class TestOperacoesBancoDeDados extends AndroidTestCase {
 		super.tearDown();
 	}
 
-	public void testOperacoesBancoDeDados() {
-		// fail("Not yet implemented");
+	public void testGetCodCurso() {
+		ImportarBancoDeDados bdados = new ImportarBancoDeDados(getContext());
+		SQLiteDatabase database = bdados.openDataBase();
+		opBD = new OperacoesBancoDeDados(database);
+		
+		int codCurso;
+
+		codCurso = opBD.getCodCurso("ADMINISTRACAO");
+		Assert.assertEquals(1, codCurso);
+	}
+	
+
+
+	public void testGetCodCursoException() {
+		ImportarBancoDeDados bdados = new ImportarBancoDeDados(getContext());
+		SQLiteDatabase database = bdados.openDataBase();
+		opBD = new OperacoesBancoDeDados(database);
+		
+		int codCurso = -1;
+
+		try{
+			codCurso = opBD.getCodCurso("ADMINISTRASAO");
+		}catch(Error e){
+			e.printStackTrace();
+		}
+		
+		Assert.assertEquals(-1,codCurso);
+	}
+
+	public void testGetIES() {
+		controller = new ControllerCurso(getContext());
+		opBD = new OperacoesBancoDeDados(controller.getDatabase());
+
+		Instituicao ies = new Instituicao(
+				"UNIVERSIDADE FEDERAL DE MATO GROSSO", "UNIVERSIDADES",
+				"PUBLICA", 1);
+		assertEquals(opBD.getIES(1).getNome(), ies.getNome());
+		assertEquals(opBD.getIES(1).getOrganizacaoAcademica(),
+				ies.getOrganizacaoAcademica());
+		assertEquals(opBD.getIES(1).getTipo(), ies.getTipo());
+	}
+
+	public void testGetIESException() {
+		controller = new ControllerCurso(getContext());
+		opBD = new OperacoesBancoDeDados(controller.getDatabase());
+
+		Instituicao ies = new Instituicao(
+				"UNIVERSIDADE FEDERAL DE MATO GROSSO", "UNIVERSIDADES",
+				"PUBLICA", 1);
+		
+		String nome;
+		
+		try{
+			nome=opBD.getIES(9859).getNome();
+		}catch(Error e){
+			nome="vazio";
+		}
+		
+		assertEquals("vazio",nome);
+		
 	}
 
 	public void testGetCursosIntString() {
@@ -79,18 +138,23 @@ public class TestOperacoesBancoDeDados extends AndroidTestCase {
 		}
 		
 	}
+	
+	public void testGetCursosIntStringException() {
+		ImportarBancoDeDados bdados = new ImportarBancoDeDados(getContext());
 
-	public void testGetIES() {
-		controller = new ControllerCurso(getContext());
-		opBD = new OperacoesBancoDeDados(controller.getDatabase());
+		SQLiteDatabase database = bdados.openDataBase();
 
-		Instituicao ies = new Instituicao(
-				"UNIVERSIDADE FEDERAL DE MATO GROSSO", "UNIVERSIDADES",
-				"PUBLICA", 1);
-		assertEquals(opBD.getIES(1).getNome(), ies.getNome());
-		assertEquals(opBD.getIES(1).getOrganizacaoAcademica(),
-				ies.getOrganizacaoAcademica());
-		assertEquals(opBD.getIES(1).getTipo(), ies.getTipo());
+		opBD = new OperacoesBancoDeDados(database);
+
+		ArrayList<Curso> cursos = new ArrayList<Curso>();
+
+		try{
+			cursos = opBD.getCursos(1, "AS");
+		}catch(Error e){
+			e.printStackTrace();
+			cursos=null;
+		}
+		Assert.assertNull(cursos);
 	}
 
 	public void testGetCursosIntStringString() {
@@ -243,17 +307,6 @@ public class TestOperacoesBancoDeDados extends AndroidTestCase {
 		
 		cidades = opBD.getCidades(1, "AC");
 		Assert.assertEquals(cidadesT, cidades);
-	}
-
-	public void testGetCodCurso() {
-		ImportarBancoDeDados bdados = new ImportarBancoDeDados(getContext());
-		SQLiteDatabase database = bdados.openDataBase();
-		opBD = new OperacoesBancoDeDados(database);
-		
-		int codCurso;
-
-		codCurso = opBD.getCodCurso("ADMINISTRACAO");
-		Assert.assertEquals(1, codCurso);
 	}
 
 	public void testGetUfs() {

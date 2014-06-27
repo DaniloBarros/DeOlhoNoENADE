@@ -7,17 +7,22 @@
     tools:context="br.unb.deolhonoenade.view.ComparacaoCidades"
     tools:ignore="MergeRootFrame" >
 
-    
     <TextView
         android:id="@+id/stringCurso1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:layout_marginTop="25dp"
+        android:paddingLeft="100dp"
+        android:text="TextView"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textSize="25dp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/cursoSelecionado1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="@string/text_Estado1"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -25,35 +30,31 @@
         android:id="@+id/spinnerEstado1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="para selecionar o primeiro estado" />
+        android:contentDescription="para selecionar o primeiro estado"/>
 
     <TextView
         android:id="@+id/cidade1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/text_cidade1"
+       	android:layout_marginTop="15dp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Spinner
         android:id="@+id/spinnerCidade1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="para selecionar a primeira cidade" />
+        android:contentDescription="para selecionar a primeira cidade"/>
 
-    <Space
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/estado2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/text_Estado2"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="15dp" />
 
-    <Space
-        android:layout_width="1dp"
-        android:layout_height="20dp" />
 
     <Spinner
         android:id="@+id/spinnerEstado2"
@@ -66,22 +67,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/text_cidade2"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="15dp" />
 
     <Spinner
         android:id="@+id/spinnerCidade2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="para selecionar a segunda cidade" />
+        android:contentDescription="para selecionar a segunda cidade"
+        android:layout_marginTop="15dp" />
+
 
     <Button
         android:id="@+id/buttonComparacaoCidades"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@layout/layout_botao"
         android:text="@string/button_Comparacao"
         android:textColor= "#FFFF" 
-        android:background="@layout/layout_botao"
         android:contentDescription="Comparar entre cidades"/>
 
-        
+
 </LinearLayout>

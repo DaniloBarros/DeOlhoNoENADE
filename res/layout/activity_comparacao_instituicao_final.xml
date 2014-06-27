@@ -13,8 +13,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:text="Large Text" />
 
     <Spinner
         android:id="@+id/estados"
@@ -22,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/cursoSelecionado1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp" />
+        android:layout_marginTop="15dp" />
 
     <Spinner
         android:id="@+id/cidades"
@@ -30,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/cidade1"
-        android:layout_marginTop="18dp" />
+        android:layout_marginTop="15dp" />
 
     <Spinner
         android:id="@+id/spinnerIES"
@@ -41,7 +40,7 @@
         android:layout_marginTop="15dp" />
 
     <Button
-        android:id="@+id/Comparar"
+        android:id="@+id/CompararIES"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -49,7 +48,8 @@
         android:layout_alignParentRight="true"
         android:text="Comparar"
       	android:textColor= "#FFFF" 
-        android:background="@layout/layout_botao" />
+        android:background="@layout/layout_botao"
+        android:layout_marginTop="15dp" />
 
     <TextView
         android:id="@+id/cursoSelecionado1"
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/cursoSelecionado"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
         android:text="@string/text_Estado"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/cidades"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="15dp"
         android:text="Selecione uma Instituicao"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -78,7 +78,7 @@
         android:layout_below="@+id/estados"
         android:layout_centerHorizontal="true"
         android:text="@string/text_Cidade"
+        android:layout_marginTop="15dp"        
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>
-

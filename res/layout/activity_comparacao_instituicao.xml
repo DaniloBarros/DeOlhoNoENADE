@@ -1,8 +1,9 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="br.unb.deolhonoenade.view.ComparacaoInstituicao"
     tools:ignore="MergeRootFrame" >
 
@@ -12,9 +13,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="30dp"
         android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@android:color/holo_blue_bright"
+        android:textStyle="bold"  />
 
     <Spinner
         android:id="@+id/estados"
@@ -22,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/cursoSelecionado1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp" />
+        android:layout_marginTop="20dp" />
 
     <TextView
         android:id="@+id/cursoSelecionado1"
@@ -30,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/cursoSelecionado"
         android:layout_below="@+id/cursoSelecionado"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:text="@string/text_Estado"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -40,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/cidade1"
-        android:layout_marginTop="18dp" />
+        android:layout_marginTop="20dp" />
 
     <TextView
         android:id="@+id/cidade1"
@@ -48,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/cursoSelecionado1"
         android:layout_below="@+id/estados"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="20dp"
         android:text="@string/text_Cidade"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -58,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/estado2"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="20dp" />
 
     <TextView
         android:id="@+id/estado2"
@@ -67,7 +70,7 @@
         android:layout_alignLeft="@+id/cidade1"
         android:layout_below="@+id/cidades"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:text="Selecione uma Instituicao"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -78,8 +81,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
         android:text="Selecione a segunda IES"
         android:textColor= "#FFFF" 
         android:background="@layout/layout_botao" />
 
-</RelativeLayout>
+</LinearLayout>

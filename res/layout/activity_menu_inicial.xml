@@ -3,6 +3,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation= "vertical"
     tools:context="br.unb.deolhonoenade.view.De Olho no ENADE"
     tools:ignore="MergeRootFrame">
 
@@ -29,12 +30,13 @@
     <Button
         android:id="@+id/Mapa"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="60dp"
         android:text="Mapa Geral"
-        android:textSize="25dp"
+        android:textSize="30dp"
+        android:textStyle="bold"
         android:textColor= "#FFFF" 
         android:background="@layout/layout_botao" /> 
 
@@ -44,33 +46,35 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/spinnerCurso"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="30dp"
         android:text="@string/text_EscolhaFuncao"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="25sp"
+        android:textSize="25dp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/Comparacao"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/Ranking"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="25dp"
         android:text="Comparação"
-        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textSize="30dp"
         android:textColor= "#FFFF" 
         android:background="@layout/layout_botao"/>
 
     <Button
         android:id="@+id/Ranking"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/EscolherFuncao"        
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="60dp"
         android:text="@string/button_Ranking"
-        android:textSize="25dp"
+        android:textSize="30dp"
+        android:textStyle="bold"
         android:textColor= "#FFFF" 
         android:background="@layout/layout_botao" />
 </RelativeLayout>

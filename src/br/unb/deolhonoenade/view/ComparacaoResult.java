@@ -45,7 +45,7 @@ public class ComparacaoResult extends Activity {
 		
 		TextView titulo = (TextView) findViewById(R.id.stringCurso);
 		
-		titulo.setText(String.format("Comparacao do curso de\n\t%s",curso));
+		titulo.setText(String.format("Comparação do curso de\n\t%s",curso));
 		
 		List<Float> list;		
 		

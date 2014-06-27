@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
@@ -11,22 +11,22 @@
         android:id="@+id/stringCurso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
+        android:paddingLeft="100dp"
+        android:layout_marginTop="25dp"
         android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+       	android:textColor="@android:color/holo_blue_bright"
+        android:textSize="25dp"
+        android:textStyle="bold" />
      
     <TextView
         android:id="@+id/EscolhaEstado1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_below="@+id/stringCurso"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="20dp"
         android:text="Escolha o primeiro estado para a comparação"
         android:textAlignment="center"
-        android:textSize="28dp"
+        android:textSize="20dp"
         android:textStyle="bold" />
 
  	  <Spinner
@@ -34,28 +34,18 @@
  	      android:layout_width="match_parent"
  	      android:layout_height="wrap_content"
  	      android:layout_alignParentLeft="true"
- 	      android:layout_below="@+id/EscolhaEstado1" />
+ 	      android:layout_below="@+id/EscolhaEstado1"
+ 	      android:layout_marginTop="20dp" />
 
  	  <TextView
  	      android:id="@+id/textEstado1"
  	      android:layout_width="match_parent"
  	      android:layout_height="wrap_content"
  	      android:layout_centerVertical="true"
- 	      android:text="Escolha o segundo estado"
- 	      android:textSize="25dp"
- 	      android:textStyle="bold" />
-
- 	  <Button
- 	      android:id="@+id/Comparar"
- 	      android:layout_width="match_parent"
- 	      android:layout_height="wrap_content"
- 	      android:layout_alignParentBottom="true"
- 	      android:layout_alignParentLeft="true"
- 	      android:layout_marginBottom="28dp"
-          android:textColor= "#FFFF" 
-          android:background="@layout/layout_botao"
-          android:text="Comparar"
- 	      android:textSize="25dp" />
+ 	      android:text="Escolha o segundo estado" 	      
+ 	      android:textSize="20dp"
+ 	      android:textStyle="bold"
+ 	      android:layout_marginTop="20dp"/>
 
  	  <Spinner
  	      android:id="@+id/Estado2"
@@ -63,6 +53,17 @@
  	      android:layout_height="wrap_content"
  	      android:layout_alignLeft="@+id/textEstado1"
  	      android:layout_below="@+id/textEstado1"
- 	      android:layout_marginTop="14dp" />
+ 	      android:layout_marginTop="20dp" />
 
-</RelativeLayout>
+ 	  <Button
+ 	      android:id="@+id/Comparar"
+ 	      android:layout_width="match_parent"
+ 	      android:layout_height="wrap_content"
+ 	      android:layout_marginBottom="28dp"
+ 	      android:background="@layout/layout_botao"
+ 	      android:text="Comparar"
+ 	      android:textColor="#FFFF"
+ 	      android:textSize="25dp" 
+ 	      android:layout_marginTop="20dp"/>
+
+</LinearLayout>

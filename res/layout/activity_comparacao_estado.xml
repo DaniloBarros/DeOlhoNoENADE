@@ -61,14 +61,11 @@
           android:textColor= "#FFFF" 
           android:background="@layout/layout_botao"
           android:text="Comparar"
- 	      android:textSize="25dp"
- 	      android:contentDescription="Comparar" />
-=======
- 	      android:text="Escolha o segundo estado" 	      
+ 	      android:contentDescription="Comparar"      
  	      android:textSize="20dp"
  	      android:textStyle="bold"
  	      android:layout_marginTop="20dp"/>
->>>>>>> telas reorganizadas
+
 
  	  <Spinner
  	      android:id="@+id/Estado2"
@@ -76,8 +73,7 @@
  	      android:layout_height="wrap_content"
  	      android:layout_alignLeft="@+id/textEstado1"
  	      android:layout_below="@+id/textEstado1"
- 	      android:contentDescription="para selecionar o segundo estado"
- 	      android:layout_marginTop="20dp" />
+ 	      android:contentDescription="para selecionar o segundo estado"/>
 
  	  <Button
  	      android:id="@+id/Comparar"
@@ -87,8 +83,6 @@
  	      android:background="@layout/layout_botao"
  	      android:text="Comparar"
  	      android:textColor="#FFFF"
- 	      android:textSize="25dp" 
- 	      android:layout_marginTop="20dp"/>
->>>>>>> telas reorganizadas
-
+ 	      android:textSize="25dp"/>
 </LinearLayout>
+

@@ -7,7 +7,6 @@
     tools:context="br.unb.deolhonoenade.view.ComparacaoResultTipo"
     tools:ignore="MergeRootFrame" >
 
-
     <TextView
         android:id="@+id/manualRanking"
         android:layout_width="wrap_content"
@@ -16,6 +15,24 @@
         android:layout_centerVertical="true"
         android:text="Estado/tipo 1"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+    <br.unb.br.deolhonoenade.graphs.holographlibrary.BarGraph
+        android:id="@+id/graph3"
+        android:layout_width="250dp"
+        android:layout_height="200dp"
+        android:layout_marginLeft="50dp"
+	    android:layout_centerHorizontal="true"        
+        android:layout_marginTop="30dp" />
+
+<TextView
+    android:id="@+id/textView1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Estado/tipo 1"
+    android:layout_marginTop="30dp"
+    android:textAppearance="?android:attr/textAppearanceMedium" />
+>>>>>>> 74f814bed07754dc965504bb05824d969b567557
 
     <br.unb.br.deolhonoenade.graphs.holographlibrary.BarGraph
         android:id="@+id/graph3"
@@ -68,3 +85,4 @@
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </LinearLayout>
+

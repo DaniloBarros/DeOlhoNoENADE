@@ -1,5 +1,6 @@
 package br.unb.deolhonoenade.view;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,27 +49,25 @@ public class ComparacaoResultTipo extends Activity {
 			TextView estadoTipo2 = (TextView) findViewById(R.id.estadoTipo2);
 			estadoTipo2.setText(eT2);
 			
+			String resultado1String = String.valueOf(resultado1);
+			String resultado2String = String.valueOf(resultado2);
 			
 			ArrayList<Bar> points = new ArrayList<Bar>();
 			Bar d = new Bar();
 			d.setColor(Color.parseColor("#99CC00"));
 			d.setName("Estado/Tipo 1:");
-			d.setValue(resultado1);
+			d.setValue(Float.parseFloat(resultado1String.substring(0, 5)));
 			Bar d2 = new Bar();
 			d2.setColor(Color.parseColor("#FFBB33"));
 			d2.setName("Estado/Tipo 2:");
-			d2.setValue(resultado2);
+			d2.setValue(Float.parseFloat(resultado2String.substring(0, 5)));
 			points.add(d);
 			points.add(d2);
 			
 			BarGraph g = (BarGraph)findViewById(R.id.graph3);
 			g.setBars(points);
 			g.setUnit(" ");
-			
-		
-		
-		
-		
+
 	}
 
 	@Override

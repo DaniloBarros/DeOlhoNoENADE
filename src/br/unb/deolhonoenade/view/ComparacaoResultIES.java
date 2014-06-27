@@ -52,15 +52,18 @@ public class ComparacaoResultIES extends Activity {
 		TextView instiruicao2 = (TextView) findViewById(R.id.nomeIES2);
 		instiruicao2.setText(ies2);
 		
+		String nota1String = String.valueOf(nota1);
+		String nota2String = String.valueOf(nota2);
+		
 		ArrayList<Bar> points = new ArrayList<Bar>();
 		Bar d = new Bar();
 		d.setColor(Color.parseColor("#99CC00"));
 		d.setName("Instituicao 1");
-		d.setValue(nota1);
+		d.setValue(Float.parseFloat(nota1String.substring(0, 5)));
 		Bar d2 = new Bar();
 		d2.setColor(Color.parseColor("#FFBB33"));
 		d2.setName("Instituicao 2");
-		d2.setValue(nota2);
+		d2.setValue(Float.parseFloat(nota2String.substring(0, 5)));
 		points.add(d);
 		points.add(d2);
 
